@@ -4,6 +4,15 @@ theme:
     name: material
     custom_dir: custom_theme/
 
+    features:
+        - navigation.expand
+        - navigation.path
+        - navigation.sections
+        - navigation.instant
+        - navigation.instant.progress
+        - navigation.tabs
+
+
     palette:
         # Palette toggle for dark mode
         - media: "(prefers-color-scheme: dark)"
@@ -23,7 +32,10 @@ theme:
 
 
 nav:
-  - Links To Software Docs: index.md
+  - Home: index.md
+  - Getting Started: getting-started/index.md
+  - How-To Guides: how-to-guides/index.md
+  - Concepts: concepts/index.md
 
 extra_css:
   - css/neoteroi-mkdocs.css
