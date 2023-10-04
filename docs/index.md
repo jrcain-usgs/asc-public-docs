@@ -4,6 +4,8 @@ hide:
   - toc
 ---
 
+# Software Manuals
+
 ::cards:: cols=3 image-bg
 
 [
