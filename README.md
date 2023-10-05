@@ -1,7 +1,6 @@
 # asc-public-docs
 
 
-
 ## Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
@@ -20,73 +19,80 @@ git branch -M main
 git push -uf origin main
 ```
 
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://code.usgs.gov/astrogeology/asc-public-docs/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
 ***
 
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
 
 ## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## Contributing Docs
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+Contributors should consider writing new docs under one of our four categories:
+ 
+1. Getting Started 
+1. How-To Guides 
+1. Concepts 
+1. Software Manuals
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+### Getting Started Docs
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+These are longer "learn by doing" exercises that users can follow to learn some extended process using the libraries. These should have the user execute code or run commands from the library to complete a task.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Good getting started docs should: 
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+1. Have a clear and specific goal
+1. Can be followed verbatim by the user
+    * Include software versions used when creating the tutorial
+   * Use Jupyter notebooks when possible 
+    * Avoid dead data links; try using data generated by the tutorial or include data relative to the repo
+1. Make sure users see results immediately 
+    * Data should not be so large it takes a long time to download or process.
+1. Include minimum explanation; the focus is on "learning by doing"
+1. Focus on the steps required to complete the goal. 
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Examples: 
+* Getting Started: ISIS image ingestion to map projected image, ingesting, bundling, and projecting an image list 
+* Getting Started: generating an ISD and CSM camera model
+* Getting Started: Generate a control network with an image matcher 
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+### How-to Guides 
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+How-to guides are much like recipes in a recipe book. Write how-to docs to solve specific problems quickly, sometimes copy-pastable. Think of how-to guides as pre-emptive StackOverflow-like problems.
 
-## License
-For open source projects, say how it is licensed.
+Similar to getting started guides in that they explain to users how to perform some valuable tasks with the software, but distinct in that they:
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+1. Solve practical problems for more experienced users
+1. Offer more ambiguous starting points; they should be re-usable in many different contexts 
+1. Provide little explanation, mostly showing steps on how to accomplish the task
+1. Are generally much shorter than getting started docs
+
+Examples: 
+* How-to: generate an ISD via loads with specific kernels
+* How-to: get GEOJSON from ISIS footprints
+
+### Concepts 
+
+Concept docs are understanding-oriented docs. The focus is on explaining a topic. These expand the user's understanding of a topic without elaborating on particulars of code while providing context or descriptions. Information from concept docs might be among other docs, but getting started docs, how-to guides, or software manuals can reference concept docs that go in-depth on the topic. 
+
+Good concept docs have: 
+
+1. A clear and specific topic of discussion   
+1. Little to no instruction 
+1. Context or descriptions of: 
+    * Historical background of the software and/or why it exists
+    * Engineering of a software tool or component thereof 
+    * Concepts commonly found across software 
+
+Examples:
+* Dictionaries or Glossary of terms
+* Explanation of what control networks are and why we use them
+* History and explanation of ALE's architecture 
+* Differences between CSM and ISIS camera models 
+
+### Software Manuals 
+
+Software manuals centered on the code of the library. These are generally links to the library's programmatically generated API docs. Think Sphinx docs and/or Doxygen-generated docs. 
+
+Examples: 
+* Programatically generated Python/C++ API docs from inline doc strings
+* RESTful API docs from an OpenAPI spec file 
