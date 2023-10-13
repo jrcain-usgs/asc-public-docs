@@ -1,40 +1,74 @@
 # asc-public-docs
 
-
 ## Getting started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+### Cloning and Rendering the Docs Locally
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+```bash   
+# 1. Clone the forked repository to your local machine:   
+git clone git@code.usgs.gov:astrogeology/asc-public-docs.git
+cd asc-public-docs/
 
-## Add your files
+# 2. Create a branch to track your work
+git checkout -b your-branch-name 
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+# 3. install dependencies 
+pip install -r requirements.txt
 
+# 4. Make your changes to the code 
+# ...
+
+# 5. Preview your changes, in the root of the repo run
+mkdocs serve
+
+# 6. Push your changes to the branch
+git push origin your-branch-name
 ```
-cd existing_repo
-git remote add origin https://code.usgs.gov/astrogeology/asc-public-docs.git
-git branch -M main
-git push -uf origin main
-```
 
-***
+### Adding your files
+
+1. Determine what category your docs belong to by reading [the summary on the README](#understanding-the-doc-system). 
+2. Write your either in Markdown or as a Jupyter notebook and add it under the directory for that category. 
+3. Update `mkdocs.yml`, add a new file somewhere appropriate under `nav:` 
+4. Run `mkdocs serve` to check if your file(s) rendered correctly.
+
+### Getting Your Changes Reviewed
+
+1. On the merge requests tab of the repository in GitLab, you will see a "New merge request" button. Click on it.
+1. Select your branch (feature/your-feature-branch) from the Source branch dropdown.
+1. Specify the target branch (e.g., master) in the Target branch field.
+1. Fill in the necessary information about your changes, including a descriptive title and a description of what your MR proposes.
+1. Submit the merge request.
+1. Assign reviewers if there isn't any traction for your MR by adding them as reviewers or pinging them in the MR.
+1. Address any feedback or comments provided by the reviewers.
+1. Once all the reviewers have approved your changes, one of the maintainers will merge your MR into the main branch.
+1. The continuous deployment system should automatically deploy your new changes. 
+1. Celebrate your contribution! :tada:
 
 
-## Description
 
-
-## Contributing Docs
+## Understanding The Doc System
 
 Contributors should consider writing new docs under one of our four categories:
  
-1. Getting Started 
+1. Getting Started Tutorials
 1. How-To Guides 
 1. Concepts 
 1. Software Manuals
 
-### Getting Started Docs
+We use these four categories to cover the range of potential docs while clarifying to authors and readers for what kind of documentation goes where. 
+
+|                 | Getting Started       | How-Tos                        | Concepts                   | Manuals                                               |
+|-----------------|-----------------------|--------------------------------|----------------------------|-------------------------------------------------------|
+| **Oriented To**     | Learning              | Achieving a Goal               | Understanding              | Referencing                                           |
+| **Composed As**     | Step-by-Step Jupyter or Similar Tutorial | General Purpose Guide          | Written Summary            | Generated Sphinx/Doxygen Site                         |
+| **Has the Goal of** | Enabling Beginners    | Showing How To Solve A Problem | Give Detailed Written Explanations | Give Dry Descriptions of Libraries, Services and Apps |
+| **Example**  | Jupyter notebook with toy data on how to ingest and project images | A breakdown of quirks working with Themis Images  |   Write-up on how ISIS defines projections | ISIS library Doxygen reference |
+ 
+This website structure borrows from the [Divio documentation system](https://documentation.divio.com/), except adapted to more specifically adhere to how our software is already structured, renamed the categories to be more specific, and have more focus on the composition (or mode of writing) of the docs to reduce ambiguity. One can't expect any categorical structure for software documentation to be orthogonal to eachother. There will always exist some degree of overlap between categories as the quantity of documentation grows. Documentation in one category can easily have overlapping information with those in others. However, composition of the doc (e.g., jupyter notebook with an explicit starting and end point, short how-to guide with code examples but ambigious starting point and end point, written explanation without code, doxygen API reference) is less ambigious that whether or not your docs can be considered a guide or a tutorial.    
+
+
+### Getting Started Tutorials
 
 These are longer "learn by doing" exercises that users can follow to learn some extended process using the libraries. These should have the user execute code or run commands from the library to complete a task.
 
