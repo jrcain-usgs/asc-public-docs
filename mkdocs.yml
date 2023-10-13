@@ -3,15 +3,18 @@ site_name: USGS Astrogeology Software Docs
 theme:
     name: material
     custom_dir: custom_theme/
-
+    
+    font:
+      text: Inter
+      code: Roboto Mono
+    
     features:
+        - navigation.tabs
         - navigation.expand
         - navigation.path
-        - navigation.sections
-        - navigation.instant
-        - navigation.instant.progress
-        - navigation.tabs
-
+        - navigation.indexes
+        - search.suggest
+        - search.suggest
 
     palette:
         # Palette toggle for dark mode
@@ -34,7 +37,14 @@ theme:
 nav:
   - Home: index.md
   - Getting Started: getting-started/index.md
-  - How-To Guides: how-to-guides/index.md
+  - How-To Guides: 
+    - Home: how-to-guides/index.md
+    - Software Management: 
+      - ISIS Public Release Process: how-to-guides/Software Management/Public Release Process.md
+    - ISIS Developer Guides:
+      - How To Write ISIS Tests with CTest and GTest: "how-to-guides/ISIS Developer Guides/Writing ISIS Tests with CTest and GTest.md"
+      - App Testing CookBook: "how-to-guides/ISIS Developer Guides/App Testing Cookbook.md"
+      - Class Requirements For Using Doxygen Tags: "how-to-guides/ISIS Developer Guides/Class Requirements For Using Doxygen Tags.md"
   - Concepts: concepts/index.md
   - Manuals: manuals/index.md
 
@@ -48,6 +58,21 @@ extra_css:
 extra_javascript: 
   -  https://asc-public-docs.s3.us-west-2.amazonaws.com/common/uswds/3.6.0/js/uswds-init.min.js
 
+plugins:
+  - search
+
 markdown_extensions:
   - neoteroi.cards
-
+  - tables
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
+  - toc:
+      title: On this page
+      permalink: true
