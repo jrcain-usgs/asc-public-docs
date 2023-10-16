@@ -1,0 +1,39 @@
+# variables in gitlab:
+#   S3_BUCKET_NAME
+#   S3_BUCKET_SUBDIR
+#   AWS_ACCESS_KEY_ID
+#   AWS_SECRET_ACCESS_KET
+#   AWS_DEFAULT_REGION
+
+stages:
+  - build
+  - deploy
+
+"Build MkDocs":
+  image: "python:3"
+  stage: build
+  only:
+    - main
+  before_script:
+    - pip install -r requirements.txt
+  script: 
+    - mkdocs build
+  artifacts:
+    paths:
+      - site/
+
+"Sync with S3":
+  image: "python:3"
+  stage: deploy
+  dependencies:
+    - "Build MkDocs"
+  only: 
+    - main
+  before_script:
+    - pip install awscli
+    - aws --version
+  script: 
+    - aws s3 sync site/ s3://${S3_BUCKET_NAME}/${S3_BUCKET_SUBDIR} --delete
+  environment:
+    name: Site
+    url: http://${S3_BUCKET_NAME}.s3-website.${AWS_DEFAULT_REGION}.amazonaws.com/${S3_BUCKET_SUBDIR}
