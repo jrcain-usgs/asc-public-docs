@@ -41,6 +41,7 @@ nav:
     - Home: how-to-guides/index.md
     - Software Management: 
       - ISIS Public Release Process: how-to-guides/Software Management/Public Release Process.md
+      - Software Support: how-to-guides/Software Management/Software Support.md
     - ISIS Developer Guides:
       - How To Write ISIS Tests with CTest and GTest: "how-to-guides/ISIS Developer Guides/Writing ISIS Tests with CTest and GTest.md"
       - App Testing CookBook: "how-to-guides/ISIS Developer Guides/App Testing Cookbook.md"
