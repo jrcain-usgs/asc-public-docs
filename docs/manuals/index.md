@@ -12,19 +12,19 @@
   {
     "title": "USGSCSM",
     "content": "USGS Community Sensor Models",
-    "url" : ../docs/software/usgscsm/index.html,
+    "url" : ./usgscsm/,
     "image" : "https://raw.githubusercontent.com/DOI-USGS/usgscsm/main/docs/USGSCSM_Logo.svg"
   },
   {
     "title": "ALE",
     "content": "Abstraction Library for Ephemerides",
-    "url" : ../docs/software/ale/index.html,
+    "url" : ./ale/,
     "image" : "https://raw.githubusercontent.com/DOI-USGS/ale/main/docs/ALE_Logo.svg"
   },
   {
     "title": "PLIO",
     "content": "Planetary Input/Output Library",
-    "url" : ../docs/software/plio/index.html,
+    "url" : ./plio/,
     "image" : https://raw.githubusercontent.com/DOI-USGS/plio/main/docs/PLIO_Logo.svg
   },
 ]
