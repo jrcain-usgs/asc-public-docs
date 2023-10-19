@@ -1,4 +1,6 @@
 mkdocs 
 mkdocs-material 
 neoteroi-mkdocs
+codespell
+linkchecker
 mkdocs-jupyter
