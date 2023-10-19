@@ -42,6 +42,8 @@ nav:
       - Generating an ISD, creating a CSM model, and converting coordinates: getting-started/CSM Stack/ImageToGroundTutorial.ipynb
   - How-To Guides: 
     - Home: how-to-guides/index.md
+    - Image Processing:
+      - Map Projecting Images: how-to-guides/Image Processing/Map Projecting Images.md
     - Software Management: 
       - ISIS Public Release Process: how-to-guides/Software Management/Public Release Process.md
       - Software Support: how-to-guides/Software Management/Software Support.md
@@ -49,7 +51,11 @@ nav:
       - How To Write ISIS Tests with CTest and GTest: "how-to-guides/ISIS Developer Guides/Writing ISIS Tests with CTest and GTest.md"
       - App Testing CookBook: "how-to-guides/ISIS Developer Guides/App Testing Cookbook.md"
       - Class Requirements For Using Doxygen Tags: "how-to-guides/ISIS Developer Guides/Class Requirements For Using Doxygen Tags.md"
-  - Concepts: concepts/index.md
+  - Concepts: 
+    - Home: concepts/index.md
+    - Camera Geometry and Projections:
+      - Camera Geometry: concepts/Camera Geometry.md
+      - Learning About Map Projections: concepts/Learning About Map Projections.md
   - Manuals: manuals/index.md
 
 extra_css:
