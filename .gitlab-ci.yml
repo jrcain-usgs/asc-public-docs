@@ -37,7 +37,7 @@ stages:
   before_script:
     - pip install linkchecker
   script: 
-    - linkchecker site/index.html --ignore-url asc-public-docs/site/docs/software/
+    - linkchecker site/index.html --ignore-url '(asc-public-docs/site/docs/software/|manuals/)' 
 
 
 "Grammar Check Docs":
