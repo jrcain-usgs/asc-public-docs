@@ -36,7 +36,10 @@ theme:
 
 nav:
   - Home: index.md
-  - Getting Started: getting-started/index.md
+  - Getting Started: 
+    - Home: getting-started/index.md
+    - CSM Stack:
+      - Generating an ISD, creating a CSM model, and converting coordinates: getting-started/CSM Stack/ImageToGroundTutorial.ipynb
   - How-To Guides: 
     - Home: how-to-guides/index.md
     - Software Management: 
@@ -60,6 +63,8 @@ extra_javascript:
 
 plugins:
   - search
+  - mkdocs-jupyter:
+      include_source: true
 
 markdown_extensions:
   - neoteroi.cards
