@@ -11,39 +11,39 @@ This document explains the release process for Official Releases, Release Candid
 ## Step 1: Check current false positive test failures 
 
 
-In this step, we check the currently failing tests. This is currently a judgement call on whether or not the tests are false-positives. This decision should be made by 2+ developers on the development team. 
+In this step, we check the currently failing tests. This is currently a judgement call on whether the tests are false-positives. This decision should be made by 2+ developers on the development team. 
 
 
 
-## Step 2: Update the Github documents
+## Step 2: Update the GitHub documents
 
 **This step is only required for release candidates and bug fix release. If you are creating a full feature release, skip this step.**
 
-In this step we will update the documents that are stored in the Github repository. Our changes will be going into the dev branch so create a fresh local branch off of the dev branch.
+In this step, we will update the documents that are stored in the GitHub repository. Our changes will be going into the dev branch, so create a fresh local branch off of the dev branch.
 
 
 ### Part A: Collecting the Changes in the Release
 
 * Update the Changelog 
-  * For release candidates we need to update the Changelog to label all of the currently unreleased changes as part of this release. Follow the instructions in [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for how to do this.
-  * For bug fix releases we need to update the Changelog to label **only the bug fixes** as part of this release. Follow the instructions in [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for how to do this.
+  * For release candidates we need to update the Changelog to label all the currently unreleased changes as part of this release. Follow the instructions in [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for how to do this.
+  * For bug fix releases, we need to update the Changelog to label **only the bug fixes** as part of this release. Follow the instructions in [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for how to do this.
 * Update code.json with the new version number and the date last modified.
   
 
 ### Part B: Update the Authors List 
 
-* If there are any new contributors to the project since the last release ensure that they are added to the [.zenodo.json](https://github.com/DOI-USGS/ISIS3/blob/dev/.zenodo.json) document, and update the `AUTHORS.rst` file from the .zenodo.json file by running `python $ISISROOT/scripts/zenodo_to_authors.py <path_to_your_clone>/.zenodo.json <path_to_your_clone>/AUTHORS.rst`.
+* If there are any new contributors to the project since the last release, ensure that they are added to the [.zenodo.json](https://github.com/DOI-USGS/ISIS3/blob/dev/.zenodo.json) document, and update the `AUTHORS.rst` file from the .zenodo.json file by running `python $ISISROOT/scripts/zenodo_to_authors.py <path_to_your_clone>/.zenodo.json <path_to_your_clone>/AUTHORS.rst`.
 
 
 ### Part C: Submit a Pull Request
 
 * Submit a pull request into the dev branch with your modifications to the Changelog and the Authors list.
-* For a bug fix release you will also need to [cherry-pick](https://www.atlassian.com/git/tutorials/cherry-pick) the squashed commit from your pull request into the version branch. If you run into merge conflicts it may be easier to simply redo the above steps with the version branch instead of dev.
+* For a bug fix release, you will also need to [cherry-pick](https://www.atlassian.com/git/tutorials/cherry-pick) the squashed commit from your pull request into the version branch. If you run into merge conflicts, it may be easier to simply redo the above steps with the version branch instead of dev.
 
 
 ## Step 3: Set Up the Local and Remote Repositories 
 
-In this step, we will prepare the local repository to build from as well as update the remote repository hosted on GitHub. Keep in mind that you will be building from this repo on other systems and plan accordingly by cloning this repo into a directory that you will still have access to as you switch between the machines. 
+In this step, we will prepare the local repository to build from, as well as update the remote repository hosted on GitHub. Keep in mind that you will be building from this repo on other systems, so plan accordingly by cloning this repo into a directory that you will still have access to as you switch between the machines. 
 
 
 ### Part A: Setup Repository 
@@ -102,7 +102,7 @@ In this step, we will prepare the local repository to build from as well as upda
 <!--- 
    * To create a new branch, first prepare your local repo by pulling down the merged changes you made earlier (e.g. `git pull upstream dev`) 
 
-   * Next, create a branch with the appropriate name for the release version in the format `<major version>.<minor verson>`, by running for example: `git branch -b 3.10`. After creation, this branch can be pushed directly to upstream. (`git push upstream 3.10`.)--->
+   * Next, create a branch with the appropriate name for the release version in the format `<major version>.<minor version>`, by running for example: `git branch -b 3.10`. After creation, this branch can be pushed directly to upstream. (`git push upstream 3.10`.)--->
 
   
 
@@ -341,7 +341,7 @@ The following operating systems are supported for this release:
 (Other Linux/macOS variants may be able to run this release, but are not officially supported.) 
 
 
-If you find a problem with this release, please create an issue on our [github issues page](https://github.com/DOI-USGS/ISIS3/issues/new/choose/) 
+If you find a problem with this release, please create an issue on our [GitHub issues page](https://github.com/DOI-USGS/ISIS3/issues/new/choose/) 
 
 ``` 
 

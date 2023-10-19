@@ -38,7 +38,7 @@ These docs use a simple system of defining software documentation in four catego
 
 ## Documentation System 
 
-We use these four categories to cover the range of potential docs while clarifying to authors and readers for what kind of documentation goes where. 
+We use these four categories to cover the range of potential docs, while clarifying to authors and readers for what kind of documentation goes where. 
 
 |                 | Getting Started       | How-Tos                        | Concepts                   | Manuals                                               |
 |-----------------|-----------------------|--------------------------------|----------------------------|-------------------------------------------------------|
@@ -47,7 +47,7 @@ We use these four categories to cover the range of potential docs while clarifyi
 | **Has the Goal of** | Enabling Beginners    | Showing How To Solve A Problem | Give Detailed Written Explanations | Give Dry Descriptions of Libraries, Services and Apps |
 | **Example**  | Jupyter notebook with toy data on how to ingest and project images | A breakdown of quirks working with Themis Images  |   Write-up on how ISIS defines projections | ISIS library Doxygen reference |
  
-This website structure borrows from the [Divio documentation system](https://documentation.divio.com/), except adapted to more specifically adhere to how our software is already structured, renamed the categories to be more specific, and have more focus on the composition (or mode of writing) of the docs to reduce ambiguity. One can't expect any categorical structure for software documentation to be orthogonal to eachother. There will always exist some degree of overlap between categories as the quantity of documentation grows. Documentation in one category can easily have overlapping information with those in others. However, composition of the doc (e.g., jupyter notebook with an explicit starting and end point, short how-to guide with code examples but ambigious starting point and end point, written explanation without code, doxygen API reference) is less ambigious that whether or not your docs can be considered a guide or a tutorial.    
+This website structure borrows from the [Divio documentation system](https://documentation.divio.com/), except adapted to more specifically adhere to how our software is already structured, renamed the categories to be more specific, and have more focus on the composition (or mode of writing) of the docs to reduce ambiguity. One can't expect any categorical structure for software documentation to be orthogonal to each other. There will always exist some degree of overlap between categories as the quantity of documentation grows. Documentation in one category can easily have overlapping information with those in others. However, composition of the doc (e.g., Jupyter notebook with an explicit starting and end point, short how-to guide with code examples but ambiguous starting point and end point, written explanation without code, doxygen API reference) is less ambiguous than whether your docs can be considered a guide or a tutorial.    
 
 ## Contributing New Docs and Submitting Issues 
 
@@ -55,7 +55,7 @@ Before you consider contributing new documentation, ask yourself what category i
 
 Regarding software manuals, issues or contributions should be addressed to the repository for that specific project. The software manuals should have links to their repositories. 
 
-You can submit any issues (e.g., addressing grammar errors, factual inacuracies) and find more info on how to contribute new docs through the site's [git repository](https://code.usgs.gov/astrogeology/asc-public-docs). 
+You can submit any issues (e.g., addressing grammar errors, factual inaccuracies) and find more info on how to contribute new docs through the site's [git repository](https://code.usgs.gov/astrogeology/asc-public-docs).
 
 
 

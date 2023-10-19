@@ -7,13 +7,12 @@
 
 stages:
   - build
+  - test
   - deploy
 
 "Build MkDocs":
   image: "python:3"
   stage: build
-  only:
-    - main
   before_script:
     - pip install -r requirements.txt
   script: 
@@ -21,6 +20,37 @@ stages:
   artifacts:
     paths:
       - site/
+
+
+"Spell Check Docs":
+  image: "python:3"
+  stage: test
+  before_script:
+    - pip install codespell
+  script: 
+    - codespell site/
+
+
+"Link Check Docs":
+  image: "python:3"
+  stage: test
+  before_script:
+    - pip install linkchecker
+  script: 
+    - linkchecker site/index.html --ignore-url asc-public-docs/site/docs/software/
+
+
+"Grammar Check Docs":
+  image: "node:latest"
+  stage: test
+  before_script:
+    -  npm i gramma -g
+  script: 
+    - git diff --name-only origin/main | grep -e .md -e .MD | sed 's/^/"/;s/$/"/' | xargs -t -L1 gramma check -p || true 
+  allow_failure: 
+    exit_codes:
+      - 1
+
 
 "Sync with S3":
   image: "python:3"
