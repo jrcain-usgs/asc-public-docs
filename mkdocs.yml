@@ -3,14 +3,14 @@ site_name: USGS Astrogeology Software Docs
 theme:
     name: material
     custom_dir: custom_theme/
-    
+    icon:
+      annotation: material/chevron-right-circle
     font:
       text: Inter
       code: Roboto Mono
     
     features:
         - navigation.tabs
-        - navigation.expand
         - navigation.path
         - navigation.indexes
         - search.suggest
@@ -53,6 +53,7 @@ nav:
       - Class Requirements For Using Doxygen Tags: "how-to-guides/ISIS Developer Guides/Class Requirements For Using Doxygen Tags.md"
   - Concepts: 
     - Home: concepts/index.md
+    - Glossary: concepts/glossary/glossary.md
     - Camera Geometry and Projections:
       - Camera Geometry: concepts/Camera Geometry and Projections/Camera Geometry.md
       - Learning About Map Projections: concepts/Camera Geometry and Projections/Learning About Map Projections.md
@@ -75,6 +76,7 @@ plugins:
 
 markdown_extensions:
   - neoteroi.cards
+  - abbr
   - tables
   - attr_list
   - md_in_html
@@ -88,3 +90,16 @@ markdown_extensions:
   - toc:
       title: On this page
       permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.snippets:
+        auto_append:
+          - definitions.md

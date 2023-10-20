@@ -6,6 +6,8 @@ hide:
 
 # Where to Look 
 
+If looking for something specific, you can use the search function.
+
 These docs use a simple system of defining software documentation in four categories based on the composition and goal of a particular piece of documentation: 
 
 ::cards:: cols=1 
@@ -14,22 +16,22 @@ These docs use a simple system of defining software documentation in four catego
   {
     "title": "Getting Started",
     "content": "Step-by-step tutorials for beginners to get started with different aspects of the Astro software portfolio; this is the best place to learn new things as a beginner to some of our software or those unfamiliar with particular parts of the code.",
-    "url" : getting-started/index.md
+    "url" : getting-started/index.html
   }, 
   {
     "title": "How-To Guides",
     "content": "Examples on how-to complete common software tasks; for intermediate to advanced users who want examples on how to accomplish a particular task.",
-    "url" : how-to-guides/index.md
+    "url" : how-to-guides/index.html
   },
   {
     "title": "Concepts",
     "content": "Write-ups that define and explain concepts that apply to our software; this is for anyone who wants a better understanding of particular higher-level concepts.",
-    "url" : concepts/index.md
+    "url" : concepts/index.html
 },
   {
     "title": "Software Manuals",
     "content": "Links to in-depth software manuals; contains in-depth references to a particular software project's apps and APIs.",
-    "url" : manuals/index.md
+    "url" : manuals/index.html
   },
 ]
 
@@ -40,7 +42,7 @@ These docs use a simple system of defining software documentation in four catego
 
 We use these four categories to cover the range of potential docs, while clarifying to authors and readers for what kind of documentation goes where. 
 
-|                 | Getting Started       | How-Tos                        | Concepts                   | Manuals                                               |
+|                 | Getting Started Tutorials       | How-Tos                        | Concepts                   | Manuals                                               |
 |-----------------|-----------------------|--------------------------------|----------------------------|-------------------------------------------------------|
 | **Oriented To**     | Learning              | Achieving a Goal               | Understanding              | Referencing                                           |
 | **Composed As**     | Step-by-Step Jupyter or Similar Tutorial | General Purpose Guide          | Written Summary            | Generated Sphinx/Doxygen Site                         |
@@ -55,7 +57,7 @@ Before you consider contributing new documentation, ask yourself what category i
 
 Regarding software manuals, issues or contributions should be addressed to the repository for that specific project. The software manuals should have links to their repositories. 
 
-You can submit any issues (e.g., addressing grammar errors, factual inaccuracies) and find more info on how to contribute new docs through the site's [git repository](https://code.usgs.gov/astrogeology/asc-public-docs).
+You can submit any issues (e.g., addressing grammar errors, factual inacuracies) and find more info on how to contribute new docs through the site's [git repository](https://code.usgs.gov/astrogeology/asc-public-docs). If you find an issue somewhere in the repo, we strongly encourage users to also submit a change to the git repository to be reviewed, merged, and deployed. 
 
 
 

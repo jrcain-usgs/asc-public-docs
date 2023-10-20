@@ -27,6 +27,8 @@ git push origin your-branch-name
 
 ### Adding your files
 
+> See [mkdocs material docs](https://squidfunk.github.io/mkdocs-material/getting-started/) for information on how to work with mkdoc's material theme and it's features. 
+
 1. Determine what category your docs belong to by reading [the summary on the README](#understanding-the-doc-system). 
 2. Write your either in Markdown or as a Jupyter notebook and add it under the directory for that category. 
 3. Update `mkdocs.yml`, add a new file somewhere appropriate under `nav:` 
@@ -84,9 +86,16 @@ Good getting started docs should:
 1. Include minimum explanation; the focus is on "learning by doing"
 1. Focus on the steps required to complete the goal. 
 
+Concrete things your tutorial needs: 
+
+- If your tutorial requires installing software, list what software and their versions and clear instructions on how to install them. Feel free to point to other points of the doc that already have boilerplate info like "Go here to read on how to set up a custom ISISPreferences file". 
+- If your tutorial has data, use generative data or data that is in the repo. Avoid external data dependencies. Before data is committed into the repo, check if [existing data can be re-used](./data/). If new data needs to be committed, make sure it is small so as not to increase the data burden.   
+- Make sure to make the lesson clear in the title. Also, make it clear in the tutorial with something like "Lessons learned in this tutorial:". 
+
+
 Examples: 
 * Getting Started: ISIS image ingestion to map projected image, ingesting, bundling, and projecting an image list 
-* Getting Started: generating an ISD and CSM camera model
+* Getting Started: Generating an ISD and CSM camera model
 * Getting Started: Generate a control network with an image matcher 
 
 ### How-to Guides 
@@ -97,12 +106,11 @@ Similar to getting started guides in that they explain to users how to perform s
 
 1. Solve practical problems for more experienced users
 1. Offer more ambiguous starting points; they should be re-usable in many different contexts 
-1. Provide little explanation, mostly showing steps on how to accomplish the task
-1. Are generally much shorter than getting started docs
+1. Can be much shorter than getting started docs
 
 Examples: 
-* How-to: generate an ISD via loads with specific kernels
-* How-to: get GEOJSON from ISIS footprints
+* How-to: Generate an ISD via loads with specific kernels
+* How-to: Get GEOJSON from ISIS footprints
 
 ### Concepts 
 
@@ -128,5 +136,5 @@ Examples:
 Software manuals centered on the code of the library. These are generally links to the library's programmatically generated API docs. Think Sphinx docs and/or Doxygen-generated docs. 
 
 Examples: 
-* Programatically generated Python/C++ API docs from inline doc strings
+* Programatically Generated Python/C++ API docs from inline doc strings
 * RESTful API docs from an OpenAPI spec file 
