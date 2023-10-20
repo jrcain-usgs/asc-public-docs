@@ -54,8 +54,8 @@ nav:
   - Concepts: 
     - Home: concepts/index.md
     - Camera Geometry and Projections:
-      - Camera Geometry: concepts/Camera Geometry.md
-      - Learning About Map Projections: concepts/Learning About Map Projections.md
+      - Camera Geometry: concepts/Camera Geometry and Projections/Camera Geometry.md
+      - Learning About Map Projections: concepts/Camera Geometry and Projections/Learning About Map Projections.md
   - Manuals: manuals/index.md
 
 extra_css:
