@@ -15,7 +15,7 @@ body such as area, distance, and direction. See [Map
 description of maps.
 
 <figure markdown>
-  ![MOLA](/assets/map_projections/Mola_of_sheet2a_thumb.jpeg "Example of a map made using data from the Mars Orbiter Laser Altimeter (MOLA)"){ width="100%" }
+  ![MOLA](../../assets/map_projections/Mola_of_sheet2a_thumb.jpeg "Example of a map made using data from the Mars Orbiter Laser Altimeter (MOLA)"){ width="100%" }
 </figure>
 
 
@@ -29,7 +29,7 @@ in our case, a digital image. There are many different types of
 projections.
 
 <figure markdown>
-  ![Mercator Projection: The classic Mercator projection places a cylinder (rolled piece of paper) tangent to the equator.](/assets/map_projections/Mercator.gif){width="100%"}
+  ![Mercator Projection: The classic Mercator projection places a cylinder (rolled piece of paper) tangent to the equator.](../../assets/map_projections/Mercator.gif){width="100%"}
   <figcaption> Mercator Projection: The classic Mercator projection places a cylinder (rolled piece of paper) tangent to the equator. </figcaption>
 </figure>
 
@@ -84,7 +84,7 @@ The following is an example of a single Mars Global Surveyor (MGS) Mars
 Orbital Camera (MOC) instrument image that has been transformed to a
 planetary image map using the Sinusoidal projection.
 
-| ![MOC image before transformation](/assets/map_projections/MOC1.jpeg){: style="width:300px;height:300px"} | ![MOC image after sinusoidal transformation](/assets/map_projections/SinuMOC1.jpeg){: style="width:300px;height:300px"} |
+| ![MOC image before transformation](../../assets/map_projections/MOC1.jpeg){: style="width:300px;height:300px"} | ![MOC image after sinusoidal transformation](../../assets/map_projections/SinuMOC1.jpeg){: style="width:300px;height:300px"} |
 | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | MOC image before transformation                                       | MOC image after sinusoidal transformation                                           |
 
@@ -95,12 +95,12 @@ planetary image map using the Sinusoidal projection.
 
 Equally as important, ISIS3 allows a collection of raw instrument images
 to be projected and stitched together (mosaicked) into large regional or
-global maps.
+global maps..
 
 
 
 <figure markdown>
-  ![Sample\_mosaic\_themis.jpeg](/assets/map_projections/Sample_mosaic_themis.jpeg "Five Mars Odyssey THEMIS instrument images that have been projected and mosaicked to generate a regional planetary image map using the Sinusoidal projection"){: style="width:100%"}
+  ![Sample\_mosaic\_themis.jpeg](../../assets/map_projections/Sample_mosaic_themis.jpeg "Five Mars Odyssey THEMIS instrument images that have been projected and mosaicked to generate a regional planetary image map using the Sinusoidal projection"){: style="width:100%"}
   <figcaption> Five Mars Odyssey THEMIS instrument images that have been projected and mosaicked to generate\n a regional planetary image map using the Sinusoidal projection </figcaption>
 </figure>
  
@@ -138,7 +138,7 @@ For example this MGS MOC image was projected using the following:
  End_Group
 ```
 <figure markdown>
-  ![SinuMOC1](/assets/map_projections/SinuMOC1.jpeg){: style="width:100%"}
+  ![SinuMOC1](../../assets/map_projections/SinuMOC1.jpeg){: style="width:100%"}
   <figcaption> Image projected using the above mapfile </figcaption>
 </figure>
  
@@ -432,7 +432,7 @@ supplied the program will provide the following defaults:
 
 
 <figure markdown>
-  ![Cam2map\_screenshot.jpeg](/assets/map_projections/Cam2map_screenshot.jpeg "Screenshot of the cam2map application"){: style="width:400px"}
+  ![Cam2map\_screenshot.jpeg](../../assets/map_projections/Cam2map_screenshot.jpeg "Screenshot of the cam2map application"){: style="width:400px"}
   <figcaption>A screenshot of the cam2map application</figcaption>
 </figure>
 
@@ -463,7 +463,7 @@ will visually look like the following example.
 When a camera acquires image data it is stored in a certain domain:
 
 <figure markdown>
-  ![Mars\_sphere\_illustration.png](/assets/map_projections/Mars_sphere_illustration.png "Thumbnail"){: style="width:400px"}
+  ![Mars\_sphere\_illustration.png](../../assets/map_projections/Mars_sphere_illustration.png "Thumbnail"){: style="width:400px"}
   <figcaption>An illustration of the martian sphere at the 0-360 boundary</figcaption>
 </figure>
 
@@ -472,7 +472,7 @@ When an image is created from the acquired data using the same domain,
 the correct image is generated:
 
 <figure markdown>
-  ![180\_domain\_correct.png](/assets/map_projections/180_domain_correct.png "Thumbnail"){: style="width:400px"}
+  ![180\_domain\_correct.png](../../assets/map_projections/180_domain_correct.png "Thumbnail"){: style="width:400px"}
   <figcaption>An image acquisition at the boundary using the same domain </figcaption>
 </figure>
 
@@ -482,7 +482,7 @@ image is incorrect (below, this image was scaled down to fit on the
 screen):  
 
 <figure markdown>
-  ![360\_domain\_incorrect.png](/assets/map_projections/360_domain_incorrect.png "Thumbnail"){: style="width:400px"}
+  ![360\_domain\_incorrect.png](../../assets/map_projections/360_domain_incorrect.png "Thumbnail"){: style="width:400px"}
   <figcaption>An image acquisition at the boundary using a different domain </figcaption>
 </figure>
 
@@ -507,9 +507,9 @@ Occasionally the need arises to reproject an image map. For example,
 converting from a Simple Cylindrical to Sinusoidal projection:
 
 
-![SimpleCylindrical.png](/assets/map_projections/SimpleCylindrical.jpeg "Thumbnail"){: style="width:40%"}
-![Blue\_right\_arrow.gif](/assets/map_projections/Blue_right_arrow.gif "Thumbnail"){: style="width:10%"}
-![SinusodialProjection.jpeg](/assets/map_projections/SinusodialProjection.jpeg "Thumbnail"){: style="width:40%"}
+![SimpleCylindrical.png](../../assets/map_projections/SimpleCylindrical.jpeg "Thumbnail"){: style="width:40%"}
+![Blue\_right\_arrow.gif](../../assets/map_projections/Blue_right_arrow.gif "Thumbnail"){: style="width:10%"}
+![SinusodialProjection.jpeg](../../assets/map_projections/SinusodialProjection.jpeg "Thumbnail"){: style="width:40%"}
 
 
 Another purpose for reprojecting an image map is to get all the images
@@ -517,18 +517,18 @@ with the same projection, parameters, resolution, latitude system, etc
 in order to mosaic. For example,
 
 <figure class="inline" markdown>
-  ![Simple\_135-110.png](/assets/map_projections/Simple_135-110.jpeg "Simple Cylindrical"){: style="width:250px;height:150px"}
+  ![Simple\_135-110.png](../../assets/map_projections/Simple_135-110.jpeg "Simple Cylindrical"){: style="width:250px;height:150px"}
   <figcaption>Simple Cylindrical</figcaption>
 </figure>
 
 <figure class="inline" markdown>
-  ![Sinusodial\_135-110.png](/assets/map_projections/Sinusodial_135-110.jpeg "Sinusoidal"){: style="width:250px;height:150px"}
+  ![Sinusodial\_135-110.png](../../assets/map_projections/Sinusodial_135-110.jpeg "Sinusoidal"){: style="width:250px;height:150px"}
   <figcaption>Sinusoidal</figcaption>
 </figure>
 
 
 <figure markdown>
-  ![Mosaic\_sinus.png](/assets/map_projections/Mosaic_sinus.jpeg "Sinusoidal Mosaic from Mars"){: style="width:250px;height:150px"}
+  ![Mosaic\_sinus.png](../../assets/map_projections/Mosaic_sinus.jpeg "Sinusoidal Mosaic from Mars"){: style="width:250px;height:150px"}
   <figcaption>Sinusoidal Martian Mosaic</figcaption>
 </figure>
 
@@ -573,7 +573,7 @@ images in the THEMIS mosaic below
 ```
 
 <figure markdown>
-  ![Mosaic after](/assets/map_projections/Mosaic_after.jpeg){: style="width:250px"}
+  ![Mosaic after](../../assets/map_projections/Mosaic_after.jpeg){: style="width:250px"}
   <figcaption>THEMIS Mosaic</figcaption>
 </figure>
 

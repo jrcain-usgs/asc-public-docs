@@ -28,8 +28,7 @@ though it does not require radiometric calibration).
       - **Longitude Direction = East** \[Longitude values increase to the
         east\]
 
-Definitions for the geometric reference terms can be found in [Learning
-About Map Projections](concepts/Learning About Map Projections)
+Definitions for the geometric reference terms can be found in [Learning About Map Projections](../Camera%20Geometry%20and%20Projections/Learning%20About%20Map%20Projections.md)
 
 
 ## Camera Information Applications 
@@ -120,9 +119,6 @@ spacecraft, sun and instrument related information such as:
   - Time information (EphemerisTime, UTC)
 
 Example (not all parameters shown):  
-*Enter lat- [](fixit.wr.usgs.gov)* [*Ocentric* **](fixit.wr.usgs.gov)
-*/long- [](fixit.wr.usgs.gov)* [*360* **](fixit.wr.usgs.gov) *point
-location*
 
     campt from=xxxx.cub latitude=0.0 longitude=270.0 type=ground
 
@@ -178,7 +174,8 @@ Run **phocube** on a fly-by Cassini ISS-Wide Angle Camera image of
 Enceladus. In this example, **phocube** will generate a 6-band output
 cube.
 
-!!! Note "The image used in this example has been processed through Level1 \[ingestion, spiceinit and radiometric calibration\]. Refer to: [Working with Cassini ISS Data](Working_with_Cassini_ISS_Data)"
+@TODO
+!!! Note "The image used in this example has been processed through Level1 \[ingestion, spiceinit and radiometric calibration\]. Refer to: [Working with Cassini ISS Data](Camera%20Geometry.md)"
 
 Each band will contain the information asked for (parameters set to
 true) in the following command:
@@ -201,32 +198,32 @@ The Example ISS Wide-Angle Camera image of Enceladus and the output of
 
 
 <figure class="inline" markdown>
-  ![Cassini ISS WA-camera Enceladus](/assets/camera_geometry/Iss_WAC_enceladus_sm2.png){: style="width:225px;height:225px"}
+  ![Cassini ISS WA-camera Enceladus](../../assets/camera_geometry/Iss_WAC_enceladus_sm2.png){: style="width:225px;height:225px"}
   <figcaption>Enceladus</figcaption>
 </figure>
 
 <figure class="inline" markdown>
-  ![Iss\_WAC\_ema\_figure](/assets/camera_geometry/Iss_WAC_ema_figure.png "Phocube-Emission Angle Band"){: style="width:225px;height:225px"}
+  ![Iss\_WAC\_ema\_figure](../../assets/camera_geometry/Iss_WAC_ema_figure.png "Phocube-Emission Angle Band"){: style="width:225px;height:225px"}
   <figcaption>Phocube: Emission Angle Band</figcaption>
 </figure>
 
 <figure markdown>
-  ![Iss\_WAC\_inc\_figure](/assets/camera_geometry/Iss_WAC_inc_figure.png "Phocube Incidence Angle Band"){: style="width:225px;height:225px"}
+  ![Iss\_WAC\_inc\_figure](../../assets/camera_geometry/Iss_WAC_inc_figure.png "Phocube Incidence Angle Band"){: style="width:225px;height:225px"}
   <figcaption>Phocube: Incidence Angle Band</figcaption>
 </figure>
 
 
 <figure class="inline" markdown>
-  ![Iss\_WAC\_phase\_figure](/assets/camera_geometry/Iss_WAC_phase_figure.png "Phocube-Phase Angle Band"){: style="width:225px;height:225px"}
+  ![Iss\_WAC\_phase\_figure](../..//assets/camera_geometry/Iss_WAC_phase_figure.png "Phocube-Phase Angle Band"){: style="width:225px;height:225px"}
   <figcaption>Phocube: Phase Angle Band</figcaption>
 </figure>
 
 <figure class="inline" markdown>
-  ![Iss\_WAC\_lat\_figure](/assets/camera_geometry/Iss_WAC_lat_figure.png "Phocube-Latitude Band"){: style="width:225px;height:225px"}
+  ![Iss\_WAC\_lat\_figure](../../assets/camera_geometry/Iss_WAC_lat_figure.png "Phocube-Latitude Band"){: style="width:225px;height:225px"}
   <figcaption>Phocube: Latitude Band</figcaption>
 </figure>
 
 <figure markdown>
-  ![Iss\_WAC\_lon\_figure](/assets/camera_geometry/Iss_WAC_lon_figure.png "Phocube-Longitude Band"){: style="width:225px;height:225px"}
+  ![Iss\_WAC\_lon\_figure](../../assets/camera_geometry/Iss_WAC_lon_figure.png "Phocube-Longitude Band"){: style="width:225px;height:225px"}
   <figcaption>Phocube: Longitude Band</figcaption>
 </figure>
