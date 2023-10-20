@@ -21,12 +21,12 @@ though it does not require radiometric calibration).
 
 !!! Note "Within the ISIS environment, unless otherwise specified, **ALL** applications default (for input and output) to the following geometric reference (regardless of target body):"
 
-      - **Longitude\_Domain = 360** \[Longitudes will be reported in the
-        range of 0 to 360 degrees (not -180 to 180)\]
-      - **Latitude\_System = Ocentric** \[Versus Ographic; Note: there is
-        not difference for a spherical body\]
-      - **Longitude Direction = East** \[Longitude values increase to the
-        east\]
+      - **Longitude Domain = 360** Longitudes will be reported in the
+        range of 0 to 360 degrees (not -180 to 180)
+      - **Latitude System = Ocentric** Versus Ographic; Note: there is
+        not difference for a spherical body
+      - **Longitude Direction = East** Longitude values increase to the
+        east
 
 Definitions for the geometric reference terms can be found in [Learning About Map Projections](../Camera%20Geometry%20and%20Projections/Learning%20About%20Map%20Projections.md)
 
