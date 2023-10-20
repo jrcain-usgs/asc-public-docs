@@ -47,10 +47,12 @@ nav:
     - Software Management: 
       - ISIS Public Release Process: how-to-guides/Software Management/Public Release Process.md
       - Software Support: how-to-guides/Software Management/Software Support.md
+      - Guidelines for Reporting Issues: how-to-guides/Software Management/Guidelines for Reporting Issues.md
     - ISIS Developer Guides:
-      - How To Write ISIS Tests with CTest and GTest: "how-to-guides/ISIS Developer Guides/Writing ISIS Tests with CTest and GTest.md"
-      - App Testing CookBook: "how-to-guides/ISIS Developer Guides/App Testing Cookbook.md"
-      - Class Requirements For Using Doxygen Tags: "how-to-guides/ISIS Developer Guides/Class Requirements For Using Doxygen Tags.md"
+      - How To Write ISIS Tests with CTest and GTest: how-to-guides/ISIS Developer Guides/Writing ISIS Tests with CTest and GTest.md
+      - App Testing CookBook: how-to-guides/ISIS Developer Guides/App Testing Cookbook.md
+      - Class Requirements For Using Doxygen Tags: how-to-guides/ISIS Developer Guides/Class Requirements For Using Doxygen Tags.md
+      - Developing ISIS3 with cmake: how-to-guides/ISIS Developer Guides/Developing ISIS3 with cmake.md
   - Concepts: 
     - Home: concepts/index.md
     - Glossary: concepts/glossary/glossary.md

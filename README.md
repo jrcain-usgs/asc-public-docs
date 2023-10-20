@@ -5,7 +5,7 @@
 ### Cloning and Rendering the Docs Locally
 
 ```bash   
-# 1. Clone the forked repository to your local machine:   
+# 1. Clone the repository to your local machine:   
 git clone git@code.usgs.gov:astrogeology/asc-public-docs.git
 cd asc-public-docs/
 
