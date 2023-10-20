@@ -48,6 +48,8 @@ nav:
       - SPICE Kernel Updates in ISIS: how-to-guides/Environment Setup and Maintenance/SPICE Kernel Updates in ISIS.md
     - Image Processing:
       - Map Projecting Images: how-to-guides/Image Processing/Map Projecting Images.md
+      - Removing Striping Noise: how-to-guides/Image Processing/Removing Striping Noise.md
+      - General Utility with FX: how-to-guides/Image Processing/General Utility with FX.md
     - Software Management: 
       - ISIS Public Release Process: how-to-guides/Software Management/Public Release Process.md
       - Software Support: how-to-guides/Software Management/Software Support.md
@@ -63,6 +65,10 @@ nav:
     - Camera Geometry and Projections:
       - Camera Geometry: concepts/Camera Geometry and Projections/Camera Geometry.md
       - Learning About Map Projections: concepts/Camera Geometry and Projections/Learning About Map Projections.md
+    - Image Processing:
+      - The Power of Spatial Filters: concepts/Image Processing/The Power of Spatial Filters.md
+      - Overview of Noise and Artifacts: concepts/Image Processing/Overview of Noise and Artifacts.md
+      - Overview of Radiometric Calibration: concepts/Image Processing/Overview of Radiometric Calibration.md
   - Manuals: manuals/index.md
 
 extra_css:
