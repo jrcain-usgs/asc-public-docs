@@ -40,6 +40,10 @@ nav:
     - Home: getting-started/index.md
     - CSM Stack:
       - Generating an ISD, creating a CSM model, and converting coordinates: getting-started/CSM Stack/ImageToGroundTutorial.ipynb
+    - "Using ISIS: First Steps":
+      - Locating and Ingesting Image Data: "getting-started/Using ISIS: First Steps/Locating and Ingesting Image Data.md"
+      - Adding SPICE: "getting-started/Using ISIS: First Steps/Adding Spice.md"
+      - Exporting ISIS Data: "getting-started/Using ISIS: First Steps/Exporting ISIS Data.md"
   - How-To Guides: 
     - Home: how-to-guides/index.md
     - Environment Setup and Maintenance:
