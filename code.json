@@ -51,7 +51,7 @@
     "name": "asc-public-docs",
     "organization": "U.S. Geological Survey",
     "description": "Public documentation for USGS Astrogeology Science Center's Software portfolio",
-    "version": "1.1.0",
+    "version": "1.0.1",
     "status": "Development",
 
     "permissions": {
