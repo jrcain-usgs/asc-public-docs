@@ -17,7 +17,7 @@
     },
 
     "homepageURL": "https://code.usgs.gov/astrogeology/asc-public-docs/-/blob/main/README.md",
-    "downloadURL": "https://code.usgs.gov/astrogeology/asc-public-docs/-/archive/1.0.1/asc-public-docs-1.0.1.zip",
+    "downloadURL": "https://code.usgs.gov/astrogeology/asc-public-docs/-/archive/main/asc-public-docs-main.zip",
     "disclaimerURL": "https://code.usgs.gov/astrogeology/asc-public-docs/-/raw/main/DISCLAIMER.md",
     "repositoryURL": "https://code.usgs.gov/astrogeology/asc-public-docs.git",
     "vcs": "git",
