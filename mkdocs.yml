@@ -77,6 +77,11 @@ nav:
       - The Power of Spatial Filters:        concepts/image-processing/the-power-of-spatial-filters.md
       - Overview of Noise and Artifacts:     concepts/image-processing/overview-of-noise-and-artifacts.md
       - Overview of Radiometric Calibration: concepts/image-processing/overview-of-radiometric-calibration.md
+    - Control Networks:
+      - Automatic Registration:         concepts/control-networks/automatic-registration.md
+      - Autoseed:                       concepts/control-networks/autoseed.md
+      - Image Registration:             concepts/control-networks/image-registration.md
+      - Multi-Instrument Registration:  concepts/control-networks/multi-instrument-registration.md
   - Manuals: manuals/index.md
 
 extra_css:
