@@ -86,15 +86,18 @@ A remote is a a copy of a repository hosted online.  When you clone a repository
 The first step of keeping your work in sync with the overall project is adding it as a remote:
 
 1. Go to the upstream repo's page (the original repo you forked yours from earlier).
-1. Click the clone button.
+1. Click the "clone" or "code" button.
 1. Copy the address of the repo.
 1. Run the `git remote add upstream <upstream-repo-address>` command.
 
-You should now have two remotes, one called "origin", and one called "upstream".  You can list your remotes with `git remote -v`
+You should now have two remotes, one called "origin", and one called "upstream".  You can list your remotes with `git remote -v`.
 
 ## Keeping Updated
 
+1. `git fetch upstream` fetches info about new changes from the upstream remote.
+1. `git merge upstream/main` merges any new changes from the main branch into your current branch.
 
+If a change in your code conflicts with a change being merged in, you have a **Merge Conflict**.  See [GitHub's documentation (external)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) for resolving conflicts on the command line, or [this video (external)](https://www.youtube.com/watch?v=HosPml1qkrg) for resolving conflics in Visual Studio Code.
 
 ## Make Changes
 
