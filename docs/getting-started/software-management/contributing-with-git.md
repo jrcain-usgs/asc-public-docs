@@ -47,7 +47,7 @@ Your contribution should be related to an issue.  You can browse a list of issue
 
 ## Fork
 
-A fork is a copy of a repository at a particular time.  The repo that has been forked from is usually called "upstream", and your fork/working copy is called "origin" by default.
+A fork is a copy of a repository.  The repo that has been forked from is usually called "upstream", and your fork/working copy is called "origin" by default.
 
 Your fork is your own working copy, where you can test your code or add new features.  While you are working on your contribution, you don't have to worry about unfinished code affecting the upstream repo; you are on your own fork.  Later, when your code is done, there is a review process before your code can be merged into the upstream repo.
 
@@ -58,17 +58,43 @@ To make a fork, click the fork button on the repository page, and then enter a n
 
 ## Clone
 
+To clone a repository means to make a copy of it, usually on your local computer (or the computer you will be working on it from).
+
 TODO: Add image
 ![Cloning a repository on GitHub](){ alight=right width=450 }
 
-To download the repo to your computer:
-1. Click the clone button on the repo's page.
+To download a repo to your computer:
+
+1. Go to your fork's web page.
+1. Click the "clone" or "code" button.
 1. Copy the address of the repo.
    - If you use the SSH address, you will need to [set up SSH keys on your computer and in your git account (external link)](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 1. In your terminal, navigate to a parent directory of choice for your various repos (commonly name "source", "repos", or "code")
 1. Run the `git clone <your_repo_address>` command.  When it is done, you will have a subdirectory with your repo in it.
+1. Navigate into your newly cloned directory from you terminal.  Future git commands will be run from within this directory.
 
 ## Branch
+
+A branch is a version of the codebase within a repository.  Your cloned repository should come with a default branch, likely called "main", "master", or "dev".
+
+Before making changes, make a new branch for your contributions with `git checkout -b <branch_name>`.  Running this command will make a copy of the current branch and check it out for you to work on.
+
+## Git Remotes
+
+A remote is a a copy of a repository hosted online.  When you clone a repository, a remote called "origin" is added to your local repo, referencing the online repo it was cloned from.
+
+The first step of keeping your work in sync with the overall project is adding it as a remote:
+
+1. Go to the upstream repo's page (the original repo you forked yours from earlier).
+1. Click the clone button.
+1. Copy the address of the repo.
+1. Run the `git remote add upstream <upstream-repo-address>` command.
+
+You should now have two remotes, one called "origin", and one called "upstream".  You can list your remotes with `git remote -v`
+
+## Keeping Updated
+
+
 
 ## Make Changes
 
