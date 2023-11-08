@@ -77,7 +77,9 @@ To download a repo to your computer:
 
 A branch is a version of the codebase within a repository.  Your cloned repository should come with a default branch, likely called "main", "master", or "dev".
 
-Before making changes, make a new branch for your contributions with `git checkout -b <branch_name>`.  Running this command will make a copy of the current branch and check it out for you to work on.
+Before making changes, make a new branch for your contributions with `git checkout -b <branch_name>`.  Running this command will *make a copy of the current branch with your new name* and switch to it (*check it out*), for you to work on.
+
+You can switch between branches to work with different versions of the codebase. `git checkout <branch_name>` switches to another existing branch.  `git branch <branch_name>` creates a new branch without switching to it.
 
 ## Git Remotes
 
@@ -97,14 +99,34 @@ You should now have two remotes, one called "origin", and one called "upstream".
 1. `git fetch upstream` fetches info about new changes from the upstream remote.
 1. `git merge upstream/main` merges any new changes from the main branch into your current branch.
 
-If a change in your code conflicts with a change being merged in, you have a **Merge Conflict**.  See [GitHub's documentation (external)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) for resolving conflicts on the command line, or [this video (external)](https://www.youtube.com/watch?v=HosPml1qkrg) for resolving conflics in Visual Studio Code.
+If a change in your code conflicts with a change being merged in, you might have a **Merge Conflict**!  See [GitHub's documentation (external)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) for resolving conflicts on the command line, or [this video (external)](https://www.youtube.com/watch?v=HosPml1qkrg) for resolving conflics in Visual Studio Code.
 
-## Make Changes
+## Making Changes
+
+By this point, you should have made your own fork, cloned the repo to your computer, and made a branch to work on your feature.  You can now start development.  Remember to test and save (and commit) your work as you go along.
+
+## Tracking Files
+
+To save/track a new file or changes to an existing file with git, you will have to add it with `git add <your_file>`.  You can use `git add -A` to add all changes (this includes changes like removing or renaming a file).  Changes that have been added but not commit are called *staged* changes.  You must save a file before you `git add` it.
+
+If you go back and make another modification to a file, you will have to `git add` that file again.
+
+You can make a `.gitignore` to tell git never to track a certain file or directory, for example, a secret key or a personal config file.  See more info from the [git documentation on gitignore (external)](https://git-scm.com/docs/gitignore).
+
+## Commits
+
+A commit is a set of changes to the codebase.
+
+`git commit -m "Short description of your changes"` will commit changes for all tracked files (remember to add them as above).
+
+## Push
+
+When you have one or more commit, you can sync them to your remote repo with `git push`.
 
 ## Test
 
-## Commit
-
-## (Sync and) Push
+TODO
 
 ## Create Pull Request
+
+TODO
