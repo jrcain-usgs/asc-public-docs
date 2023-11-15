@@ -19,7 +19,7 @@ FAQ for readers:
     
 
 ??? Question "How do I run jupyter notebooks?" 
-    Jupyter notebook-based tutorials have a download button on the upper right. Use these to download the code if you are already familiar with running notebooks locally. As some tutorials require data, the easiest way to work with tutorials is by cloning the repo.
+    As some tutorials require data, the easiest way to work with tutorials is by cloning the repo.
     ```shell
     # Clone the repo and go to the tutorials page
     git clone git@code.usgs.gov:astrogeology/asc-public-docs.git

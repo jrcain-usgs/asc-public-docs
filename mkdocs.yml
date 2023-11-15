@@ -92,14 +92,14 @@ extra_css:
 
 
 extra_javascript: 
-  -  https://asc-public-docs.s3.us-west-2.amazonaws.com/common/uswds/3.6.0/js/uswds-init.min.js
+  - https://asc-public-docs.s3.us-west-2.amazonaws.com/common/uswds/3.6.0/js/uswds-init.min.js
 
 plugins:
   - search
-  - mkdocs-jupyter:
-      include_source: true
+  - mknotebooks
 
 markdown_extensions:
+  - codehilite
   - neoteroi.cards
   - abbr
   - tables
