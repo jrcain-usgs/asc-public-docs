@@ -52,9 +52,11 @@ jobs:
       - name: Build Website
         run: |
           mkdocs build
-      - name: spell check 
+      - name: codespell Check  
         run: | 
           codespell site/
+      - name: Grammar Check
+        run: |
           git diff --name-only origin/main | grep -e .md -e .MD | sed 's/^/"/;s/$/"/' | xargs -t -L1 gramma check -p || true
 
   Link-Check:
