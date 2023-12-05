@@ -23,7 +23,7 @@ jobs:
           python-version: '3.10'
       - name: Install Python Packages
         run: |
-          pip install -r requirements.yml
+          pip install -r requirements.txt
       - name: Build Website
         run: |
           mkdocs build
@@ -47,7 +47,7 @@ jobs:
           python-version: '3.10'
       - name: Install Python Packages
         run: |
-          pip install -r requirements.yml
+          pip install -r requirements.txt
           npm i gramma -g
       - name: Build Website
         run: |
@@ -71,7 +71,7 @@ jobs:
           python-version: '3.10'
       - name: Install Python Packages
         run: |
-          pip install -r requirements.yml
+          pip install -r requirements.txt
       - name: Build Website
         run: |
           mkdocs build
