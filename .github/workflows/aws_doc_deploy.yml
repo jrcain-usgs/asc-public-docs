@@ -34,4 +34,6 @@ jobs:
           aws-region: us-west-2
   
       - name: Upload to S3
-        run: aws s3 sync site/ s3://${S3_BUCKET_NAME}/${S3_BUCKET_SUBDIR} --delete
+        run: |
+          ls -l site/
+          aws s3 sync site/ s3://asc-public-docs/docs/ --delete
