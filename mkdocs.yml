@@ -15,6 +15,7 @@ theme:
         - navigation.indexes
         - search.suggest
         - search.suggest
+        - content.code.copy
 
     palette:
         # Palette toggle for dark mode
@@ -56,7 +57,9 @@ nav:
       - Map Projecting Images:             how-to-guides/image-processing/map-projecting-images.md
       - Removing Striping Noise:           how-to-guides/image-processing/removing-striping-noise.md
       - General Utility with FX:           how-to-guides/image-processing/general-utility-with-fx.md
-    - Software Management: 
+    - ISIS Fundamentals:
+      - Introduction to ISIS:              how-to-guides/isis-fundamentals/introduction.md
+    - Software Management:
       - ISIS Public Release Process:       how-to-guides/software-management/public-release-process.md
       - Software Support:                  how-to-guides/software-management/software-support.md
       - Guidelines for Reporting Issues:   how-to-guides/software-management/guidelines-for-reporting-issues.md
