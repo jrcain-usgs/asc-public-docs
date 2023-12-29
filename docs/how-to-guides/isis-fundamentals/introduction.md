@@ -1,21 +1,5 @@
 # Introduction to ISIS
 
------
-
-  - [Introduction to ISIS](#introduction-to-isis)
-      - [What is ISIS?](#what-is-isis)
-      - [User Interface for ISIS](#user-interface-for-isis)
-      - [Reserved Command Line Arguments](#reserved-command-line-arguments)
-      - [Parameter Command Line Arguments](#parameter-command-line-arguments)
-      - [Application Running Modes](#application-running-modes)
-      - [ISIS Graphical Mode](#isis-graphical-mode)
-      - [ISIS Text Mode](#isis-text-mode)
-      - [Using qview to View Cubes](#using-qview-to-view-cubes)
-          - [Load and Display a Multi-Band Cube](#load-and-display-a-multi-band-cube)
-              - [Display Single Band in Black and White](#display-single-band-in-black-and-white)
-              - [Display a Red, Green, Blue Color Composite](#display-a-red-green-blue-color-composite)
-      - [Bonus](#bonus)
-
 ## What is ISIS?
 
 -----
