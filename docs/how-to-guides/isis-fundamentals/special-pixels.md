@@ -79,7 +79,7 @@ There are five special pixel values defined in the ISIS software system for 16-b
     </tbody>
 </table>
 
-*   \* The 32-bit values representing different special pixels do differ just like those representing the 16-bit valus. However, the variations are on the last digit, and thus are not visible in this display since it does not show all 38 digits.
+*   \* The 32-bit values representing different special pixels do differ just like those representing the 16-bit values. However, the variations are on the last digit, and thus are not visible in this display since it does not show all 38 digits.
 
 ### Are the special pixel values propagated between different bit types?
 

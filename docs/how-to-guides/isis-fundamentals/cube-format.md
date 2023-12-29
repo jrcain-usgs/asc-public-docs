@@ -46,7 +46,7 @@ A cube is a 3-dimensional image with axis: samples, lines, and bands. The physic
             <td>*</td>
             <td>3456</td>
             <td>1</td>
-            <td>bandwidth encompases visible and near-infrared</td>
+            <td>bandwidth encompasses visible and near-infrared</td>
         </tr>
         <tr>
             <td>Galileo Near-Infrared Mapping Spectrometer (NIMS)</td>
@@ -215,6 +215,6 @@ In the example to the right, use mouse to examine the pixel positions in a cube.
 ## Summary
 -------
 
-Cubes are made up of individual pixels. Each pixel usually represents some area of a planet, moon, astroid or other body. Pixels hold a DN (digital number). That number can be one, two or four bytes long depending on the accuracy necessary to represent the data. DNs can be modified by a "Base" and "Multiplier". The columns of a cube are called samples, the rows are called lines and a plane of samples and lines is called a band.
+Cubes are made up of individual pixels. Each pixel usually represents some area of a planet, moon, asteroid or other body. Pixels hold a DN (digital number). That number can be one, two or four bytes long depending on the accuracy necessary to represent the data. DNs can be modified by a "Base" and "Multiplier". The columns of a cube are called samples, the rows are called lines and a plane of samples and lines is called a band.
 
 [Cube.png](../../assets/isis-fundamentals/Cube.png) (44.8 KB) Adam Paquette, 2016-06-10 12:19 PM
