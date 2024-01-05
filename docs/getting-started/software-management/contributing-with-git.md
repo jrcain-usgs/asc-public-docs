@@ -2,9 +2,9 @@
 
 ## Prerequisites
 
-### Programming Language
+### Programming
 
-Before contributing, you should have a basic understanding of the language a program is written in.  For example, ISIS is written in c++, and ALE is written in Python.
+Before contributing, you should have an understanding of programming and of the language a program is written in.  For example, ISIS is written in c++, and ALE is written in Python.  If you don't know how to program, you might still be able to contribute by writing documentation or finding issues.
 
 ### Installing Git
 
@@ -20,15 +20,15 @@ git version
 
 ??? tip "Installing git for Windows, Mac, and Linux" 
 
-    | System  | Installation                                                                                                                           |
-    |---------|----------------------------------------------------------------------------------------------------------------------------------------|
-    | Windows | Download and install git for Windows from the [git-scm website (external)](https://git-scm.com/download/win).                          |
-    | Mac     | Mac installs git automatically when you run it from the terminal.  If you have Homebrew, you may install git via `brew install git`.   |
-    | Linux   | Install git using your package manager. For example, `sudo apt install git` on Ubuntu.                                                 |
+    | System  | Installation                                                                                                                                                                                               |
+    |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Windows | Download and install git for Windows from the [git-scm website (external)](https://git-scm.com/download/win).  If you have winget you may install git via `winget install --id Git.Git -e --source winget` |
+    | Mac     | Mac installs git automatically when you run it from the terminal.  If you have Homebrew, you may install git via `brew install git`.                                                                       |
+    | Linux   | Install git using your package manager. For example, `sudo apt install git` on Ubuntu.                                                                                                                     |
 
 
 ```sh
-# Once git is installed, set your username and email:
+# Once git is installed, set your name and email:
 git config --global user.name "Your Name"
 git config --global user.email "emailaddress@example.com"
 ```
@@ -43,7 +43,7 @@ A git issue is not necessarily something wrong, it may also be a feature to be a
 
 !!! tip
 
-    If you are working on an issue you have found yourself, and the issue is not listed yet, please [report the issue](../../how-to-guides/software-management/guidelines-for-reporting-issues.md).
+    If you are working on an issue you have found yourself, and the issue is not listed yet, please [report the issue](../../how-to-guides/software-management/guidelines-for-reporting-issues.md) and assign it to yourself.
 
 -----
 
@@ -75,7 +75,7 @@ To download a repo to your computer:
 1. Click the "clone" or "code" button.
 1. Copy the address of the repo.
    - If you use the SSH address, you will need to [set up SSH keys on your computer and in your git account (external link)](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
-1. In your terminal, navigate to a parent directory of choice for your various repos (commonly name "source", "repos", or "code")
+1. In your terminal, navigate to (or create) a parent directory of choice for your various repos (commonly named "source", "repos", "workspace", or "code").
 1. Run
         ```sh
         git clone <your_repo_address>
@@ -119,7 +119,7 @@ You should now have two remotes, one called ***"origin"***, and one called ***"u
 ## Keeping Updated
 
 1. `git fetch upstream` fetches info about new changes from the upstream remote.
-1. `git merge upstream/main` merges any new changes from the main branch into your current branch.
+1. `git merge upstream/main` merges any new changes from the upstream main branch into your current branch.
 
 If a change in your code conflicts with a change being merged in, you might have a **Merge Conflict**!  See [GitHub's documentation (external)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) for resolving conflicts on the command line, or [Microsoft's video (external)](https://www.youtube.com/watch?v=HosPml1qkrg) for resolving conflics in Visual Studio Code.
 
@@ -127,15 +127,15 @@ If you are about to make a new branch, you might want to `git merge upstream/mai
 
 ## Making Changes
 
-By this point, you should have made your own fork, cloned the repo to your computer, and made a branch to work on your feature.  You can now start development.  Remember to test and save (and commit) your work as you go along.
+By this point, you should have made your own fork, cloned the repo to your computer, and made a branch to work on your feature.  You can now start development.  Remember to test and save (and commit, see below) your work as you go along.
 
 ## Tracking Files
 
-To save/track a new file or changes to an existing file with git, you will have to add it with `git add <your_file>`.  You can use `git add -A` to add all changes (this includes changes like removing or renaming a file).  Changes that have been added but not commit are called *staged* changes.  You must save a file before you `git add` it.
+To track a new file or changes to an existing file with git, you will have to add it with `git add <your_file>`.  You can use `git add -A` to add all changes (this includes changes like removing or renaming a file).  Changes that have been added but not committed are called *staged* changes.  You must save a file before you `git add` it.
 
 If you go back and make another modification to a file, you will have to `git add` that file again.  Use `git status` to list the tracking status of files in your repository.  See [Git Basics from the Pro Git Book (external)](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository) for more details.
 
-You can make a `.gitignore` to tell git never to track a certain file or directory, for example, a secret key or a personal config file.  See more info from the [gitignore git documentation (external)](https://git-scm.com/docs/gitignore).
+You can make a `.gitignore` to tell git never to track a certain file or directory, for example, a secret key, personal configuration, or a build output.  See more info from the [gitignore git documentation (external)](https://git-scm.com/docs/gitignore).
 
 ## Commits
 
@@ -161,4 +161,4 @@ A Pull Request (or Merge Request) is a request to merge your branch into an upst
 
 ## Code Review
 
-Part of the Pull Request process is a code review.  Before your code is merged, another developer will look through it, and may may comments, ask questions, or request changes.  If the review goes well (which may involve some additional changes, commits, and pushes on your part), the reviewer can approve the Pull Request.  It can then be merged.
+Part of the Pull Request process is a code review.  Before your code is merged, another developer will look through it, and may make comments, ask questions, or request changes.  If the review goes well (which may involve some additional changes, commits, and pushes on your part), the reviewer can approve the Pull Request.  It can then be merged.
