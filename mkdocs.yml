@@ -79,7 +79,7 @@ nav:
       - ISIS Cube Format:                  how-to-guides/isis-fundamentals/cube-format.md
       - ISIS Attached Spice Format:        how-to-guides/isis-fundamentals/spice-format.md
       - ISIS Kernel Load Selection:        how-to-guides/isis-fundamentals/kernel-selection.md
-      - Understanding Bit Types:           how-to-guides/isis-fundamentals/bit-types.md
+      - Bit Types:                         how-to-guides/isis-fundamentals/bit-types.md
       - Special Pixels:                    how-to-guides/isis-fundamentals/special-pixels.md
       - FAQ:                               how-to-guides/isis-fundamentals/faq.md
     - SPICE:

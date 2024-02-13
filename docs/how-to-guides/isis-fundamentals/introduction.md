@@ -83,8 +83,7 @@ documentation.
 
 [![QviewTwoCubes.png](../../assets/isis-fundamentals/QviewTwoCubes.png)](../../assets/isis-fundamentals/QviewTwoCubes.png "QviewTwoCubes.png")
 
-> **qview** , ISIS's image display application, is an interactive
-> application\]\]
+> **qview** , ISIS's interactive image display application
 
 All ISIS programs are launched via the command line. The command line
 refers to the text typed at the prompt of a terminal window such as

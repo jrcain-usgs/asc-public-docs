@@ -1,8 +1,8 @@
-#FAQ
+#ISIS FAQ
 
 ## How do I Install ISIS3?
 ----
-There are two main ways of installing ISIS3:
+There are two main ways of installing ISIS:
 
 __As a user__: ISIS releases are distributed using the Anaconda package manager. Through the package manager, you can download precompiled versions of ISIS including older versions. See [Installation][8] for installing via Anaconda. 
 
@@ -44,7 +44,7 @@ If you successfully installed ISIS with Anaconda, but still get this error, it�
 
 ## How do I install ISIS on Windows?
 ----
-We do not officially support ISIS on windows. It may be possible using the Linux subsystem ([How to Install Linux on Windows with WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10)).  This approach isn’t tested and we strongly recommend ISIS users operate MacOS, Linux or a Linux VM on Windows machines. 
+We do not officially support ISIS on windows. It may be possible using the Linux subsystem ([How to Install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install), [ISIS and ASP on Windows 11 (WSL, take 3)](https://planetarygis.blogspot.com/2024/02/isis-and-asp-on-windows-11-wsl-take-3.html)).  This approach isn’t tested and we strongly recommend ISIS users operate MacOS, Linux or a Linux VM on Windows machines.
 
 ## When trying to run an ISIS command, I get `Please set ISISROOT before running any Isis applications`
 ----
