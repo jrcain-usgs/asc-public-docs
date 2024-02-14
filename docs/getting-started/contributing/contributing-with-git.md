@@ -1,10 +1,10 @@
 # Contributing with Git
 
-Community contributions are an important part of our projects.  Contributions from people like you help make our projects at the USGS better for everyone.  And, by contributing, you can build your skills, display your work, and form community connections.
+Community contributions are an important part of USGS open source projects.  Contributions from people like you help make our projects at the USGS better for everyone.  And, by contributing, you can build your skills, display your work, and form community connections.
 
 This guide walks through the process of using git.  Git is the system the USGS uses to manage changes and contributions to our software projects.
 
-If you aren't comfortable contributing code, you can also help by contributing documentation or tutorials, or [opening](../../how-to-guides/software-management/guidelines-for-reporting-issues.md) and managing git issues.
+If you aren't comfortable contributing code, you can also help by contributing documentation or tutorials, or [opening](../../how-to-guides/software-management/guidelines-for-reporting-issues.md) and commenting on git issues.
 
 ???+ abstract "Git Contribution Process Overview"
     ```mermaid
