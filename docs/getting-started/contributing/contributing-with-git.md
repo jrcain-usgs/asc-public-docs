@@ -26,22 +26,12 @@ If you aren't comfortable contributing code, you can also help by contributing d
 
 ***git*** is a version control system for managing a project's codebase or documentation, its history, and various versions and contributions.
 
-If you don't have git yet, install as appropriate for your system.
-
 ```sh
 # Run to see if/what version of git is installed
 git version
 ```
 
-
-??? tip "Installing git for Windows, Mac, and Linux" 
-
-    | System  | Installation                                                                                                                                                                                               |
-    |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Windows | Download and install git for Windows from the [git-scm website (external)](https://git-scm.com/download/win).  If you have winget you may install git via `winget install --id Git.Git -e --source winget` |
-    | Mac     | Mac installs git automatically when you run it from the terminal.  If you have Homebrew, you may install git via `brew install git`.                                                                       |
-    | Linux   | Install git using your package manager. For example, `sudo apt install git` on Ubuntu.                                                                                                                     |
-
+If you don't have git yet, install as appropriate for your system.
 
 ```sh
 # Once git is installed, set your name and email:
