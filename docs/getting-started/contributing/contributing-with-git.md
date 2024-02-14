@@ -145,6 +145,12 @@ If a change in your code conflicts with a change being merged in, you might have
 
 If you are about to make a new branch, you might want to `git merge upstream/main` into your own main branch.  Then, whatever branch you make off of your main will start out up to date.
 
+!!! info "`git rebase`"
+
+    `git rebase` is an alternative to `git merge`.  ***Merge*** adds the upstream changes onto your own changes as if the upstream changes happened after your own.  ***Rebase*** acts as if any upstream changes occured before your changes (and adds your changes onto the upstream changes in your local repo).
+
+    The changes resulting from merge and rebase should be pretty similar, but the way conflicts are dealt with and the way git history is recorded is a bit different.
+
 ## Making Changes
 
 By this point, you should have made your own fork, cloned the repo to your computer, and made a branch to work on your feature.  You can now start development.  Remember to test and save (and commit, see below) your work as you go along.
