@@ -1,14 +1,30 @@
 # Contributing with Git
 
+Community contributions are an important part of our projects.  Contributions from people like you help make our projects at the USGS better for everyone.  And, by contributing, you can build your skills, display your work, and form community connections.
+
+This guide walks through the process of using git.  Git is the system the USGS uses to manage changes and contributions to our software projects.
+
+If you aren't comfortable contributing code, you can also help by contributing documentation or tutorials, or [opening](../../how-to-guides/software-management/guidelines-for-reporting-issues.md) and managing git issues.
+
+???+ abstract "Git Contribution Process Overview"
+    ```mermaid
+    flowchart TD
+        A(fa:fa-cloud upstream/main*\nProject Repo) -->|Other Changes to upstream/main\nFETCH & MERGE with your branch| E
+        A -->|FORK| B
+        B(fa:fa-cloud origin/main\nYour Forked Repo) -->|CLONE| C
+        C[fa:fa-computer main\nLocal Repo] -->|BRANCH| D
+        D[fa:fa-computer feature-branch\nLocal Repo] -->|Edit, Save, Test & Make COMMITS| E
+        E[fa:fa-computer feature-branch\nLocal Repo + changes] -->|PUSH| F
+        F(fa:fa-cloud origin/feature-branch\nYour Forked Repo + changes) -->|Open PULL REQUEST, Pull Request MERGED| G
+        G(fa:fa-cloud upstream/main \nProject Repo + your changes)
+    ```
+    * Note, for some projects, the working branch may be `master` or `dev` instead of main.
+
 ## Prerequisites
-
-### Programming
-
-Before contributing, you should have an understanding of programming and of the language a program is written in.  For example, ISIS is written in c++, and ALE is written in Python.  If you don't know how to program, you might still be able to contribute by writing documentation or finding issues.
 
 ### Installing Git
 
-***git*** is a version control system for managing an application's codebase, the code's history, and various versions and contributions to the code.
+***git*** is a version control system for managing a project's codebase or documentation, its history, and various versions and contributions.
 
 If you don't have git yet, install as appropriate for your system.
 
@@ -32,6 +48,10 @@ git version
 git config --global user.name "Your Name"
 git config --global user.email "emailaddress@example.com"
 ```
+
+### CONTRIBUTING.md
+
+Some projects have a `CONTRIBUTING.md` file in their repo.  It can help explain that project's contribution guidelines, and how you can make your contribution most effective.
 
 ## Issues
 
