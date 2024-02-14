@@ -71,7 +71,7 @@ The individual cells within a cube are called pixels. Each pixel in a cube has a
 
 ## Bit-Depth (aka Bit-Type)
 
-For more info about the amount of data stored per-pixel, or range of DNs, see [Bit-Type](../../how-to-guides/isis-fundamentals/bit-types.md)
+For more info about the amount of data stored per-pixel, or range of DNs, see [Bit-Type](../../concepts/isis-fundamentals/bit-types.md)
 
 ## Pixel Values: Digital Numbers
 -----------------------------
