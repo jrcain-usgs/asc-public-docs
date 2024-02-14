@@ -169,7 +169,7 @@ When you have made one or more commit, sync them to your remote repo with `git p
 
 -----
 
-!!! note "Tests and Changelogs"
+!!! note "Before your Pull Request: Tests, Changelogs, and Upstream Changes"
 
     Before you make a Pull Request, make sure to include tests and/or changelog entries if needed for the project recieving contributions.
 
@@ -181,14 +181,15 @@ When you have made one or more commit, sync them to your remote repo with `git p
 
     If there is a changelog, please add an entry to record your changes.  Changelog entries typically consist of authorship info and a one or two sentence summary of your changes.
 
+    ### Upstream Changes
+
+    [As above](#keeping-updated) make sure to fetch and merge the latest changes from the upstream repo.
+
 
 ## Create Pull Request
 
 A Pull Request (aka PR, Merge Request, or MR) is a request to merge your branch into an upstream repository or another branch.  On your repo's page, you can initiate a pull request.  You should include a description of the changes you made.  Be sure to mention any issues you addressed - "Fixes #364" will tell the system to automatically close issue 364 when your PR is merged.  Some projects require certain information to be recorded as part of a Pull Request.  See [Guidelines for Pull Requests](../../how-to-guides/software-management/guidelines-for-pull-requests.md).
 
-!!! note
-
-    Before submitting your pull request, make sure you have merged the latest changes from the upstream main branch, and included the appropriate tests.  Thank you for contributing to a USGS repository.
 
 ## Code Review
 
