@@ -11,12 +11,12 @@ If you aren't comfortable contributing code, you can also help by contributing d
     flowchart TD
         A(fa:fa-cloud upstream/main*\nProject Repo) -->|Other Changes to upstream/main\nFETCH & MERGE with your branch| E
         A -->|FORK| B
-        B(fa:fa-cloud origin/main\nYour Forked Repo) -->|CLONE| C
+        B(fa:fa-cloud origin/main\nYour Remote Repo) -->|CLONE| C
         C[fa:fa-computer main\nLocal Repo] -->|BRANCH| D
         D[fa:fa-computer feature-branch\nLocal Repo] -->|Edit, Save, Test & Make COMMITS| E
-        E[fa:fa-computer feature-branch\nLocal Repo + changes] -->|PUSH| F
-        F(fa:fa-cloud origin/feature-branch\nYour Forked Repo + changes) -->|Open PULL REQUEST, Pull Request MERGED| G
-        G(fa:fa-cloud upstream/main \nProject Repo + your changes)
+        E[fa:fa-computer feature-branch\nLocal Repo with changes] -->|PUSH| F
+        F(fa:fa-cloud origin/feature-branch\nYour Remote Repo with changes) -->|Open PULL REQUEST, Pull Request MERGED| G
+        G(fa:fa-cloud upstream/main \nProject Repo with your changes)
     ```
     * Note, for some projects, the working branch may be `master` or `dev` instead of main.
 
@@ -167,13 +167,24 @@ A commit is a set of changes to the codebase.
 
 When you have made one or more commit, sync them to your remote repo with `git push`.  If you haven't pushed your current branch before, you may have to set its destination with `git push --set-upstream origin <branch_name>`.
 
-## Test
+-----
 
-Before submitting your contribution, please add automatic tests as appropriate to the repository. For examples, see [App Testing Cookbook](../../how-to-guides/isis-developer-guides/app-testing-cookbook.md) and [Writing ISIS Tests with cTest and gTest](../../how-to-guides/isis-developer-guides/writing-isis-tests-with-ctest-and-gtest.md) for info on ISIS tests.
+!!! note "Tests and Changelogs"
+
+    Before you make a Pull Request, make sure to include tests and/or changelog entries if needed for the project recieving contributions.
+
+    ### Tests
+
+    In order to verify the correct functioning of your contributions, please add automatic tests as appropriate to the repository. For examples, see [App Testing Cookbook](../../how-to-guides/isis-developer-guides/app-testing-cookbook.md) and [Writing ISIS Tests with cTest and gTest](../../how-to-guides/isis-developer-guides/writing-isis-tests-with-ctest-and-gtest.md) for info on ISIS tests.
+
+    ### Changelogs
+
+    If there is a changelog, please add an entry to record your changes.  Changelog entries typically consist of authorship info and a one or two sentence summary of your changes.
+
 
 ## Create Pull Request
 
-A Pull Request (or Merge Request) is a request to merge your branch into an upstream repository or another branch.  On your repo's page, you can initiate a pull request.  You should include a description of the changes you made.  See [Guidelines for Pull Requests](../../how-to-guides/software-management/guidelines-for-pull-requests.md).
+A Pull Request (aka PR, Merge Request, or MR) is a request to merge your branch into an upstream repository or another branch.  On your repo's page, you can initiate a pull request.  You should include a description of the changes you made.  Be sure to mention any issues you addressed - "Fixes #364" will tell the system to automatically close issue 364 when your PR is merged.  Some projects require certain information to be recorded as part of a Pull Request.  See [Guidelines for Pull Requests](../../how-to-guides/software-management/guidelines-for-pull-requests.md).
 
 !!! note
 
