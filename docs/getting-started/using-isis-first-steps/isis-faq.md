@@ -9,8 +9,8 @@ __As a user__: ISIS releases are distributed using the Anaconda package manager.
 
 __As a developer__: Anaconda is also used to maintain ISIS dependencies, so we generally advise developers to use Anaconda environments and provided environment files to build ISIS. See [Developing ISIS3 with cmake][9].
 
-[8]: ../../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda/
-[9]: ../../../how-to-guides/isis-developer-guides/developing-isis3-with-cmake/
+[8]: ../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md
+[9]: ../../how-to-guides/isis-developer-guides/developing-isis3-with-cmake.md
 
 
 ## How do I install a specific version of ISIS/update my current copy of ISIS?
@@ -82,6 +82,6 @@ Some ISIS software updates include mission specific command updates motivated by
 ## Additional Helpful Docs
 [Exhaustive list of ISIS commands](https://isis.astrogeology.usgs.gov/Application/index.html)
 
-[Glossary of terminology used in ISIS documentation](../../concepts/glossary/)
+[Glossary of terminology used in ISIS documentation](../../concepts/glossary.md)
 
 [Dictionary explaining label terms for ISIS cubes](https://isis.astrogeology.usgs.gov/documents/LabelDictionary/LabelDictionary.html)

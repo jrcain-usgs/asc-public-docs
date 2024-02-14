@@ -7,7 +7,7 @@ Special pixels are defined to distinguish valid pixels from non-valid pixels in 
 
 ### How are special pixels set?
 
-There are two ways that [Digital Number (DN)](../../../concepts/glossary/#dn) values are set to special pixels in ISIS:
+There are two ways that [Digital Number (DN)](../../concepts/glossary.md#dn) values are set to special pixels in ISIS:
 
 *   **Instrument Special Pixels** : These types of special pixels are set during the ingestion of the data into ISIS because the acquired measurement either exceeded the dynamic range of the sensor based on its inherent properties (such as sensitivity) and settings (such as gain) or the measurement wasn't collected due to an instrument or transmission error.
     *   _Low Instrument Saturation (LIS)_ : The sensor registered a value too low to be measured accurately (i.e. undersaturated).

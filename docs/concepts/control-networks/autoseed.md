@@ -297,7 +297,7 @@ program. The following is an example of the **qview** measurement tool,
 depicted as a ruler on the right side, to measure the distance of the
 widest overlap area:
 
-See [Using Qview to view cubes](../../../getting-started/using-isis-first-steps/introduction-to-isis/#using-qview-to-view-cubes) for more
+See [Using Qview to view cubes](../../getting-started/using-isis-first-steps/introduction-to-isis.md#using-qview-to-view-cubes) for more
 information about **qview**.
 
 ![Measurement tool on two side-by-side Clementine images to show the overlap area](
