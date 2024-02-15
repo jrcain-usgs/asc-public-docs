@@ -1,4 +1,4 @@
-# Contributing with Git
+# Contributing with Git and GitHub
 
 Community contributions are an important part of USGS open source projects.
 Contributions from people like you help make our projects at the USGS better for everyone.
@@ -58,50 +58,67 @@ git config --global user.name "Your Name"
 git config --global user.email "emailaddress@example.com"
 ```
 
+### GitHub Account
+
+You will need to sign into or create an account on [GitHub.com](https://github.com) before you can fork repositories, push updates, or create pull requests.
+
 ### CONTRIBUTING.md
 
 Some projects have a `CONTRIBUTING.md` file in their repo.  It can help explain that project's contribution guidelines, and how you can make your contribution most effective.
 
+-----
+
 ## Issues
 
-![Issue board on GitHub](../../assets/software-management/git-issue-board.png){ align=right width=450 }
+??? question "What is an Issue?"
 
-Your contribution should be related to an issue.  You can browse a list of issues on the repository page for each project. 
+    ![Issue board on GitHub](../../assets/software-management/git-issue-board.png){ align=right width=450 }
 
-A git issue is not necessarily something wrong, it may also be a feature to be added.
+    Issues are items on GitHub to help you and other contributors keep track of work on a project.  An issue is not always a bug or a problem.  It may also be a feature to be added, or a discussion.
 
-!!! tip
+    Your contribution should be related to an issue.  You can browse a list of issues on the repository page for each project. 
 
-    If you are working on an issue you have found yourself, and the issue is not listed yet, please [report the issue](../../how-to-guides/software-management/guidelines-for-reporting-issues.md) and assign it to yourself.
+    Even if you don't know how to solve an issue, [a good issue report](../../how-to-guides/software-management/guidelines-for-reporting-issues.md) can be a helpful contribution in itself. 
+
+    [Learn more about issues on GitHub (external)](https://docs.github.com/en/issues/tracking-your-work-with-issues) 
+
+In preparation to contribute to a project, **find an issue** (or [open one](../../how-to-guides/software-management/guidelines-for-reporting-issues.md)), and **assign yourself** to it on GitHub.  This way, other contributors to the project know what is being worked on.
 
 -----
 
 ## Fork
 
-![Forking a repository on GitHub](../../assets/software-management/git-fork.png){ align=right width=450 }
+??? question "What is a Fork?"
 
-A ***fork*** is a copy of a repository.  The repo that has been forked from is usually called ***"upstream"***, and your fork/working copy is called ***"origin"*** by default.
+    ![Forking a repository on GitHub](../../assets/software-management/git-fork.png){ align=right width=450 }
 
-Your fork is your own working copy, where you can test your code or add new features.  While you are working on your contribution, you don't have to worry about unfinished code affecting the upstream repo; you are on your own fork.  Later, when your code is done, there is a review process before your code can be merged into the upstream repo.
+    A ***fork*** is a copy of a repository.  The repo that has been forked from is usually called ***"upstream"***, and your fork/working copy is called ***"origin"*** by default.
+
+    Your fork is your own working copy, where you can test your code or add new features.  While you are working on your contribution, you don't have to worry about unfinished code affecting the upstream repo; you are on your own fork.  Later, when your code is done, there is a review process before your code can be merged into the upstream repo.
+
+    [Learn more about forks on GitHub (external)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks).
 
 #### To make a fork:
 
-1. Click the fork button on the repository page
+1. Click the `Fork` button on the project's GitHub page
 1. Enter a name for your fork.
     - If you want to contribute back to the original repo, you can just leave the name the same (your fork is differentiated by your username).
+1. Click `Create Fork`
 
 -----
 
 ## Clone
 
-To clone a repository means to make a copy of it, usually on your local computer (or the computer you will be working on it from).
+To clone a repository means to make a copy of it, usually on your local computer.
 
-![Cloning a repository on GitHub](../../assets/software-management/git-clone.png){ align=right width=450 }
+??? example "[screenshot] Finding a Repo's Address on GitHub and Cloning it in the Terminal"
+
+    ![Cloning a repository on GitHub](../../assets/software-management/git-clone.png)
 
 To download a repo to your computer:
 
 1. Go to your fork's web page.
-1. Click the "clone" or "code" button.
+1. Click the `Clone` or `Code` button.
 1. Copy the address of the repo.
    - If you use the SSH address, you will need to [set up SSH keys on your computer and in your git account (external link)](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 1. In your terminal, navigate to (or create) a parent directory of choice for your various repos (commonly named "source", "repos", "workspace", or "code").
@@ -116,34 +133,50 @@ To download a repo to your computer:
 
 ## Branch
 
-A ***branch*** is a version of the codebase within a repository.  Your cloned repository should come with a default branch, likely called "main", "master", or "dev".
-
-Before making changes, make a new branch for your contributions with
+Before making changes, make a new branch with an appropriate name:
 
     git checkout -b <branch_name>
 
-Running this command will make a copy of the current branch with your new name and switch to it (*check it out*) for you to work on.
+??? tip "Branches, and switching between them"
 
-!!! tip
+    A ***branch*** is a version of the codebase within a repository.  Your cloned repository should come with a default branch, likely called "main", "master", or "dev".
 
     You can switch between branches to work with different versions of the codebase.
+
+    ```sh
+    # List existing branches
+    git branch
+
+    # Create a new branch (a copy of the current branch) without switching to it
+    git branch <branch_name>
+
+    # Switch to another existing branch
+    git checkout <branch_name>
+
+    # Create a new branch (a copy of the current branch) and switch to it
+    git checkout -b <branch_name>
+    ```
+
+## Remotes
+
+??? question "What is a Git Remote?"
+
+    A remote is an address of a repository hosted online.  You can pull updates from remotes with git.  You can also push updates to a remote if you have access permissions.
     
-    `git checkout <branch_name>` switches to another existing branch.
-    
-    `git branch <branch_name>` creates a new branch without switching to it.
+    When you clone a repository, a remote called ***"origin"*** is added to your local repo, referencing the online repo it was cloned from.
+    To help keep your work in sync with the upstream project, you should usually add an ***"upstream"*** remote.
+    You can also add other people's forks as remotes if you need to collaborate with them.
 
-## Git Remotes
+    List your remotes with `git remote -v`.
 
-A remote is a a copy of a repository hosted online.  When you clone a repository, a remote called ***"origin"*** is added to your local repo, referencing the online repo it was cloned from.
+    Add a new remote with `git remote add <remote-name> <remote-address>`
 
-The first step of keeping your work in sync with the overall project is adding it as a remote:
+To add an upstream remote:
 
-1. Go to the upstream repo's page (the original repo you forked yours from earlier).
-1. Click the "clone" or "code" button.
+1. Go to the upstream repo's GitHub page (the original repo you forked yours from earlier).
+1. Click the `Clone` or `Code` button.
 1. Copy the address of the repo.
 1. Run the `git remote add upstream <upstream-repo-address>` command.
-
-You should now have two remotes, one called ***"origin"***, and one called ***"upstream"***.  You can list your remotes with `git remote -v`.
 
 ## Keeping Updated
 
@@ -154,11 +187,13 @@ If a change in your code conflicts with a change being merged in, you might have
 
 If you are about to make a new branch, you might want to `git merge upstream/main` into your own main branch.  Then, whatever branch you make off of your main will start out up to date.
 
-!!! info "`git rebase`"
+??? info "`git rebase`, the alternative to `merge`"
 
-    `git rebase` is an alternative to `git merge`.  ***Merge*** adds the upstream changes onto your own changes as if the upstream changes happened after your own.  ***Rebase*** acts as if any upstream changes occured before your changes (and adds your changes onto the upstream changes in your local repo).
+    ***Merge*** adds the upstream changes onto your own changes as if the upstream changes happened after your own.  ***Rebase*** acts as if any upstream changes occured before your changes (and adds your changes onto the upstream changes in your local repo).
 
     The changes resulting from merge and rebase should be pretty similar, but the way conflicts are dealt with and the way git history is recorded is a bit different.
+
+    [Learn more about merging vs. rebasing (external)](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
 
 ## Making Changes
 
@@ -166,7 +201,7 @@ By this point, you should have made your own fork, cloned the repo to your compu
 
 ## Tracking Files
 
-To track a new file or changes to an existing file with git, you will have to add it with `git add <your_file>`.  You can use `git add -A` to add all changes (this includes changes like removing or renaming a file).  Changes that have been added but not committed are called *staged* changes.  You must save a file before you `git add` it.
+To track a new file or changes to an existing file with git, add it with `git add <your_file>`.  Use `git add -A` to add all changes (this includes changes like removing or renaming a file).  Changes that have been added but not committed are called *staged* changes.  You must save a file before you `git add` it.
 
 If you go back and make another modification to a file, you will have to `git add` that file again.  Use `git status` to list the tracking status of files in your repository.  See [Git Basics from the Pro Git Book (external)](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository) for more details.
 
@@ -184,7 +219,7 @@ When you have made one or more commit, sync them to your remote repo with `git p
 
 -----
 
-!!! note "Before your Pull Request: Tests, Changelogs, and Upstream Changes"
+???+ note "Before making a Pull Request: Tests, Changelogs, and Upstream Changes"
 
     Before you make a Pull Request, make sure to include tests and/or changelog entries if needed for the project recieving contributions.
 
@@ -203,9 +238,9 @@ When you have made one or more commit, sync them to your remote repo with `git p
 
 ## Create Pull Request
 
-A Pull Request (aka PR, Merge Request, or MR) is a request to merge your branch into an upstream repository or another branch.  On your repo's page, you can initiate a pull request.  You should include a description of the changes you made.  Be sure to mention any issues you addressed - "Fixes #364" will tell the system to automatically close issue 364 when your PR is merged.  Some projects require certain information to be recorded as part of a Pull Request.  See [Guidelines for Pull Requests](../../how-to-guides/software-management/guidelines-for-pull-requests.md).
+A Pull Request (PR) is a request to merge your branch into an upstream repository or another branch.  On your repo's GitHub page, initiate a pull request.  Make sure it is to the upstream repo so your changes to make it back into the project.  You should include a description of the changes you made, mentioning any issues you addressed ("Fixes #364").  Some projects require certain information to be recorded as part of a Pull Request.  See [Guidelines for Pull Requests](../../how-to-guides/software-management/guidelines-for-pull-requests.md).
 
 
 ## Code Review
 
-Part of the Pull Request process is a code review.  Before your code is merged, another developer will look through it, and may make comments, ask questions, or request changes.  If the review goes well (which may involve some additional changes, commits, and pushes on your part), the reviewer can approve the Pull Request.  It can then be merged.
+Part of the Pull Request process is a code review on GitHub.  Before your code is merged, another developer must look through it, and may make comments, ask questions, or request changes.  If the review goes well (which may involve some additional changes, commits, and pushes on your part), the reviewer can approve the Pull Request.  It can then be merged.
