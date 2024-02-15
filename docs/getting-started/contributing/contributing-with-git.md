@@ -1,24 +1,43 @@
 # Contributing with Git
 
-Community contributions are an important part of USGS open source projects.  Contributions from people like you help make our projects at the USGS better for everyone.  And, by contributing, you can build your skills, display your work, and form community connections.
+Community contributions are an important part of USGS open source projects.
+Contributions from people like you help make our projects at the USGS better for everyone.
+And, by contributing, you can build your skills, display your work, and form community connections.
 
-This guide walks through the process of using git.  Git is the system the USGS uses to manage changes and contributions to our software projects.
+USGS Astro uses `git` and GitHub to manage changes and contributions to our software projects.
+`git` is a tool on your computer to manage code locally, and **GitHub** is a website that hosts code for developers and users to collaborate on.
+`git` commands are executed through your terminal, while GitHub operations are performed in the GitHub web interface.
 
 If you aren't comfortable contributing code, you can also help by contributing documentation or tutorials, or [opening](../../how-to-guides/software-management/guidelines-for-reporting-issues.md) and commenting on git issues.
 
 ???+ abstract "Git Contribution Process Overview"
+
+    Boxes show "location - branch, and contents".
+    
+    In CAPS are specific operations in `git` or GitHub.
+
     ```mermaid
     flowchart TD
-        A(fa:fa-cloud upstream/main*\nProject Repo) -->|Other Changes to upstream/main\nFETCH & MERGE with your branch| E
-        A -->|FORK| B
-        B(fa:fa-cloud origin/main\nYour Remote Repo) -->|CLONE| C
-        C[fa:fa-computer main\nLocal Repo] -->|BRANCH| D
-        D[fa:fa-computer feature-branch\nLocal Repo] -->|Edit, Save, Test & Make COMMITS| E
-        E[fa:fa-computer feature-branch\nLocal Repo with changes] -->|PUSH| F
-        F(fa:fa-cloud origin/feature-branch\nYour Remote Repo with changes) -->|Open PULL REQUEST, Pull Request MERGED| G
-        G(fa:fa-cloud upstream/main \nProject Repo with your changes)
+        A(GitHub - upstream/main* \n Project Repo)
+        A -->|"Other Changes to upstream/main \n <a href='#keeping-updated'>FETCH & MERGE</a> with your branch"| E
+        A -->|"<a href='#fork'>FORK</a>"| B
+        B(GitHub - origin/main \n Your Repo)
+        B -->|"<a href='#clone'>CLONE</a>"| C
+        C[Local - main \n Your Repo]
+        C -->|"<a href='#branch'>BRANCH</a>"| D
+        D[Local - branch \n Your Repo]
+        D -->|"Edit, Save, Test & Make <a href='#commits'>COMMITS</a>"| E
+        E[Local - branch \n Your Repo with changes]
+        E -->|"<a href='#push'>PUSH</a>"| F
+        F(GitHub - origin/branch \n Your Repo with changes)
+        F -->|"Open <a href='#create-pull-request'>PULL REQUEST</a>, Pull Request <a href='#code-review'>MERGED**</a>"| G
+        G(GitHub - upstream/main \n Project Repo with your changes)
     ```
-    * Note, for some projects, the working branch may be `master` or `dev` instead of main.
+    * For some projects, the working branch may be `master` or `dev` instead of main.
+
+    ** A *Pull Request* can only be merged after approval of maintainers on GitHub.  You will have to wait for others for this step.
+
+
 
 ## Prerequisites
 
