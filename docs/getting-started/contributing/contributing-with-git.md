@@ -113,19 +113,21 @@ To clone a repository means to make a copy of it, usually on your local computer
 
 ??? example "[screenshot] Finding a Repo's Address on GitHub and Cloning it in the Terminal"
 
+    See [cloning a repository on GitHub (external)](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+
     ![Cloning a repository on GitHub](../../assets/software-management/git-clone.png)
 
 To download a repo to your computer:
 
-1. Go to your fork's web page.
-1. Click the `Clone` or `Code` button.
+1. Go to your fork's GitHub page and click the `Clone` or `Code` button.
 1. Copy the address of the repo.
-   - If you use the SSH address, you will need to [set up SSH keys on your computer and in your git account (external link)](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+    - The HTTPS address needs less setup.  For more security, [set up SSH keys (external)](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) and use the SSH address.
+    - The address should end in `.git` (i.e, ***not*** the address out of your browser's address bar).
 1. In your terminal, navigate to (or create) a parent directory of choice for your various repos (commonly named "source", "repos", "workspace", or "code").
 1. Run
         ```sh
         git clone <your_repo_address>
-        ```   
+        ```
    When it is done, you will have a subdirectory with your repo in it.
 1. Navigate into your newly cloned directory from you terminal.  Future git commands will be run from within this directory.
 
@@ -189,7 +191,7 @@ If you are about to make a new branch, you might want to `git merge upstream/mai
 
 ??? info "`git rebase`, the alternative to `merge`"
 
-    ***Merge*** adds the upstream changes onto your own changes as if the upstream changes happened after your own.  ***Rebase*** acts as if any upstream changes occured before your changes (and adds your changes onto the upstream changes in your local repo).
+    ***Merge*** adds the upstream changes onto your own changes as if the upstream changes happened after your own.  ***Rebase*** acts as if any upstream changes occurred before your changes (and adds your changes onto the upstream changes in your local repo).
 
     The changes resulting from merge and rebase should be pretty similar, but the way conflicts are dealt with and the way git history is recorded is a bit different.
 
@@ -221,7 +223,7 @@ When you have made one or more commit, sync them to your remote repo with `git p
 
 ???+ note "Before making a Pull Request: Tests, Changelogs, and Upstream Changes"
 
-    Before you make a Pull Request, make sure to include tests and/or changelog entries if needed for the project recieving contributions.
+    Before you make a Pull Request, make sure to include tests and/or changelog entries if needed for the project receiving contributions.
 
     ### Tests
 
