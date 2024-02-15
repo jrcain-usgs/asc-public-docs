@@ -109,11 +109,9 @@ In preparation to contribute to a project, **find an issue** (or [open one](../.
 
 ## Clone
 
-To clone a repository means to make a copy of it, usually on your local computer.
+Cloning a GitHub repository makes a copy of it on your local computer.  See [GitHub Docs (external)](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) for more info.
 
 ??? example "[screenshot] Finding a Repo's Address on GitHub and Cloning it in the Terminal"
-
-    See [cloning a repository on GitHub (external)](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
     ![Cloning a repository on GitHub](../../assets/software-management/git-clone.png)
 
@@ -240,7 +238,9 @@ When you have made one or more commit, sync them to your remote repo with `git p
 
 ## Create Pull Request
 
-A Pull Request (PR) is a request to merge your branch into an upstream repository or another branch.  On your repo's GitHub page, initiate a pull request.  Make sure it is to the upstream repo so your changes to make it back into the project.  You should include a description of the changes you made, mentioning any issues you addressed ("Fixes #364").  Some projects require certain information to be recorded as part of a Pull Request.  See [Guidelines for Pull Requests](../../how-to-guides/software-management/guidelines-for-pull-requests.md).
+A Pull Request (PR) is a request to merge your branch into an upstream repository or another branch.  On your repo's GitHub page, initiate a pull request.  Make sure it is to the upstream repo so your changes to make it back into the project.
+
+You should include a description of the changes you made, mentioning any issues you addressed ("Fixes #364").  Some projects require certain information to be recorded as part of a Pull Request.  See [Guidelines for Pull Requests](../../how-to-guides/software-management/guidelines-for-pull-requests.md).
 
 
 ## Code Review
