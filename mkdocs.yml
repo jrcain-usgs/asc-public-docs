@@ -15,6 +15,7 @@ theme:
         - navigation.indexes
         - search.suggest
         - search.suggest
+        - content.code.copy
 
     palette:
         # Palette toggle for dark mode
@@ -41,9 +42,11 @@ nav:
     - CSM Stack:
       - Generating an ISD, creating a CSM model, and converting coordinates: getting-started/csm-stack/image-to-ground-tutorial.ipynb
     - "Using ISIS: First Steps":
+      - Introduction to ISIS:              getting-started/using-isis-first-steps/introduction-to-isis.md
       - Locating and Ingesting Image Data: getting-started/using-isis-first-steps/locating-and-ingesting-image-data.md
       - Adding SPICE:                      getting-started/using-isis-first-steps/adding-spice.md
       - Exporting ISIS Data:               getting-started/using-isis-first-steps/exporting-isis-data.md
+      - ISIS FAQ:                          getting-started/using-isis-first-steps/isis-faq.md
   - How-To Guides: 
     - Home: how-to-guides/index.md
     - Environment Setup and Maintenance:
@@ -57,7 +60,7 @@ nav:
       - Map Projecting Images:             how-to-guides/image-processing/map-projecting-images.md
       - Removing Striping Noise:           how-to-guides/image-processing/removing-striping-noise.md
       - General Utility with FX:           how-to-guides/image-processing/general-utility-with-fx.md
-    - Software Management: 
+    - Software Management:
       - ISIS Public Release Process:       how-to-guides/software-management/public-release-process.md
       - Software Support:                  how-to-guides/software-management/software-support.md
       - Guidelines for Reporting Issues:   how-to-guides/software-management/guidelines-for-reporting-issues.md
@@ -74,6 +77,12 @@ nav:
     - Camera Geometry and Projections:
       - Camera Geometry:                     concepts/camera-geometry-and-projections/camera-geometry.md
       - Learning About Map Projections:      concepts/camera-geometry-and-projections/learning-about-map-projections.md
+    - ISIS Fundamentals:
+      - ISIS Cube Format:                  concepts/isis-fundamentals/cube-format.md
+      - ISIS Attached Spice Format:        concepts/isis-fundamentals/spice-format.md
+      - ISIS Kernel Load Selection:        concepts/isis-fundamentals/kernel-selection.md
+      - Bit Types:                         concepts/isis-fundamentals/bit-types.md
+      - Special Pixels:                    concepts/isis-fundamentals/special-pixels.md
     - SPICE:
       - SPICE Overview:                            concepts/spice/spice-overview.md
       - SPICE Position Functions and Requirements: concepts/spice/spice-position-functions-and-requirements.md
@@ -97,6 +106,7 @@ extra_css:
 
 extra_javascript: 
   - https://asc-public-docs.s3.us-west-2.amazonaws.com/common/uswds/3.6.0/js/uswds-init.min.js
+  - https://asc-public-docs.s3.us-west-2.amazonaws.com/common/uswds/3.6.0/js/uswds.min.js
 
 plugins:
   - search
