@@ -95,6 +95,10 @@ nav:
       - Autoseed:                       concepts/control-networks/autoseed.md
       - Image Registration:             concepts/control-networks/image-registration.md
       - Multi-Instrument Registration:  concepts/control-networks/multi-instrument-registration.md
+    - Sensor Models:
+      - Reference Frames: concepts/sensor-models/reference-frames.md
+      - Sensor Models:   concepts/sensor-models/sensor-models.md
+      - Sensor Model Software:   concepts/sensor-models/sensor-model-software.md
   - Manuals: manuals/index.md
 
 extra_css:
@@ -111,6 +115,7 @@ extra_javascript:
 plugins:
   - search
   - mknotebooks
+  - mermaid2
 
 markdown_extensions:
   - codehilite
@@ -135,7 +140,11 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
