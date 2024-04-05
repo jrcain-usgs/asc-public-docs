@@ -137,7 +137,57 @@ In this step, we will prepare the local repository to build from, as well as upd
 
       * If it is a release candidate, description should state "[First/Second/Third/...] release candidate for ISIS X.Y.Z". 
 
-  
+  * Add a DOI (see Part F)
+
+### Part F: Create a DOI for the release
+
+  * A DOI is only needed for standard releases.  Release candidates do not need a DOI.
+
+  * Go to the [USGS Asset Identifier Service (AIS)](https://www1.usgs.gov/identifiers/) and click `Manage DOIs` to Login.
+      
+      * You will need the assistance of USGS staff for this.
+
+      * The AIS has known compatibility issues with Firefox, if you have trouble logging in, switch browsers.
+    
+  * Click `Create DOI` and Reserve a DOI.
+
+      * **Title**: `Integrated Software for Imagers and Spectrometers (ISIS) X.Y.Z`
+
+      * **Data Source**: `Astrogeology Science Center`
+
+      * ISIS `Does Not` use the *ScienceBase Data Release Process*.
+
+      * Clicking `Reserve My DOI` returns the DOI that's on hold.
+      
+          * Record this number in the GitHub release, and in the ISIS Readme at the top as a badge and in the Citing ISIS section.
+
+  * Add More Information
+
+      * Under "Manage Record"
+
+          * Add other USGS Staff members who can manage the DOI.
+
+      * Under "Required Information"
+
+          * **Creator(s) / Author(s)**: Add the ISIS Team Lead
+
+          * **Landing Page URL**: https://code.usgs.gov/astrogeology/isis/-/tags/[X.Y.Z]
+
+          * **Resource Type**: Software
+
+          * **IPDS Number**: IP-141314 for ISIS 8.x.x releases.  Major Versions will need a new number/release approval from [IPDS](https://ipds.usgs.gov).
+
+          * This product **is not** associated with a primary USGS-authored publication.
+
+      * Under "Recommended Information"
+
+          * Fill info if available.
+    
+      * Saving and Publishing
+
+          * Once the Landing Page URL on code.usgs.gov is live, publish the record to DataCite.
+
+          * You can save the record without publishing it if the release landing page is not ready.  
 
 ## Step 4: Create the Builds for Anaconda Cloud 
 
