@@ -2,7 +2,7 @@
 
 ## Drivers
 
-- While there are similarities between spacecraft, each instument has particularities in:
+- While there are similarities between spacecraft, each instrument has particularities in:
   - what data it collects/records
   - how that data is shown
 
@@ -12,7 +12,7 @@
 ## Mixins
 
 - Inheritance structure in python
-  - details/explanaiton
+  - details/explanation
   - diagram
   - link to more info
 
