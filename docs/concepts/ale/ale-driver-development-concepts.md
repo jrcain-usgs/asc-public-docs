@@ -13,7 +13,7 @@ They may gather the same type of data, but store it in slightly different format
 To get data into a standard format, the unique properties of each spacecraft must be accounted for.
 
 This is what ALE drivers are for.  If ALE has a driver for a spacecraft, 
-it can return an ISD (Image Support Data) for images from that spacecraft.
+it can return an ISD (Image Support Data) for images from that spacecraft. 
 (ALE may also need supplementary data along with the image, like labels or NAIF SPICE Kernels)
 
 An ALE driver is a Python Class.  It uses Mixins to inherit shared functionality, 
@@ -22,14 +22,31 @@ and Methods to define per-spacecraft fuctionality.
 
 ## Mixins
 
-- Inheritance structure in python
-  - details/explanation
-  - diagram
-  - link to more info
+Mixins allow code from different classes to be reused and mixed together in one class (or ALE driver, in our case). 
+Mixins can be thought of like multiple inheritance, though one mixin is not usually the single parent/super of another class. 
+They can also be thought of similar to an *include* at the top of the class. 
 
-- Why ALE uses mixins
-  - Mixing common behaviors of spacecraft
-    - Example from ALE
+A class that uses a mixin is not typically a specialized version of that mixin. 
+Rather, the mixin is one component among many in the class that is using it. 
+
+In this example, the Driver class may use methods from Mixins A, B, and C, as well as its own methods D, E, and F.
+```mermaid
+flowchart TD
+    A[Mixin A] --> G
+    B[Mixin B] --> G
+    C[Mixin C] --> G
+    G["Class Driver(A, B, C):\ndef D:\ndef E:\ndef F:"]
+```
+
+Mixins let ALE drivers mix and match common spacecraft/image data features.
+For example, there are mixins that correspond to different camera types.
+So, whatever the other mixins and methods in a driver, 
+any methods that correspond to a certain type of camera
+can be included simply by adding a mixin like `Framer`.
+
+More info can be found on ALE Driver mixins it the 
+[Creating ALE Drivers](../../how-to-guides/ale-developer-guides/creating-ale-drivers/#class-signature) 
+How-To Guide, under Class Signature.
 
 
 ## Ale::load
