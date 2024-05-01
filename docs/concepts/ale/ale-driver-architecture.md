@@ -119,12 +119,13 @@ The base ALE Driver/mixin behavior will sometimes need to be overwritten in favo
     
     ISIS is your guide for creating drivers in ALE.
 
-    ALE's ISDs should match closely with with your spacecraft's ISIS Camera.
-    A **mismatch** between the ALE ISD and ISIS Camera (aside from cases of insignificant digits) 
-    is an indication the ALE driver needs to be changed. The mismatched field may give an 
+    Labels from cubes generated with an ALE driver should match closely with labels from an ISIS cube.
+    A mismatch between the ALE and ISIS labels (aside from cases of insignificant digits)
+    is an indication the ALE driver needs to be changed. The mismatched field may give an
     indication of what method needs implementation or changing.
 
     A look at related camera classes in ISIS may help show how to implement the ALE Driver.
+
 
 Methods in the driver itself will take precedence over methods in the mixin classes. 
 Every driver will need some of its own methods, some drivers more than others. 
