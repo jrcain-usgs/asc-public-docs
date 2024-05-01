@@ -89,7 +89,7 @@ any methods that correspond to a certain type of camera
 can be included simply by adding a mixin like `Framer`.
 
 More info can be found on ALE Driver mixins in 
-[Creating ALE Drivers - Class Signature](../../how-to-guides/ale-developer-guides/creating-ale-drivers/#class-signature).
+[Creating ALE Drivers - Class Signature](../../how-to-guides/ale-developer-guides/creating-ale-drivers.md/#class-signature).
 
 
 ## ale.driver.load()
@@ -100,7 +100,7 @@ More info can be found on ALE Driver mixins in
 The `load()` function in ALE is for creating an ISD from a label. 
 It runs through every class containing `_driver` in the name,
 until one works and successfully creates an ISD (or until all fail). 
-`load()` initially checks for an instrument_id and fails the driver if that does not succeed. 
+It initially checks for an `instrument_id` and fails the driver if that does not succeed. 
 
 Because of the sequential trial-and-error loading method, in some cases
 a different driver may succeed before the desired driver is reached.
@@ -123,7 +123,7 @@ The base behavior of a will sometimes need to be overwritten in favor of a more 
 
 Methods in the driver itself will take precedence over methods in the mixin classes. 
 Every driver will need some of its own methods, some drivers more than others. 
-See [Creating ALE Drivers - Creating Methods to Customize the Driver](../../how-to-guides/ale-developer-guides/creating-ale-drivers/#creating-methods-to-customize-the-driver). 
+See [Creating ALE Drivers - Creating Methods to Customize the Driver](../../how-to-guides/ale-developer-guides/creating-ale-drivers.md/#creating-methods-to-customize-the-driver). 
 Any time a spacecraft records data in a different way than others, it will need a method in its driver.
 
 ### Mixin Order
