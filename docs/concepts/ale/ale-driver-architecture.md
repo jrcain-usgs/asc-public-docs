@@ -17,7 +17,7 @@ it can return an ISD (Image Support Data) for images from that spacecraft.
 (ALE may also need supplementary data along with the image, like labels or NAIF SPICE Kernels)
 
 An ALE driver is a Python Class.  It uses Mixins to inherit shared functionality, 
-and Methods to define per-spacecraft fuctionality.
+and Methods to define per-spacecraft functionality.
 
 
 ## Mixins
@@ -83,8 +83,9 @@ Rather, the mixin is one component among many in the class that is using it.
     `super()` can be used to access methods from parent classes or further-right mixins.
 
 Mixins let ALE drivers mix and match common spacecraft/image data features.
-For example, there are mixins that correspond to different camera types: 
-whatever the other mixins and methods in a driver, 
+
+*For example*: There are mixins that correspond to different camera types. 
+Whatever the other mixins and methods in a driver, 
 any methods that correspond to a certain type of camera
 can be included simply by adding a mixin like `Framer`.
 
@@ -94,11 +95,13 @@ More info can be found on ALE Driver mixins in
 
 ## ale.driver.load()
 
+The `load()` function in ALE is for creating an ISD from a label. 
+
 - `load()` returns a dictionary.
 - `loads()` is a wrapper for `load()` that returns a string.
+- `isd_generate.py` is a user-facing script that uses `load()` and writes a .json file.
 
-The `load()` function in ALE is for creating an ISD from a label. 
-It runs through every class containing `_driver` in the name,
+`load()` runs through every class containing `_driver` in the name,
 until one works and successfully creates an ISD (or until all fail). 
 It initially checks for an `instrument_id` and fails the driver if that does not succeed. 
 
@@ -140,5 +143,5 @@ also obscure other methods the driver needs.
 
 ### Editing Mixin Classes
 
-Adding or changing a method in a mixin class will propogate that method to any drivers that use the mixin.
+Adding or changing a method in a mixin class will propagate that method to any drivers that use the mixin.
 Take caution when editing a mixin class, as changes can affect many drivers.
