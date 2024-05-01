@@ -89,6 +89,8 @@ Whatever the other mixins and methods in a driver,
 any methods that correspond to a certain type of camera
 can be included simply by adding a mixin like `Framer`.
 
+Generally, every ALE driver has five mixins in this order: 
+Camera Type, Label Type, Aux Data Type, Distortion Type, and last a base driver class. 
 More info can be found on ALE Driver mixins in 
 [Creating ALE Drivers - Class Signature](../../how-to-guides/ale-developer-guides/creating-ale-drivers.md/#class-signature).
 
@@ -99,7 +101,7 @@ The `load()` function in ALE is for creating an ISD from a label.
 
 - `load()` returns a dictionary.
 - `loads()` is a wrapper for `load()` that returns a string.
-- `isd_generate.py` is a user-facing script that uses `load()` and writes a .json file.
+- `isd_generate.py` is a command-line script that uses `load()` and writes a .json file.
 
 `load()` runs through every class containing `_driver` in the name,
 until one works and successfully creates an ISD (or until all fail). 
@@ -111,18 +113,18 @@ a different driver may succeed before the desired driver is reached.
 
 ## Overwriting Base Behavior
 
-The base behavior of a will sometimes need to be overwritten in favor of a more specific behavior for your driver.
+The base ALE Driver/mixin behavior will sometimes need to be overwritten in favor of a more specific behavior for your driver.
 
 !!! note "Use ISIS for Reference!"
     
     ISIS is your guide for creating drivers in ALE.
 
-    ALE's ISDs should match closely with with your spacecraft's ISDs from ISIS.
-    A **mismatch** between the ALE and ISIS ISDs (aside from cases of insignificant digits) 
+    ALE's ISDs should match closely with with your spacecraft's ISIS Camera.
+    A **mismatch** between the ALE ISD and ISIS Camera (aside from cases of insignificant digits) 
     is an indication the ALE driver needs to be changed. The mismatched field may give an 
     indication of what method needs implementation or changing.
 
-    A look at the related classes in ISIS may help you figure out how to implement the ALE Driver.
+    A look at related camera classes in ISIS may help show how to implement the ALE Driver.
 
 Methods in the driver itself will take precedence over methods in the mixin classes. 
 Every driver will need some of its own methods, some drivers more than others. 
