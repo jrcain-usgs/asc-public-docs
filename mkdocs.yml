@@ -76,6 +76,8 @@ nav:
   - Concepts: 
     - Home:     concepts/index.md
     - Glossary: concepts/glossary.md
+    - ALE:
+      - Ale Driver Architecture:             concepts/ale/ale-driver-architecture.md
     - Camera Geometry and Projections:
       - Camera Geometry:                     concepts/camera-geometry-and-projections/camera-geometry.md
       - Learning About Map Projections:      concepts/camera-geometry-and-projections/learning-about-map-projections.md

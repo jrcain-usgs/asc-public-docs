@@ -119,9 +119,10 @@ ALE drivers largely follow the same structure, but individual methods differ amo
 
 ## Preparing Test Data
 1. Create a data directory within `ale/tests/pytests/data/` based on your .cub name
-1. Slice the Kernels with ALE's kernel slicing notebook (ale/notebooks/KernelSlice.py)
+1. Slice the Kernels with ALE's kernel slicing notebook (`ale/notebooks/KernelSlice.py`)
     - This will require some customization based on your instrument, specifically to PVL structure
     - Requires the separate installation of [ckslicer](https://naif.jpl.nasa.gov/naif/utilities.html) (select your operating system -> CKSlicer).
+    - If using the `KernelSlice` notebook is unsuccessful, you may have to manually slice the kernels with NAIF utilities (ckslicer, toxfr, spkmerge) and the appropriate arguments.
 1. Copy transfer kernels into the test data directory that you created above
     - See [Test Data](#test-data) for what data you will need to copy.
 1. Generate an isd using ALE's `isd_generate` utility and copy it into `ale/tests/pytests/data/isds/`
