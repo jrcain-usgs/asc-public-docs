@@ -74,6 +74,7 @@ nav:
       - ISIS Development on the Mac M1 ARM System:    how-to-guides/isis-developer-guides/developing-mac-m1-arm-systems.md
     - ALE Developer Guides:
       - Creating Ale Drivers: how-to-guides/ale-developer-guides/creating-ale-drivers.md
+
   - Concepts: 
     - Home:     concepts/index.md
     - Glossary: concepts/glossary.md
@@ -92,6 +93,7 @@ nav:
       - Command Line Usage:                concepts/isis-fundamentals/command-line-usage.md
       - Preference Dictionary:             concepts/isis-fundamentals/preference-dictionary.md
       - Error Dictionary:                  concepts/isis-fundamentals/error-dictionary.md
+      - Session Logs:                      concepts/isis-fundamentals/session-logs.md
 
     - SPICE:
       - SPICE Overview:                            concepts/spice/spice-overview.md
