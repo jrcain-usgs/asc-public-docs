@@ -64,6 +64,7 @@ nav:
       - Bundle Adjustment in ISIS:         how-to-guides/image-processing/bundle-adjustment-in-isis.md
     - ISIS Demos and Workshops:            how-to-guides/isis-demos-and-workshops.md
     - Software Management:
+      - LTS Release Process:               how-to-guides/software-management/lts-release-process.md
       - Deprecation:                       how-to-guides/software-management/deprecation.md
       - Public Release Process:            how-to-guides/software-management/public-release-process.md
       - Software Support:                  how-to-guides/software-management/software-support.md
