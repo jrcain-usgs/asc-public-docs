@@ -45,9 +45,13 @@ When creating a new getting-started tutorial, first you need to make sure what y
 
 Concrete things your tutorial needs: 
 
-- [ ] If your tutorial requires installing software, list what software and their versions and clear instructions on how to install them. Feel free to point to other points of the doc that already have boilerplate info like "Go here to read on how to set up a custom ISISPreferences file". 
-- [ ] If your tutorial has data, use generative data or data that is in the repo. Avoid external data dependencies. Before data is committed into the repo, check if [existing data can be re-used](./data/). If new data needs to be committed, make sure it is small so as not to increase the data burden.   
-- [ ] Make sure to make the lesson clear in the title. Also, make it clear in the tutorial with something like "Lessons learned in this tutorial:". 
-
+- [ ] If your tutorial requires software, list the software with versions and installation instructions. Feel free to link to existing docs with boilerplate info, for example:
+   ```
+   See [User Preferences File](../concepts/isis-fundamentals/preference-dictionary.md#user-preference-file) 
+   or [Project Preference File](../concepts/isis-fundamentals/preference-dictionary.md#project-preference-file) 
+   for more info on custom ISISPreferences files.
+   ```
+- [ ] If your tutorial has data, use generative data or data that is in the repo. Avoid external data dependencies. Before data is committed into the repo, check if [existing data can be re-used](https://github.com/DOI-USGS/asc-public-docs/tree/main/docs/assets). If new data needs to be committed, minimize the size so as not to increase the data burden. 
+- [ ] Make the objectives clear in the title. Also, clarify the tutorial with a summary of objectives. 
 
 See the [git repo](https://code.usgs.gov/astrogeology/asc-public-docs) for more in-depth info on how to contribute new docs. 
