@@ -1,6 +1,121 @@
-/* This handles the issue where mkdocs-css and uswds-css are in conflict. Both try to set html to a specific font-size percentage. 
-    mkdocs-css makes the font too large causing the usa banner to be too large. uswds-css makes the page font too small. 
-    Therefore a solution is to set the font-size percentage in the middle.*/
+/* mkdocs-css enlarges the whole page, so this scales back some of the uswds-css components*/
+
 html {
-  font-size: 120%!important;
+  font-size: 125%;
+}
+
+@font-face{
+  font-family:"Public Sans Web";
+  font-style:normal;
+  font-weight:400;
+  font-display:fallback;
+  src:url(https://asc-public-docs.s3.us-west-2.amazonaws.com/common/uswds/3.6.0/fonts/public-sans/PublicSans-Medium.woff2) format("woff2");
+}
+@font-face{
+  font-family:"Public Sans Web";
+  font-style:normal;
+  font-weight:700;
+  font-display:fallback;
+  src:url(https://asc-public-docs.s3.us-west-2.amazonaws.com/common/uswds/3.6.0/fonts/public-sans/PublicSans-Bold.woff2) format("woff2");
+}
+
+.usa-banner__header-text, .usa-banner__button, .usa-banner__guidance {
+  font-family: Public Sans Web,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+}
+
+.usa-banner__guidance {
+  font-size: .8rem;
+}
+
+.usa-banner__button {
+  font-size: .6rem;
+  font-weight: 400;
+}
+
+.usa-banner__button::after, .usa-banner__button[aria-expanded="true"]::after {
+  height: 0.8rem;
+  width: 0.8rem;
+  mask-size: 0.8rem;
+}
+
+@media (max-width: 39.99rem) {
+
+  .usa-banner__button::after, .usa-banner__button[aria-expanded="true"]::after {
+    height: 2.4rem;
+    width: 2.4rem;
+    mask-size: 1.2rem;
+  }
+  .usa-banner__button[aria-expanded="true"]::before {
+    height: 2.4rem;
+    width: 2.4rem;
+  }
+  .usa-banner__header {
+    min-height: 2.4rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+}
+
+@media (min-width: 40rem) {
+  .usa-banner__header {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+}
+
+.usa-banner__header-flag {  
+  width: .8rem;
+  margin-top: 1px;
+}
+
+.usa-banner__header-text {
+  font-size: .6rem;
+  line-height: 1.2;
+}
+
+.usa-banner__header {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 61rem;
+  padding-left: 0.8rem;
+}
+
+.usa-banner__inner {
+  padding-left: 0rem !important;
+}
+
+.usa-banner__icon {
+  width: 2rem;
+}
+
+.header-search {
+  max-width: 59.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 0px) {
+    abbr[data-title] {
+        position: relative;
+    }
+
+    abbr[data-title]:hover::after,
+    abbr[data-title]:focus::after {
+        content: attr(data-title);
+
+        /* position tooltip like the native one */
+        position: absolute;
+        left: 0;
+        top: 22px;
+        min-width: 15rem;
+
+        /* style tooltip */
+        background-color: #1e1e1e;
+        color: #fff;
+        border-radius: 3px;
+        box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
+        font-size: 14px;
+        padding: 3px 5px;
+        z-index: 50;
+    }
 }
