@@ -102,18 +102,14 @@ html {
     abbr[data-title]:hover::after,
     abbr[data-title]:focus::after {
         content: attr(data-title);
-
-        /* position tooltip like the native one */
+        background-color: #1e1e1e;
+        color: white;
         position: absolute;
         left: 0;
         top: 22px;
         min-width: 15rem;
-
-        /* style tooltip */
-        background-color: #1e1e1e;
-        color: #fff;
-        border-radius: 3px;
-        box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
+        border-radius: 4px;
+        box-shadow: 1px 1px 4px 0 rgba(1, 1, 1, 0.5);
         font-size: 14px;
         padding: 3px 5px;
         z-index: 50;
