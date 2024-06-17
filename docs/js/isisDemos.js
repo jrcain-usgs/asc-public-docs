@@ -1206,8 +1206,6 @@ isisConsole.prototype.addChallengeControls = function() {
 
 isisConsole.prototype.initCubeDemoButtons = function() {
     var c = this;
-    var container = document.createElement('div');
-    container.setAttribute('class', 'range');
     var addBand = createButton('add-band','+band');
     var removeBand = createButton('remove-band', '-band');
     var addLine = createButton('add-line','+line');
@@ -1215,14 +1213,12 @@ isisConsole.prototype.initCubeDemoButtons = function() {
     var addSample = createButton('add-sample', '+sample');
     var removeSample = createButton('remove-sample', '-sample');
    
-    container.appendChild(addBand);
-    container.appendChild(removeBand);
-    container.appendChild(addLine);
-    container.appendChild(removeLine);
-    container.appendChild(addSample);
-    container.appendChild(removeSample);
-    
-    c.displayRight.appendChild(container);
+    c.displayRight.appendChild(addBand);
+    c.displayRight.appendChild(removeBand);
+    c.displayRight.appendChild(addLine);
+    c.displayRight.appendChild(removeLine);
+    c.displayRight.appendChild(addSample);
+    c.displayRight.appendChild(removeSample);
 }
 
 function createButton(id, text) {

@@ -1,5 +1,8 @@
 
 /* ISIS demos */
+
+/* General Layout */
+
 canvas {
 	padding:5px;
 	background-color:black;
@@ -64,6 +67,8 @@ canvas {
 .updateMessage {
 	color:white;
 }
+
+/* Buttons */
 
 #calcsize, .console button {
 	font-family: Source Sans Pro Web,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
@@ -157,13 +162,7 @@ canvas {
     );
 }
 
-.description {
-	font-family:sans-serif;
-	color:grey;
-	font-size:.8em;
-	display:block;
-	width:500px;
-}
+/* demo form elements */
 
 .right label {
 	font-family: sans-serif;
@@ -171,7 +170,7 @@ canvas {
 	display: inline-block;
 }
 
-.bottom input[readonly], .sliderContainer input[readonly] {
+.bottom input[readonly] {
 	border:0;
 	background-color:grey;
 	display:inline-block;
@@ -187,8 +186,10 @@ canvas {
 	display:block;
 	width:50px;
 	float:left;
-	margin:5px;
+	margin: 10px 5px;
 }
+
+/* Layout of specific demos */
 
 #isis-pixels {
 	width:500px;
@@ -223,13 +224,14 @@ canvas {
 }
 
 #isis-cube {
-	width:800px;
+	width:810px;
 	height:610px;
 	background-color:LightGrey; 
 }
 
 #isis-cube .right {
-	width:200px;
+	width:210px;
+	padding-left:10px;
 }
 
 #isis-cube canvas {
@@ -274,11 +276,6 @@ canvas {
 	margin:5px;
 }
 
-.range {
-	margin:10px;
-}
-
-
 
 .legend {
 	height:25px;
@@ -286,253 +283,8 @@ canvas {
 	line-height:25px;
 	text-align:center;
 }
-/* hack for slider */
-.ui-slider-horizontal .ui-slider-range {
-	height: 8px !important;
-	padding: 0px !important;
-}
-.ui-slider .ui-slider-handle {
-	height: 10px !important;
-}
 
-/* map projection demos */
-
-#radii-demo {
-	position:relative;
-	width:525px;
-	height:275px;
-	background-color:black;
-	border:3px solid lightGrey;
-	margin:5px;
-}
-
-#radii-demo canvas {
-	background-color:white;
-}
-
-#radii-demo .sidebar {
-	position:absolute;
-	background-color:lightGrey;
-	right:0;
-	top:0;
-	height:235px;
-	width:160px;
-	padding:20px;
-	font-family:sans-serif;
-}
-
-#radii-demo .ui-slider {
-	display:inline-block;
-	width:100px;
-	height:10px;
-	top:2px;
-}
-
-#radii-demo .ui-slider .ui-slider-handle {
-	height:12px;
-	width:10px;
-	top:-2px;
-	margin-left:-5px;
-}
-
-#radii-demo input {
-	height:10px;
-	font-size:10px;
-	width:50px;
-	border:0;
-	padding:0;
-	margin-left:5px;
-	font-family:sans-serif;
-	background-color:lightGrey;
-	margin-bottom:5px;
-}
-
-#longitudes-demo {
-	position:relative;
-	width:525px;
-	height:275px;
-	background-color:lightGrey;
-	border:3px solid lightGrey;
-	margin:5px;
-}
-
-.grid {
-	position:absolute;
-	z-index:2;
-	left:0;
-	top:25px;
-}
-
-.imgContainer {
-	position:relative;
-}
-
-.imgContainer .map {
-	position:absolute;
-	top:25px;
-	left:0;
-}
-
-.imgContainer span:first-child {
-	margin-right:50px;
-}
-.imgContainer span {
-	display:inline-block;
-	font-family:sans-serif;
-	font-weight:bold;
-	text-align:center;
-}
-
-.radioContainer {
-	position:relative;
-	display:inline-block;
-}
-
-.radioContainer label {
-	display:block;
-}
-
-.switchContainer {
-	position:absolute;
-	bottom:0;
-}
-
-.posContainer {
-	position:absolute;
-	right:0;
-	width:115px;
-}
-
-.posContainer *, .radioContainer * {
-	font-family:sans-serif;
-	font-size:.8em;
-}
-
-.posContainer label {
-	font-weight:bold;
-}
-
-.posContainer input {
-	display:block;
-	width:50px;
-	border:none;
-	background-color:lightGrey;
-}
-
-#planeto-demo {
-	position:relative;
-	height:600px;
-	width:600px;
-	background-color:lightGrey;
-	margin:5px;
-}
-
-#planeto-demo canvas {
-	background-color:grey;
-	position:absolute;
-	bottom:0;
-	right:0;
-	left:0;
-	margin:auto;
-}
-
-#planeto-demo .ui-slider {
-	width:558px;
-	height:12px;
-}
-
-#planeto-demo .ui-slider .ui-slider-handle {
-	height:14px;
-	width:14px;
-	top:-4px;
-}
-
-#planeto-demo .radiusInput, .latInput {
-	display:none;
-}
-
-.topbar {
-	position:relative;
-	padding:10px 20px 0px 20px;
-}
-
-.topbar span {
-	display:block;
-	height:18px;
-	font-size:16px;
-	line-height:18px;
-	font-family:sans-serif;
-	margin:2px 0;
-}
-
-#planeto-demo .planetocentricInput {
-	color:gold;
-	top:170px;
-}
-
-#planeto-demo .planetographicInput {
-	color:brown;
-	top:150px;
-}
-
-#planeto-demo .planetocentricInput, #planeto-demo .planetographicInput {
-	position:absolute;
-	background-color:grey;
-	border:none;
-	display:block;
-	right:0;
-	margin:5px auto;
-	font-weight:bold;
-}
-
-#ortho-demo {
-	height:600px;
-	width:600px;
-	background-color:black;
-	margin:5px;
-}
-
-.sliderContainer {
-	width:100%;
-	background-color:lightGrey;
-	box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	padding:20px;
-}
-
-.sliderContainer div {
-	text-align:right;
-}
-
-
-#ortho-demo .ui-slider-horizontal {
-	height:12px;
-	width:400px;
-	display:inline-block;
-	float:left;
-}
-
-#ortho-demo span {
-	font-size:12px;
-	font-family:sans-serif;
-}
-
-#ortho-demo input {
-	font-size:11px;
-	width:50px;
-	background-color:lightGrey;
-	border:none;
-	float:right;
-	text-align:right;
-	margin-right:20px;
-}
-
-#ortho-demo .ui-slider .ui-slider-handle {
-	height:14px;
-	width:14px;
-	top:-2px;
-}
+/* Image Data Size Calculator */
 
 .app-container {
 	color: black;
