@@ -1,6 +1,6 @@
 # ISIS Demos
 
-<script src="https://asc-public-docs.s3.us-west-2.amazonaws.com/common/scripts/isis-demos/jquery-1.11.1-ui-1.11.0-ujs-3.1.4.js"></script>
+<script src="https://asc-public-docs.s3.us-west-2.amazonaws.com/common/scripts/isis-demos/jquery-3.7.1.min.js"></script>
 <link href="../../../css/isis-demos.css" media="all" rel="stylesheet"/>
 
 

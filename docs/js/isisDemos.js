@@ -2271,33 +2271,4 @@ if (document.getElementById('isis-image-data-size') !== null) {
     $.getScript("https://asc-public-docs.s3.us-west-2.amazonaws.com/common/scripts/isis-demos/filesize.js");
 }
 
-
-if (document.getElementById("radii-demo") !== null) {
-    $.getScript("https://asc-public-docs.s3.us-west-2.amazonaws.com/common/scripts/isis-demos/projections.js")
-	.done(function(script, status) {
-		initRadiiDemo();
-	    });
-}
-	
-if (document.getElementById("longitudes-demo") !== null) {
-    $.getScript("https://asc-public-docs.s3.us-west-2.amazonaws.com/common/scripts/isis-demos/projections.js")
-	.done(function(script, status) {
-		initLongitudesDemo();
-	    });
-}
-
-if (document.getElementById("planeto-demo") !== null) {
-    $.getScript("https://asc-public-docs.s3.us-west-2.amazonaws.com/common/scripts/isis-demos/projections.js")
-	.done(function(script, status) {
-		initPlanetoDemo();
-	    });
-}
-
-if (document.getElementById("ortho-demo") !== null) {
-    $.getScript("https://asc-public-docs.s3.us-west-2.amazonaws.com/common/scripts/isis-demos/projections.js")
-	.done(function(script, status) {
-		initOrtho();
-	    });
-}
-
 });
