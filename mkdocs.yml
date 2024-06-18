@@ -85,6 +85,23 @@ nav:
         - Exercise 2:                                 how-to-guides/isis-developer-guides/exercise-2.md
     - ALE Developer Guides:
       - Creating Ale Drivers: how-to-guides/ale-developer-guides/creating-ale-drivers.md
+    - Knoten Notebooks:
+      - Bundle Adjustment:                            how-to-guides/knoten-notebooks/bundle-adjust.ipynb
+      - Distributed Bundle Adjustment:                how-to-guides/knoten-notebooks/bundle-adjust-distributed.ipynb
+      - Cassini ISS:                                  how-to-guides/knoten-notebooks/cassini-iss.ipynb
+      - Data Snooping:                                how-to-guides/knoten-notebooks/data-snooping.ipynb
+      - Footprint Comparison:                         how-to-guides/knoten-notebooks/footprint-comparison.ipynb
+      - Footprint Control:                            how-to-guides/knoten-notebooks/footprint-control.ipynb
+      - Kaguya TC:                                    how-to-guides/knoten-notebooks/kaguya-tc.ipynb
+      - LM Bundle Adjustment:                         how-to-guides/knoten-notebooks/lm-bundle-adjust.ipynb
+      - LRO LROC NAC:                                 how-to-guides/knoten-notebooks/lrolroc-nac.ipynb
+      - MDIS DEM:                                     how-to-guides/knoten-notebooks/mdis-dem.ipynb
+      - MDIS ISIS and CSM Comparison:                 how-to-guides/knoten-notebooks/mdis-isis-csm-cmp.ipynb
+      - MDIS Stereo:                                  how-to-guides/knoten-notebooks/mdis-stero.ipynb
+      - Reduced Normal Equations:                     how-to-guides/knoten-notebooks/reduced-normal-equations.ipynb
+      - Reduced Normal with Cholesky:                 how-to-guides/knoten-notebooks/reduced-normal-with-cholesky.ipynb
+      - Sensor Utils:                                 how-to-guides/knoten-notebooks/sensor-utils.ipynb
+      - USGSCSM and ISIS Comparison:                  how-to-guides/knoten-notebooks/usgscsm-isis-cmp.ipynb
 
   - Concepts: 
     - Home:     concepts/index.md
