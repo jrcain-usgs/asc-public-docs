@@ -90,6 +90,8 @@ nav:
       - Reduced Normal Equations:                     how-to-guides/knoten-notebooks/reduced-normal-equations.ipynb
       - Sensor Utils:                                 how-to-guides/knoten-notebooks/sensor-utils.ipynb
       - USGSCSM and ISIS Comparison:                  how-to-guides/knoten-notebooks/usgscsm-isis-cmp.ipynb
+      - Cassini ISS:                                  how-to-guides/knoten-notebooks/cassini-iss.ipynb
+      - LROC NAC:                                     how-to-guides/knoten-notebooks/lrolroc-nac.ipynb
 
   - Concepts: 
     - Home:     concepts/index.md
