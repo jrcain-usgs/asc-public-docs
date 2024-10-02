@@ -11,6 +11,8 @@ if (typeof window.isisDemosLoaded == 'undefined') {
 }
 </script>
 
+<!-- To Use these demos on other pages, include the above css and scripts, and copy the desired div below with the id for the demo you want. -->
+
 ## Image Data Size Calculator
 <div class="app-container" id="isis-image-data-size"></div>
 

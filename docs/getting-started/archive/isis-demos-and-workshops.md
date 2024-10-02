@@ -54,5 +54,5 @@ Assemble, mosaic and project single-line VIMS cube (includes use of 'awk' to pro
 [Overview PDF Lesson](../../assets/isis-demos/CassiniVIMS_SingleLineLesson.pdf)
 
 ### 4. Specialized VIMS processing  
-[Overview PDS Lesson](../../assets/isis-demos/Vims_specialprocessing.pdf)  
+[Overview PDF Lesson](../../assets/isis-demos/Vims_specialprocessing.pdf)  
 [Download Hands-On Lesson](../../assets/isis-demos/SpecializedVIMS.tar.gz)
