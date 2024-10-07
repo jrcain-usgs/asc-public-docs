@@ -131,7 +131,7 @@ The GUIs replaced the outdated TAE interface in ISIS. Programs now have meaningf
 
     `Sharpen` is another task-specific program that was once part of the `boxfilter` program. With the original boxfilter program broken into several smaller programs, fewer parameters are required. The program names are more meaningful making ISIS easier to learn and use.
 
-    ![A propgram window with a menu, buttons, and the following input fields: FROM, TO, SAMPLES, LINES, LOW, HIGH, MINIMUM, PROPOGATE, and ADDBACK](../../assets/isis-history/screenshot_sharpen.jpg "Screenshot of ISIS 3 Sharpen Program")
+    ![A program window with a menu, buttons, and the following input fields: FROM, TO, SAMPLES, LINES, LOW, HIGH, MINIMUM, PROPAGATE, and ADDBACK](../../assets/isis-history/screenshot_sharpen.jpg "Screenshot of ISIS 3 Sharpen Program")
 
 A second driver for the creation of ISIS 3 was a new wave of instruments that produced gargantuan images. For example, the Mars Reconnaissance Orbiter HiRISE camera routinely acquires 1000 Megapixel images. Even more challenging was the need to produce controlled mosaics consisting of thousands of large images from the Lunar Reconnaissance Orbiter Camera Narrow Angle Camera (NAC). Solving for the position and orientation of the spacecraft required handling complex manipulations of extremely large matrices. Even the efficient access of ancillary data, historically stored as text in file headers, became an issue. ISIS 3 underwent a series of major updates to improve the efficiency and accuracy of the map projected output from the software.
 
