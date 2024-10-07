@@ -50,6 +50,7 @@ nav:
       - ISIS FAQ:                          getting-started/using-isis-first-steps/isis-faq.md
     - Archive:
       - Demos and Workshops:               getting-started/archive/isis-demos-and-workshops.md
+      - ISIS History:                      getting-started/archive/isis-history.md
   - How-To Guides: 
     - Home: how-to-guides/index.md
     - Environment Setup and Maintenance:
