@@ -271,14 +271,11 @@ Today, ISIS 3 continues to evolve to meet the needs of users within and outside 
 
 ## Document History
 
-Jeff Anderson, 2003-03-25. Original document.
-
-Kimberly Sides, 2003-04-02. Photographs of computer systems, scans of historical photographs.
-
-Deborah Lee Soltesz, 2003-04-07. Dressed up formatting, embedded images.
-
-Ella Mae Lee, 2013-11-22. Removed Current Events and updated History sections.
-
-Adam Paquette, 2019-03-29. Removed link to Isis install page.
-
-Jacob Cain, 2024-10-07. Moved/reformatted page as part of effort to consolidate documentation.
+| Contrubutor         | Date       | Changes                                                                |
+|---------------------|------------|------------------------------------------------------------------------|
+| Jeff Anderson       | 2003.03.25 | Original document.                                                     |
+| Kimberly Sides      | 2003.04.02 | Photographs of computer systems, scans of historical photographs.      |
+| Deborah Lee Soltesz | 2003.04.07 | Dressed up formatting, embedded images.                                |
+| Ella Mae Lee        | 2013.11.22 | Removed Current Events and updated History sections.                   |
+| Adam Paquette       | 2019.03.29 | Removed link to Isis install page.                                     |
+| Jacob Cain          | 2024.10.07 | Moved/reformatted page as part of effort to consolidate documentation. |
