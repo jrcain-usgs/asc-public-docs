@@ -1,5 +1,6 @@
 *[Adjusted]: The term, Adjusted, refers to the output pixel coordinate or output geographic location within a control network. Applications such as pointreg or jigsaw report and update the "Adjusted" output pixel coordinate (pointreg) or geographic location (jigsaw) in the output control network. 
-*[Band]: A 3rd dimensional layer of pixels in an image, typically representing spectral information. The number of bands indicates the depth of an image in terms of these layers. 
+*[Band]: A 3rd dimensional layer of pixels in an image, typically representing spectral information. The number of bands indicates the depth of an image in terms of these layers.
+*[Binning]: Process of sacrificing resolution for noise removal, where pixels are grouped together and averaged out.
 *[Bit]: Short for binary digit, which in a computer is the smallest unit of storage. Bits are either "0" or "1". 
 *[Byte]: Short for binary term. A byte is a collection of computer bits. On most modern computers, a byte is a group of eight bits. Typically, computers handle and store information in binary (base-2), and a group of eight bits represents an eight digit binary number.
 *[CSM]: Community Sensor Model. A standard for sensor models USGS uses for interoperability.
@@ -10,8 +11,8 @@
 *[NULL]: NULL is a Special Pixel value that is tracked and reported to the user. NULL represents "No Data". NULL is set in all 8, 16, 32-bit type image data. 
 *[LRS]: LRS [Low Representation Saturation] is a representation special pixel value that is tracked and reported to the user. LRS is set when an ISIS application causes the output DN pixel to fall 'below' the possible range of valid values. 
 *[HRS]: HRS [High Representation Saturation] is a representation special pixel value that is tracked and reported to the user. HRS is set when an ISIS application causes the output DN pixel to fall 'above' the possible range of valid values. 
-*[LIS]: LIS [Low Instrument Saturation] is an instrument special pixel value that is tracked and reported to the user. LIS is set during the ingestion of the image data into ISIS. The input image sensor acquired a value too low to be measured accurately. 
-*[HIS]: HIS [High Instrument Saturation] is an instrument special pixel value that is tracked and reported to the user. HIS is set during the ingestion of the image data into ISIS. The input image sensor acquired a value too high to be measured accurately. 
+*[LIS]: Low Instrument Saturation. An instrument special pixel value set during the ingestion of the image data into ISIS. The sensor registered a value too low to be measured accurately (undersaturated). 
+*[HIS]: High Instrument Saturation. An instrument special pixel value set during the ingestion of the image data into ISIS. The sensor registered a value too high to be measured accurately (oversaturated). 
 *[Cube]: A cube is a 3-dimensional image with axis: samples, lines, and bands. The physical dimensions of a cube are called the number of samples (NS), number of lines (NL), and number of bands (NB). 
 *[Line]: A row of pixels in an image, typically representing spatial information. The number of lines indicates the total height of an image in pixels. 
 *[Sample]: A column of pixels in an image, typically representing spatial information. The number of samples indicates the total width of an image in pixels. 

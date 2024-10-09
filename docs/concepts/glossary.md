@@ -13,7 +13,9 @@ A clockwise angle from a point of origin to a point of interest.
 ## B
 
 ### Band
-A 3rd dimensional layer of pixels in an image, typically representing spectral information. The number of bands indicates the depth of an image in terms of these layers. 
+A 3rd dimensional layer of pixels in an image, typically representing spectral information. The number of bands indicates the depth of an image in terms of these layers.
+### Binning
+Process of sacrificing resolution for noise removal, where pixels are grouped together and averaged out.
 ### Bit
 Short for binary digit, which in a computer is the smallest unit of storage. Bits are either "0" or "1". 
 ### Bit Type
@@ -81,6 +83,8 @@ A clockwise angle between one reference point and another reference point. Each 
 
 ## H
 
+### HIS
+High Instrument Saturation. An instrument special pixel value set during the ingestion of the image data into ISIS. The sensor registered a value too high to be measured accurately (oversaturated).
 ### HRS
 HRS [High Representation Saturation] is a representation special pixel value that is tracked and reported to the user. HRS is set when an ISIS application causes the output DN pixel to fall 'above' the possible range of valid values. 
 
@@ -105,8 +109,8 @@ The J2000 coordinate system (also known as EME2000) is based on the earth mean e
 ## K 
 ### Kappa Angle
 An exterior orientation angle that describes the rotation around the y-axis of the camera.  Analogous to "pitch."
-## L
 
+## L
 ### Latitude
 Latitude represents a geographic position and is measured from the equator, with positive longitudes going North and negative values going South. 
 ### Latitude Type
@@ -122,7 +126,7 @@ A row of pixels in an image, typically representing spatial information. The num
 ### Line Resolution
 The ground distance (in meters) from the top edge to the bottom edge of a pixel. 
 ###  LIS
-LIS [Low Instrument Saturation] is an instrument special pixel value that is tracked and reported to the user. LIS is set during the ingestion of the image data into ISIS. The input image sensor acquired a value too low to be measured accurately.
+Low Instrument Saturation. An instrument special pixel value set during the ingestion of the image data into ISIS. The image sensor registered a value too low to be measured accurately (undersaturated).
 ### Local Emission Angle
 The local emission angle is the angle between the spacecraft and a vector drawn perpendicular to the planet's surface (surface normal). 
 ### Local Incidence Angle
