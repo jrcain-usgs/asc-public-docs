@@ -108,7 +108,6 @@ nav:
       - Preference Dictionary:             concepts/isis-fundamentals/preference-dictionary.md
       - Error Dictionary:                  concepts/isis-fundamentals/error-dictionary.md
       - Session Logs:                      concepts/isis-fundamentals/session-logs.md
-
     - SPICE:
       - SPICE Overview:                            concepts/spice/spice-overview.md
       - SPICE Position Functions and Requirements: concepts/spice/spice-position-functions-and-requirements.md
@@ -126,6 +125,8 @@ nav:
       - Reference Frames: concepts/sensor-models/reference-frames.md
       - Sensor Models:   concepts/sensor-models/sensor-models.md
       - Sensor Model Software:   concepts/sensor-models/sensor-model-software.md
+    - History:
+      - ISIS History:                      concepts/history/isis-history.md
   - Manuals: manuals/index.md
 
 extra_css:
