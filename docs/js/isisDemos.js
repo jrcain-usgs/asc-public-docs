@@ -1776,25 +1776,12 @@ function makeRadioButton(name, value, text) {
 
 function init() {
     img = new Image();
-    img.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/stripe.jpg';
+    img.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/stripe.jpg';
     
     // inverted image
     imgi = new Image();
     imgi.onload = handleImageLoad;
-    imgi.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/stripe-inverted.jpg';
-}
-
-function initBasic() {
-    imgb = new Image();
-    imgb.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/stripe.jpg';
-    imgh = new Image();
-    imgh.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/Striping_Highpass.jpg';
-    imgl = new Image();
-    imgl.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/Striping_Lowpass.jpg';
-    imgf = new Image();
-    imgf.onload = handleBasicImageLoad;
-    imgf.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/Striping_Final.jpg';
-
+    imgi.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/stripe-inverted.jpg';
 }
 
 function handleImageLoad() {
@@ -1856,19 +1843,19 @@ function initSeams() {
     original = new Image();
     grey = new Image();
     
-    area1.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/area1.png';
-    area2.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/area2.png';
-    area3.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/area3.png';
-    area4.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/area4.png';
-    mosaic.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/mos1234.jpg';
-    area1Base.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/area1-base.png';
-    area2Base.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/area2-base.png';
-    area3Base.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/area3-base.png';
-    area4Base.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/area4-base.png';
-    mosaic.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/mos1234.jpg';
-    mosaici.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/mos1234-inverted.jpg';
-    original.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/mos1234.jpg';
-    grey.src = 'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/grey.png';
+    area1.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/area1.png';
+    area2.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/area2.png';
+    area3.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/area3.png';
+    area4.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/area4.png';
+    mosaic.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/mos1234.jpg';
+    area1Base.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/area1-base.png';
+    area2Base.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/area2-base.png';
+    area3Base.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/area3-base.png';
+    area4Base.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/area4-base.png';
+    mosaic.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/mos1234.jpg';
+    mosaici.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/mos1234-inverted.jpg';
+    original.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/mos1234.jpg';
+    grey.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/grey.png';
     original.onload = handleSeamsImageLoad;
 
 }
@@ -1883,14 +1870,14 @@ function initBasicSeams() {
     mosaici = new Image();
     original = new Image();
 
-    area1.src = 'images/area1-basic.png';
-    area2.src = 'images/area2-basic.png';
-    area3.src = 'images/area3-basic.png';
-    area4.src = 'images/area4-basic.png';
-    result.src = 'images/result.jpg';
-    mosaic.src = 'images/lpf-mosaic.jpg';
-    mosaici.src = 'images/hpf-mosaic.jpg';
-    original.src = 'images/mos1234.jpg';
+    area1.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/area1-basic.png';
+    area2.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/area2-basic.png';
+    area3.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/area3-basic.png';
+    area4.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/area4-basic.png';
+    result.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/result.jpg';
+    mosaic.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/lpf-mosaic.jpg';
+    mosaici.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/hpf-mosaic.jpg';
+    original.src = 'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/mos1234.jpg';
 
     original.onload = handleBasicSeamsImageLoad;
 }
@@ -2159,31 +2146,18 @@ if (document.getElementById('isis-destripe') !== null) {
 	// check to see if overlay is supported
 	context.globalCompositeOperation = 'overlay';     
 	
-	if(context.globalCompositeOperation == 'overlay') {
-	    context.globalCompositeOperation = 'source-over';
-	    $.when( init() ).done( function() {
-		    destripeConsole = new isisConsole({ 'target': 'isis-destripe', 
-							'canvas': canvas,
-							'stage':stage,
-							'context':context,
-							'showRightConsole':true,
-							'challenge':'destripe',
-							'overlaySupport':true
-			});
+	context.globalCompositeOperation = 'source-over';
+	$.when( init() ).done( function() {
+		destripeConsole = new isisConsole({ 'target': 'isis-destripe', 
+						'canvas': canvas,
+						'stage':stage,
+						'context':context,
+						'showRightConsole':true,
+						'challenge':'destripe',
+						'overlaySupport':true
 		});
-	}
-	else {
-	    $.when( initBasic() ).done( function() {
-		    destripeConsole = new isisConsole({ 'target': 'isis-destripe', 
-							'canvas': canvas,
-							'stage':stage,
-							'context':context,
-							'showRightConsole':true,
-							'challenge':'destripe',
-							'overlaySupport':false
-			});
-		});
-	}	
+	});
+	
 }
 
 if (document.getElementById('isis-pixels') !== null) {	
@@ -2228,7 +2202,7 @@ if (document.getElementById('isis-subpixels') !== null) {
 if (document.getElementById('isis-multiplier') !== null) {	
     var l = new staticImage({
 		'target':'isis-multiplier',
-		'src':'https://asc-public-docs.s3.us-west-2.amazonaws.com/common/images/isis-demos/elevation.jpg',
+		'src':'https://astrogeology.usgs.gov/docs/assets/isis-demos-img/elevation.jpg',
 		'height':256,
 		'width':256    
 	});
