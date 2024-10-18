@@ -181,3 +181,5 @@ markdown_extensions:
   - pymdownx.snippets:
         auto_append:
           - definitions.md
+  - pymdownx.tabbed:
+      alternate_style: true
