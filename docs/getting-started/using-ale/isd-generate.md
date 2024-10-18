@@ -187,6 +187,7 @@ isd_generate --version
 
     If you have enough space, NAIF recommends downloading the entire dataset for your spacecraft, detailed below.
     Otherwise, you can try subsetting the data as detailed in the [NAIF Server tutorial](https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/Tutorials/pdf/individual_docs/34_naif_server.pdf).
+    You will need `wget`, a common download utility.
 
     Let's download the Clementine archive as a test.
 
