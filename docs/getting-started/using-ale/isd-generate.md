@@ -198,7 +198,7 @@ isd_generate --version
 
     1.  `cd` into you spice folder, the folder you have or will set as `$ALESPICEROOT`.
 
-    1.  Build the `wget` command.
+    1.  Piece together the `wget` command.
         1.  Starting with this base command... (Don't run it yet!)    
             `wget -m -nH --cut-dirs=5 -R 'index.html*'`
 
