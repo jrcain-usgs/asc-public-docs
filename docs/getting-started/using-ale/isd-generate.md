@@ -199,16 +199,16 @@ isd_generate --version
     1.  `cd` into you spice folder, the folder you have or will set as `$ALESPICEROOT`.
 
     1.  Build the `wget` command.
-        1.  Start with this base command:    
+        1.  Starting with this base command... (Don't run it yet!)    
             `wget -m -nH --cut-dirs=5 -R 'index.html*'`
 
-        1.  then add the url:    
+        1.  add the url...  
             `-nv https://naif.jpl.nasa.gov/pub/naif/pds/data/clem1-l-spice-6-v1.0/`
 
-        1.  filter by the directory path (last half of url):    
+        1.  then filter by the directory path (last half of url)...    
             `-I pub/naif/pds/data/clem1-l-spice-6-v1.0/`
 
-        1.  and download into this folder (just the folder at the end of the url):    
+        1.  and download into this folder (just the folder at the end of the url).    
             `-P clem1-l-spice-6-v1.0/`
 
     1. Run the complete wget command:
