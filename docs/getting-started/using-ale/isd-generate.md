@@ -23,11 +23,11 @@ Before you can generate an ISD, you will need:
 
 === "IsisSpice"
 
-    For IsisSpice Drivers, you will need an image that has been:
+    For IsisSpice Drivers, you will need:
     
     - An image [imported](../../getting-started/using-isis-first-steps/locating-and-ingesting-image-data.md#introduction-to-importing) into [ISIS](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md) .cub format with a [`-2isis` app](https://isis.astrogeology.usgs.gov/Application/index.html),
 
-    - ...AND [`spiceinit`ed](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/spiceinit/spiceinit.html).
+    - AND the image must be [`spiceinit`ed](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/spiceinit/spiceinit.html) with `spiceinit from=<your.cub>`.
     
 
 === "Pds3Label"
@@ -177,6 +177,8 @@ isd_generate --version
 -----
 
 ## Setting Up NAIF Data
+
+For use of NAIF Data with ISIS, see [The ISIS Data Area](https://github.com/DOI-USGS/ISIS3/blob/dev/README.md#the-isis-data-area).  For use of NAIF data with ALE, continue below.
 
 ### Downloading NAIF SPICE Data with wget
 
