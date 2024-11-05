@@ -77,7 +77,7 @@ However, ARM still tends to be a bit less supported than x86 as of 2024.
 If the Rosetta Intel installation above was followed, that environment must be removed. 
 (Alternative Procedures [[Side-by-side]](https://taylorreiter.github.io/2022-04-05-Managing-multiple-architecture-specific-installations-of-conda-on-apple-M1/) 
 [[Per-conda-env]](https://conda-forge.org/docs/user/tipsandtricks/#installing-apple-intel-packages-on-apple-silicon) 
-may let you keep Rosetta x86 and native ARM environments simultaneosly.) 
+may let you keep Rosetta x86 and native ARM environments simultaneously.) 
 To remove a Miniconda installation, follow  
 [Conda's docs](https://docs.conda.io/projects/conda/en/latest/user-guide/install/macos.html#uninstalling-anaconda-or-miniconda). 
 
@@ -112,5 +112,5 @@ Open a native Terminal and prepare to
 
 It is possible to use the Apple ARM platform to develop ISIS applications.  For now, you may need Rosetta to translate.  ARM Support continues to evolve.
 
-Amazon provides [EC2 Mac instances](https://aws.amazon.com/ec2/instance-types/mac/), which include Apple ARM systems with macOS installed; a possiblity for ISIS ARM development.
+Amazon provides [EC2 Mac instances](https://aws.amazon.com/ec2/instance-types/mac/), which include Apple ARM systems with macOS installed; a possibility for ISIS ARM development.
 
