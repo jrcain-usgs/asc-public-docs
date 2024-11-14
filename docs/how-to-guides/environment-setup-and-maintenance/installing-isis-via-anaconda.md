@@ -137,7 +137,7 @@ ISIS requires these environment variables to be set in order to run correctly:
             # conda config vars set KEY=VALUE
             ```
 
-        1.  This commmand sets both required variables (fill in your `ISISDATA` path):
+        1.  This command sets both required variables (fill in your `ISISDATA` path):
 
                 conda env config vars set ISISROOT=$CONDA_PREFIX ISISDATA=[your data path]
 
