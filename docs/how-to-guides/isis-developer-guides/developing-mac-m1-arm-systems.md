@@ -7,7 +7,7 @@ There two ways to develop ISIS on Apple Silicon. ISIS can be built on ARM Macs w
 
 ## Rosetta, the Terminal, and Conda
 
-Building ISIS requires Conda.  The installation of Conda will depend on whether your terminal is running natively on ARM or with x86 translation.  Whether your terminal is running natively or on ARM depends on Rosetta.  This means you should proceed in this order:
+Building ISIS requires Conda.  The installation of Conda will depend on whether your terminal is running natively on ARM or with x86 translation.  Whether your terminal is running natively or on ARM depends on Rosetta.  That means you should proceed in this order:
 
 1.  Install Rosetta
 1.  Set up a terminal to use Rosetta
@@ -15,6 +15,10 @@ Building ISIS requires Conda.  The installation of Conda will depend on whether 
 1.  Use a Conda environment to build and run ISIS
 
 Apple's [Rosetta Translation Environment](https://developer.apple.com/documentation/apple-silicon/about-the-rosetta-translation-environment) runs applications that use the Intel-based x86_64 instruction set. Using Rosetta, ISIS can be compiled and run on Apple Silicon.
+
+!!! warning "Rosetta is not easy to remove"
+
+    If want to test building or using ISIS on a pure ARM system, you may want to consider leaving your ARM Mac without Rosetta.  Uninstalling Rosetta is not supported by Apple.  Removal is reportedly possible, but involves disabling System Integrity Protection.  If you have installed Rosetta, you could use a [virtual machine](https://mac.getutm.app) to test how ISIS runs/builds without Rosetta.
 
 There are a few ways to set up the Rosetta environment.  We recommend getting a second terminal and configuring it to run in Rosetta as described below.  Alternatively, [Taylor Reiter's blog](https://taylorreiter.github.io/2022-04-05-Managing-multiple-architecture-specific-installations-of-conda-on-apple-M1/) shows how to set up an ARM miniforge and an x86 miniconda environment side by side.  [Conda Forge](https://conda-forge.org/docs/user/tipsandtricks/#installing-apple-intel-packages-on-apple-silicon) has a instructions for enabling Rosetta on a per-conda-environment basis.
 
@@ -62,10 +66,7 @@ A Rosetta Terminal is a terminal run inside the Rosetta translation layer.  This
     * `mkdir -p IsisMacIntel`
     * `cd IsisMacIntel`
     * `git clone --recurse-submodules https://github.com/DOI-USGS/ISIS3.git`
-5. Build ISIS using the instructions as documented [here.](https://astrogeology.usgs.gov/docs/how-to-guides/isis-developer-guides/developing-isis3-with-cmake/)
-    * `ninja install`
-
-The build times are quite impressive - 11 minutes - using the Rosetta Translation Environment. Behavior is similar to other Mac platforms since ISIS installs/uses the Anaconda [cpp-compiler](https://anaconda.org/conda-forge/cxx-compiler).
+5. [Build ISIS](../../how-to-guides/isis-developer-guides/developing-isis3-with-cmake.md#building-isis3)
 
 
 ## Mac M1 Native x86_arm64 ARM Configuration Steps
@@ -112,5 +113,5 @@ Open a native Terminal and prepare to
 
 It is possible to use the Apple ARM platform to develop ISIS applications.  For now, you may need Rosetta to translate.  ARM Support continues to evolve.
 
-Amazon provides [EC2 Mac instances](https://aws.amazon.com/ec2/instance-types/mac/), which include Apple ARM systems with macOS installed; a possibility for ISIS ARM development.
+Amazon provides [EC2 Mac instances](https://aws.amazon.com/ec2/instance-types/mac/), which include Apple ARM systems with macOS installed; a possibility for ISIS ARM development if you don't have an ARM system.  If you do have an ARM Mac, a [virtual machine](https://mac.getutm.app) may be useful to test ISIS in a clean environment (without Rosetta!).
 
