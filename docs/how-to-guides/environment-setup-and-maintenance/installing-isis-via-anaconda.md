@@ -23,7 +23,7 @@
 
 ## Conda Environment
 
-=== "Native"
+=== "Native Mac/Unix"
 
     ```sh
     # Create conda environment, then activate it.
