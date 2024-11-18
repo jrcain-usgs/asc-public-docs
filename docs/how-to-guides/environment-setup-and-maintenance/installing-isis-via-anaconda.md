@@ -1,4 +1,4 @@
-# Installing and Updating ISIS with Conda
+# Installing ISIS
 
 ## Prerequisites
 
@@ -108,8 +108,8 @@ The environment is now ready to download ISIS and its dependencies:
 
 ISIS requires these environment variables to be set in order to run correctly:
 
-- `ISISROOT`
-- `ISISDATA`
+- `ISISROOT` - Directory path containing your ISIS install
+- `ISISDATA` - Directory path containing the [ISIS Data Area](../../how-to-guides/environment-setup-and-maintenance/isis-data-area.md)
 
 ???+ example "Setting Environmental Variables"
 

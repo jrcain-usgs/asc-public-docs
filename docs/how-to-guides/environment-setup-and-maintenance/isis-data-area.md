@@ -76,7 +76,7 @@ downloadIsisData all $ISISDATA
 
 !!! warning "That's a lot of data!"
 
-    Downloading *all* takes over 2TB of space!  See [Partial Downloads](#partial-downloads) if you want a smaller subset, or try the [ISIS SPICE Web Service](#isis-spice-web-service)
+    Downloading *all* takes over 2TB of space!  See [Partial Downloads](#partial-downloads) if you want a smaller subset, or try the [ISIS SPICE Web Service](#isis-spice-web-service).
 
 ### Partial Downloads
 
@@ -182,4 +182,4 @@ You can also use the `include` argument (like a whitelist) to partially download
 
 ## The ISIS Test Data Area
 
-There is an ISISTESTDATA area containing files needed to run some of ISIS's older Makefile-based tests.  See [Downloading ISISTESTDATA](../../how-to-guides/isis-developer-guides/downloading-isis-test-data.md) for more info.
+There is an ISISTESTDATA area containing files needed to run some of ISIS's older Makefile-based tests.  See [ISIS Test Data](../../how-to-guides/isis-developer-guides/obtaining-maintaining-submitting-test-data.md) for more info.
