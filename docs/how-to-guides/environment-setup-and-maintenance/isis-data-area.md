@@ -8,15 +8,46 @@ Many ISIS apps need extra data to carry out their functions.  This data varies d
 
     Each mission supported by ISIS has a directory with mission-specific processing data (like flat files and SPICE kernels).  There is also a base data area with shared data, and a test data area for ISIS testing and development.
 
+    #### Output of `tree -L 2 $ISISDATA`
+    ```sh
+    ~/isis_data/
+    ├── apollo15
+    │   ├── calibration
+    │   ├── kernels
+    │   └── reseaus
+    ├── apollo16
+    │   ├── kernels
+    │   └── reseaus
+    ├── base
+    │   ├── dems
+    │   ├── examples
+    │   ├── kernelTesting
+    │   └── kernels
+    ├── cassini
+    │   ├── calibration
+    │   ├── kernels
+    │   └── unitVectors
+    ├── chandrayaan1
+    │   ├── bandBin
+    │   └── kernels
+    ├── clementine1
+    │   ├── calibration
+    │   └── kernels
+    ├── dawn
+    │   └── kernels
+    ...
+    ```
+        
+
     ### Hosting
 
     The ISIS Data Area is hosted on a combination of AWS S3 buckets and public http servers (NAIF, Jaxa, ESA), not through conda like ISIS binaries.  The `downloadIsisData` script facilitates downloading ISIS data from various sources.
 
     ### Versions
 
-    For ISIS 4.1.0 and above, some apps require the `base` and/or mission-specific data areas, while other apps may run without them.
+    For ISIS 4.1.0 and above, some apps require the [`base`](#__tabbed_2_1) and/or [mission-specific](#mission-specific-data-areas) data areas, while other apps may run without them.
 
-    Apps from ISIS versions lower than 4.1.0 require the `legacybase` area.
+    Apps from ISIS versions lower than 4.1.0 require the [`legacybase`](#__tabbed_2_2) area.
 
     ### Example ISISDATA usage in ISIS Apps
 
@@ -89,13 +120,14 @@ If you work with camera models (using `cam2map`, `campt`, `qview`, etc.), or are
 === "Current"
 
     ```sh
+    # For ISIS versions 4.1.0 and up
     downloadIsisData base $ISISDATA
     ```
 
 === "Legacy"
 
     ```sh
-    # For Isis versions before 4.1.0
+    # For ISIS versions before 4.1.0
     downloadIsisData legacybase $ISISDATA
     ```
 
@@ -107,7 +139,9 @@ If you are only working with a few missions, save space by downloading just thos
 
 ??? abstract "Mission Names & Download Commands"
 
-    For versions of ISIS prior to ISIS 4.1.0, please use the `--legacy` flag.
+    - For versions of ISIS prior to ISIS 4.1.0, please use the `--legacy` flag.
+    
+    - Reference [`rclone.conf`](https://github.com/DOI-USGS/ISIS3/blob/dev/isis/config/rclone.conf) if you can't find/download data for your mission with one of these commands.
 
     | Mission | Command |
     | ------ | ------ |
@@ -154,7 +188,13 @@ of the required downloads from the data area.
 
 ??? warning "Not all operations are supported by the SPICE Web Service"
 
-    Some instruments require mission data to be present for radiometric calibration, which is not supported by the SPICE Web Server. Some programs that are designed to run an image from ingestion through the mapping phase do not have an option to use the SPICE Web Service. For information specific to an instrument, see the [ISIS Application Docs](https://isis.astrogeology.usgs.gov/Application/index.html).
+    Some instruments require mission data to be present for **radiometric calibration**, which is not supported by the SPICE Web Server.
+    Some programs that are designed to run an image *from ingestion through the mapping phase* do not have an option to use the SPICE Web Service. 
+
+    - **MEX HRSC** is a commonly used unsupported instrument.
+    - For info on specific apps/instruments, see the [ISIS Application Docs](https://isis.astrogeology.usgs.gov/Application/index.html).
+    
+    
 
 ### Enabling the Web Service for `spiceinit`
 
