@@ -178,7 +178,7 @@ isd_generate --version
 
 ## Setting Up NAIF Data
 
-For use of NAIF Data with ISIS, see [The ISIS Data Area](https://github.com/DOI-USGS/ISIS3/blob/dev/README.md#the-isis-data-area).  For use of NAIF data with ALE, continue below.
+For use of NAIF Data with ISIS, see the [ISIS Data Area](../../how-to-guides/environment-setup-and-maintenance/isis-data-area.md).  For use of NAIF data with ALE, continue below.
 
 ### Downloading NAIF SPICE Data with wget
 
