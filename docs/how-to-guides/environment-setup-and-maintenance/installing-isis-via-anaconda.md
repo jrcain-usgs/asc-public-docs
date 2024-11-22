@@ -37,8 +37,10 @@
     # ARM Macs Only - Setup the new environment as x86_64
     export CONDA_SUBDIR=osx-64
     
-    # Create conda environment, then activate it.
-    conda create -n isis
+    #Create a new conda environment to install ISIS in
+    conda create -n isis python>=3.9
+
+    #Activate the environment
     conda activate isis
     
     # ARM Macs Only - Force installation of x86_64 packages, not ARM64
