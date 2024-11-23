@@ -97,6 +97,23 @@ downloadIsisData [mission] [download destination] [optional flags]
 downloadIsisData --help
 ```
 
+??? "downloadIsisData script for ISIS 7.0.0 and earlier"
+
+    The `downloadIsisData` was not included with earlier versions of ISIS.  To use it for those versions, download three things first: rclone, the `downloadIsisData` script and the `rclone.conf` file.
+
+    ```sh
+    # Install rclone 
+    conda install -c conda-forge rclone
+
+    # Download the script and rclone config file
+    curl -LJO https://github.com/USGS-Astrogeology/ISIS3/raw/dev/isis/scripts/downloadIsisData
+    curl -LJO https://github.com/USGS-Astrogeology/ISIS3/raw/dev/isis/config/rclone.conf
+
+    # Use python 3 when you run the script,
+    # and use --config to point to where you downloaded the config file 
+    python3 downloadIsisData --config rclone.conf <mission> $ISISDATA
+    ```
+
 ### Full Download
 
 To download **ALL** Isis data, including the base and all of the mission data areas:
