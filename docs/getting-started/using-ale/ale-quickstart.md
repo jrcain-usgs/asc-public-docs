@@ -25,7 +25,7 @@ cube file.
 
 For PDS3 images or ISIS cubes without attached
 SPICE, download the required NAIF SPICE Kernels for your
-image. We reccomend using the metakernels provided in the
+image. We recommend using the metakernels provided in the
 [PDS kernel archives](https://naif.jpl.nasa.gov/naif/data_archived.html).
 Specify the path for ALE to search for metakernels via the
 `ALESPICEROOT` environment variable. This should be set to the directory where
