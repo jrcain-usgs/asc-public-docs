@@ -19,7 +19,7 @@
 
     To update your version of ISIS, you simply run `conda update -c usgs-astrogeology isis=<version number>`.
 
-    ISIS release candidates are tagged with “RC”. Installing/updating RC’s would require you to explicitly mention the RC label with `-c usgs-astrogeology/label/RC `. 
+    ISIS release candidates are tagged with “RC”. Installing/updating RC’s would require you to explicitly mention the RC label with `-c usgs-astrogeology/label/RC `.  ISIS Long Term Support releases are similarly tagged with "LTS".
 
     Examples:   
     `conda install -c usgs-astrogeology isis`, install the latest version of ISIS   
@@ -27,6 +27,7 @@
     `conda update -c usgs-astrogeology isis=7.2.0`, update to ISIS version 7.2.0   
     `conda install -c usgs-astrogeology isis=7.2.0`, install ISIS version 7.2.0   
     `conda install -c usgs-astrogeology/label/RC isis=7.2.0`, install release candidate for ISIS version 7.2.0   
+    `conda install -c usgs-astrogeology/label/LTS`, install the latest LTS version of ISIS 
 
     Related:
 
@@ -42,13 +43,13 @@
 ??? question "How do I keep two different versions of ISIS on my system and switch between them?"
 
     Yes, use a different conda environment for each version. This is useful for testing a development version of ISIS.  Follow the steps for installing ISIS using a new conda environment with a different name (e.g. `isis-lts` `isis7.2.0`, `isis-dev`).
-
     ```sh
     # Create a conda environment, this name can be whatever you like
     conda create -n isis7.2.0
     conda activate isis7.2.0
     
     # Install via conda, here you can specify which ISIS version you want to install.
+    # See the previous question for more info on specifying the isis version.
     conda install -c usgs-astrogeology isis=7.2.0
     ```
     *Note: you may need to [add channels](https://astrogeology.usgs.gov/docs/how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda/#channels) before running `conda install [...]`.*
