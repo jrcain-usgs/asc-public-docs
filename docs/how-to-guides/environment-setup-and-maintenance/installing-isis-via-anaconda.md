@@ -145,7 +145,7 @@ We also recommend setting:
 
         1.  This command sets both required variables and the PATH (fill in your `ISISDATA` location):
 
-                conda env config vars set ISISROOT=$CONDA_PREFIX ISISDATA=[your data path] PATH=$CONDA_PREFIX/bin:$PATH
+                conda env config vars set ISISROOT=$CONDA_PREFIX ISISDATA=[your data path] PATH=$PATH:$CONDA_PREFIX/bin
 
         1.  Re-activate your isis environment. 
             ```sh
@@ -172,7 +172,7 @@ We also recommend setting:
 
         Optionally, set the path variable:
 
-            conda env config vars set PATH=$CONDA_PREFIX/bin:$PATH
+            conda env config vars set PATH=$PATH:$CONDA_PREFIX/bin
 
         Now every time the isis environment is activated, `$ISISROOT` and `$ISISDATA` will be set to the values passed to isisVarInit.py.
         This does not happen retroactively, so re-activate the isis environment:
@@ -188,7 +188,7 @@ We also recommend setting:
         ```sh
         export ISISROOT=[path to ISIS]
         export ISISDATA=[path to data]
-        export PATH=[path to ISIS]/bin:$PATH
+        export PATH=$PATH:[path to ISIS]/bin
         ```
 
 
