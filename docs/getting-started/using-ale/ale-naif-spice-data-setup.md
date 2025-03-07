@@ -1,15 +1,21 @@
-# Setting up ALE and NAIF Spice
+# ALE SPICE Data Setup & Driver Types
 
-## Prerequisites
+<div class="grid cards" markdown>
 
-Before you can use ALE, you will need:
+-   [:octicons-arrow-left-24: ALE - Getting Started](../../getting-started/using-ale/index.md)
 
-- An [ALE Installation](https://github.com/DOI-USGS/ale?tab=readme-ov-file#setting-up-dependencies-with-conda-recommended).
-- An image ([Locating Image Data](../../getting-started/using-isis-first-steps/locating-and-ingesting-image-data.md)) 
+-   [:octicons-arrow-right-24: ALE on the Command Line](../../getting-started/using-ale/isd-generate.md)
+
+</div>
+
+## To use ALE, you will need:
+
+- [ ] An [ALE Installation](https://github.com/DOI-USGS/ale/blob/main/README.md).
+- [ ] An image ([Locating Image Data](../../getting-started/using-isis-first-steps/locating-and-ingesting-image-data.md)) 
   formatted according to your driver type.
-- SPICE Data according to your driver type.
+- [ ] ***SPICE Data according to your driver type***.
 
-### Driver Types
+## ALE Driver Types and their requirements
 
 === "NaifSpice + IsisLabel"
     
@@ -17,7 +23,7 @@ Before you can use ALE, you will need:
     
     - An image [imported](../../getting-started/using-isis-first-steps/locating-and-ingesting-image-data.md#introduction-to-importing) into [ISIS](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md) .cub format with a [`-2isis` app](https://isis.astrogeology.usgs.gov/Application/index.html).
 
-    - NAIF SPICE Kernels (See [Setting up NAIF Data](#setting-up-naif-data)).
+    - NAIF SPICE Kernels (See [Setting up NAIF Data](#setting-up-naif-data) below).
 
 
 === "IsisSpice"
@@ -35,18 +41,18 @@ Before you can use ALE, you will need:
 
     - An image in PDS3 format
 
-    - NAIF SPICE Kernels (See [Setting up NAIF Data](#setting-up-naif-data)).
+    - NAIF SPICE Kernels (See [Setting up NAIF Data](#setting-up-naif-data) below).
 
-    
+-----
 
-??? info "Driver Types: NaifSpice, IsisSpice, IsisLabel, and Pds3Label."
+??? info "How Each Driver Type Works - *NaifSpice, IsisSpice, IsisLabel, and Pds3Label*"
 
     *NaifSpice* drivers use the NAIF Kernels to look up spice data to an image, while *IsisSpice* drivers depend on the image already having spice data attached with `spiceinit`.
 
     *IsisLabel* drivers use images in the ISIS .cub format, while *Pds3Label* drivers use images in the PDS format.
 
     **NaifSpice + IsisLabel** is the most commonly used driver type, but you can check the ALE driver to find out if IsisSpice or Pds3Label drivers are available instead or in addition:
-    
+
     1. Look at the [drivers in the ALE repository](https://github.com/DOI-USGS/ale/tree/main/ale/drivers). 
     1. Click on the drivers for the spacecraft that captured your image.
     1. Find the class for your sensor, and look for NaifSpice, IsisSpice, IsisLabel, or Pds3Label next to the class name.
@@ -54,7 +60,6 @@ Before you can use ALE, you will need:
     There may be a class for both NaifSpice and IsisSpice; in that case you can use either, or use the `-n` or `-i` argument to specify which one to use.  You might use `-i` for IsisSpice if you want to avoid re-`spiceinit`ing a .cub.
 
     By default, ALE will run through different drivers until either it finds one that works (at which point it will stop), or all drivers fail.
-
 
 ## Setting Up NAIF Data
 
@@ -100,7 +105,9 @@ For use of NAIF Data with ISIS, see the [ISIS Data Area](../../how-to-guides/env
         ```
 
     -----
-    *The Mars Reconnaissansce Orbiter (MRO) archive, which corresponds to the B10_013341_1010_XN_79S172W we've been using, is 340 GB.  If you will be working with MRO images, and you have the space, you can try downloading the MRO Spice data.*
+    *The Mars Reconnaissansce Orbiter (MRO) archive, which corresponds to the B10_013341_1010_XN_79S172W 
+    used in the related tutorials, is 340 GB.  A subset of SPICE data is provided in the tutorials, but if you will be 
+    working with more MRO images, and you have the space, you can try downloading the MRO Spice data.*
 
 ### Setting $ALESPICEROOT
 
@@ -113,8 +120,9 @@ For use of NAIF Data with ISIS, see the [ISIS Data Area](../../how-to-guides/env
     echo $ALESPICEROOT
     ```
 
-    To work with MRO images like the example image on this page, you might download the MRO NAIF SPICE Kernels to a data drive.
-    If your directory structure looks like `/Volumes/data/spice-data/mro-m-spice-6-v1.0/mrosp_1000`, then you should set `$ALESPICEROOT` like:
+    To work with MRO images for example, you might download the MRO NAIF SPICE Kernels to a data drive.
+    If your directory structure looks like `/Volumes/data/spice-data/mro-m-spice-6-v1.0/mrosp_1000`, 
+    then you should set `$ALESPICEROOT` like:
 
     ```sh
     export ALESPICEROOT=/Volumes/data/spice-data
@@ -124,7 +132,7 @@ For use of NAIF Data with ISIS, see the [ISIS Data Area](../../how-to-guides/env
 
 !!! warning ""
 
-    When you use a NaifSpice Driver, the your $ALESPICEROOT must point to the relevant NAIF SPICE Data, 
+    When using a NaifSpice Driver, $ALESPICEROOT must point to the relevant NAIF SPICE Data, 
     and the metakernel within that data must be set.
 
     ```sh
@@ -151,7 +159,7 @@ For use of NAIF Data with ISIS, see the [ISIS Data Area](../../how-to-guides/env
     The first file './data/lsk/naif0012.tls' specified by KERNELS_TO_LOAD in the file /Volumes/data/spice-data/mro-m-spice-6-v1.0/mrosp_1000/extras/mk/mro_2009_v14.tm could not be located.
     ```
     
-    You will need to open that .tm file (`mro_2009_v14.tm`), and change the PATH_VALUES line to point to your data; the folder containing folders for lsk, pck, sclk, fk, ik, spk, ck, etc...
+    Open that .tm file (`mro_2009_v14.tm`), and change the PATH_VALUES line to point to your data; the folder containing folders for lsk, pck, sclk, fk, ik, spk, ck, etc...
     
     ```
     PATH_VALUES     = ( './data' )

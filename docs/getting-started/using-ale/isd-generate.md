@@ -3,23 +3,13 @@
 
 <div class="grid cards" markdown>
 
--   :octicons-download-16:{ .lg .middle } __Setup First__
+-   [:octicons-arrow-left-24: ALE SPICE Data Setup](../../getting-started/using-ale/ale-naif-spice-data-setup.md)
 
-    ---
-
-    Install ALE, download SPICE Data, and learn about image and driver types
-
-    [:octicons-arrow-left-24: ALE & SPICE Setup](../../getting-started/using-ale/ale-naif-spice-data-setup.md)
-
--   :simple-python:{ .lg .middle } __ALE in Python__
-
-    ---
-
-    Use `ale.load` and `ale.loads` to read ISDs
-
-    [Get Started in Python :octicons-arrow-right-24:](#)
+-   [:octicons-arrow-right-24: ALE in Python](../../getting-started/using-ale/ale-python-load-loads.md)
 
 </div>
+
+*See [Getting Started with ALE](../../getting-started/using-ale/index.md) for an overview of ALE Installation, NAIF SPICE Data Setup, and other ALE Topics.*
 
 
 ## Using isd_generate
@@ -112,11 +102,11 @@ When using an NAIF SPICE Data, you can specify a metakernel using the `--kernel`
     - [ ] Is your image in ISIS format (or PDS format for Pds3Label Drivers)?
         - [use](../../getting-started/using-isis-first-steps/locating-and-ingesting-image-data.md#introduction-to-importing) 
           a [`-2isis` app](https://isis.astrogeology.usgs.gov/Application/index.html) to convert images to ISIS format.
-    - [ ] Do you have spice data...
+    - [ ] Do you have [spice data set up](../../getting-started/using-ale/ale-naif-spice-data-setup.md)?
         - If using a NaifSpice Driver:
-            - [ ] Spice Data [Downloaded from NAIF](#downloading-naif-spice-data-with-wget)?
-            - [ ] [`$ALESPICEROOT` set](#setting-alespiceroot)?
-            - [ ] [Metakernel `PATH_VALUE` set](#setting-the-path-value-in-a-metakernel)?
+            - [ ] Spice Data [Downloaded from NAIF](../../getting-started/using-ale/ale-naif-spice-data-setup.md#downloading-naif-spice-data-with-wget)?
+            - [ ] [`$ALESPICEROOT` set](../../getting-started/using-ale/ale-naif-spice-data-setup.md#setting-alespiceroot)?
+            - [ ] [Metakernel `PATH_VALUE` set](../../getting-started/using-ale/ale-naif-spice-data-setup.md#setting-the-path-value-in-a-metakernel)?
         - If using an IsisSpice Driver:
             - [ ] Spice Data attached to your image by [`spiceinit`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/spiceinit/spiceinit.html)?
     - [ ] Check what's wrong with a `--verbose` run.
