@@ -17,27 +17,27 @@
 
 ## ALE Driver Types and their requirements
 
-=== "NaifSpice + IsisLabel"
+=== "IsisLabel + NaifSpice"
     
-    For NaifSpice + IsisLabel Drivers, you will need:
+    For **NaifSpice + IsisLabel** Drivers, you will need:
     
-    - An image [imported](../../getting-started/using-isis-first-steps/locating-and-ingesting-image-data.md#introduction-to-importing) into [ISIS](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md) .cub format with a [`-2isis` app](https://isis.astrogeology.usgs.gov/Application/index.html).
+    - An image [imported](../../getting-started/using-isis-first-steps/locating-and-ingesting-image-data.md#introduction-to-importing) into [ISIS](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md) cube (.cub) format with a [`-2isis` app](https://isis.astrogeology.usgs.gov/Application/index.html).
 
     - NAIF SPICE Kernels (See [Setting up NAIF Data](#setting-up-naif-data) below).
 
 
-=== "IsisSpice"
+=== "IsisLabel + IsisSpice"
 
-    For IsisSpice Drivers, you will need:
+    For **IsisLabel + IsisSpice** Drivers, you will need:
     
-    - An image [imported](../../getting-started/using-isis-first-steps/locating-and-ingesting-image-data.md#introduction-to-importing) into [ISIS](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md) .cub format with a [`-2isis` app](https://isis.astrogeology.usgs.gov/Application/index.html),
+    - An image [imported](../../getting-started/using-isis-first-steps/locating-and-ingesting-image-data.md#introduction-to-importing) into [ISIS](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md) cube (.cub) format with a [`-2isis` app](https://isis.astrogeology.usgs.gov/Application/index.html),
 
-    - AND the image must be [`spiceinit`ed](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/spiceinit/spiceinit.html) with `spiceinit from=<your.cub>`.
+    - AND the resulting ISIS cube must be [`spiceinit`ed](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/spiceinit/spiceinit.html) with `spiceinit from=<your.cub>`.
     
 
-=== "Pds3Label"
+=== "Pds3Label + NaifSpice"
 
-    For Pds3Label Drivers, you will need:
+    For **NaifSpice + Pds3Label** Drivers, you will need:
 
     - An image in PDS3 format
 
@@ -45,13 +45,15 @@
 
 -----
 
-??? info "How Each Driver Type Works - *NaifSpice, IsisSpice, IsisLabel, and Pds3Label*"
+??? info "How Each Driver Mixin Works - *NaifSpice, IsisSpice, IsisLabel, and Pds3Label*"
 
-    *NaifSpice* drivers use the NAIF Kernels to look up spice data to an image, while *IsisSpice* drivers depend on the image already having spice data attached with `spiceinit`.
+    **NaifSpice** drivers use the NAIF Kernels to look up spice data to an image, while **IsisSpice** drivers depend on an ISIS cube already having spice data attached with `spiceinit`.
 
-    *IsisLabel* drivers use images in the ISIS .cub format, while *Pds3Label* drivers use images in the PDS format.
+    **IsisLabel** drivers use images in the ISIS cube (.cub) format, while **Pds3Label** drivers use images in the PDS format.
 
-    **NaifSpice + IsisLabel** is the most commonly used driver type, but you can check the ALE driver to find out if IsisSpice or Pds3Label drivers are available instead or in addition:
+    There are 3 possible combinations of these mixins: `IsisLabel + NaifSpice`, `IsisLabel + IsisSpice`, and `Pds3Label + NaifSpice`.
+
+    **NaifSpice + IsisLabel** is the most commonly used driver type, but you can check the ALE driver to find out if IsisLabel + IsisSpice or Pds3Label + NaifSpice drivers are available instead or in addition:
 
     1. Look at the [drivers in the ALE repository](https://github.com/DOI-USGS/ale/tree/main/ale/drivers). 
     1. Click on the drivers for the spacecraft that captured your image.
@@ -59,7 +61,7 @@
 
     There may be a class for both NaifSpice and IsisSpice; in that case you can use either, or use the `-n` or `-i` argument to specify which one to use.  You might use `-i` for IsisSpice if you want to avoid re-`spiceinit`ing a .cub.
 
-    By default, ALE will run through different drivers until either it finds one that works (at which point it will stop), or all drivers fail.
+    By default, ALE will run through different drivers until either it finds the first one that works (at which point it will use that driver and complete its run), or all drivers fail.
 
 ## Setting Up NAIF Data
 
