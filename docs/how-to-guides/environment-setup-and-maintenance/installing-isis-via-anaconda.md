@@ -11,7 +11,7 @@ bash <(curl https://raw.githubusercontent.com/DOI-USGS/ISIS3/refs/heads/dev/isis
 
 !!! warning "If you use conda/miniconda and not miniforge"
 
-    If you use the script, we require removing a basic anaconda ior miniconda install for [miniforge.](https://github.com/conda-forge/miniforge). Miniforge is far faster. ISIS can take hours to resolve on a anaconda installation compared to a few minutes for miniforge. 
+    This script requires replacing anaconda/miniconda with [miniforge](https://github.com/conda-forge/miniforge). Miniforge is far faster. ISIS can take hours to resolve in anaconda, compared to a few minutes in miniforge.
 
 ??? info "Script Details"
 
@@ -112,12 +112,12 @@ Key environment variables set up by the script:
 - `ISISDATA`: Points to the ISIS data directory
 - `PATH`: Updated to include ISIS binaries
 
-On activation, the environment will automatically set ISISROOT, ISISDATA, and PATH for you. To change these variables after installation in case they were set incorrectly or your ISISDATA folder changes, see [setting environment variables](# Environmental Variables). 
+On activation, the environment will automatically set ISISROOT, ISISDATA, and PATH for you. To change these variables after installation (in case they were set incorrectly or your ISISDATA folder changes) see [setting environment variables](#setting-environmental-variables). 
 
 ## Updating ISIS
 
 !!! Warning
-    Mamba is bad at updating envs after they have been created. This often causes conflicts and long resolve times. If you installed ISIS using this script, we reccomnend simply deleting the old environment and creating new one. Or versioning your env names. 
+    Mamba is bad at updating envs after they have been created. This often causes conflicts and long resolve times. If you installed ISIS using this script, we recommend simply deleting the old environment and creating new one, or versioning your env names. 
 
 
 ```bash 
@@ -134,8 +134,9 @@ On activation, the environment will automatically set ISISROOT, ISISDATA, and PA
 - [ISIS GitHub Repository](https://github.com/USGS-Astrogeology/ISIS3)
 - [Report ISIS Issues](https://github.com/DOI-USGS/ISIS3/issues)
 
+-----
 
-## Install Manually Via Miniforge  
+# Install Manually Via Miniforge  
 ### Prerequisites
 
 ??? "Mamba/Miniforge"
@@ -245,11 +246,11 @@ The environment is now ready to download ISIS and its dependencies:
 === "Dev"
 
     ```sh
-    conda install -c usgs-astrogeology/label/dev isis
+    mamba install -c usgs-astrogeology/label/dev isis
     ```
 
 
-## Environmental Variables
+## Setting Environmental Variables
 
 ISIS requires these environment variables to be set in order to run correctly:
 
@@ -258,20 +259,20 @@ ISIS requires these environment variables to be set in order to run correctly:
 
 ???+ example "Setting Environmental Variables"
 
-    The **mamba Env** method is recommended, and the **Python Script** automates that method:
+    The **conda env** method is recommended, and the **Python Script** automates that method:
 
-    === "mamba Env"
+    === "conda env"
 
-        ??? "Requires mamba 4.8 or above"
+        ??? "Requires conda 4.8 or above"
 
-            Check your mamba version, and update if needed:
+            Check your conda version, and update if needed:
 
             ```sh
             # Check version
-            mamba --version
+            conda --version
 
             # Update
-            mamba update -n base mamba
+            conda update -n base conda
             ```
 
         1.  Activate your ISIS environment.  
@@ -279,7 +280,7 @@ ISIS requires these environment variables to be set in order to run correctly:
             mamba activate isis
 
             # Now you can set variables with:
-            # conda config vars set KEY=VALUE
+            # mamba env config vars set KEY=VALUE
             ```
 
         1.  This command sets both required variables (fill in your `ISISDATA` path):
