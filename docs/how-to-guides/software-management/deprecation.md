@@ -10,8 +10,9 @@ A deprecation warning should be presented to the user whenever the deprecated fu
 ### Deprecation Warnings in ISIS
 
 In ISIS:
-- Deprecation warnings can be **enabled**, or **hidden**, by the `ErrorFacility > ShowDeprecated` switch in the [Isispreferences](../../concepts/isis-fundamentals/preference-dictionary.md) file.
-  - This preference setting must be checked before printing a deprecation warning.
+
+- Deprecation warnings can be **enabled** (On), or **hidden** (Off), by the `ErrorFacility > ShowDeprecated` switch in the [Isispreferences](../../concepts/isis-fundamentals/preference-dictionary.md) file.
+    - This preference setting must be checked before printing a deprecation warning.
 - Deprecation warnings are printed to `std::cerr`.
 
 
