@@ -5,13 +5,13 @@ This document is intended to provide guidelines for the deprecation process.
 Those who wish to deprecate functionality should propose the deprecation via an issue on the software's repository of record.  This allows for discussion among the developers and the user community.  If a consensus is met that the functionality should be deprecated, then a deprecation warning should be written.
 
 ## 2. Deprecation Warning
-A deprecation warning should be presented to the user whenever the deprecated functionality is used.  Check below for procedures for particular software  There is not yet a standard procedure for deprecation across all Astro software.  Previous deprecation warnings have taken the form of a simple message printed via `cout`.  In addition to creating the deprecation warning message, the deprecated functionality should also be noted in the repository's changelog.  This warning should include a link to the issue that proposed the deprecation.
+A deprecation warning should be presented to the user whenever the deprecated functionality is used.  Check below for procedures for particular software.  There is not yet a standard procedure for deprecation across all Astro software.  Previous deprecation warnings have taken the form of a simple message printed via `cout`.  In addition to creating the deprecation warning message, the deprecated functionality should also be noted in the repository's changelog.  This warning should include a link to the issue that proposed the deprecation.
 
 ### Deprecation Warnings in ISIS
 
 In ISIS:
 
-- Deprecation warnings can be **enabled** (On), or **hidden** (Off), by the `ErrorFacility > ShowDeprecated` switch in the [Isispreferences](../../concepts/isis-fundamentals/preference-dictionary.md) file.
+- Deprecation warnings can be **enabled** (On), or **hidden** (Off), by the `ErrorFacility > ShowDeprecated` switch in the [IsisPreferences](../../concepts/isis-fundamentals/preference-dictionary.md) file.
     - This preference setting must be checked before printing a deprecation warning.
 - Deprecation warnings are printed to `std::cerr`.
 
