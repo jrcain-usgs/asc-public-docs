@@ -18,24 +18,12 @@ In ISIS:
 
 ```cpp
 #include "Preference.h"
-
 // ...
-
 void MyIsisObject::deprecatedMethod() {
     
-    bool outputDeprecated = true;
-    if (Preference::Preferences().hasGroup("ErrorFacility")) {
-        PvlGroup &errorFacility =
-            Preference::Preferences().findGroup("ErrorFacility");
-        if (errorFacility.hasKeyword("ShowDeprecated")) {
-        QString showDeprecatedSetting = errorFacility["ShowDeprecated"][0];
-        outputDeprecated = (showDeprecatedSetting.toUpper() == "ON");
-        }
-    }
-                    
-    if (outputDeprecated) {
-        QString msg = "This function (MyIsisObject::deprecatedMethod) will be deprecated in ISIS [version] "
-                      "in favor of someIsisObject::replacementMethod";
+    if (Preference::Preferences().getShowDeprecatedPref()) {
+        QString msg = "This function (MyIsisObject::deprecatedMethod) will be deprecated "
+                      "in ISIS [version], in favor of someIsisObject::replacementMethod.";
 
         std::cerr << msg << std::endl;
     }
