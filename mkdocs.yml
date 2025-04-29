@@ -113,6 +113,9 @@ nav:
       - Preference Dictionary:             concepts/isis-fundamentals/preference-dictionary.md
       - Error Dictionary:                  concepts/isis-fundamentals/error-dictionary.md
       - Session Logs:                      concepts/isis-fundamentals/session-logs.md
+    - Missions:
+      - Home:                              concepts/missions/index.md
+      - Mars Global Surveyor (MGS):        concepts/missions/mgs-mars-global-surveyor-mission.md
     - SPICE:
       - SPICE Overview:                            concepts/spice/spice-overview.md
       - SPICE Position Functions and Requirements: concepts/spice/spice-position-functions-and-requirements.md
