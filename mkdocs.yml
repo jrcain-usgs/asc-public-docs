@@ -192,3 +192,4 @@ markdown_extensions:
           - definitions.md
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.blocks.caption
