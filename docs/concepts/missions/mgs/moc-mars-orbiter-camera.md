@@ -574,7 +574,7 @@ Or... if MOC_WA / CrosstrackSumming not equal 1:
 Producing a mosaic requires **geometric processing** on the individual
 images that make up the desired mosaic. The individual images are
 geometrically transformed from *spacecraft camera orientation to a
-common map coordinate system* . ISIS has generic software applications
+common map coordinate system*. ISIS has generic software applications
 that are applied to all supported mission data. Based on the information
 in the image labels that was added in our earlier steps, the software
 recognizes the instrument and performs accordingly.
@@ -610,7 +610,7 @@ and phase. For a planetary body that doesn't have a significant
 atmosphere, this brightness is controlled by two basic classes of
 information: the *intrinsic properties of the surface materials* ,
 (including composition, grain size, roughness, and porosity), and *local
-topography of the surface* .
+topography of the surface*.
 
 -----
 
@@ -635,7 +635,7 @@ the seams can be minimized.
 
 ## Exporting ISIS Data
 
-[Exporting ISIS Data](Exporting_ISIS_Data)
+[Exporting ISIS Data](Exporting_ISIS_Data)  
 TODO: ^ Locate/Port this from the Wiki
 
 ## Staying Organized
