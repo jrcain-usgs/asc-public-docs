@@ -14,13 +14,13 @@
   
 ISIS release process chjanges depending on the type of release: 
 
-* **RC**: Release Cadidate, new feature releases (e.g. going from `8.0`->`8.1` or `8.5`->`9.0`) are released first as RCs.
+* **RC**: Release Candidate, new feature releases (e.g. going from `8.0`->`8.1` or `8.5`->`9.0`) are released first as RCs.
 * **LR**: Live Release, if no changes are suggested for the RC after a month, we do a LR from the RC.  
-* **LTS**: Long Term Support, the previous major release is supported for a year in LTS. It only recieves bug fixes, no feature adds. 
+* **LTS**: Long Term Support, the previous major release is supported for a year in LTS. It only receives bug fixes, no feature adds. 
 
 ### 1. **Check current test failures**
 
-Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.com/project/eyJlbmNyeXB0ZWREYXRhIjoiNDJNZ2MxbHFKTkwxV1RyQUxJekdJY3FIanNqU29rMHB4Nk1YUzk4REIrZUZDeEtEaW9HQlZ1dTZOSHpML2VUTGVDekYydmVFcU9sUHJKN20wQzd1Q0UzSzJscnB0MElDb1M3Ti9GTlJYR1RuMWJTV3V1SkJTa3NoYmc9PSIsIml2UGFyYW1ldGVyU3BlYyI6IjF3U2NTSGlDcEtCc29YVnEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D) for whatever branch you plan to release. If false positives are suspected, at least two contributing devlopers need to agree before moving forward. 
+Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.com/project/eyJlbmNyeXB0ZWREYXRhIjoiNDJNZ2MxbHFKTkwxV1RyQUxJekdJY3FIanNqU29rMHB4Nk1YUzk4REIrZUZDeEtEaW9HQlZ1dTZOSHpML2VUTGVDekYydmVFcU9sUHJKN20wQzd1Q0UzSzJscnB0MElDb1M3Ti9GTlJYR1RuMWJTV3V1SkJTa3NoYmc9PSIsIml2UGFyYW1ldGVyU3BlYyI6IjF3U2NTSGlDcEtCc29YVnEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D) for whatever branch you plan to release. If false positives are suspected, at least two contributing developers need to agree before moving forward. 
 
 !!! Success "Step 1 Complete"
     
