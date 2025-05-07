@@ -194,22 +194,15 @@ Clone the repo locally with git clone.
 
 ### 6. **Test the Conda Build**
 
-
-After the conda build completes, test it by uploading it to your personal anaconda cloud account and `conda install`ing it locally.  
-
 - [ ] Upload the conda build to your personal anaconda channel  
       `anaconda upload -u <conda-cloud-username> <path-to-the-.tar.bz2-file>`
 
-- [ ] Install ISIS from your conda channel  
-      `conda install -c <conda-cloud-username> -c usgs-astrogeology isis`  
+- [ ] Install ISIS from your conda channel, specifying your version number  
+      `conda install -c <conda-cloud-username> -c usgs-astrogeology isis=8.1.0_RC`  
       
     !!! quote ""
       
         ↑ This replaces the `conda install -c usgs-astrogeology isis` command in the [ISIS install instructions](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md)
-    
-    ???+ note "Try specifying version number if unable to install from personal account"
-        
-        `conda install -c <conda-cloud-username> -c usgs-astrogeology isis=8.1.0_RC1`
         
 - [ ] Run an ISIS application, like `spiceinit -h` and check that it runs without error.  
       *This is testing whether the conda environment set up during the install is complete enough to run ISIS.*
@@ -218,31 +211,45 @@ After the conda build completes, test it by uploading it to your personal anacon
 
     Move on to step 7 after **successfully testing an ISIS app**.
 
-### 7: **Upload the Build to Anaconda Cloud**
+### 7. **Upload the Build to Anaconda Cloud**  
 
+- [ ] Locate the .tar.bz2 file  
+    `conda build recipe/ --output`
+    
+    !!! quote ""
+    
+        *Outputs where the archive would be after a successful build (but does not confirm the file actually exists).*
 
-In this step, we will upload the build(s) that we just created into the Anaconda Cloud to distribute them to our users. Uploading the .tar.bz2 file requires one command, however, non-standard builds (release candidates or custom builds), must be uploaded with a label.  
+- [ ] Upload to Anaconda Cloud
 
-* If you missed the location of the .tar.bz2 file at the bottom of the build, use ```conda build recipe/ --output``` to reprint. This command does not confirm the file exists - only where it *would* be saved with a successful build. 
+    === "RC"
+        ```sh
+        anaconda upload -u usgs-astrogeology -l RC <path-to-the-.tar.bz2-file>
+        ``` 
+    === "LR/LTS"
+        ```sh
+        anaconda upload -u usgs-astrogeology <path-to-the-.tar.bz2-file>
+        ```
+    === "Custom"
+        ```sh
+        anaconda upload -u usgs-astrogeology -l <custom-label> <path-to-the-.tar.bz2-file>
+        ```
 
-* For a standard release, use the command ```anaconda upload -u usgs-astrogeology <path-to-the-.tar.bz2-file>``` 
+!!! note "Authentication Tokens"
 
-* For an Release Candidate, use the command ```anaconda upload -u usgs-astrogeology -l RC <path-to-the-.tar.bz2-file>``` 
+    If the upload fails or prompts for a username/password, add an API token for usgs-astrogeology to your environment by running `export ANACONDA_API_TOKEN=<token>`. Ask another developer for the API token.
 
-* For a custom build, specify a custom label and use the command ```anaconda upload -u usgs-astrogeology -l <custom-label> <path-to-the-.tar.bz2-file>``` 
+!!! success ""
 
-   * For example, when generating a custom build for the CaSSIS team, we would use the "cassis" label and the command ```anaconda upload -u usgs-astrogeology -l cassis <path-to-the-.tar.bz2-file>``` 
+    Move on to step 8 after the **build has been uploaded**.
 
-If the upload fails or displays a prompt for a username and password, try adding an API token for usgs-astrogeology to your environment by running `export ANACONDA_API_TOKEN=<token>`. Ask another developer for the API token. This approach is recommended over adding `-t <token>` to your anaconda upload command, because of a known bug where `-t` is either interpreted as a package type or a token depending on its position in the `anaconda upload` command.  
+### 8. **Back up the Build**  
 
+- [ ] Back up the build by copying the .tar.bz2 to: 
 
-### Step 7: Back up the Build  
+    * /work/projects/conda-bld/osx-64/ for Mac OS 11.6.  
 
-Back up the build by copying the .tar.bz2 to: 
-
-  * /work/projects/conda-bld/osx-64/ for Mac OS 11.6.  
-
-  * /work/projects/conda-bld/linux-64/ for Ubuntu 18 LTS. 
+    * /work/projects/conda-bld/linux-64/ for Ubuntu 18 LTS. 
 
 
 ### Step 8: Update Data and TestData Areas on rsync Servers 
