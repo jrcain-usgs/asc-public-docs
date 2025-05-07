@@ -22,9 +22,9 @@ ISIS release process chjanges depending on the type of release:
 
 Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.com/project/eyJlbmNyeXB0ZWREYXRhIjoiNDJNZ2MxbHFKTkwxV1RyQUxJekdJY3FIanNqU29rMHB4Nk1YUzk4REIrZUZDeEtEaW9HQlZ1dTZOSHpML2VUTGVDekYydmVFcU9sUHJKN20wQzd1Q0UzSzJscnB0MElDb1M3Ti9GTlJYR1RuMWJTV3V1SkJTa3NoYmc9PSIsIml2UGFyYW1ldGVyU3BlYyI6IjF3U2NTSGlDcEtCc29YVnEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D) for whatever branch you plan to release. If false positives are suspected, at least two contributing developers need to agree before moving forward. 
 
-!!! Success "Step 1 Complete"
+!!! Success ""
     
-    Move on to step 2 when you confirmed builds are passing or have accounted for the false positives. 
+    Move on to step 2 after **confirming that builds are passing** (or **accounting for false positives**).
 
 ### 2. **Update the GitHub documents**
 
@@ -57,14 +57,13 @@ In this step, we will update the documents that are stored in the GitHub reposit
     - [ ] Submit a Pull Request: Submit a pull request into the release branch. 
 
 
-!!! Success "Step 2 Complete" 
+!!! Success "" 
     
-    Move on to step 3 after your PR(s) are merged. 
+    Move on to step 3 after **merging PR(s)**. 
 
-### Step 3: Set Up Git repos
+### 3. **Create/setup git branch**
 
 Clone the repo locally with git clone. 
-
 
 === "RC" 
 
@@ -83,7 +82,7 @@ Clone the repo locally with git clone.
         * Example: `git checkout -b 8.1.2 upstream/8.1.2_RC1`.
     - [ ] Check VERSION variable in CMakeLists.txt matches release version.
     - [ ] Update RELEASE_STAGE variable in CMakeLists.txt to `stable`.
-    - [ ] Update `recipe/meta.yml` to match the LC version. i.e. **without** the `_RC#`.
+    - [ ] Update `recipe/meta.yml` to match the LR version. i.e. **without** the `_RC#`.
     - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed. Rare for LRs, often no changes are needed. 
     - [ ] Push the new branch into upstream 
 
@@ -103,11 +102,11 @@ Clone the repo locally with git clone.
 ??? Note "meta.yml vs environment.yml versions"
      Make sure you look closely at the changes in terms of syntax. Our `environment.yaml`s seem to have a looser restriction than what is expected in the `meta.yaml`. Check out conda's [package match specifications](https://docs.conda.io/projects/conda-build/en/latest/resources/package-spec.html#package-match-specifications) for more info.        
 
-!!! Success 
-    Move on to step 4 after you successfully create the new branch on the upstream repo. 
+!!! Success ""
+    Move on to step 4 after **creating the new branch on the upstream repo**. 
 
 
-### Step 4: Create a release
+### 4. **Create a release**
 
 !!! Warning "Do Not Make a Release for RCs"
 
@@ -125,83 +124,101 @@ Clone the repo locally with git clone.
     - [ ] On the same page, create a new tag for the release version.
     - [ ] Name the release "ISISX.Y.Z LTS". 
 
-!!! Note "If releasing a custom build"
+!!! Note "Tag custom builds as pre-release."
 
-    Mission and non-standard builds (including release candidates) must be tagged as pre-release. 
+    This includes Mission and non-standard builds, as well as release candidates. 
  
 
-!!! Success 
+!!! Success ""
 
-    When you create the release, move on to step 5. 
+    Move on to step 5 after **creating the release**. 
 
 
-### Step 5: Create the Builds for Anaconda Cloud 
+### 5. **Create the Builds for Anaconda Cloud**
 
-!!! Warning 
-   
-    Anaconda leverages caching in many places which can cause issues. If you are getting unexpected issues, try a different installation and/or a different machine. You can also try running `conda clean -a`
+??? Warning "Anaconda Caching may cause issues.  To workaround, try..."
+    
+    - a different installation
+    - a different machine
+    - running `conda clean -a`
 
 
 #### Part A: Operating System 
 
-* Ensure the OS on the machine you are building the release on is the appropriate operating system (Mac OS 11.6+ or Ubuntu 18 LTS). 
+- [ ] Are you using the right OS?  
+      (Mac OS 11.6+ or Ubuntu 18 LTS)
 
+#### Part B: Setup Anaconda
 
-#### Part B: Setup Anaconda 
+- [ ] Clear cache and activate conda base env  
+        ```sh
+        conda clean --all   # clean out your package cache; ensure fresh packages for the build
+        conda activate      # activate base env
+        ```
 
-* Run `conda clean --all` to clean out your package cache and ensure you pull fresh packages for the build. 
+- Check for/install required packages:
+    - [ ] anaconda-client
+        - Check for package: `anaconda login`
+        - Install if needed: `conda install anaconda-client`
+    - [ ] conda-build
+        - Check for package: `conda build -h`
+        - Install if needed: `conda install -c anaconda conda-build`
+    - [ ] conda-verify
+        - Check for package: `conda-verify --help`
+        - Install if needed: `conda install -c anaconda conda-verify`
 
-* Activate the base environment: ```conda activate```. 
+!!! warning ""
 
-* Ensure that you have anaconda-client, conda-build, and conda-verify installed in your base environment 
+    If running ```anaconda login``` resulted in an error message similar to
 
-  * You can check by running ```anaconda login```, ```conda build -h```, and ```conda-verify --help```, respectively. 
+        [ERROR] API server not found. Please check your API url configuration
 
-    * If any of these packages are not in your base environment, they can be installed using the following  
-
-commands: 
-
-`conda install anaconda-client` 
-
-`conda install -c anaconda conda-build`  
-
-`conda install -c anaconda conda-verify` 
-
-    * If running ```anaconda login``` resulted in an error message similar to ```[ERROR] API server not found. Please check your API url configuration``` run the following command and try again: ```anaconda config --set ssl_verify False```  
+    run the following command and try again: ```anaconda config --set ssl_verify False```  
 
 
 #### Part C: Run the Build 
 
-* Go to the root of the repository you set up in [Step 3 Part A](#part-a-setup-repository). Make sure it is up to date. 
+- [ ] Switch to the branch created in [Step 3](#3-createsetup-git-branch). Make sure it's up to date.  
+      `git checkout <version branch>`
 
-    * Switch to the appropriate version branch 
+- [ ] Update from the head of the release branch  
+      `git pull upstream <version branch>`
 
-```git checkout <version branch>``` 
+- [ ] Run the `buildCondaRelease.sh` script.  
+      (This will remove a CMake parameter used for jenkins and create a conda build with:  
+      ```conda build recipe/ -c conda-forge -c usgs-astrogeology --override-channels```)
 
-    * Ensure you are at the head of the release branch ```git pull upstream <version branch>``` 
+!!! success ""
 
-* Run the bash script in the root of the directory: ``` buildCondaRelease.sh```. This script will remove a CMake parameter that is used for jenkins and create a conda build running the conda build command:```conda build recipe/ -c conda-forge -c usgs-astrogeology --override-channels``` 
+    Move on to step 6 when the **conda build has been built**.
 
-  * The -c options are to give conda a channel priority. Without these, conda will always attempt to download from the default Anaconda channel first. (Unlike the environment.yml files, channel priority cannot be defined within the meta.yaml.)
-
-  
-
-### Step 5: Test the Conda Build 
+### 6. **Test the Conda Build**
 
 
-After the conda build completes, it should be tested by uploading it to your personal anaconda cloud account and conda installing it locally.  
+After the conda build completes, test it by uploading it to your personal anaconda cloud account and `conda install`ing it locally.  
 
-* Use the command ```anaconda upload -u <conda-cloud-username> <path-to-the-.tar.bz2-file>``` to upload the conda build to your personal anaconda channel. 
+- [ ] Upload the conda build to your personal anaconda channel  
+      `anaconda upload -u <conda-cloud-username> <path-to-the-.tar.bz2-file>`
 
-* Follow the standard [installation instructions](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md) to install this package locally for testing, but at the installation step, instead of running `conda install -c usgs-astrogeology isis`, run `conda install -c <conda-cloud-username> -c usgs-astrogeology isis`  
-
-    ???+ Note "Troubleshooting conda install"
-        If you are having trouble installing ISIS from your personal account, try specifying the version, e.g., `conda install -c <conda-cloud-username> -c usgs-astrogeology isis=8.1.0_RC1`
+- [ ] Install ISIS from your conda channel  
+      `conda install -c <conda-cloud-username> -c usgs-astrogeology isis`  
+      
+    !!! quote ""
+      
+        ↑ This replaces the `conda install -c usgs-astrogeology isis` command in the [ISIS install instructions](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md)
+    
+    ???+ note "Try specifying version number if unable to install from personal account"
         
-* Run an ISIS application, like `spiceinit -h` and insure that it runs without error. This is testing whether the conda environment set up during the install is complete enough to run ISIS.   
+        `conda install -c <conda-cloud-username> -c usgs-astrogeology isis=8.1.0_RC1`
+        
+- [ ] Run an ISIS application, like `spiceinit -h` and check that it runs without error.  
+      *This is testing whether the conda environment set up during the install is complete enough to run ISIS.*
 
+!!! success ""
 
-### Step 6: Upload the Build to Anaconda Cloud 
+    Move on to step 7 after **successfully testing an ISIS app**.
+
+### 7: **Upload the Build to Anaconda Cloud**
 
 
 In this step, we will upload the build(s) that we just created into the Anaconda Cloud to distribute them to our users. Uploading the .tar.bz2 file requires one command, however, non-standard builds (release candidates or custom builds), must be uploaded with a label.  
