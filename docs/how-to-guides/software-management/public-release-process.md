@@ -243,61 +243,93 @@ Clone the repo locally with git clone.
 
     Move on to step 8 after the **build has been uploaded**.
 
-### 8. **Back up the Build**  
+
+### 8. **Back Up the Build**  
 
 - [ ] Back up the build by copying the .tar.bz2 to: 
 
-    * /work/projects/conda-bld/osx-64/ for Mac OS 11.6.  
+    - [ ] `/work/projects/conda-bld/osx-64/` for Mac OS 11.6.  
 
-    * /work/projects/conda-bld/linux-64/ for Ubuntu 18 LTS. 
+    - [ ] `/work/projects/conda-bld/linux-64/` for Ubuntu 18 LTS. 
 
+!!! success ""
 
-### Step 8: Update Data and TestData Areas on rsync Servers 
-
-
-This step covers how to update the data on the public s3 buckets. This is where our external users will have access to the data necessary for running ISIS. There are two locations, one is the S3 bucket where users directly download data from. The other is and EFS drive that only accessible internally and is mounted for daily use. See the [internal only documentation](https://code.chs.usgs.gov/asc/ASC_Software_Docs/-/blob/main/ISIS/Maintaining%20ISIS%20Data.md) for more info on how these are setup. Action is only required if there are smithed kernels that need to be uploaded to /usgs_data/. 
-
-**Please pay careful attention to where you are rclone'ing the data to on the S3 buckets.
-
-### Step 9: Create Internal Builds/Installs for Astro 
+    Move on to step 9 after **backing up the build**.
 
 
-This step covers creating the builds and the installation environments of ISIS for our internal users here on the ASC campus using the shared anaconda installs. Setting up the conda environments involve installing the conda build of ISIS that we just pushed up to Anaconda, and will follow the instructions found in the README.MD of the isis3 repository. These commands must be run as isis3mgr for permission purposes. 
+### 9. **Update ISISDATA and ISISTESTDATA in S3**
+
+External users access ISISDATA and ISISTESTDATA from the S3 bucket.  
+There is also an EFS drive for internal use.
+
+- [ ] If needed, upload any **new/updated smithed kernels** to `/usgs_data`.  
+  *See [Maintaining ISIS Data (internal)](https://code.chs.usgs.gov/asc/ASC_Software_Docs/-/blob/main/ISIS/Maintaining%20ISIS%20Data.md) for more info.*
+
+!!! warning "Be careful where you rclone the data to on the S3 buckets."
+
+!!! success ""
+
+    Move on to step 10 after **updating the data**.
+
+### 10. **Create Internal Builds/Installs for Astro**
+
+This step covers creating the builds and the installation environments of ISIS for our internal users here on the ASC campus using the shared anaconda installs. Setting up the conda environments involves installing the conda build of ISIS that we just pushed up to Anaconda, and will follow the instructions found in the README.MD of the isis3 repository. These commands must be run as isis3mgr for permission purposes. 
 
 
-#### Part A: Shared Anaconda Installs 
+#### Part A: Shared Conda Installs 
 
-* You will need to install the new version of ISIS into the two shared Anaconda installs on the ASC campus. 
+- [ ] Install the new version of ISIS to the two shared Conda installs on the ASC campus. 
 
-    * For Linux: `/usgs/cpkgs/anaconda3_linux` 
+    - [ ] Linux: `/usgs/cpkgs/anaconda3_linux` 
 
-    * For MacOS: `/usgs/cpkgs/anaconda3_macOS` 
+    - [ ] MacOS: `/usgs/cpkgs/anaconda3_macOS` 
 
 
 #### Part B: Installing ISIS 
 
-* Follow the standard [installation instructions](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md) to install the latest version of ISIS into a new environment. 
+=== "RC"
 
-    * For a standard release, the environment should be named `isisX.Y.Z`. 
+    - [ ] Create a conda env named `isisX.Y.Z-RC#`
 
-    * For a release candidate, the environment should be named `isisX.Y.Z-RC#`. 
+=== "LR"
 
-    * For a custom build, the environment should be named `isisX.Y.Z-<custom-label>`. 
+    - [ ] Create a conda env named `isisX.Y.Z`
 
-    * For the step which sets up the data and testData areas, make sure to use the new isis_data and isis_testData directories, i.e.: `python $CONDA_PREFIX/scripts/isisVarInit.py --data-dir=/usgs/cpkgs/isis3/isis_data  --test-dir=/usgs/cpkgs/isis3/isis_testData` 
+=== "LTS"
 
-* Confirm that the environment has been set-up properly by deactivating it, reactivating it, and running an application of your choice. 
+    - [ ] Create a conda env named `isisX.Y.Z-LTS`
 
+=== "Custom"
 
-### Step 10: Update Documentation 
+    - [ ] Create a conda env named `isisX.Y.Z-<custom-label>`
 
+- [ ] Follow the [installation instructions](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md) to install the latest version of ISIS into a new environment.
 
-**This step is only done for standard feature releases.** 
+- [ ] Use the new isis_data and isis_testData directories for the data and testData.
+    ```sh 
+    python $CONDA_PREFIX/scripts/isisVarInit.py --data-dir=/usgs/cpkgs/isis3/isis_data  --test-dir=/usgs/cpkgs/isis3/isis_testData
+    ``` 
 
-This step will update the ISIS documentation on our [website](https://isis.astrogeology.usgs.gov) for our users worldwide.
+- [ ] Test that the environment has been set-up properly by:
+    - Deactivating it (`conda deactivate`)
+    - Reactivating it (`conda activate <your-env-name>`)
+    - Running an ISIS app of your choice
 
+!!! success ""
 
-#### Part A: Build the documentation 
+    Move on to step 11 after **Testing ISIS in the new environments**.
+
+### 11. **Update [ISIS Application Docs](https://isis.astrogeology.usgs.gov)**
+
+!!! info "This step is only for standard feature releases."
+
+#### Part A: Build the documentation
+
+!!! Danger "TODO"
+
+    - [ ] New info on versions.json/automatically updating the Docs versions
+    - [ ] Remove manual docs website update instructions
+    - [ ] Remove docs website nave screenshots if no longer used
 
 1. Add the new version to Documentation Versions in the [menu.xsl](https://github.com/DOI-USGS/ISIS3/blob/dev/isis/src/docsys/build/menu.xsl#L105) under dev. Remove the class "usa-current" from the dev's `<li>` and add it to your newly create `<li>` element. For example:
 
@@ -371,11 +403,20 @@ The only change that needs to be pushed to the dev branch is the new version `<l
     </li>
 ```
 
-### Step 11: Communicate Availability of Build 
+### 12. **Announce the Build**
 
 
 This step will will communicate that a new version of ISIS is available. 
 
+!!! danger "TODO"
+    
+    - [ ] Review/reorganize/move DOI instructions.
+    
+    - [ ] The DOI should be viewable, hopefully copiable and clickable too, on the release card in GitHub/GitLab.
+
+    - [ ] Integrate with "announce" instructions, or move.
+
+    - [ ] Collapse Announcement template
 
 #### Step 5: Create a DOI for the release
 
