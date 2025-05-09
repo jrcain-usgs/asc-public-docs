@@ -14,40 +14,50 @@
   
 ISIS release process chjanges depending on the type of release: 
 
-* **RC**: Release Cadidate, new feature releases (e.g. going from `8.0`->`8.1` or `8.5`->`9.0`) are released first as RCs.
-* **LR**: Live Release, if no changes are suggested for the RC after a month, we do a LR from the RC.  
-* **LTS**: Long Term Support, the previous major release is supported for a year in LTS. It only recieves bug fixes, no feature adds. 
+- **RC** (Release Candidate)
+    - new feature releases are released first as RCs  
+      (e.g. going from `8.0`->`8.1` or `8.5`->`9.0`)
+* **LR** (Live Release)
+    - If no changes are suggested for the RC after a month,  
+      **do a LR from the RC**.  
+* **LTS** (Long Term Support)
+    - The previous major release is supported for a year in LTS.
+    - It only receives bug fixes, no feature adds. 
 
 ### 1. **Check current test failures**
 
-Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.com/project/eyJlbmNyeXB0ZWREYXRhIjoiNDJNZ2MxbHFKTkwxV1RyQUxJekdJY3FIanNqU29rMHB4Nk1YUzk4REIrZUZDeEtEaW9HQlZ1dTZOSHpML2VUTGVDekYydmVFcU9sUHJKN20wQzd1Q0UzSzJscnB0MElDb1M3Ti9GTlJYR1RuMWJTV3V1SkJTa3NoYmc9PSIsIml2UGFyYW1ldGVyU3BlYyI6IjF3U2NTSGlDcEtCc29YVnEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D) for whatever branch you plan to release. If false positives are suspected, at least two contributing devlopers need to agree before moving forward. 
+Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.com/project/eyJlbmNyeXB0ZWREYXRhIjoiNDJNZ2MxbHFKTkwxV1RyQUxJekdJY3FIanNqU29rMHB4Nk1YUzk4REIrZUZDeEtEaW9HQlZ1dTZOSHpML2VUTGVDekYydmVFcU9sUHJKN20wQzd1Q0UzSzJscnB0MElDb1M3Ti9GTlJYR1RuMWJTV3V1SkJTa3NoYmc9PSIsIml2UGFyYW1ldGVyU3BlYyI6IjF3U2NTSGlDcEtCc29YVnEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D) for whatever branch you plan to release. If false positives are suspected, at least two contributing developers need to agree before moving forward. 
 
-!!! Success "Step 1 Complete"
+!!! Success ""
     
-    Move on to step 2 when you confirmed builds are passing or have accounted for the false positives. 
+    Move on to step 2 after **confirming that builds are passing** (or **accounting for false positives**).
 
-### 2. **Update the GitHub documents**
+### 2. **Update Version in AWS S3** (for [ISIS Application Docs](https://isis.astrogeology.usgs.gov))
 
-In this step, we will update the documents that are stored in the GitHub repository. There will either be one or two PRs as a result of this step depending on:
+!!! info "LR/LTS only, not for RCs."
 
-!!! warning "Update docs at the end" 
-    The update docs PR into `dev` should be merged *after* the release is officially out and at the end of the public release process to ensure the new ISIS docs endpoint is live and working.
+- [ ] Add the new version to `versions.json` in AWS S3  
+    `arn:aws:s3:::asc-public-docs/isis-site/versions.json`
 
+!!! Success "" 
+    
+    Move on to step 3 after **updating versions.json**. 
 
+### 3. **Update the GitHub documents**
 
 === "RC" 
 
     - [ ] Update the Changelog. Label all the currently unreleased changes as part of this release. See comments on the  [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for instructions. 
     - [ ] Update `code.json` by adding a new entry with the RC version. e.g. an 8.0.0 release candidate would be labeled `8.0_RC1` for the first RC, `8.0_RC2` for the second, etc. 
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
-    - [ ] Submit a Pull Request: Submit a pull request into the dev branch. If a release branch exists, create a PR there as well.
+    - [ ] Submit a Pull Request: Submit a pull request into the dev branch. If a release branch exists, create another PR there as well.
 
 === "LR"
 
     - [ ] Update the Changelog: Update the release date on the version to be released in the changelog. See comments on the  [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for instructions. 
     - [ ] Update `code.json` by adding a new entry with the new version number and the date last modified.   
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
-    - [ ] Submit a Pull Request: Submit a pull request into the dev branch. If a release branch exists, create a PR there as well. 
+    - [ ] Submit a Pull Request: Submit a pull request into the dev branch. If a release branch exists, create another PR there as well. 
 
 === "LTS"
 
@@ -57,14 +67,13 @@ In this step, we will update the documents that are stored in the GitHub reposit
     - [ ] Submit a Pull Request: Submit a pull request into the release branch. 
 
 
-!!! Success "Step 2 Complete" 
+!!! Success "" 
     
-    Move on to step 3 after your PR(s) are merged. 
+    Move on to step 4 after **merging PR(s)**. 
 
-### Step 3: Set Up Git repos
+### 4. **Create/setup git branch**
 
 Clone the repo locally with git clone. 
-
 
 === "RC" 
 
@@ -83,7 +92,7 @@ Clone the repo locally with git clone.
         * Example: `git checkout -b 8.1.2 upstream/8.1.2_RC1`.
     - [ ] Check VERSION variable in CMakeLists.txt matches release version.
     - [ ] Update RELEASE_STAGE variable in CMakeLists.txt to `stable`.
-    - [ ] Update `recipe/meta.yml` to match the LC version. i.e. **without** the `_RC#`.
+    - [ ] Update `recipe/meta.yml` to match the LR version. i.e. **without** the `_RC#`.
     - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed. Rare for LRs, often no changes are needed. 
     - [ ] Push the new branch into upstream 
 
@@ -103,422 +112,172 @@ Clone the repo locally with git clone.
 ??? Note "meta.yml vs environment.yml versions"
      Make sure you look closely at the changes in terms of syntax. Our `environment.yaml`s seem to have a looser restriction than what is expected in the `meta.yaml`. Check out conda's [package match specifications](https://docs.conda.io/projects/conda-build/en/latest/resources/package-spec.html#package-match-specifications) for more info.        
 
-!!! Success 
-    Move on to step 4 after you successfully create the new branch on the upstream repo. 
+!!! Success ""
+    Move on to step 5 after **creating the new branch on the upstream repo**. 
 
 
-### Step 4: Create a release
+### 5. **Create a release**
 
-!!! Warning "Do Not Make a Release for RCs"
+!!! Warning "No Release for RCs"
 
-    **Skip this step for Release Candidates (RCs).** Only pull a release if it's a full release (i.e. NOT an RC). RCs should instead be in their own branch until ready for full release.  
+    **Skip this step for Release Candidates (RCs).** Only pull a release if it's a full release (i.e. LR/LTS, NOT an RC). RCs should instead be in their own branch until ready for full release.  
 
 === "LR" 
 
-    - [ ] In the release tab on GitHub, draft a release and set the target branch to the branch created in Step 3.
+    - [ ] In the release tab on GitHub, draft a release and set the target branch to the branch created in Step 4.
     - [ ] On the same page, create a new tag for the release version.
     - [ ] Name the release "ISISX.Y.Z Public Release".
 
 === "LTS"
 
-    - [ ] In the release tab on GitHub, draft a release and set the target branch to the branch created in Step 3.
+    - [ ] In the release tab on GitHub, draft a release and set the target branch to the branch created in Step 4.
     - [ ] On the same page, create a new tag for the release version.
     - [ ] Name the release "ISISX.Y.Z LTS". 
 
-!!! Note "If releasing a custom build"
+!!! note ""
 
-    Mission and non-standard builds (including release candidates) must be tagged as pre-release. 
+    Tag **custom** builds as **pre-release**, including ***mission-specific*** and ***non-standard*** builds.
  
+!!! success ""
 
-!!! Success 
+    Move on to step 6 after **creating the release**. 
 
-    When you create the release, move on to step 5. 
+### 6. **Publish Record to DOI**
 
+!!! info "LR/LTS only, not for RCs."
 
-### Step 5: Create the Builds for Anaconda Cloud 
+- [ ] Check that the code.usgs.gov link for the release is live and create a DOI record.
 
-!!! Warning 
-   
-    Anaconda leverages caching in many places which can cause issues. If you are getting unexpected issues, try a different installation and/or a different machine. You can also try running `conda clean -a`
+??? abstract "Creating a DOI"
 
+    * A DOI is only needed for standard releases.  Release candidates do not need a DOI.
 
-#### Part A: Operating System 
-
-* Ensure the OS on the machine you are building the release on is the appropriate operating system (Mac OS 11.6+ or Ubuntu 18 LTS). 
-
-
-#### Part B: Setup Anaconda 
-
-* Run `conda clean --all` to clean out your package cache and ensure you pull fresh packages for the build. 
-
-* Activate the base environment: ```conda activate```. 
-
-* Ensure that you have anaconda-client, conda-build, and conda-verify installed in your base environment 
-
-  * You can check by running ```anaconda login```, ```conda build -h```, and ```conda-verify --help```, respectively. 
-
-    * If any of these packages are not in your base environment, they can be installed using the following  
-
-commands: 
-
-`conda install anaconda-client` 
-
-`conda install -c anaconda conda-build`  
-
-`conda install -c anaconda conda-verify` 
-
-    * If running ```anaconda login``` resulted in an error message similar to ```[ERROR] API server not found. Please check your API url configuration``` run the following command and try again: ```anaconda config --set ssl_verify False```  
-
-
-#### Part C: Run the Build 
-
-* Go to the root of the repository you set up in [Step 3 Part A](#part-a-setup-repository). Make sure it is up to date. 
-
-    * Switch to the appropriate version branch 
-
-```git checkout <version branch>``` 
-
-    * Ensure you are at the head of the release branch ```git pull upstream <version branch>``` 
-
-* Run the bash script in the root of the directory: ``` buildCondaRelease.sh```. This script will remove a CMake parameter that is used for jenkins and create a conda build running the conda build command:```conda build recipe/ -c conda-forge -c usgs-astrogeology --override-channels``` 
-
-  * The -c options are to give conda a channel priority. Without these, conda will always attempt to download from the default Anaconda channel first. (Unlike the environment.yml files, channel priority cannot be defined within the meta.yaml.)
-
-  
-
-### Step 5: Test the Conda Build 
-
-
-After the conda build completes, it should be tested by uploading it to your personal anaconda cloud account and conda installing it locally.  
-
-* Use the command ```anaconda upload -u <conda-cloud-username> <path-to-the-.tar.bz2-file>``` to upload the conda build to your personal anaconda channel. 
-
-* Follow the standard [installation instructions](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md) to install this package locally for testing, but at the installation step, instead of running `conda install -c usgs-astrogeology isis`, run `conda install -c <conda-cloud-username> -c usgs-astrogeology isis`  
-
-    ???+ Note "Troubleshooting conda install"
-        If you are having trouble installing ISIS from your personal account, try specifying the version, e.g., `conda install -c <conda-cloud-username> -c usgs-astrogeology isis=8.1.0_RC1`
+    * Go to the [USGS Asset Identifier Service (AIS)](https://www1.usgs.gov/identifiers/) and click `Manage DOIs` to Login.
         
-* Run an ISIS application, like `spiceinit -h` and insure that it runs without error. This is testing whether the conda environment set up during the install is complete enough to run ISIS.   
+        * You will need the assistance of USGS staff for this.
 
+        * The AIS has known compatibility issues with Firefox, if you have trouble logging in, switch browsers.
+        
+    * Click `Create DOI` and Reserve a DOI.
 
-### Step 6: Upload the Build to Anaconda Cloud 
+        * **Title**: `Integrated Software for Imagers and Spectrometers (ISIS) X.Y.Z`
 
+        * **Data Source**: `Astrogeology Science Center`
 
-In this step, we will upload the build(s) that we just created into the Anaconda Cloud to distribute them to our users. Uploading the .tar.bz2 file requires one command, however, non-standard builds (release candidates or custom builds), must be uploaded with a label.  
+        * ISIS `Does Not` use the *ScienceBase Data Release Process*.
 
-* If you missed the location of the .tar.bz2 file at the bottom of the build, use ```conda build recipe/ --output``` to reprint. This command does not confirm the file exists - only where it *would* be saved with a successful build. 
+        * Clicking `Reserve My DOI` returns the DOI that's on hold.
+        
+            * Record this number in the GitHub release, and in the ISIS Readme at the top as a badge and in the Citing ISIS section.
 
-* For a standard release, use the command ```anaconda upload -u usgs-astrogeology <path-to-the-.tar.bz2-file>``` 
+    * Add More Information
 
-* For an Release Candidate, use the command ```anaconda upload -u usgs-astrogeology -l RC <path-to-the-.tar.bz2-file>``` 
+        * Under "Manage Record"
 
-* For a custom build, specify a custom label and use the command ```anaconda upload -u usgs-astrogeology -l <custom-label> <path-to-the-.tar.bz2-file>``` 
+            * Add other USGS Staff members who can manage the DOI.
 
-   * For example, when generating a custom build for the CaSSIS team, we would use the "cassis" label and the command ```anaconda upload -u usgs-astrogeology -l cassis <path-to-the-.tar.bz2-file>``` 
+        * Under "Required Information"
 
-If the upload fails or displays a prompt for a username and password, try adding an API token for usgs-astrogeology to your environment by running `export ANACONDA_API_TOKEN=<token>`. Ask another developer for the API token. This approach is recommended over adding `-t <token>` to your anaconda upload command, because of a known bug where `-t` is either interpreted as a package type or a token depending on its position in the `anaconda upload` command.  
+            * **Creator(s) / Author(s)**: Add the ISIS Team Lead
 
+            * **Landing Page URL**: https://code.usgs.gov/astrogeology/isis/-/tags/[X.Y.Z]
 
-### Step 7: Back up the Build  
+            * **Resource Type**: Software
 
-Back up the build by copying the .tar.bz2 to: 
+            * **IPDS Number**: IP-141314 for ISIS 8.x.x releases.  Major Versions will need a new number/release approval from [IPDS](https://ipds.usgs.gov).
 
-  * /work/projects/conda-bld/osx-64/ for Mac OS 11.6.  
+            * This product **is not** associated with a primary USGS-authored publication.
 
-  * /work/projects/conda-bld/linux-64/ for Ubuntu 18 LTS. 
+        * Under "Recommended Information"
 
+            * Fill info if available.
+        
+        * Saving and Publishing
 
-### Step 8: Update Data and TestData Areas on rsync Servers 
+            * Once the Landing Page URL on code.usgs.gov is live, publish the record to DataCite.
 
+            * You can save the record without publishing it if the release landing page is not ready. 
 
-This step covers how to update the data on the public s3 buckets. This is where our external users will have access to the data necessary for running ISIS. There are two locations, one is the S3 bucket where users directly download data from. The other is and EFS drive that only accessible internally and is mounted for daily use. See the [internal only documentation](https://code.chs.usgs.gov/asc/ASC_Software_Docs/-/blob/main/ISIS/Maintaining%20ISIS%20Data.md) for more info on how these are setup. Action is only required if there are smithed kernels that need to be uploaded to /usgs_data/. 
+!!! quote "Markdown format for DOI Number"
 
-**Please pay careful attention to where you are rclone'ing the data to on the S3 buckets.
+        DOI [`12.3456/XXXXXXXX`](https://doi.org/12.3456/XXXXXXXX)
 
-### Step 9: Create Internal Builds/Installs for Astro 
+- [ ] Post the DOI number/link to...  
+    - [ ] [GitHub Release Post for this ISIS Version](https://github.com/DOI-USGS/ISIS3/releases)
+    - [ ] [ISIS Readme](https://github.com/DOI-USGS/ISIS3/blob/dev/README.md)
+        - [ ] Badge at the top of the readme
+        - [ ] [Citing ISIS](https://github.com/DOI-USGS/ISIS3/blob/dev/README.md#citing-isis) section:
+            - DOI, Version Number, Release Date, Readme Updated Date
 
-
-This step covers creating the builds and the installation environments of ISIS for our internal users here on the ASC campus using the shared anaconda installs. Setting up the conda environments involve installing the conda build of ISIS that we just pushed up to Anaconda, and will follow the instructions found in the README.MD of the isis3 repository. These commands must be run as isis3mgr for permission purposes. 
-
-
-#### Part A: Shared Anaconda Installs 
-
-* You will need to install the new version of ISIS into the two shared Anaconda installs on the ASC campus. 
-
-    * For Linux: `/usgs/cpkgs/anaconda3_linux` 
-
-    * For MacOS: `/usgs/cpkgs/anaconda3_macOS` 
-
-
-#### Part B: Installing ISIS 
-
-* Follow the standard [installation instructions](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md) to install the latest version of ISIS into a new environment. 
-
-    * For a standard release, the environment should be named `isisX.Y.Z`. 
-
-    * For a release candidate, the environment should be named `isisX.Y.Z-RC#`. 
-
-    * For a custom build, the environment should be named `isisX.Y.Z-<custom-label>`. 
-
-    * For the step which sets up the data and testData areas, make sure to use the new isis_data and isis_testData directories, i.e.: `python $CONDA_PREFIX/scripts/isisVarInit.py --data-dir=/usgs/cpkgs/isis3/isis_data  --test-dir=/usgs/cpkgs/isis3/isis_testData` 
-
-* Confirm that the environment has been set-up properly by deactivating it, reactivating it, and running an application of your choice. 
-
-
-### Step 10: Update Documentation 
-
-
-**This step is only done for standard feature releases.** 
-
-This step will update the ISIS documentation on our [website](https://isis.astrogeology.usgs.gov) for our users worldwide.
-
-
-#### Part A: Build the documentation 
-
-1. Add the new version to Documentation Versions in the [menu.xsl](https://github.com/DOI-USGS/ISIS3/blob/dev/isis/src/docsys/build/menu.xsl#L105) under dev. Remove the class "usa-current" from the dev's `<li>` and add it to your newly create `<li>` element. For example:
-
-```diff
-- <li class="usa-sidenav__item usa-current">
-+ <li class="usa-sidenav__item">
-    <a href="https://isis.astrogeology.usgs.gov/dev/">Dev</a>
-  </li>
-+ <li class="usa-sidenav__item" usa-current>
-+ <a href="https://isis.astrogeology.usgs.gov/NEW VERSION/">NEW VERSION</a>
-+ </li>
-    <li class="usa-sidenav__item">
-    <a href="https://isis.astrogeology.usgs.gov/8.3.0/">8.3.0</a>
-    </li>
-    <li class="usa-sidenav__item">
-    <a href="https://isis.astrogeology.usgs.gov/8.2.0/">8.2.0</a>
-    </li>
-```
-
-The usa-current class highlights the version. This will allow the user to know which version of isis they are currently viewing.
-
-This is a visual of these html code changes:
-
-![Menu Before](../../../assets/release-process/menu1.png) ![Menu After](../../../assets/release-process/menu2.png)
-
-!!! Warning "Do Not Push these changes to the Dev Branch"
-     
-    Only use these code changes for running `ninja docs` and pushing to the S3. See Part C for instructions on what to push back into dev.
-
-2. Run cmake command in build directory. See [developing ISIS with cmake](../../how-to-guides/isis-developer-guides/developing-isis3-with-cmake.md) for details.
-
-3. Run the ```ninja docs``` command from this build directory to build the documentation for this version of the code. 
-
-
-#### Part B: Upload the documentation 
-
-1. This step requires that you have aws sso configured for the aws production account. 
+!!! success ""
+    Move on to step 7 after **getting a DOI number** and posting it to the release and readme.
     
-    Run `aws sso login --profile {insert your configured prod account name}`
+    Include the DOI number in the announcement in step 7 below!
 
-2. Run a dryrun of copying new docs to the S3 bucket: 
+### 7. **Announce the Build** 
 
-    `aws s3 cp --recursive docs/{insert_new_version_here}/ s3://asc-public-docs/isis-site/{insert_new_version_here}/ --profile {insert your configured prod account name} --dryrun`
+- [ ] Create a new [ISIS3 GitHub Discussion](https://github.com/DOI-USGS/ISIS3/discussions/categories/announcements)
+    in the announcements category.
 
-    example: `aws s3 cp --recursive docs/9.0.0/ s3://asc-public-docs/isis-site/9.0.0/ --profile prod-account --dryrun`
+    - [ ] Fill in the Release Notes Template for the post: 
 
-3. Confirm that the dry run is copying your docs to the correct location. If it is, run the actual copy command by removing `--dryrun`:
+??? quote "Release Notes Template"
 
-    `aws s3 cp --recursive docs/{insert_new_version_here}/ s3://asc-public-docs/isis-site/{insert_new_version_here}/ --profile {insert your configured prod account}`
+    ``` 
 
-    example: `aws s3 cp --recursive docs/9.0.0/ s3://asc-public-docs/isis-site/9.0.0/ --profile prod-account`
+    ISIS X.Y.Z has been released.
 
-#### Part C: Update Menu Code in Dev Branch
+    DOI [`12.3456/XXXXXXXX`](https://doi.org/12.3456/XXXXXXXX)
 
-The only difference from what we changed in Part A1 is that, instead of moving the "usa-current" class, we are keeping it under "dev" for the biweekly dev doc builds.
 
-The only change that needs to be pushed to the dev branch is the new version `<li>` element under "dev." Ensure that the "usa-current" class is removed from this new version `<li>` element.
+    ## How to install or update to <X.Y.Z> 
 
-```diff
-<li class="usa-sidenav__item" usa-current>
-    <a href="https://isis.astrogeology.usgs.gov/dev/">Dev</a>
-  </li>
-+ <li class="usa-sidenav__item">
-+ <a href="https://isis.astrogeology.usgs.gov/NEW VERSION/">NEW VERSION</a>
-+ </li>
-    <li class="usa-sidenav__item">
-    <a href="https://isis.astrogeology.usgs.gov/8.3.0/">8.3.0</a>
-    </li>
-    <li class="usa-sidenav__item">
-    <a href="https://isis.astrogeology.usgs.gov/8.2.0/">8.2.0</a>
-    </li>
-```
+    A guide to [installing ISIS](https://astrogeology.usgs.gov/docs/how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda/) can be found in the Astro Software Docs.
 
-### Step 11: Communicate Availability of Build 
+    If you already have a version of ISIS 4.0.0 or later installed in an anaconda environment, you can update to <X.Y.Z> by activating your existing isis conda environment and running `conda update isis`. 
 
 
-This step will will communicate that a new version of ISIS is available. 
+    ### How to get access to <X.Y.Z> at the ASC 
 
+    Internal builds available via Hovenweep.
 
-#### Step 5: Create a DOI for the release
+    Once a version of conda is active, run the command: `conda activate isis<X.Y.Z>` to use this newest version of ISIS. 
 
-  * A DOI is only needed for standard releases.  Release candidates do not need a DOI.
 
-  * Go to the [USGS Asset Identifier Service (AIS)](https://www1.usgs.gov/identifiers/) and click `Manage DOIs` to Login.
-      
-      * You will need the assistance of USGS staff for this.
+    ## Changes for <X.Y.Z> 
 
-      * The AIS has known compatibility issues with Firefox, if you have trouble logging in, switch browsers.
-    
-  * Click `Create DOI` and Reserve a DOI.
+    <!---
+    Copy this release's section of the Changelog here
+    -->
 
-      * **Title**: `Integrated Software for Imagers and Spectrometers (ISIS) X.Y.Z`
 
-      * **Data Source**: `Astrogeology Science Center`
+    ## Notes 
 
-      * ISIS `Does Not` use the *ScienceBase Data Release Process*.
+    Latest Operating System Support for this Release: 
 
-      * Clicking `Reserve My DOI` returns the DOI that's on hold.
-      
-          * Record this number in the GitHub release, and in the ISIS Readme at the top as a badge and in the Citing ISIS section.
+    * Ubuntu 24.04 
+    * macOS 13
 
-  * Add More Information
+    (Other Linux/macOS variants and versions may be able to run this release, but are not officially supported.) 
 
-      * Under "Manage Record"
+    If you find a problem with this release, please create an issue on our [GitHub issues page](https://github.com/DOI-USGS/ISIS3/issues/new/choose/) 
 
-          * Add other USGS Staff members who can manage the DOI.
+    ``` 
 
-      * Under "Required Information"
+??? note "Additional Notes for Release Candidates"
 
-          * **Creator(s) / Author(s)**: Add the ISIS Team Lead
+    Add the following under "Notes":   
 
-          * **Landing Page URL**: https://code.usgs.gov/astrogeology/isis/-/tags/[X.Y.Z]
+    ``` 
+    There are some important considerations to keep in mind when using this release candidate: 
 
-          * **Resource Type**: Software
+    * Do not use this version for production work. A stable isisX.XX.XX release will be uploaded after a month. 
+    * The ISIS online documentation will not be updated until the stable release is announced. 
+    ```
 
-          * **IPDS Number**: IP-141314 for ISIS 8.x.x releases.  Major Versions will need a new number/release approval from [IPDS](https://ipds.usgs.gov).
+-----
 
-          * This product **is not** associated with a primary USGS-authored publication.
-
-      * Under "Recommended Information"
-
-          * Fill info if available.
-    
-      * Saving and Publishing
-
-          * Once the Landing Page URL on code.usgs.gov is live, publish the record to DataCite.
-
-          * You can save the record without publishing it if the release landing page is not ready.  
-
-
-#### Part A: External Announcement 
-
-* Create a new topic under the [ISIS Release Notes](https://astrodiscuss.usgs.gov/c/ISIS/isis-release-notes) category on [astrodiscuss](https://astrodiscuss.usgs.gov/). 
-
-* Fill in the following template for the release notes post: 
-
-``` 
-
-## How to install or update to <X.Y.Z> 
-
-
-Installation instructions of ISIS can be found in the README on our [github page ](https://github.com/DOI-USGS/ISIS3). 
-
-
-If you already have a version of ISIS 4.0.0 or later installed in an anaconda environment, you can update to <X.Y.Z> by activating your existing isis conda environment and running `conda update isis` . 
-
-
-### How to get access to <X.Y.Z> at the ASC 
-
-
-The new process proposed in the internal [RFC](https://astrodiscuss.usgs.gov/t/internal-rfc-distribution-of-isis3-at-asc/52/26) is now in full effect. Please review the process of using anaconda environments to activate isis [here](https://astrodiscuss.usgs.gov/t/using-the-asc-conda-environment-for-isisx-y-z/106). 
-
-
-Once a version of conda is active, run the command: `conda activate isis<X.Y.Z>` to use this newest version of ISIS. 
-
-
-## Changes for <X.Y.Z> 
-
-<!---
-Copy this release's section of the Changelog here
--->
-
-
-## Notes 
-
-
-The following operating systems are supported for this release: 
-
-
-* Ubuntu 18.04 
-* macOS Mohave 11.6
-
-(Other Linux/macOS variants may be able to run this release, but are not officially supported.) 
-
-
-If you find a problem with this release, please create an issue on our [GitHub issues page](https://github.com/DOI-USGS/ISIS3/issues/new/choose/) 
-
-``` 
-
-* For a Release Candidate, add the following under "Notes":  
-
-
-``` 
-
-There are some important considerations to keep in mind when using this release candidate: 
-
-
-* Do not use this version for production work. A stable isisX.XX.XX release will be uploaded after a month. 
-* The ISIS online documentation will not be updated until the stable release is announced. 
-
-``` 
-
-
-#### Part B: Internal Announcement 
-
-
-* Send an email to all of astro (GS-G-AZflg Astro <gs-g-azflg_astro@usgs.gov>) informing them of internal availability. 
-
-    * Your e-mail can simply be a link to the external announcement.
-
-### Step 12: Publish Record to DOI
-Referring to [Part F](#part-f-create-a-doi-for-the-release), make sure to check that the code.usgs.gov link for the release is live and publish the record on DOI.
-
-### Step 13: Update the Release Schedule
-
-Update the [release schedule](https://github.com/DOI-USGS/ISIS3/wiki/Release-Schedule) with the date of the release and update any future releases with the appropriate dates. Releases should be nominally 3 months apart.
-
-
-## Problems 
-
-### _Could not find conda environment_
-If you test the conda environment you created for the ISIS build, i.e., isis3.7.1, on prog24 as isis3mgr and get the following warning: 
-
-``` 
-
-Could not find conda environment: <isis version> 
-
-You can list all discoverable environments with `conda info --envs`. 
-
-``` 
-
-Run the following command: 
-
-``` 
-
-source /usgs/cpkgs/anaconda3_macOS/etc/profile.d/conda.sh 
-
-``` 
-
-This problem occurs because we are building ISIS with the shared anaconda on cpkgs instead of /jessetest/miniconda3 (which is the version of anaconda being sourced in .bashrc). You may also do a conda activate with a full path to the environment instead of running the above source command. 
-
-### mpi issue
-If you run into an `mpi`/`mpich` error like below when running `buildCondaRelease.sh`,
-
-```
-ValueError: Incompatible component merge:
-    - '*mpich*'
-    - 'mpi_mpich_*'
-```
-
-try removing the cache in the respective `conda-bld/` dir:
-
-```sh
-rm -rf ~/mambaforge3/conda-bld/osx-64/.cache
-```
+!!! success "ISIS Release Complete"
 
 ------
 ## **ALE Public Release Process**
