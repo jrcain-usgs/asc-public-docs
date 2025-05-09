@@ -14,9 +14,15 @@
   
 ISIS release process chjanges depending on the type of release: 
 
-* **RC**: Release Candidate, new feature releases (e.g. going from `8.0`->`8.1` or `8.5`->`9.0`) are released first as RCs.
-* **LR**: Live Release, if no changes are suggested for the RC after a month, we do a LR from the RC.  
-* **LTS**: Long Term Support, the previous major release is supported for a year in LTS. It only receives bug fixes, no feature adds. 
+- **RC** (Release Candidate)
+    - new feature releases are released first as RCs  
+      (e.g. going from `8.0`->`8.1` or `8.5`->`9.0`)
+* **LR** (Live Release)
+    - If no changes are suggested for the RC after a month,  
+      **do a LR from the RC**.  
+* **LTS** (Long Term Support)
+    - The previous major release is supported for a year in LTS.
+    - It only receives bug fixes, no feature adds. 
 
 ### 1. **Check current test failures**
 
@@ -28,34 +34,31 @@ Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.co
 
 ### 2. **Update the GitHub documents**
 
-In this step, we will update the documents that are stored in the GitHub repository. There will either be one or two PRs as a result of this step depending on:
-
-!!! warning "Update docs at the end" 
-    The update docs PR into `dev` should be merged *after* the release is officially out and at the end of the public release process to ensure the new ISIS docs endpoint is live and working.
-
-
-
 === "RC" 
 
     - [ ] Update the Changelog. Label all the currently unreleased changes as part of this release. See comments on the  [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for instructions. 
     - [ ] Update `code.json` by adding a new entry with the RC version. e.g. an 8.0.0 release candidate would be labeled `8.0_RC1` for the first RC, `8.0_RC2` for the second, etc. 
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
-    - [ ] Submit a Pull Request: Submit a pull request into the dev branch. If a release branch exists, create a PR there as well.
+    - [ ] Submit a Pull Request: Submit a pull request* into the dev branch. If a release branch exists, create another PR there as well.
 
 === "LR"
 
     - [ ] Update the Changelog: Update the release date on the version to be released in the changelog. See comments on the  [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for instructions. 
     - [ ] Update `code.json` by adding a new entry with the new version number and the date last modified.   
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
-    - [ ] Submit a Pull Request: Submit a pull request into the dev branch. If a release branch exists, create a PR there as well. 
+    - [ ] Submit a Pull Request: Submit a pull request* into the dev branch. If a release branch exists, create another PR there as well. 
 
 === "LTS"
 
     - [ ] Update the Changelog. Move **only the bug fixes** under this release. Follow the instructions in [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for how to do this.
     - [ ] Update `code.json` by adding a new entry with the LTS version. e.g. an 8.0.0 LTS would be released as 8.0 (no LTS in the version name).
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
-    - [ ] Submit a Pull Request: Submit a pull request into the release branch. 
+    - [ ] Submit a Pull Request: Submit a pull request* into the release branch. 
 
+!!! warning "* Update docs at the end" 
+    The update docs PR into `dev` should be merged *after* the release is officially out and at the end of the public release process to ensure the new ISIS docs endpoint is live and working.
+
+    Make sure to complete [Step 5: Update Version](#5-update-version-for-isis-application-docs) before merging.
 
 !!! Success "" 
     
@@ -108,9 +111,9 @@ Clone the repo locally with git clone.
 
 ### 4. **Create a release**
 
-!!! Warning "Do Not Make a Release for RCs"
+!!! Warning "No Release for RCs"
 
-    **Skip this step for Release Candidates (RCs).** Only pull a release if it's a full release (i.e. NOT an RC). RCs should instead be in their own branch until ready for full release.  
+    **Skip this step for Release Candidates (RCs).** Only pull a release if it's a full release (i.e. LR/LTS, NOT an RC). RCs should instead be in their own branch until ready for full release.  
 
 === "LR" 
 
@@ -133,7 +136,7 @@ Clone the repo locally with git clone.
 
     Move on to step 5 after **creating the release**. 
 
-### 5. **Update [ISIS Application Docs](https://isis.astrogeology.usgs.gov)**
+### 5. **Update Version** (for [ISIS Application Docs](https://isis.astrogeology.usgs.gov))
 
 !!! info "LR/LTS only, not for RCs."
 
@@ -201,17 +204,18 @@ Clone the repo locally with git clone.
         DOI [`12.3456/XXXXXXXX`](https://doi.org/12.3456/XXXXXXXX)
 
 - [ ] Post the DOI number/link to...  
-    - [ ] [GitHub Release Post](https://github.com/DOI-USGS/ISIS3/releases)
+    - [ ] [GitHub Release Post for this ISIS Version](https://github.com/DOI-USGS/ISIS3/releases)
     - [ ] [ISIS Readme](https://github.com/DOI-USGS/ISIS3/blob/dev/README.md)
         - [ ] Badge at the top of the readme
         - [ ] [Citing ISIS](https://github.com/DOI-USGS/ISIS3/blob/dev/README.md#citing-isis) section:
             - DOI, Version Number, Release Date, Readme Updated Date
 
-- Also include the DOI number in the announcement below.
+!!! success ""
+    Move on to step 7 after **getting a DOI number** and posting it to the release and readme.
+    
+    Include the DOI number in the announcement in step 7 below!
 
 ### 7. **Announce the Build** 
-
-#### Part A: External Announcement 
 
 - [ ] Create a new [ISIS3 GitHub Discussion](https://github.com/DOI-USGS/ISIS3/discussions/categories/announcements)
     in the announcements category.
@@ -271,6 +275,10 @@ Clone the repo locally with git clone.
     * Do not use this version for production work. A stable isisX.XX.XX release will be uploaded after a month. 
     * The ISIS online documentation will not be updated until the stable release is announced. 
     ```
+
+-----
+
+!!! success "ISIS Release Complete"
 
 ------
 ## **ALE Public Release Process**
