@@ -32,7 +32,18 @@ Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.co
     
     Move on to step 2 after **confirming that builds are passing** (or **accounting for false positives**).
 
-### 2. **Update the GitHub documents**
+### 2. **Update Version in AWS S3** (for [ISIS Application Docs](https://isis.astrogeology.usgs.gov))
+
+!!! info "LR/LTS only, not for RCs."
+
+- [ ] Add the new version to `versions.json` in AWS S3  
+    `arn:aws:s3:::asc-public-docs/isis-site/versions.json`
+
+!!! Success "" 
+    
+    Move on to step 3 after **updating versions.json**. 
+
+### 3. **Update the GitHub documents**
 
 === "RC" 
 
@@ -58,9 +69,9 @@ Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.co
 
 !!! Success "" 
     
-    Move on to step 3 after **merging PR(s)**. 
+    Move on to step 4 after **merging PR(s)**. 
 
-### 3. **Create/setup git branch**
+### 4. **Create/setup git branch**
 
 Clone the repo locally with git clone. 
 
@@ -102,10 +113,10 @@ Clone the repo locally with git clone.
      Make sure you look closely at the changes in terms of syntax. Our `environment.yaml`s seem to have a looser restriction than what is expected in the `meta.yaml`. Check out conda's [package match specifications](https://docs.conda.io/projects/conda-build/en/latest/resources/package-spec.html#package-match-specifications) for more info.        
 
 !!! Success ""
-    Move on to step 4 after **creating the new branch on the upstream repo**. 
+    Move on to step 5 after **creating the new branch on the upstream repo**. 
 
 
-### 4. **Create a release**
+### 5. **Create a release**
 
 !!! Warning "No Release for RCs"
 
@@ -129,14 +140,7 @@ Clone the repo locally with git clone.
  
 !!! success ""
 
-    Move on to step 5 after **creating the release**. 
-
-### 5. **Update Version** (for [ISIS Application Docs](https://isis.astrogeology.usgs.gov))
-
-!!! info "LR/LTS only, not for RCs."
-
-- [ ] Add the new version to `versions.json` in AWS S3  
-    `arn:aws:s3:::asc-public-docs/isis-site/versions.json`
+    Move on to step 6 after **creating the release**. 
 
 ### 6. **Publish Record to DOI**
 
