@@ -123,7 +123,11 @@ Clone the repo locally with git clone.
     - [ ] On the same page, create a new tag for the release version.
     - [ ] Name the release "ISISX.Y.Z LTS". 
 
-!!! Success ""
+!!! note ""
+
+    Tag **custom** builds as **pre-release**, including ***mission-specific*** and ***non-standard*** builds.
+ 
+!!! success ""
 
     Move on to step 5 after **creating the release**. 
 
