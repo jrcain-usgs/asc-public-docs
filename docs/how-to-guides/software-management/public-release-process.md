@@ -124,13 +124,13 @@ Clone the repo locally with git clone.
 
 === "LR" 
 
-    - [ ] In the release tab on GitHub, draft a release and set the target branch to the branch created in Step 3.
+    - [ ] In the release tab on GitHub, draft a release and set the target branch to the branch created in Step 4.
     - [ ] On the same page, create a new tag for the release version.
     - [ ] Name the release "ISISX.Y.Z Public Release".
 
 === "LTS"
 
-    - [ ] In the release tab on GitHub, draft a release and set the target branch to the branch created in Step 3.
+    - [ ] In the release tab on GitHub, draft a release and set the target branch to the branch created in Step 4.
     - [ ] On the same page, create a new tag for the release version.
     - [ ] Name the release "ISISX.Y.Z LTS". 
 
