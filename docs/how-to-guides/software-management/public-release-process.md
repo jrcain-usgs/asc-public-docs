@@ -273,8 +273,10 @@ There is also an EFS drive for internal use.
 
 ### 10. **Create Internal Builds/Installs for Astro**
 
-This step covers creating the builds and the installation environments of ISIS for our internal users here on the ASC campus using the shared anaconda installs. Setting up the conda environments involves installing the conda build of ISIS that we just pushed up to Anaconda, and will follow the instructions found in the README.MD of the isis3 repository. These commands must be run as isis3mgr for permission purposes. 
+!!! info ""
 
+    - See [Installing ISIS](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md) for more info.
+    - These commands must be run as `isis3mgr` for permission purposes.
 
 #### Part A: Shared Conda Installs 
 
@@ -329,225 +331,196 @@ This step covers creating the builds and the installation environments of ISIS f
 
     - [ ] New info on versions.json/automatically updating the Docs versions
     - [ ] Remove manual docs website update instructions
-    - [ ] Remove docs website nave screenshots if no longer used
-
-1. Add the new version to Documentation Versions in the [menu.xsl](https://github.com/DOI-USGS/ISIS3/blob/dev/isis/src/docsys/build/menu.xsl#L105) under dev. Remove the class "usa-current" from the dev's `<li>` and add it to your newly create `<li>` element. For example:
-
-```diff
-- <li class="usa-sidenav__item usa-current">
-+ <li class="usa-sidenav__item">
-    <a href="https://isis.astrogeology.usgs.gov/dev/">Dev</a>
-  </li>
-+ <li class="usa-sidenav__item" usa-current>
-+ <a href="https://isis.astrogeology.usgs.gov/NEW VERSION/">NEW VERSION</a>
-+ </li>
-    <li class="usa-sidenav__item">
-    <a href="https://isis.astrogeology.usgs.gov/8.3.0/">8.3.0</a>
-    </li>
-    <li class="usa-sidenav__item">
-    <a href="https://isis.astrogeology.usgs.gov/8.2.0/">8.2.0</a>
-    </li>
-```
-
-The usa-current class highlights the version. This will allow the user to know which version of isis they are currently viewing.
-
-This is a visual of these html code changes:
-
-![Menu Before](../../../assets/release-process/menu1.png) ![Menu After](../../../assets/release-process/menu2.png)
 
 !!! Warning "Do Not Push these changes to the Dev Branch"
      
     Only use these code changes for running `ninja docs` and pushing to the S3. See Part C for instructions on what to push back into dev.
+    
+    TODO: Remove this warning? Still needed?
+
+1. Add the new version to `versions.json`
 
 2. Run cmake command in build directory. See [developing ISIS with cmake](../../how-to-guides/isis-developer-guides/developing-isis3-with-cmake.md) for details.
 
-3. Run the ```ninja docs``` command from this build directory to build the documentation for this version of the code. 
+3. Run the `ninja docs` command from this build directory to build the docs for this version of the code.  You can use the `http-server` package to test the docs.
 
 
-#### Part B: Upload the documentation 
+??? quote "Now Automated? Remove? - Part B: Upload the documentation"
 
-1. This step requires that you have aws sso configured for the aws production account. 
-    
-    Run `aws sso login --profile {insert your configured prod account name}`
+    1. This step requires that you have aws sso configured for the aws production account. 
+        
+        Run `aws sso login --profile {insert your configured prod account name}`
 
-2. Run a dryrun of copying new docs to the S3 bucket: 
+    2. Run a dryrun of copying new docs to the S3 bucket: 
 
-    `aws s3 cp --recursive docs/{insert_new_version_here}/ s3://asc-public-docs/isis-site/{insert_new_version_here}/ --profile {insert your configured prod account name} --dryrun`
+        `aws s3 cp --recursive docs/{insert_new_version_here}/ s3://asc-public-docs/isis-site/{insert_new_version_here}/ --profile {insert your configured prod account name} --dryrun`
 
-    example: `aws s3 cp --recursive docs/9.0.0/ s3://asc-public-docs/isis-site/9.0.0/ --profile prod-account --dryrun`
+        example: `aws s3 cp --recursive docs/9.0.0/ s3://asc-public-docs/isis-site/9.0.0/ --profile prod-account --dryrun`
 
-3. Confirm that the dry run is copying your docs to the correct location. If it is, run the actual copy command by removing `--dryrun`:
+    3. Confirm that the dry run is copying your docs to the correct location. If it is, run the actual copy command by removing `--dryrun`:
 
-    `aws s3 cp --recursive docs/{insert_new_version_here}/ s3://asc-public-docs/isis-site/{insert_new_version_here}/ --profile {insert your configured prod account}`
+        `aws s3 cp --recursive docs/{insert_new_version_here}/ s3://asc-public-docs/isis-site/{insert_new_version_here}/ --profile {insert your configured prod account}`
 
-    example: `aws s3 cp --recursive docs/9.0.0/ s3://asc-public-docs/isis-site/9.0.0/ --profile prod-account`
+        example: `aws s3 cp --recursive docs/9.0.0/ s3://asc-public-docs/isis-site/9.0.0/ --profile prod-account`
 
-#### Part C: Update Menu Code in Dev Branch
+??? quote "Now Automated? Remove? - Part C: Update Menu Code in Dev Branch"
 
-The only difference from what we changed in Part A1 is that, instead of moving the "usa-current" class, we are keeping it under "dev" for the biweekly dev doc builds.
+    The only difference from what we changed in Part A1 is that, instead of moving the "usa-current" class, we are keeping it under "dev" for the biweekly dev doc builds.
 
-The only change that needs to be pushed to the dev branch is the new version `<li>` element under "dev." Ensure that the "usa-current" class is removed from this new version `<li>` element.
+    The only change that needs to be pushed to the dev branch is the new version `<li>` element under "dev." Ensure that the "usa-current" class is removed from this new version `<li>` element.
 
-```diff
-<li class="usa-sidenav__item" usa-current>
-    <a href="https://isis.astrogeology.usgs.gov/dev/">Dev</a>
-  </li>
-+ <li class="usa-sidenav__item">
-+ <a href="https://isis.astrogeology.usgs.gov/NEW VERSION/">NEW VERSION</a>
-+ </li>
-    <li class="usa-sidenav__item">
-    <a href="https://isis.astrogeology.usgs.gov/8.3.0/">8.3.0</a>
+    ```diff
+    <li class="usa-sidenav__item" usa-current>
+        <a href="https://isis.astrogeology.usgs.gov/dev/">Dev</a>
     </li>
-    <li class="usa-sidenav__item">
-    <a href="https://isis.astrogeology.usgs.gov/8.2.0/">8.2.0</a>
-    </li>
-```
+    + <li class="usa-sidenav__item">
+    + <a href="https://isis.astrogeology.usgs.gov/NEW VERSION/">NEW VERSION</a>
+    + </li>
+        <li class="usa-sidenav__item">
+        <a href="https://isis.astrogeology.usgs.gov/8.3.0/">8.3.0</a>
+        </li>
+        <li class="usa-sidenav__item">
+        <a href="https://isis.astrogeology.usgs.gov/8.2.0/">8.2.0</a>
+        </li>
+    ```
 
-### 12. **Announce the Build**
-
-
-This step will will communicate that a new version of ISIS is available. 
-
-!!! danger "TODO"
-    
-    - [ ] Review/reorganize/move DOI instructions.
-    
-    - [ ] The DOI should be viewable, hopefully copiable and clickable too, on the release card in GitHub/GitLab.
-
-    - [ ] Integrate with "announce" instructions, or move.
-
-    - [ ] Collapse Announcement template
-
-#### Step 5: Create a DOI for the release
-
-  * A DOI is only needed for standard releases.  Release candidates do not need a DOI.
-
-  * Go to the [USGS Asset Identifier Service (AIS)](https://www1.usgs.gov/identifiers/) and click `Manage DOIs` to Login.
-      
-      * You will need the assistance of USGS staff for this.
-
-      * The AIS has known compatibility issues with Firefox, if you have trouble logging in, switch browsers.
-    
-  * Click `Create DOI` and Reserve a DOI.
-
-      * **Title**: `Integrated Software for Imagers and Spectrometers (ISIS) X.Y.Z`
-
-      * **Data Source**: `Astrogeology Science Center`
-
-      * ISIS `Does Not` use the *ScienceBase Data Release Process*.
-
-      * Clicking `Reserve My DOI` returns the DOI that's on hold.
-      
-          * Record this number in the GitHub release, and in the ISIS Readme at the top as a badge and in the Citing ISIS section.
-
-  * Add More Information
-
-      * Under "Manage Record"
-
-          * Add other USGS Staff members who can manage the DOI.
-
-      * Under "Required Information"
-
-          * **Creator(s) / Author(s)**: Add the ISIS Team Lead
-
-          * **Landing Page URL**: https://code.usgs.gov/astrogeology/isis/-/tags/[X.Y.Z]
-
-          * **Resource Type**: Software
-
-          * **IPDS Number**: IP-141314 for ISIS 8.x.x releases.  Major Versions will need a new number/release approval from [IPDS](https://ipds.usgs.gov).
-
-          * This product **is not** associated with a primary USGS-authored publication.
-
-      * Under "Recommended Information"
-
-          * Fill info if available.
-    
-      * Saving and Publishing
-
-          * Once the Landing Page URL on code.usgs.gov is live, publish the record to DataCite.
-
-          * You can save the record without publishing it if the release landing page is not ready.  
-
+### 12. **Announce the Build** 
 
 #### Part A: External Announcement 
 
-* Create a new topic under the [ISIS Release Notes](https://astrodiscuss.usgs.gov/c/ISIS/isis-release-notes) category on [astrodiscuss](https://astrodiscuss.usgs.gov/). 
+- [ ] Create a new discussion, in the announcements category, in the [ISIS3 GitHub Discussions](https://github.com/DOI-USGS/ISIS3/discussions/categories/announcements)
 
-* Fill in the following template for the release notes post: 
+- [ ] Fill in the Release Notes Template for the release notes post: 
 
-``` 
+??? quote "Release Notes Template"
 
-## How to install or update to <X.Y.Z> 
-
-
-Installation instructions of ISIS can be found in the README on our [github page ](https://github.com/DOI-USGS/ISIS3). 
+    ``` 
+    ## How to install or update to <X.Y.Z> 
 
 
-If you already have a version of ISIS 4.0.0 or later installed in an anaconda environment, you can update to <X.Y.Z> by activating your existing isis conda environment and running `conda update isis` . 
+    Installation instructions of ISIS can be found in the README on our [github page ](https://github.com/DOI-USGS/ISIS3). 
 
 
-### How to get access to <X.Y.Z> at the ASC 
+    If you already have a version of ISIS 4.0.0 or later installed in an anaconda environment, you can update to <X.Y.Z> by activating your existing isis conda environment and running `conda update isis` . 
 
 
-The new process proposed in the internal [RFC](https://astrodiscuss.usgs.gov/t/internal-rfc-distribution-of-isis3-at-asc/52/26) is now in full effect. Please review the process of using anaconda environments to activate isis [here](https://astrodiscuss.usgs.gov/t/using-the-asc-conda-environment-for-isisx-y-z/106). 
+    ### How to get access to <X.Y.Z> at the ASC 
 
 
-Once a version of conda is active, run the command: `conda activate isis<X.Y.Z>` to use this newest version of ISIS. 
+    The new process proposed in the internal [RFC](https://astrodiscuss.usgs.gov/t/internal-rfc-distribution-of-isis3-at-asc/52/26) is now in full effect. Please review the process of using anaconda environments to activate isis [here](https://astrodiscuss.usgs.gov/t/using-the-asc-conda-environment-for-isisx-y-z/106). 
 
 
-## Changes for <X.Y.Z> 
-
-<!---
-Copy this release's section of the Changelog here
--->
+    Once a version of conda is active, run the command: `conda activate isis<X.Y.Z>` to use this newest version of ISIS. 
 
 
-## Notes 
+    ## Changes for <X.Y.Z> 
+
+    <!---
+    Copy this release's section of the Changelog here
+    -->
 
 
-The following operating systems are supported for this release: 
+    ## Notes 
 
 
-* Ubuntu 18.04 
-* macOS Mohave 11.6
-
-(Other Linux/macOS variants may be able to run this release, but are not officially supported.) 
+    The following operating systems are supported for this release: 
 
 
-If you find a problem with this release, please create an issue on our [GitHub issues page](https://github.com/DOI-USGS/ISIS3/issues/new/choose/) 
+    * Ubuntu 18.04 
+    * macOS Mohave 11.6
 
-``` 
-
-* For a Release Candidate, add the following under "Notes":  
-
-
-``` 
-
-There are some important considerations to keep in mind when using this release candidate: 
+    (Other Linux/macOS variants may be able to run this release, but are not officially supported.) 
 
 
-* Do not use this version for production work. A stable isisX.XX.XX release will be uploaded after a month. 
-* The ISIS online documentation will not be updated until the stable release is announced. 
+    If you find a problem with this release, please create an issue on our [GitHub issues page](https://github.com/DOI-USGS/ISIS3/issues/new/choose/) 
 
-``` 
+    ``` 
+
+??? note "Additional Notes for Release Candidates"
+
+    Add the following under "Notes":   
+
+    ``` 
+    There are some important considerations to keep in mind when using this release candidate: 
+
+    * Do not use this version for production work. A stable isisX.XX.XX release will be uploaded after a month. 
+    * The ISIS online documentation will not be updated until the stable release is announced. 
+    ```
 
 
 #### Part B: Internal Announcement 
 
 
-* Send an email to all of astro (GS-G-AZflg Astro <gs-g-azflg_astro@usgs.gov>) informing them of internal availability. 
+- [ ] Send an email to all of astro (GS-G-AZflg Astro <gs-g-azflg_astro@usgs.gov>) informing them of internal availability. 
 
-    * Your e-mail can simply be a link to the external announcement.
+    - Your e-mail can simply be a link to the external announcement.
 
-### Step 12: Publish Record to DOI
-Referring to [Part F](#part-f-create-a-doi-for-the-release), make sure to check that the code.usgs.gov link for the release is live and publish the record on DOI.
+### 13. **Publish Record to DOI**
 
-### Step 13: Update the Release Schedule
+!!! danger "TODO: DOI should be viewable/copiable/clickable from the release post in GitHub/GitLab"
 
-Update the [release schedule](https://github.com/DOI-USGS/ISIS3/wiki/Release-Schedule) with the date of the release and update any future releases with the appropriate dates. Releases should be nominally 3 months apart.
+- [ ] Check that the code.usgs.gov link for the release is live and create a DOI record.
+
+??? abstract "Creating a DOI"
+
+    * A DOI is only needed for standard releases.  Release candidates do not need a DOI.
+
+    * Go to the [USGS Asset Identifier Service (AIS)](https://www1.usgs.gov/identifiers/) and click `Manage DOIs` to Login.
+        
+        * You will need the assistance of USGS staff for this.
+
+        * The AIS has known compatibility issues with Firefox, if you have trouble logging in, switch browsers.
+        
+    * Click `Create DOI` and Reserve a DOI.
+
+        * **Title**: `Integrated Software for Imagers and Spectrometers (ISIS) X.Y.Z`
+
+        * **Data Source**: `Astrogeology Science Center`
+
+        * ISIS `Does Not` use the *ScienceBase Data Release Process*.
+
+        * Clicking `Reserve My DOI` returns the DOI that's on hold.
+        
+            * Record this number in the GitHub release, and in the ISIS Readme at the top as a badge and in the Citing ISIS section.
+
+    * Add More Information
+
+        * Under "Manage Record"
+
+            * Add other USGS Staff members who can manage the DOI.
+
+        * Under "Required Information"
+
+            * **Creator(s) / Author(s)**: Add the ISIS Team Lead
+
+            * **Landing Page URL**: https://code.usgs.gov/astrogeology/isis/-/tags/[X.Y.Z]
+
+            * **Resource Type**: Software
+
+            * **IPDS Number**: IP-141314 for ISIS 8.x.x releases.  Major Versions will need a new number/release approval from [IPDS](https://ipds.usgs.gov).
+
+            * This product **is not** associated with a primary USGS-authored publication.
+
+        * Under "Recommended Information"
+
+            * Fill info if available.
+        
+        * Saving and Publishing
+
+            * Once the Landing Page URL on code.usgs.gov is live, publish the record to DataCite.
+
+            * You can save the record without publishing it if the release landing page is not ready. 
+
+### 14. **Update the Release Schedule**
+
+!!! danger "TODO: Remove this section? Do we still want to update this table?"
+
+Update the [release schedule](https://astrogeology.usgs.gov/docs/how-to-guides/software-management/isis-release-schedule/) with the date of the release and update any future releases with the appropriate dates.
 
 
-## Problems 
+## Problems
+
+!!! danger "TODO: are these problems still relevant? Remove?"
 
 ### _Could not find conda environment_
 If you test the conda environment you created for the ISIS build, i.e., isis3.7.1, on prog24 as isis3mgr and get the following warning: 
