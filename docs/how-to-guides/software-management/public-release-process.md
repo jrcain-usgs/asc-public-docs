@@ -39,26 +39,22 @@ Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.co
     - [ ] Update the Changelog. Label all the currently unreleased changes as part of this release. See comments on the  [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for instructions. 
     - [ ] Update `code.json` by adding a new entry with the RC version. e.g. an 8.0.0 release candidate would be labeled `8.0_RC1` for the first RC, `8.0_RC2` for the second, etc. 
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
-    - [ ] Submit a Pull Request: Submit a pull request* into the dev branch. If a release branch exists, create another PR there as well.
+    - [ ] Submit a Pull Request: Submit a pull request into the dev branch. If a release branch exists, create another PR there as well.
 
 === "LR"
 
     - [ ] Update the Changelog: Update the release date on the version to be released in the changelog. See comments on the  [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for instructions. 
     - [ ] Update `code.json` by adding a new entry with the new version number and the date last modified.   
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
-    - [ ] Submit a Pull Request: Submit a pull request* into the dev branch. If a release branch exists, create another PR there as well. 
+    - [ ] Submit a Pull Request: Submit a pull request into the dev branch. If a release branch exists, create another PR there as well. 
 
 === "LTS"
 
     - [ ] Update the Changelog. Move **only the bug fixes** under this release. Follow the instructions in [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for how to do this.
     - [ ] Update `code.json` by adding a new entry with the LTS version. e.g. an 8.0.0 LTS would be released as 8.0 (no LTS in the version name).
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
-    - [ ] Submit a Pull Request: Submit a pull request* into the release branch. 
+    - [ ] Submit a Pull Request: Submit a pull request into the release branch. 
 
-!!! warning "* Update docs at the end" 
-    The update docs PR into `dev` should be merged *after* the release is officially out and at the end of the public release process to ensure the new ISIS docs endpoint is live and working.
-
-    Make sure to complete [Step 5: Update Version](#5-update-version-for-isis-application-docs) before merging.
 
 !!! Success "" 
     
