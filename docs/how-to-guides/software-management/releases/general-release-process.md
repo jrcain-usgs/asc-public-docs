@@ -30,7 +30,7 @@ Once your pull request as been approved and merged, draft a new github release. 
 
 ### 6. Merge PR to conda-forge feedstock
 
-Within about 24 hours, a PR to the conda-forge feedstock for the software will be created.  Merge that PR to complete the release on conda-forge.
+Within about 24 hours, a PR to the conda-forge feedstock for the software will be automatically created.  Merge that PR to complete the release on conda-forge.
 
 Feedstocks for select Astro software:
 
