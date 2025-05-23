@@ -1,6 +1,6 @@
 # ISIS Public Release Process
 
-!!! info "For releasing other Astro software, see the [general release process :octicons-arrow-right-16:](releases/general-release-process.md)"
+!!! info "For releasing other Astro software, see the [general release process :octicons-arrow-right-16:](general-release-process.md)"
   
 The ISIS release process changes depending on the type of release: 
 

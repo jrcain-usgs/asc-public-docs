@@ -78,7 +78,7 @@ nav:
       - ISIS Release Schedule:             how-to-guides/software-management/isis-release-schedule.md
       - Releases:                          
         - Home:                            how-to-guides/software-management/releases/index.md
-        - Releasing ISIS:                   how-to-guides/software-management/public-release-process.md
+        - Releasing ISIS:                   how-to-guides/software-management/releases/isis-release-process.md
         - Releasing Other Astro Software:   how-to-guides/software-management/releases/general-release-process.md
         - ISIS Release Schedule:             how-to-guides/software-management/isis-release-schedule.md
         - LTS Release Process:               how-to-guides/software-management/lts-release-process.md
@@ -154,6 +154,9 @@ plugins:
   - search
   - mknotebooks
   - mermaid2
+  - redirects:
+      redirect_maps:
+        'how-to-guides/software-management/public-release-process.md': 'how-to-guides/software-management/releases/index.md'
 
 markdown_extensions:
   - codehilite

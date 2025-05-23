@@ -1,6 +1,6 @@
 # Astro Software General Release Process
 
-!!! info "ISIS has [its own release process :octicons-arrow-right-16:](../public-release-process.md)"
+!!! info "ISIS has [its own release process :octicons-arrow-right-16:](isis-release-process.md)"
 
     The process below applies to most other Astro software (ALE, Plio, Knoten, USGSCSM), but not ISIS.
 

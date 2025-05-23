@@ -4,7 +4,7 @@
 
 <div class="grid cards" markdown>
 
-- [:material-satellite-variant: Releasing __ISIS__ :octicons-arrow-right-24:](../public-release-process.md)
+- [:material-satellite-variant: Releasing __ISIS__ :octicons-arrow-right-24:](isis-release-process.md)
 - [:simple-dwavesystems: Releasing __Other__ Astro Software :octicons-arrow-right-24:](general-release-process.md)
 
 </div>
