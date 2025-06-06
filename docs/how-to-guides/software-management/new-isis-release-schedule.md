@@ -1,4 +1,12 @@
-# ISIS Release Schedule
+# ISIS Release Schedule and Release Types
+
+#### Key Differences
+
+| Release Type | Supported | RC | Versioning | Updates   | MAJOR | MINOR | PATCH |
+|--------------|-----------|----|------------|-----------|-------|-------|-------|
+| LTS          | 18 months | Y  | semver     | biweekly  | N     | N     | Y     |
+| Production   | 12 months | N  | semver     | quarterly | N     | Y     | Y     |
+| Dev          | 2 weeks   | N  | date-based | biweekly  | Y     | Y     | Y     |
 
 ## Release Types
 
@@ -8,6 +16,16 @@ ISIS has three types of releases:
 - **Production** - Gets new *Features* and *Bugfixes* but not *Breaking Updates*.
 - **Dev** - First to get new *Features*, including *Breaking Updates*.
 
+!!! note "Notes"
+
+    **Production is the default version of ISIS.**  
+    If you install the `main` verison of ISIS, or do not specify a label, you will get the production version.
+
+    **Releases can be found** in the [ISIS GitHub repo](https://github.com/DOI-USGS/ISIS3/releases) and on our [conda channel](https://anaconda.org/usgs-astrogeology/isis).
+
+    The **Dev** version ***does not get a release on GitHub***, 
+    but can be found in the [dev branch](https://github.com/DOI-USGS/ISIS3/tree/dev) of the repo.  
+    It **does** get a release on our conda channel every two weeks.  
 
 ## Types of Updates
 
@@ -26,9 +44,13 @@ Outlined in [Semantic Versioning (external)](https://semver.org), we categorize 
     - The **Dev** release may get *Major* updates.
     - The **LTS** release gets *Patch* updates only.
 
------
+## Flow of Updates
 
 #### Flow of MAJOR, MINOR, and PATCH updates from Dev to LTS and Production
+
+- ***Patch*** updates are merged from Dev into **LTS** and **Production** versions of ISIS.
+- ***Minor*** updates are merged into the **Production** version.
+- ***Major*** updates remain only in **Dev** ISIS, until the yearly RC and LTS Release.
 
 ``` mermaid
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true, 'showCommitLabel':true,'mainBranchName': 'Dev'}} }%%
@@ -72,14 +94,6 @@ gitGraph
     commit id:"2025.4"
 ```
 
-#### Key Differences
-
-| Version    | Supported | RC | Versioning | Updates   | MAJOR | MINOR | PATCH |
-|------------|-----------|----|------------|-----------|-------|-------|-------|
-| LTS        | 18 months | Y  | semver     | biweekly  | N     | N     | Y     |
-| Production | 12 months | N  | semver     | quarterly | N     | Y     | Y     |
-| Dev        | 2 weeks   | N  | date-based | biweekly  | Y     | Y     | Y     |
-
 
 ## Release Candidates
 
@@ -90,20 +104,5 @@ While the RC is out, we solicit feedback and testing from the community, and ide
 
 When a Release Candidate (RC) is branched from the `dev` branch, a feature freeze is put into effect. 
 Any feature additions that occur after an RC has been branched will be included in a future RC (and release). 
-A feature added before the creation of an RC will be included in the next major update,  
+A feature added before the creation of an RC will be included in the next major update, 
 unless issues are found with the new feature. In that case, the feature will be removed and the RC recreated.
-
-
-!!! danger "TODO: Tags... Production vs. Latest Release"
-
-    [Concerning these tags...](https://astrogeology.usgs.gov/docs/how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda/#downloading-isis)
-
-    What does "Latest Release" mean?  Should we change "latest" in docs/commands to something else?
-
-    - same as "Production"?
-    - does it include dev?
-    - should there be a separate production tag?
-
-## Release Schedule Calendar
-
-*port from previous docs, or remove?*
