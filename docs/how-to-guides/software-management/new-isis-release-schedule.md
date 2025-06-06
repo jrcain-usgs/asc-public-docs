@@ -19,7 +19,7 @@ ISIS has three types of releases:
 !!! note "Notes"
 
     **Production is the default version of ISIS.**  
-    If you install the `main` verison of ISIS, or do not specify a label, you will get the production version.
+    If you install the `main` version of ISIS, or do not specify a label, you will get the production version.
 
     **Releases can be found** in the [ISIS GitHub repo](https://github.com/DOI-USGS/ISIS3/releases) and on our [conda channel](https://anaconda.org/usgs-astrogeology/isis).
 
