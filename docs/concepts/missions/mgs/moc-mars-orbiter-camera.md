@@ -197,7 +197,7 @@ and place necessary information into the labels of the image.
 
         If you have JMARS installed, launch it and log in.
 
-        - In the *Main* tab of the **Layer Manger** , hit the **Add new
+        - In the *Main* tab of the **Layer Manager** , hit the **Add new
         layer** button, which opens a menu.
         - Select **Moc** from the **Stamp** menu.
         - In the **Add Moc stamp layer** window, just hit the Okay button,

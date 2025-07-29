@@ -1,7 +1,7 @@
 # Mars Global Surveyor Mission
 
 !!! abstract inline end "Artist's Concept"
-    [![Mars Global Surveyor](assets/mgs.png)](attachments/download/977/Mars_global_surveyor.png "Mars_global_surveyor.png")
+    [![Mars Global Surveyor](assets/mgs.png)](assets/mgs.png "Mars_global_surveyor.png")
 
 ## Brief Mission Summary
 
