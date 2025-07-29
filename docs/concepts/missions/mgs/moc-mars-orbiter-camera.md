@@ -3,10 +3,9 @@
 ## The Mars Orbiter Camera Instrument
 
 The Mars Orbiter Camera (MOC) onboard
-[**MGS**](../../../concepts/missions/mgs/index.md) produces a daily wide-angle
-image of Mars similar to weather photographs of the Earth, and also
-takes narrow angle images. *Malin Space Science Systems* is responsible for MOC
-operations.
+[**MGS**](../../../concepts/missions/mgs/index.md) produced a daily wide-angle
+image of Mars, similar to weather photographs of the Earth, and took narrow angle images. 
+*Malin Space Science Systems* was responsible for MOC operations from 1996 to 2006.
 
 -----
 
@@ -128,103 +127,106 @@ and place necessary information into the labels of the image.
 
 ### Acquiring MOC Data
 
-There are numerous online resources and desktop tools for searching for
-and acquiring Mars Global Surveyor Mars Orbiter Camera image data.
+??? info "Data Sources"
 
-#### PDS Planetary Image Atlas
+    There are numerous online resources and desktop tools for searching for
+    and acquiring Mars Global Surveyor Mars Orbiter Camera image data.
 
-The [PDS Planetary Image Atlas](https://pds-imaging.jpl.nasa.gov/search/?fq=ATLAS_MISSION_NAME%3A%22mars%20global%20surveyor%22&q=*%3A*), 
-hosted by the Jet Propulsion Laboratory and USGS Astrogeology Research Program, allows
-users to search through the MOC database and select images.
+    #### PDS Planetary Image Atlas
 
-#### ASU JMARS Geographic Information System
+    The [PDS Planetary Image Atlas](https://pds-imaging.jpl.nasa.gov/search/?fq=ATLAS_MISSION_NAME%3A%22mars%20global%20surveyor%22&q=*%3A*), 
+    hosted by JPL and USGS Astrogeology, is a search tool for MOC database and select images.
 
-The [JMARS Geographic Information System (GIS)](http://jmars.asu.edu/),
-offered by the Arizona State University's Mars Spaceflight Facility is a
-useful desktop tool for searching for and viewing MOC images.
+    #### Browsing by Volume
 
-#### Related Resources
+    The [Mars Global Surveyor Online Data Volumes](https://pds-imaging.jpl.nasa.gov/volumes/mgs.html)
+    allows manual browsing of the data in the original CD format.
 
-  - [PDS Data Holdings - MGS](http://pds-imaging.jpl.nasa.gov/holdings/#mgs)
-  - [PDS Image Atlas Search (Mission: MGS)](https://pds-imaging.jpl.nasa.gov/search/?fq=ATLAS_MISSION_NAME%3A%22mars%20global%20surveyor%22&q=*%3A*)
-  - [JMARS Geographic Information System (GIS)](http://jmars.asu.edu/)
+    #### ASU JMARS Geographic Information System
 
-### Data Acquisition Tool: Planetary Image Atlas
+    The [JMARS Geographic Information System (GIS)](http://jmars.asu.edu/),
+    offered by the Arizona State University's Mars Spaceflight Facility, is a 
+    desktop tool for searching for and viewing MOC images.
 
-The [PDS Image Atlas (Mission: MGS)](https://pds-imaging.jpl.nasa.gov/search/?fq=ATLAS_MISSION_NAME%3A%22mars%20global%20surveyor%22&q=*%3A*) 
-provides a search tool for MGS MOC (and other) imagery. 
-Make sure that the mission or spacecraft `mars global surveyor`, or that `moc` is selected as the instrument.
+    #### Related Resources
 
-Here are few useful filters for narrowing your search.  They can be found in the left column of the PDS Image Atlas:
+    - [PDS Data Holdings - MGS](http://pds-imaging.jpl.nasa.gov/holdings/#mgs)
+    - [PDS Image Atlas Search (Mission: MGS)](https://pds-imaging.jpl.nasa.gov/search/?fq=ATLAS_MISSION_NAME%3A%22mars%20global%20surveyor%22&q=*%3A*)
+    - [JMARS Geographic Information System (GIS)](http://jmars.asu.edu/)
 
-| Parameter                       | Notes                                                                                                                                                                                |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Filters**                     | Red and Blue filters are Wide Angle Imagery.  N/A (no filter) may help you find Narrow Angle Imagery.
-| **Lat/Lon Bounding Box**        | Enter the Min and Max Longitudes and/or Latitudes of your area of interest.  Longitude is in Positive East coordinates.
-| **Target**                      | Select `Mars` to filter out the few non-mars MOC Images.
-| **Orbital Mission Constraints** | Orbit Number, Azimuth, Rotation, Ascension, Declination, Spacecraft Orientation, etc...
-| **Lighting Geometry**           | Emission Angle, Incidence Angle, Phase Angle.  Helpful for finding similarly lighted images to build a mosaic.
+??? info "Data Acquisition Tool: Planetary Image Atlas"
 
-#### Browsing by Volume
+    The [PDS Image Atlas (Mission: MGS)](https://pds-imaging.jpl.nasa.gov/search/?fq=ATLAS_MISSION_NAME%3A%22mars%20global%20surveyor%22&q=*%3A*) 
+    provides a search tool for MGS MOC (and other) imagery. 
+    Make sure that the mission or spacecraft `mars global surveyor`, or that `moc` is selected as the instrument.
 
-The [Mars Global Surveyor Online Data Volumes](https://pds-imaging.jpl.nasa.gov/volumes/mgs.html)
-allows manual browsing of the data in the format it was stored in on CDs.
+    Here are few useful filters for narrowing your search.  They can be found in the left column of the PDS Image Atlas:
 
-### Data Acquisition Tool: JMARS
+    | Parameter                       | Notes                                                                                                                                                                                |
+    | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+    | **Filters**                     | Red and Blue filters are Wide Angle Imagery.  N/A (no filter) may help you find Narrow Angle Imagery.
+    | **Lat/Lon Bounding Box**        | Enter the Min and Max Longitudes and/or Latitudes of your area of interest.  Longitude is in Positive East coordinates.
+    | **Target**                      | Select `Mars` to filter out the few non-mars MOC Images.
+    | **Orbital Mission Constraints** | Orbit Number, Azimuth, Rotation, Ascension, Declination, Spacecraft Orientation, etc...
+    | **Lighting Geometry**           | Emission Angle, Incidence Angle, Phase Angle.  Helpful for finding similarly lighted images to build a mosaic.
 
-JMARS is a Geographic Information System (GIS) tool to evaluate
-MOC images that cover an area of interest before the images are
-downloaded. The tool displays MOC footprints and a variety of other Mars
-data. JMARS can be used to:
+??? info "Data Acquisition Tool: JMARS"
 
-  - Query the database of MOC images
-  - Select browse images to display on-screen and download via the web
-  - Generate a list of MOC images (great for creating scripts)
-  - Save the displayed map as an image
+    JMARS is a Geographic Information System (GIS) tool to evaluate
+    MOC images that cover an area of interest before the images are
+    downloaded. The tool displays MOC footprints and a variety of other Mars
+    data. JMARS can be used to:
 
-??? abstract "Screenshot - JMARS displaying MOC Footprints"
+    - Query the database of MOC images
+    - Select browse images to display on-screen and download via the web
+    - Generate a list of MOC images (great for creating scripts)
+    - Save the displayed map as an image
 
-    [![Jmars\_Screenshot.png](assets/moc-img/Jmars_Screenshot.png)](assets/moc-img/Jmars_Screenshot.png "Jmars_Screenshot.png")
+    ??? abstract "Screenshot - JMARS displaying MOC Footprints"
 
-    The MOC footprints (called stamps in JMARS) are displayed as blue polygons on the map. 
-    Several footprints are shown selected in the Layers Manager MOC-NA Stamps list 
-    and highlighted yellow on the map. Several MOC images are displayed the 
-    map, filling in those footprints with a preview of the actual image data. 
-    The web page for one image has been launched and is open behind JMARS, 
-    and the image names for the selected footprints have been copied from JMARS to our text editor.
+        [![Jmars\_Screenshot.png](assets/moc-img/Jmars_Screenshot.png)](assets/moc-img/Jmars_Screenshot.png "Jmars_Screenshot.png")
 
-??? example "Example - Displaying MOC Narrow Angle Footprints in JMARS"
+        The MOC footprints (called stamps in JMARS) are displayed as blue polygons on the map. 
+        Several footprints are shown selected in the Layers Manager MOC-NA Stamps list 
+        and highlighted yellow on the map. Several MOC images are displayed the 
+        map, filling in those footprints with a preview of the actual image data. 
+        The web page for one image has been launched and is open behind JMARS, 
+        and the image names for the selected footprints have been copied from JMARS to our text editor.
 
-    If you have JMARS installed, launch it and log in.
+    ??? example "Example - Displaying MOC Narrow Angle Footprints in JMARS"
 
-    - In the *Main* tab of the **Layer Manger** , hit the **Add new
-      layer** button, which opens a menu.
-    - Select **Moc** from the **Stamp** menu.
-    - In the **Add Moc stamp layer** window, just hit the Okay button,
-      leaving all the fields blank.
-    - A new tab named **MOC-NA stamps** will appear in the Layer Manager.
-      When it's done loading the footprints, its drawing status indicator
-      will turn from red to green, the footprints will be displayed on the
-      map and the images shown on the map are list in the Layer Manager.
-    - Try right-clicking on a listing the image list and on the footprints
-      displayed on the screen -- there's lots of options for working with
-      and accessing information and data. For example, **Render** and
-      **Load Selected Stamps** will download and display the MOC images
-      for the selected footprints on the map, giving you the ability to
-      preview the data. **Web Browse** will launch an image's web page in
-      your browser so you can access the information and data.
+        If you have JMARS installed, launch it and log in.
 
-Other options in JMARS to help you search for MOC data include:
+        - In the *Main* tab of the **Layer Manger** , hit the **Add new
+        layer** button, which opens a menu.
+        - Select **Moc** from the **Stamp** menu.
+        - In the **Add Moc stamp layer** window, just hit the Okay button,
+        leaving all the fields blank.
+        - A new tab named **MOC-NA stamps** will appear in the Layer Manager.
+        When it's done loading the footprints, its drawing status indicator
+        will turn from red to green, the footprints will be displayed on the
+        map and the images shown on the map are list in the Layer Manager.
+        - Try right-clicking on a listing the image list and on the footprints
+        displayed on the screen -- there's lots of options for working with
+        and accessing information and data. For example, **Render** and
+        **Load Selected Stamps** will download and display the MOC images
+        for the selected footprints on the map, giving you the ability to
+        preview the data. **Web Browse** will launch an image's web page in
+        your browser so you can access the information and data.
 
-- Tools for narrowing your search and modifying your display in the 
-  **Settings**, **Query**, and **Render** tabs in the Layer Manager
-- Tools in the main menus
-- Adding other data layers to the display
+    Other options in JMARS to help you search for MOC data include:
 
-#### Related Resources
+    - Tools for narrowing your search and modifying your display in the 
+    **Settings**, **Query**, and **Render** tabs in the Layer Manager
+    - Tools in the main menus
+    - Adding other data layers to the display
 
-  - [Download JMARS](http://jmars.asu.edu/)  
-    *Free, registration required for full functionality*
+    <div class="grid cards" markdown>
+
+    - **See [JMARS (ASU) :octicons-arrow-right-24:](http://jmars.asu.edu/)**  
+      *Free, registration required for full functionality*
+
+    </div>
 
 -----
 
@@ -238,7 +240,7 @@ into ISIS.
 
 ### Using moc2isis to ingest MOC images into ISIS
 
-???+ example "Ingesting a MOC image"
+??? info "Ingesting (and decompressing) a MOC image with `moc2isis`"
 
     To import an a MOC image into ISIS with [`moc2isis`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/moc2isis/moc2isis.html), outputting an ISIS cube:
 
@@ -278,7 +280,7 @@ into ISIS.
 
     </div>
 
-??? info "Decompressing MOC Images"
+??? info "Decompressing MOC Images outside of `moc2isis`"
 
     !!! quote inline end ""
         [![MOC_Wide_Red.png](assets/moc-img/MOC_Wide_Red.png){ width="200" }](assets/moc-img/MOC_Wide_Red.png "MOC_Wide_Red.png")
@@ -287,54 +289,59 @@ into ISIS.
         ///
 
     If you'd like to decompress the MOC image outside of the ISIS
-    **moc2isis** application, use the **mocuncompress** application.
-    **mocuncompress** is not an ISIS application, and you must enter this
-    command exactly as shown below. There is no GUI available for this
-    application. (This application is supplied by Planetary Data System).
+    `moc2isis` app, use the 
+    [`mocuncompress`](https://isis.astrogeology.usgs.gov/9.0.0/Application/presentation/Tabbed/mocuncompress/mocuncompress.html) 
+    app. `mocuncompress` is not a standard ISIS app; the command must
+    be entered exactly as shown below. There is no GUI. 
+    (This application is supplied by Planetary Data System).
 
     **mocuncompress Syntax:**
 
         mocuncompress [input file] [output file]
 
-    **mocuncompress Example:** *.img* is the recommended file extension
+    **mocuncompress Example:**  
+    *.img* is the recommended file extension
     for the uncompressed output file.
 
         mocuncompress e2000929.imq e2000929.img
 
-    If you'd like to import the resulting uncompressed image into ISIS,
-    simply run `moc2isis` on the uncompressed file. For example:
+    To import the resulting uncompressed image into ISIS,
+    run `moc2isis` on the uncompressed file. For example:
 
         moc2isis   from=e2000929.img  to=e2000929.lev0.cub
 
+??? warning "MOC Problem Data"
 
-### MOC Problem Data
+    !!! quote inline end "Transmission Error"
 
-!!! warning inline end "Transmission Error"
+        [![Noise_Transmission_Error.png](assets/moc-img/Noise_Transmission_Error.png){width="100"}](assets/moc-img/Noise_Transmission_Error.png "Noise_Transmission_Error.png")
+        /// caption
+        A glitch during the transmission of this image 
+        caused the data to become garbled (upper right) 
+        and some data was completely lost 
+        (the black area across the middle)
+        ///
 
-    [![Noise_Transmission_Error.png](assets/moc-img/Noise_Transmission_Error.png){width="100"}](assets/moc-img/Noise_Transmission_Error.png "Noise_Transmission_Error.png")
-    /// caption
-    A glitch during the transmission of this image 
-    caused the data to become garbled (upper right) 
-    and some data was completely lost 
-    (the black area across the middle)
-    ///
+    Many of the problems with the MGS MOC data sets are due to either
+    transmission errors or environmental conditions that existed when the
+    image was acquired. It may be hard to detect these errors without visually
+    inspecting the images.  While many predicted problems are easily handled
+    through standard MOC processing procedures, **missing data**,
+    **corrupted data**, and other random data acquisition and transmission
+    issues may require special processing, manual editing, or simply cannot
+    be corrected. **Clouds** and **airborne dust** are two elements, caused
+    by environmental conditions, that will degrade the quality of your
+    images. The amount of image degradation will vary. 
 
-Many of the problems with the MGS MOC data sets are due to either
-transmission errors or environmental conditions that existed when the
-image was acquired. It may be hard to detect these errors without visually
-inspecting the images.  While many predicted problems are easily handled
-through standard MOC processing procedures, **missing data**,
-**corrupted data**, and other random data acquisition and transmission
-issues may require special processing, manual editing, or simply cannot
-be corrected. **Clouds** and **airborne dust** are two elements, caused
-by environmental conditions, that will degrade the quality of your
-images. The amount of image degradation will vary. In either case,
-whether or not you use the image is a judgment based on how much
-information will be gained verses how much the image will degrade the
-final product.
+    The decision whether to use image is a judgment based on ***how much
+    information will be gained*** vs. ***how much the image will degrade*** the
+    final product.
 
-Refer to: ( [Adding SPICE](Adding_SPICE) )  
-TODO: ^ Locate new page or port this from the Wiki
+<div class="grid cards" markdown>
+
+- See Also: [Spice Overview :octicons-arrow-right-24:](../../../concepts/spice/spice-overview.md)
+
+</div>
 
 -----
 
@@ -348,224 +355,237 @@ so forth. We'll finish up our Level 1 image with radiometric calibration
 in order to create an image that is representative of an ''ideal'' image
 acquired by a camera system with perfect radiometric properties.
 
-(Refer to: [Overview of Radiometric Calibration](Overview_of_Radiometric_Calibration))  
-TODO: ^ Locate/Port this from the Wiki
+??? info "Radiometric Calibration with `moccal`"
 
-### Radiometric Calibration of MOC Data
+    The radiometric calibration application moccal corrects an image so the
+    output resembles an "ideal" grayscale image where the digital numbers
+    (DNs) are proportional to scene brightness. The images are corrected
+    for:
 
-The radiometric calibration application moccal corrects an image so the
-output resembles an "ideal" grayscale image where the digital numbers
-(DNs) are proportional to scene brightness. The images are corrected
-for:
+    - Global gain and offset instrument operating modes
+    - Variable sensitivity of each detector in push broom array
+    - Even/odd detector offset
+    - Normalize sun-target distance
+    - Low-high-low spike at 50 pixel intervals caused by power supply
+        synchronization pulse
 
-  - Global gain and offset instrument operating modes
-  - Variable sensitivity of each detector in push broom array
-  - Even/odd detector offset
-  - Normalize sun-target distance
-  - Low-high-low spike at 50 pixel intervals caused by power supply
-    synchronization pulse
+    Occasionally, corrupted pixels need to be set to null pixel values.
 
-Occasionally, corrupted pixels need to be set to null pixel values.
+    [`moccal`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/moccal/moccal.html)
+    is intended to run on MOC Narrow Angle and Wide Angle images. The
+    default output image is a 32-bit cube where the pixels have been
+    adjusted to represent **reflectance** (i.e. albedo), with valid pixel
+    values between 0 and 1. (Alternatively, you can create a radiance image,
+    with units in DN/msec, by setting the IOF parameter to "NO").
 
-[`moccal`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/moccal/moccal.html)
-is intended to run on MOC Narrow Angle and Wide Angle images. The
-default output image is a 32-bit cube where the pixels have been
-adjusted to represent **reflectance** (i.e. albedo), with valid pixel
-values between 0 and 1. (Alternatively, you can create a radiance image,
-with units in DN/msec, by setting the IOF parameter to "NO").
+    ???+ example "Default Coefficients"
 
-Default coefficients for the MOC calibration correction can be found in:
+        Default coefficients for the MOC calibration correction can be found in:
 
-    $ISISDATA/mgs/calibration/moccal.ker.\#
+            $ISISDATA/mgs/calibration/moccal.ker.\#
 
-*`\#` is the version number, moccal will refer to the highest version number as most recent.*
+        *`\#` is the version number, moccal will refer to the highest version number as most recent.*
+
+    -----
+
+    ???+ example "Radiometric Corrections"
+
+        This will perform radiometric corrections to
+        our image (r0700563.lev0.cub) and create an output cube
+        (r0700563_cal.cub) where the DNs represent reflectance (I/F, ratio of
+        reflected radiation and the amount of incident radiation).
+
+            moccal from=r0700563.lev0.cub to=r0700563_cal.cub
+
+        <div class="grid cards" markdown>
+
+        - **Pre-Calibration**
+
+            [![MOC\_Pre\_Calibration.png](assets/moc-img/MOC_Pre_Calibration.png){width="300"}](assets/moc-img/MOC_Pre_Calibration.png "MOC_Pre_Calibration.png")
+
+        - **Post-Calibration**
+
+            [![MOC\_Post\_Calibration.png](assets/moc-img/MOC_Post_Calibration.png){width="300"}](assets/moc-img/MOC_Post_Calibration.png "MOC_Post_Calibration.png")
+
+        </div>
+
+<div class="grid cards" markdown>
+
+- See Also: [General Overview of Radiometric Calibration :octicons-arrow-right-24:](../../../concepts/image-processing/overview-of-radiometric-calibration.md)
+
+</div>
 
 -----
 
-???+ example "Radiometric Corrections"
+??? info "Noise Removal: MOC Wide Angle vs. Narrow Angle"
 
-    This will perform radiometric corrections to
-    our image (r0700563.lev0.cub) and create an output cube
-    (r0700563_cal.cub) where the DNs represent reflectance (I/F, ratio of
-    reflected radiation and the amount of incident radiation).
+    So far, we've been handling MOC Wide Angle and MOC Narrow Angle images
+    the same. Now, we need to diverge and do some special processing to some
+    of our images, and images from both cameras will be handled differently.
 
-        moccal from=r0700563.lev0.cub to=r0700563_cal.cub
+    The MOC camera characteristics produce images with known noise patterns.
+    The noise patterns differ according to the ***lens angle*** (wide or narrow), the
+    cameras' ***summing mode*** (crosstrack or downtrack), or **color** (blue or red).
+    These known noise issues are easy to correct. After correction,
+    processing can continue (i.e, projecting the image to a map projection).
 
-    <div class="grid cards" markdown>
+    #### Crosstrack Summing Modes
 
-    - **Pre-Calibration**
+    Particular **summing modes** were used 
+    to average multiple detector pixels and combine them into a single 
+    output pixel value. Both MOC NA and WA detectors can utilize crosstrack
+    (sample) and downtrack (line) summing modes. The value of these modes
+    indicate the number of samples and lines, respectively, that were summed
+    and averaged to result in the pixel values stored in the raw file.
 
-        [![MOC\_Pre\_Calibration.png](assets/moc-img/MOC_Pre_Calibration.png){width="300"}](assets/moc-img/MOC_Pre_Calibration.png "MOC_Pre_Calibration.png")
+    #### Key ISIS Applications
 
-    - **Post-Calibration**
+    - [`mocnoise50`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/mocnoise50/mocnoise50.html)
+        : removes diagonal spike noise from MOC NA images with
+        Crosstrack Summing mode of `1`
+    - [`getkey`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/getkey/getkey.html)
+        : outputs the value of requested keyword from cube label
 
-        [![MOC\_Post\_Calibration.png](assets/moc-img/MOC_Post_Calibration.png){width="300"}](assets/moc-img/MOC_Post_Calibration.png "MOC_Post_Calibration.png")
+    ??? example "50-pixel Noise Spike (MOC Narrow Angle)"
 
-    </div>
+        The images acquired by MOC Narrow Angle (NA) when the camera was in
+        **crosstrack summing mode 1** contain a noise spike pattern every 50
+        pixels.
 
-### Noise Removal: MOC Wide Angle Versus Narrow Angle
+        To find out if your image has this issue, extract the CrosstrackSumming
+        and InstrumentId keywords from your MOC image to determine camera
+        (Narrow Angle or Wide Angle) and camera crosstrack summing mode (modes
+        range from 1 to 8 for MOC NA):
 
-*Refer to: [Overview of Noise And Artifacts](Overview_of_Noise_And_Artifacts)*  
-TODO: ^ Locate/Port this from the Wiki
+            getkey from=r0700563_cal.cub grpn=Instrument keyword=CrosstrackSumming
+            getkey from=r0700563_cal.cub grpn=Instrument keyword=InstrumentId
 
-So far, we've been handling MOC Wide Angle and MOC Narrow Angle images
-the same. Now, we need to diverge and do some special processing to some
-of our images, and images from both cameras will be handled differently.
+        If the values returned are CrosstrackSumming=1, and
+        InstrumentId=MOC\_NA, run the **mocnoise50** application to remove the
+        noise spikes.  
 
-The different MOC camera characteristics resulted in images that have
-varying noise patterns. There are different noise issues among The MOC
-Wide Angle and MOC Narrow Angle images, and processing depends on the
-cameras' acquisition mode, and whether an image is the blue or red band
-for MOC Wide Angle. These common noise issues are straightforward to
-correct, and some images may not have noise problems, and processing can
-continue with projecting the image to a map projection.
+        *Note:* `mocnoise50` *will check the InstrumentId and
+        CrosstrackSumming keywords for you and only run on images that have the
+        correct values.*
 
-#### 50-pixel Noise Spike (MOC Narrow Angle)
+            mocnoise50 from=r0700563_cal.cub to=r0700563_noise.cub
 
-The images acquired by MOC Narrow Angle (NA) when the camera was in
-**crosstrack summing mode 1** contain a noise spike pattern every 50
-pixels.
+        The images below have been cropped and magnified to show the results of
+        mocnoise50 program.
 
-To find out if your image has this issue, extract the CrosstrackSumming
-and InstrumentId keywords from your MOC image to determine camera
-(Narrow Angle or Wide Angle) and camera crosstrack summing mode (modes
-range from 1 to 8 for MOC NA):
+        <div class="grid cards" markdown>
 
-    getkey from=r0700563_cal.cub grpn=Instrument keyword=CrosstrackSumming
-    getkey from=r0700563_cal.cub grpn=Instrument keyword=InstrumentId
+        - **Before mocnoise50**
 
-If the values returned are CrosstrackSumming=1, and
-InstrumentId=MOC\_NA, run the **mocnoise50** application to remove the
-noise spikes.  
+            [![MOC_Before_Mocnoise50.png](assets/moc-img/MOC_Before_Mocnoise50.png){width="300"}](assets/moc-img/MOC_Before_Mocnoise50.png "MOC_Before_Mocnoise50.png")
+            
+            The bright pixels forming a pattern of parallel lines that appear to 
+            run towards the upper right is the spike noise we want to remove.
 
-*Note:* ***mocnoise50*** *will check the InstrumentId and
-CrosstrackSumming keywords for you and only run on images that have the
-correct values.*
+        - **After mocnoise50**
+            
+            [![MOC_After_Mocnoise50.png](assets/moc-img/MOC_After_Mocnoise50.png){width="300"}](assets/moc-img/MOC_After_Mocnoise50.png "MOC_After_Mocnoise50.png")
 
-    mocnoise50 from=r0700563_cal.cub to=r0700563_noise.cub
+            The noise spike pattern has been removed.
 
-The images below have been cropped and magnified to show the results of
-mocnoise50 program.
+        </div>
+
+    ??? example "Even-Odd Noise Removal (MOC Narrow and Wide Angle)"
+
+        The Narrow Angle (NA) and Wide Angle (WA) images contain a noise pattern
+        across even and odd pixels whenever the cameras were in crosstrack
+        summing mode 1. The application **mocevenodd** gathers an average of the
+        pixels to remove the noise pattern. The changes are very subtle, so it
+        is very hard to see the differences visually. The pixel values are
+        different if viewed with an interactive display program like qview.
+
+        To find out if your image has this issue, extract the CrosstrackSumming
+        keyword from your MOC image to determine the camera crosstrack summing
+        mode (modes range from 1 to 8 for MOC NA and 1 to 127 for MOC WA):
+
+            getkey from=e2000929_cal.cub grpn=Instrument  keyword=CrosstrackSumming
+
+        If the crosstrack summing mode is 1 (i.e. CrosstrackSumming=1), run the
+        **mocevenodd** application.  
+        *Note:* `mocevenodd` *will check the CrosstrackSumming keyword for
+        you and only run on images that have the correct value.*
+
+        === "Narrow Angle"
+
+            For MOC NA images, run
+            `mocevenodd` on the output of `mocnoise50`:
+
+                mocevenodd from=r0700563_noise.cub to=r0700563.lev1.cub
+        
+        === "Wide Angle"
+
+            For MOC WA images, run
+            `mocevenodd` on the output of `moccal`:
+
+                mocevenodd from=e2000929_cal.cub to=e2000929.lev1.cub
+
+        -----
+
+        The images below have been cropped and magnified to show the results of
+        mocevenodd program.
+
+        <div class="grid cards" markdown>
+
+        - **MOC NA image, before mocevenodd**
+
+            [![MOC\_Before\_Mocevenodd.png](assets/moc-img/MOC_Before_Mocevenodd.png)](assets/moc-img/MOC_Before_Mocevenodd.png "MOC_Before_Mocevenodd.png")
+
+        - **MOC NA image, after mocevenodd**
+
+            [![MOC\_After\_Mocevenodd.png](assets/moc-img/MOC_After_Mocevenodd.png)](assets/moc-img/MOC_After_Mocevenodd.png "MOC_After_Mocevenodd.png")
+
+
+        - **Difference image**
+
+            [![MOC\_Mocevenodd\_Difference.png](assets/moc-img/MOC_Mocevenodd_Difference.png)](assets/moc-img/MOC_Mocevenodd_Difference.png "MOC_Mocevenodd_Difference.png")
+            
+            This image illustrates the difference between the before and after 
+            images. Note the vertical "pin-striping" -- this is the even-odd 
+            noise pattern that was fixed by mocevenodd. This image is a literal 
+            subtraction of the two images, contrast stretched to exaggerate 
+            the differences. In this images, dark tones are pixels that became 
+            darker after mocevenodd, and the lighter tones are pixels that became
+            lighter after mocevenodd.
+
+        </div>
+
+
+    ??? example "Gap Noise Removal (MOC Wide Angle)"
+
+        The Wide Angle camera that acquired images in the blue filter contains a
+        gap at detector 371. This gap can be filled in with the average of
+        surrounding pixels (five pixels on a line centered on detector 371).
+        Referring to the extracted label information, if InstrumentId = MOC\_WA,
+        then determine if it is a blue filter:
+
+            getkey from=file_mocevenodd.cub grpn=Archive  keyword=FilterName
+
+        If FilterName = BLUE then apply
+        [`mocgap`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/mocgap/mocgap.html)
+        to the appropriate output from the steps above:
+
+        - If MOC_WA / CrosstrackSumming = 1
+
+        ```
+        mocgap  from=file_mocevenodd.cub  to=file.lev1.cub
+        ```
+
+        - Or... if MOC_WA / CrosstrackSumming is ***not equal to*** 1:
+
+        ```
+        mocgap from=file_cal.cub to=file.lev1.cub
+        ```
 
 <div class="grid cards" markdown>
 
-- **Before mocnoise50**
-
-    [![MOC_Before_Mocnoise50.png](assets/moc-img/MOC_Before_Mocnoise50.png){width="300"}](assets/moc-img/MOC_Before_Mocnoise50.png "MOC_Before_Mocnoise50.png")
-    
-    The bright pixels forming a pattern of parallel lines that appear to 
-    run towards the upper right is the spike noise we want to remove.
-
-- **After mocnoise50**
-    
-    [![MOC_After_Mocnoise50.png](assets/moc-img/MOC_After_Mocnoise50.png){width="300"}](assets/moc-img/MOC_After_Mocnoise50.png "MOC_After_Mocnoise50.png")
-
-    The noise spike pattern has been removed.
+- See Also: [General Overview of Noise and Artifacts :octicons-arrow-right-24:](../../../concepts/image-processing/overview-of-noise-and-artifacts.md)
 
 </div>
-
-
-
-#### Related ISIS Applications
-
-See the following ISIS documentation for information about the
-applications you will need to use to perform this procedure:
-
-  - [**mocnoise50**](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/mocnoise50/mocnoise50.html)
-    : removes diagonal spike noise from MOC Narrow Angle images with
-    Crosstrack Summing mode of 1
-  - [**getkey**](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/getkey/getkey.html)
-    : outputs the value of a requested keyword from a cube label
-
-#### About Crosstrack Summing Modes
-
-There are special **summing modes** that are utilized on-board the
-spacecraft to average detector pixels to combine them into a single
-output pixel value. Both MOC NA and WA detectors can utilize crosstrack
-(sample) and downtrack (line) summing modes. The value of these modes
-indicate the number of samples and lines, respectively, that were summed
-and averaged to result in the pixel values stored in the raw file.
-
-#### Even-Odd Noise Removal (MOC Narrow and Wide Angle)
-
-The Narrow Angle (NA) and Wide Angle (WA) images contain a noise pattern
-across even and odd pixels whenever the cameras were in crosstrack
-summing mode 1. The application **mocevenodd** gathers an average of the
-pixels to remove the noise pattern. The changes are very subtle, so it
-is very hard to see the differences visually. The pixel values are
-different if viewed with an interactive display program like qview.
-
-To find out if your image has this issue, extract the CrosstrackSumming
-keyword from your MOC image to determine the camera crosstrack summing
-mode (modes range from 1 to 8 for MOC NA and 1 to 127 for MOC WA):
-
-    getkey from=e2000929_cal.cub grpn=Instrument  keyword=CrosstrackSumming
-
-If the crosstrack summing mode is 1 (i.e. CrosstrackSumming=1), run the
-**mocevenodd** application.  
-*Note:* ***mocevenodd*** *will check the CrosstrackSumming keyword for
-you and only run on images that have the correct value.*
-
-**Narrow Angle** : If you're working with a MOC NA image, run
-**mocevenodd** on the output of **mocnoise50** :
-
-    mocevenodd from=r0700563_noise.cub to=r0700563.lev1.cub
-
-**Wide Angle** :If you're working with a MOC WA image, run
-**mocevenodd** on the output of **moccal** :
-
-    mocevenodd from=e2000929_cal.cub to=e2000929.lev1.cub
-
-The images below have been cropped and magnified to show the results of
-mocevenodd program.
-
-<div class="grid cards" markdown>
-
-- **MOC NA image, before mocevenodd**
-
-    [![MOC\_Before\_Mocevenodd.png](assets/moc-img/MOC_Before_Mocevenodd.png)](assets/moc-img/MOC_Before_Mocevenodd.png "MOC_Before_Mocevenodd.png")
-
-- **MOC NA image, after mocevenodd**
-
-    [![MOC\_After\_Mocevenodd.png](assets/moc-img/MOC_After_Mocevenodd.png)](assets/moc-img/MOC_After_Mocevenodd.png "MOC_After_Mocevenodd.png")
-
-
-- **Difference image**
-
-    [![MOC\_Mocevenodd\_Difference.png](assets/moc-img/MOC_Mocevenodd_Difference.png)](assets/moc-img/MOC_Mocevenodd_Difference.png "MOC_Mocevenodd_Difference.png")
-     
-    This image illustrates the difference between the before and after 
-    images. Note the vertical "pin-striping" -- this is the even-odd 
-    noise pattern that was fixed by mocevenodd. This image is a literal 
-    subtraction of the two images, contrast stretched to exaggerate 
-    the differences. In this images, dark tones are pixels that became 
-    darker after mocevenodd, and the lighter tones are pixels that became
-    lighter after mocevenodd.
-
-</div>
-
-
-#### Gap Noise Removal (MOC Wide Angle)
-
-The Wide Angle camera that acquired images in the blue filter contains a
-gap at detector 371. This gap can be filled in with the average of
-surrounding pixels (five pixels on a line centered on detector 371).
-Referring to the extracted label information, if InstrumentId = MOC\_WA,
-then determine if it is a blue filter:
-
-    getkey from=file_mocevenodd.cub grpn=Archive  keyword=FilterName
-
-If FilterName = BLUE then apply
-[`mocgap`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/mocgap/mocgap.html)
-to the appropriate output from the steps above:
-
-If MOC_WA / CrosstrackSumming = 1
-
-    mocgap  from=file_mocevenodd.cub  to=file.lev1.cub
-
-Or... if MOC_WA / CrosstrackSumming not equal 1:
-
-    mocgap from=file_cal.cub to=file.lev1.cub
 
 -----
 
@@ -587,9 +607,11 @@ transformation is based on the original viewing geometry of the
 observation, relative position of the target and the definition of the
 map projection.
 
-(Refer to: [Overview of Map Projecting Images](Overview_of_Map_Projecting_Images) )  
-TODO: ^ Locate/Port this from the Wiki
+<div class="grid cards" markdown>
 
+- See Also: [Map Projecting Images :octicons-arrow-right-24:](../../../how-to-guides/image-processing/map-projecting-images.md)
+
+</div>
 
 -----
 
@@ -635,39 +657,44 @@ the seams can be minimized.
 
 ## Exporting ISIS Data
 
-[Exporting ISIS Data](Exporting_ISIS_Data)  
-TODO: ^ Locate/Port this from the Wiki
+<div class="grid cards" markdown>
 
-## Staying Organized
+- See: [Exporting ISIS Data :octicons-arrow-right-24:](../../../getting-started/using-isis-first-steps/exporting-isis-data.md)
 
-The recommended filename convention at various phases of processing for
-level0, and level1 file are as follows:
+</div>
 
-The final output from **moc2isis** is considered a level0 image and
-should have **.lev0.cub** as the file extension.
+## MOC Filename Conventions
 
-**Example:**
+!!! quote ""
 
-    moc2isis from= r700563.imq to=r700563.lev0.cub
+    The recommended filename convention at various phases of processing for
+    level0, and level1 file are as follows:
 
-For the level1 file it depends on whether only **moccal** will be run or
-not. If only **moccal** needs to be run, the output should have the
-**.lev1.cub** extension.
+    The final output from **moc2isis** is considered a level0 image and
+    should have **.lev0.cub** as the file extension.
 
-**Example:**
+    **Example:**
 
-    moccal from=r700563.lev0.cub to=r700563.lev1.cub
+        moc2isis from= r700563.imq to=r700563.lev0.cub
 
-If **mocevenodd** needs to be run, the final output from **mocevenodd**
-should have the **.lev1.cub** extension.
+    For the level1 file it depends on whether only **moccal** will be run or
+    not. If only **moccal** needs to be run, the output should have the
+    **.lev1.cub** extension.
 
-**Example:**
+    **Example:**
 
-    mocevenodd from=r700563.noise.cub to=r700563.lev1.cub
+        moccal from=r700563.lev0.cub to=r700563.lev1.cub
 
-If **mocgap** needs to be run for MOC-WA images, then the final output
-from **mocgap** should have the **.lev1.cub** extension.
+    If **mocevenodd** needs to be run, the final output from **mocevenodd**
+    should have the **.lev1.cub** extension.
 
-**Example:**
+    **Example:**
 
-    mocgap from=r700563_cal.cub to=r700563.lev1.cub
+        mocevenodd from=r700563.noise.cub to=r700563.lev1.cub
+
+    If **mocgap** needs to be run for MOC-WA images, then the final output
+    from **mocgap** should have the **.lev1.cub** extension.
+
+    **Example:**
+
+        mocgap from=r700563_cal.cub to=r700563.lev1.cub
