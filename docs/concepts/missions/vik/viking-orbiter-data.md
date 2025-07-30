@@ -1,16 +1,4 @@
-<div id="main">
-
-<div id="content">
-
-<div class="contextual">
-
-</div>
-
-<div class="wiki wiki-page">
-
-<span id="Working-with-Mars-Viking-Orbiter-Data"></span>
-
-# Working with Mars Viking Orbiter Data [¶](#Working-with-Mars-Viking-Orbiter-Data-)
+# Working with Mars Viking Orbiter Data
 
   - [Working with Mars Viking Orbiter
     Data](#Working-with-Mars-Viking-Orbiter-Data-)
@@ -61,15 +49,13 @@
         Mosaicking](#Level-4-Processing-Mosaicking-)
       - [Exporting ISIS3 Data](#Exporting-ISIS3-Data-)
 
-<span id="About-the-Viking-Mission-to-Mars"></span>
 
-## [About the Viking Mission to Mars](Viking_Orbiter_Mission) [¶](#About-the-Viking-Mission-to-Mars-)
 
------
+## [About the Viking Mission to Mars](Viking_Orbiter_Mission)
 
-<span id="Processing-Viking-Orbiter-VIS-Data"></span>
 
-## Processing Viking Orbiter VIS Data [¶](#Processing-Viking-Orbiter-VIS-Data-)
+
+## Processing Viking Orbiter VIS Data
 
 -----
 
@@ -93,9 +79,9 @@
   - **Level 4 – Building a Mosaic**  
     A seamless mosaic is created.
 
-<span id="Level-0-Processing-Data-Ingestion"></span>
 
-## Level 0 Processing - Data Ingestion [¶](#Level-0-Processing-Data-Ingestion-)
+
+## Level 0 Processing - Data Ingestion
 
 -----
 
@@ -107,9 +93,9 @@ labels of the image. Viking Obiter information has been around for quite
 awhile so problems with the dataset have been discovered and accounted
 for, allowing this process to run smoothly.
 
-<span id="Acquiring-Viking-Orbiter-Data"></span>
 
-## Acquiring Viking Orbiter Data [¶](#Acquiring-Viking-Orbiter-Data-)
+
+## Acquiring Viking Orbiter Data
 
 -----
 
@@ -133,9 +119,7 @@ The camera pointing for Viking images may be off by as much as a half
 frame so expanding your search will help insure that you get all the
 images that were acquired for that area.
 
-<span id="Data-Acquisition-Tool-Planetary-Image-Atlas"></span>
-
-## Data Acquisition Tool: Planetary Image Atlas [¶](#Data-Acquisition-Tool-Planetary-Image-Atlas-)
+## Data Acquisition Tool: Planetary Image Atlas
 
 -----
 
@@ -183,9 +167,8 @@ these search parameters are found: Quick Search and Geometry.
 
     Screenshot of the Image Atlas 'Geometry' search options for Mars Viking Orbiter
 
-<span id="Browsing-by-Volume"></span>
 
-### Browsing by Volume [¶](#Browsing-by-Volume-)
+### Browsing by Volume
 
 You can also go to the online data and Browse Online Data Volumes, which
 offers FTP access to the CDs (compact discs)used to archive and
@@ -199,19 +182,17 @@ and choose a CD volume to look at. When you know the images that you
 would like to work with, you can go to this area with an FTP tool and
 download that image or download it using your browser.
 
-<span id="Related-Resources"></span>
 
-### Related Resources [¶](#Related-Resources-)
+
+### Related Resources
 
   - [Planetary Image Atlas](http://pds-imaging.jpl.nasa.gov/holdings/)
   - [Planetary Image Atlas Help
     Pages](http://pds-imaging.jpl.nasa.gov/Atlas/intro.html)
 
-<span id="Data-Acquisition-Tool-USGS-Planetary-GIS-Web-Server"></span>
 
-## Data Acquisition Tool: USGS Planetary GIS Web Server [¶](#Data-Acquisition-Tool-USGS-Planetary-GIS-Web-Server-)
 
------
+## Data Acquisition Tool: USGS Planetary GIS Web Server
 
 [The USGS Planetary GIS Web Server](http://webgis.wr.usgs.gov/) , hosted
 by the USGS Astrogeology Research Program, allows a user to view Viking
@@ -221,19 +202,17 @@ Planetary GIS site's ability to display footprints of data can prove
 very helpful in verifying gaps, or determining image placement and
 overlaps.
 
-<span id="Related-Resources-2"></span>
 
-### Related Resources [¶](#Related-Resources-2-)
+
+### Related Resources
 
   - [Mars Online Maps](http://webgis.wr.usgs.gov/pigwad/maps/mars.htm)
     page on the [The USGS Planetary GIS Web
     Server](http://webgis.wr.usgs.gov/)
 
-<span id="Data-Acquisition-Tool-JMARS"></span>
 
-## Data Acquisition Tool: JMARS [¶](#Data-Acquisition-Tool-JMARS-)
 
------
+## Data Acquisition Tool: JMARS
 
 JMARS is a useful Geographic Information System (GIS) tool to evaluate
 Viking images that cover an area of interest before the images are
@@ -245,9 +224,9 @@ Mars data. JMARS can be used to:
   - generate a list of Viking images (great for creating scripts), and
   - save the displayed map as an image.
 
-<span id="Give-it-a-Whirl"></span>
 
-### Give it a Whirl\! [¶](#Give-it-a-Whirl-)
+
+### Give it a Whirl!
 
 If you have JMARS installed, launch it and log in. We'll run through a
 quick and easy exercise in displaying Viking footprints.
@@ -285,18 +264,16 @@ useful data layers to the display.
     footprints have been copied from JMARS to our text editor. In this case, we selected 
     Viking 2 for our new layer.
 
-<span id="Resources"></span>
 
-### Resources [¶](#Resources-)
+
+### Resources
 
   - [Download JMARS](http://jmars.asu.edu/) (free, registration required
     to use JMARS' full functionality)
 
-<span id="Importing-Viking-Orbiter-Data"></span>
 
-## Importing Viking Orbiter Data [¶](#Importing-Viking-Orbiter-Data-)
 
------
+## Importing Viking Orbiter Data
 
 Viking VIS data are distributed in Standard Data Products formatted
 files, which have an .imq extension, are compressed PDS format images
@@ -309,9 +286,9 @@ Space Science Data
 Center](http://nssdc.gsfc.nasa.gov/cgi-bin/shop/web_store.cgi?category=viking&cart_id=5682900.7580&store=catalog.setup)
 .
 
-<span id="Using-vik2isis-to-ingest-VIS-images-into-ISIS3"></span>
 
-### Using vik2isis to ingest VIS images into ISIS3 [¶](#Using-vik2isis-to-ingest-VIS-images-into-ISIS3-)
+
+### Using vik2isis to ingest VIS images into ISIS3
 
 The following examples show the use of
 [vik2isis](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/vik2isis/vik2isis.html)
@@ -326,9 +303,9 @@ The decompression software for the .imq images is included within
 vik2isis. You don't need to worry about the extra step of decompressing
 the image.
 
-<span id="Viking-VIS-Problem-Data"></span>
 
-## Viking VIS Problem Data [¶](#Viking-VIS-Problem-Data-)
+
+## Viking VIS Problem Data
 
 -----
 
@@ -348,9 +325,9 @@ verses how much the image will degrade the final product.
 
     Image with dust
 
-<span id="Adding-SPICE"></span>
 
-## Adding SPICE [¶](#Adding-SPICE-)
+
+## Adding SPICE
 
 -----
 
@@ -384,9 +361,7 @@ parameters:
   spiceinit FROM=my.cub
 ```
 
-<span id="Related-ISIS-Applications"></span>
-
-### Related ISIS Applications [¶](#Related-ISIS-Applications-)
+### Related ISIS Applications
 
 See the following ISIS documentation for information about the
 applications you will need to use to perform this procedure:
@@ -394,9 +369,8 @@ applications you will need to use to perform this procedure:
   - [**spiceinit**](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/spiceinit/spiceinit.html)
     : adds SPICE information to the input cube
 
-<span id="Level-1-Processing-Noise-Removal-and-Radiometric-Calibration"></span>
 
-## Level 1 Processing - Noise Removal and Radiometric Calibration [¶](#Level-1-Processing-Noise-Removal-and-Radiometric-Calibration-)
+## Level 1 Processing - Noise Removal and Radiometric Calibration
 
 -----
 
@@ -429,17 +403,15 @@ perfect radiometric properties.
 
     Radiometrically calibrate the image
 
-<span id="Overview-of-Noise-And-Artifacts"></span>
 
-## Overview of Noise And Artifacts [¶](#Overview-of-Noise-And-Artifacts-)
+## Overview of Noise And Artifacts
 
 -----
 
 [Overview of Noise And Artifacts](Overview_of_Noise_And_Artifacts)
 
-<span id="Removing-Salt-Noise"></span>
 
-## Removing Salt Noise [¶](#Removing-Salt-Noise-)
+## Removing Salt Noise
 
 -----
 
@@ -459,9 +431,9 @@ pixels with a valid value.
 
     viknosalt FROM=Viking_image.cub TO=Viking_nosalt.cub
 
-<span id="Related-ISIS3-Applications"></span>
 
-### Related ISIS3 Applications [¶](#Related-ISIS3-Applications-)
+
+### Related ISIS3 Applications
 
 See the following ISIS3 documentation for information about the
 applications you will need to use to perform this procedure:
@@ -485,9 +457,9 @@ applications you will need to use to perform this procedure:
 
     Close-up of after salt noise removal
 
-<span id="Removing-Reseaus"></span>
 
-## Removing Reseaus [¶](#Removing-Reseaus-)
+
+## Removing Reseaus
 
 -----
 
@@ -520,9 +492,9 @@ beam produce additional complex high-order distortions.
 Reseaus removal is accomplish by using two applications: **findrx** to
 find the reseaus, then **remrx** to remove them.
 
-<span id="Finding-Reseaus-with-findrx"></span>
 
-### Finding Reseaus with findrx [¶](#Finding-Reseaus-with-findrx-)
+
+### Finding Reseaus with findrx
 
 [findrx](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/findrx/findrx.html)
 will read in a cube and refine the position of the reseau points based
@@ -539,9 +511,9 @@ on the command line.
  findrx  FROM=Viking_nosalt.cub
 ```
 
-<span id="Removing-Reseaus-with-remrx"></span>
 
-### Removing Reseaus with remrx [¶](#Removing-Reseaus-with-remrx-)
+
+### Removing Reseaus with remrx
 
 [remrx](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/remrx/remrx.html)
 removes reseaus from a Viking image. When you select a value for the
@@ -573,9 +545,9 @@ changes to ldim and sdim parameters.
 ![Reseau Removal Sample
 Guide](attachments/download/1068/Reseau_removal_sample_guide.png)
 
-<span id="Removing-Pepper-Noise"></span>
 
-## Removing Pepper Noise [¶](#Removing-Pepper-Noise-)
+
+## Removing Pepper Noise
 
 -----
 
@@ -585,9 +557,9 @@ will develop a page here in this lesson providing you with examples of
 pepper noise and tips for running viknopepper to remove this type of
 noise from your Viking images.**
 
-<span id="Related-ISIS3-Applications-2"></span>
 
-### Related ISIS3 Applications [¶](#Related-ISIS3-Applications-2-)
+
+### Related ISIS3 Applications
 
 See the following ISIS3 documentation for information about the
 applications you will need to use to perform this procedure:
@@ -595,11 +567,9 @@ applications you will need to use to perform this procedure:
   - [viknopepper](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/viknopepper/viknopepper.html)
     : Viking pepper noise removal application
 
-<span id="Remove-Missing-Track-Noise"></span>
 
-## Remove Missing Track Noise [¶](#Remove-Missing-Track-Noise-)
 
------
+## Remove Missing Track Noise
 
 The **missing track noise** is caused by interference from the
 spacecraft electronics. Track noise appears as a regular pattern of NULL
@@ -644,20 +614,16 @@ Closeup](attachments/download/1069/Vikfixtrx_after_closeup.jpg)
 
     Output image (null tracks removed)
 
-<span id="Overview-of-Radiometric-Calibration"></span>
 
-## Overview of Radiometric Calibration [¶](#Overview-of-Radiometric-Calibration-)
 
------
+## Overview of Radiometric Calibration
 
 [Overview of Radiometric
 Calibration](Overview_of_Radiometric_Calibration)
 
-<span id="Radiometric-Calibration-of-Viking-VIS-Data"></span>
 
-## Radiometric Calibration of Viking VIS Data [¶](#Radiometric-Calibration-of-Viking-VIS-Data-)
 
------
+## Radiometric Calibration of Viking VIS Data
 
 [vikcal](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/vikcal/vikcal.html)
 performs radiometric corrections to planetary images acquired by the
@@ -680,9 +646,9 @@ running the Viking radiometric calibration application ( **vikcal** ):
 The output image of **vikcal** will be a 32-bit (floating-point) cube,
 where the pixel values represent reflectance.
 
-<span id="Related-ISIS3-Applications-3"></span>
 
-### Related ISIS3 Applications [¶](#Related-ISIS3-Applications-3-)
+
+### Related ISIS3 Applications
 
 See the following ISIS3 documentation for information about the
 applications you will need to use to perform this procedure:
@@ -692,9 +658,9 @@ applications you will need to use to perform this procedure:
   - [catlab](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/catlab/catlab.html)
     : outputs an image label
 
-<span id="Level-2-Processing-Geometry"></span>
 
-## Level 2 Processing - Geometry [¶](#Level-2-Processing-Geometry-)
+
+## Level 2 Processing - Geometry
 
 -----
 
@@ -708,9 +674,9 @@ recognizes the instrument and performs accordingly.
 
 [Overview of Map Projecting Images](Overview_of_Map_Projecting_Images)
 
-<span id="Level-3-Processing-Photometric-Correction"></span>
 
-## Level 3 Processing - Photometric Correction [¶](#Level-3-Processing-Photometric-Correction-)
+
+## Level 3 Processing - Photometric Correction
 
 -----
 
@@ -731,9 +697,9 @@ information: the **intrinsic properties of the surface materials** ,
 (including composition, grain size, roughness, and porosity), and
 **local topography of the surface** .
 
-<span id="Level-4-Processing-Mosaicking"></span>
 
-## Level 4 Processing - Mosaicking [¶](#Level-4-Processing-Mosaicking-)
+
+## Level 4 Processing - Mosaicking
 
 -----
 
@@ -753,21 +719,13 @@ aesthetic result for a final mosaic. The accuracy and quality of the
 radiometric calibration and photometric normalization effects how well
 the seams can be minimized.
 
-<span id="Exporting-ISIS3-Data"></span>
 
-## Exporting ISIS3 Data [¶](#Exporting-ISIS3-Data-)
 
------
+## Exporting ISIS3 Data
 
 [Exporting ISIS Data](Exporting_ISIS_Data)
 
-</div>
-
-<div class="attachments">
-
-<div class="contextual">
-
-</div>
+## Attachments
 
 [600px-Reseau\_after.png](attachments/download/1049/600px-Reseau_after.png)
 [View](attachments/download/1049/600px-Reseau_after.png "View")
@@ -889,12 +847,3 @@ Hahn, 2016-06-01 11:18 AM </span>
 <span class="size"> (61.1 KB) </span> <span class="author"> Marjorie
 Hahn, 2016-06-01 11:19 AM </span>
 
-</div>
-
-<div style="clear:both;">
-
-</div>
-
-</div>
-
-</div>
