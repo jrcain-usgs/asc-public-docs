@@ -39,18 +39,16 @@ for, allowing this process to run smoothly.
 
 ### Acquiring Viking Orbiter Data
 
-  - [Planetary Data System](https://pds.nasa.gov/) : The Planetary Data
-    System (PDS) [Planetary Image
-    Atlas](http://pds-imaging.jpl.nasa.gov/holdings/) , hosted by the
-    Jet Propulsion Laboratory and USGS Astrogeology Research Program.
+- **NASA PDS** ([Home](https://pds.nasa.gov/))
+    - [Image Atlas Search - Viking](https://pds-imaging.jpl.nasa.gov/search/?fq=ATLAS_MISSION_NAME%3A%22viking%20orbiter%22)
+    - [Data Holdings - Viking](https://pds-imaging.jpl.nasa.gov/holdings/#viking)
+    - [Online Data Volumes - Viking](https://pds-imaging.jpl.nasa.gov/volumes/viking.html)
 
-  - [USGS Planetary GIS Web Server](http://webgis.wr.usgs.gov/) : The
-    USGS Planetary GIS Web Server allows a user to view Viking
-    footprints and verify image coverage.
+- [WUSTL Mars Orbital Data Explorer](https://ode.rsl.wustl.edu/mars/index.aspx)
 
-  - [JMARS](https://jmars.mars.asu.edu/) Geographic Information System:
-    The JMARS Geographic Information System (GIS), offered by the
-    Arizona State University's Mars Spaceflight Facility.
+- [ASU Viking Orbiter Image Map](http://global-data.mars.asu.edu/bin/viking.pl)
+
+- [ASU JMARS](https://jmars.mars.asu.edu/)
 
 !!! tip "Widen the search area to find shifted images"
 
@@ -61,63 +59,35 @@ for, allowing this process to run smoothly.
     frame so expanding your search will help insure that you get all the
     images that were acquired for that area.
 
-??? info "Data Acquisition Tool: Planetary Image Atlas"
+??? info "Data Acquisition Tool: PDS Image Atlas"
 
-    The Planetary Data System [PDS](https://pds.nasa.gov/) Imaging Node
-    houses data from several planetary missions, and offers a variety of
-    methods for accessing their holdings. For now we will concentrate on
-    acquiring Viking Orbiter data.
+    #### Search
 
-    **Search**  
-    The PDS [Planetary Image
-    Atlas](http://pds-imaging.jpl.nasa.gov/holdings/) provides a *Product
-    Search* search tool to interrogate the collection of Viking Orbiter
-    Imagery. This tool lets us query information about each image and
-    ignores the data that we have no interest in. A good way to reduce the
-    number of images to look at is by defining an area of interest with
-    latitude and longitude ranges. You can also restrict the search by
-    choosing a minimum and maximum resolution. Remember to keep in mind the
-    coordinate system ( *areographic west* for Viking) and units (generally
-    kilometers for distances) required by the search tool. Launch the
-    [Viking Orbiter Product
-    Search](http://pdsimg.jpl.nasa.gov/cgi-bin/Atlas/search.pl?INSTRUMENT_HOST_NAME=VIKING_ORBITER)
-    to give it a try.
+    The [PDS Image Atlas](https://pds-imaging.jpl.nasa.gov/search/?fq=ATLAS_MISSION_NAME%3A%22viking%20orbiter%22&fq=TARGET%3Amars&fq=PRODUCT_TYPE%3Aedr) 
+    can search for Viking Orbiter Imagery. 
+    Here are some relevant filters:
 
-    The table below lists the search parameters that can help you narrow
-    down the number of images that are returned by a search of the PDS
-    Viking Orbiter image collection. The images to the right show screen
-    shots of the [Viking Orbiter Product
-    Search](http://pdsimg.jpl.nasa.gov/cgi-bin/Atlas/search.pl?INSTRUMENT_HOST_NAME=VIKING_ORBITER)
-    . Note there are two categories (the tabs above the search form) where
-    these search parameters are found: Quick Search and Geometry.
+    | Parameter                | Notes                                                                              |
+    | ------------------------ | ---------------------------------------------------------------------------------- |
+    | **Mission**              | 'Viking Orbiter' to focus on images from this mission.                             |
+    | **Target**               | 'Mars' to filter out Viking images of other planetary bodies.                      |                                                                                     |
+    | **Product Type**         | 'edr' The type of Viking data to search for.                                       |
+    | **Lat/Lon Bounding Box** | Enter min and max latitude and longitude values that box in your area of interest. |
 
-    | Parameter                | Location     | Notes                                                                                                                                              |
-    | ------------------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | **PRODUCT_TYPE**        | Quick Search | The type of Viking data you are searching for, in this case, the raw EDRs                                                                          |
-    | **CENTER_LATITUDE**     | Quick Search | Enter minimum latitude and maximum latitude values that encompass the latitude range of your area of interest, in areographic west coordinates.    |
-    | **CENTER_LONGITUDE**    | Quick Search | Enter minimum longitude and maximum longitude values that encompass the longitude range of your area of interest, in areographic west coordinates. |
-    | **TARGET_NAME**         | Geometry     | Since we're interested in creating a Viking mosaic of Mars, choose Mars so you don't have to wade through listings for other bodies.               |
-    | **SCALED_PIXEL_WIDTH** | Geometry     | Enter the minimum and maximum resolution, in kilometers.                                                                                           |
+    #### Browsing Manually
 
+    The [PDS Data Holdings](https://pds-imaging.jpl.nasa.gov/holdings/#viking) 
+    offer Viking data archives by data type.
 
-    #### Browsing by Volume
+    The [PDS Online Data Volumes](https://pds-imaging.jpl.nasa.gov/volumes/viking.html) 
+    offer an archived copy of the CDs and tapes originally used to catalog and 
+    distribute Viking data.
 
-    You can also go to the online data and Browse Online Data Volumes, which
-    offers FTP access to the CDs (compact discs)used to archive and
-    distribute the data. This allows you to look at the image and text files
-    on the CDs, where you can find more helpful information. To give it a
-    try, launch the [Planetary Image Atlas](http://pds-imaging.jpl.nasa.gov/holdings/) in a new browser
-    window. Now click the [Viking Orbiter Browse Online Data
-    Volumes](http://pdsimg.jpl.nasa.gov/Admin/resources/cd_viking.html#vkoEDR)
-    and choose a CD volume to look at. When you know the images that you
-    would like to work with, you can go to this area with an FTP tool and
-    download that image or download it using your browser.
+    <div class="grid cards" markdown>
 
+    - See Also: [Planetary Image Atlas Help :octicons-arrow-right-24:](http://pds-imaging.jpl.nasa.gov/Atlas/intro.html)
 
-    #### Related Resources
-
-    - [Planetary Image Atlas](http://pds-imaging.jpl.nasa.gov/holdings/)
-    - [Planetary Image Atlas Help Pages](http://pds-imaging.jpl.nasa.gov/Atlas/intro.html)
+    </div>
 
 
 
