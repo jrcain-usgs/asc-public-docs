@@ -6,7 +6,7 @@
 
   - **Level 0: Data Ingestion**  
     Acquire Viking VIS data from one of numerous sources, import it into
-    ISIS3, and initialize it with SPICE information.
+    ISIS, and initialize it with SPICE information.
 
   - **Level 1: Noise Removal and Radiometric Calibration**  
     Remove the salt-and-pepper noise, reseau marks, and missing track
@@ -28,7 +28,7 @@
 ## Level 0 Processing - Data Ingestion
 
 This is the starting point for the production of a Viking mosaic. The
-steps within the level zero processing provide the gateway into ISIS3
+steps within the level zero processing provide the gateway into ISIS
 processing. Running the following applications will **ingest the
 Engineering Data Record (EDR)** and place necessary information into the
 labels of the image. Viking Obiter information has been around for quite
@@ -106,8 +106,7 @@ for, allowing this process to run smoothly.
     offers FTP access to the CDs (compact discs)used to archive and
     distribute the data. This allows you to look at the image and text files
     on the CDs, where you can find more helpful information. To give it a
-    try, launch the [Planetary Image
-    Atlas](http://pds-imaging.jpl.nasa.gov/holdings/) in a new browser
+    try, launch the [Planetary Image Atlas](http://pds-imaging.jpl.nasa.gov/holdings/) in a new browser
     window. Now click the [Viking Orbiter Browse Online Data
     Volumes](http://pdsimg.jpl.nasa.gov/Admin/resources/cd_viking.html#vkoEDR)
     and choose a CD volume to look at. When you know the images that you
@@ -131,7 +130,6 @@ for, allowing this process to run smoothly.
     Planetary GIS site's ability to display footprints of data can prove
     very helpful in verifying gaps, or determining image placement and
     overlaps.
-
 
 
     #### Related Resources
@@ -207,7 +205,7 @@ for, allowing this process to run smoothly.
 
 Viking VIS data are distributed in Standard Data Products formatted
 files, which have an .imq extension, are compressed PDS format images
-and are decompressed before ingesting into ISIS3.
+and are decompressed before ingesting into ISIS.
 
 The Viking Orbiter images that are distributed on compact disc (CD) are
 also compressed image files. The CDs are formatted according to the
@@ -356,10 +354,10 @@ perfect radiometric properties.
     <div class="grid cards" markdown>
 
     - [![600px-Voyager_reseaus_closeup.png](assets/600px-Voyager_reseaus_closeup.png)](assets/600px-Voyager_reseaus_closeup.png "Voyager Reseaus Closeup")  
-        *Close-up of reseaus on a Vidicon tube*
+        *Reseaus on a Vidicon tube*
 
     - [![Reseau_mark_closeup.png](assets/Reseau_mark_closeup.png)](assets/Reseau_mark_closeup.png "Reseau Mark Closeup")  
-        *Enlargement of reseau mark on a Viking image*
+        *Close-up of reseau mark on a Viking image*
     
     </div>
 
@@ -439,7 +437,7 @@ perfect radiometric properties.
     ISIS appliaction docs for info on removing pepper noise.  It works similarly to `viknosalt`.
 
 
-??? info "Remove Missing Track Noise"
+??? info "Remove Missing Track Noise with [`vikfixtrx`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/vikfixtrx/vikfixtrx.html)"
 
     The **missing track noise** is caused by interference from the
     spacecraft electronics. Track noise appears as a regular pattern of NULL
@@ -451,7 +449,7 @@ perfect radiometric properties.
     Sometimes, several tracks are missing.
 
     The program
-    [vikfixtrx](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/vikfixtrx/vikfixtrx.html)
+    [`vikfixtrx`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/vikfixtrx/vikfixtrx.html)
     will check for this type of noise in each of the seven tracks of a
     Viking image cube. If the threshold of invalid pixels in a given track
     is met or exceeded, then the track is considered bad and all pixels are
@@ -463,25 +461,31 @@ perfect radiometric properties.
 
         vikfixtrx FROM=Viking_norx.cub TO=Viking_notrx.cub
 
-    [![600px-Vikfixtrx_before.png](assets/600px-Vikfixtrx_before.png)](assets/600px-Vikfixtrx_before.png "Vikfixtrx Before")
+    <div class="grid cards" markdown>
 
-        Input image (Viking image with reseaus removed)
+    - [![600px-Vikfixtrx_before.png](assets/600px-Vikfixtrx_before.png)](assets/600px-Vikfixtrx_before.png "Vikfixtrx Before")**
+        *Input image (Viking image with reseaus removed)*
 
-    [![600px-Vikfixtrx_after.png](assets/600px-Vikfixtrx_after.png)](assets/600px-Vikfixtrx_after.png "Vikfixtrx After")
+    - [![600px-Vikfixtrx_after.png](assets/600px-Vikfixtrx_after.png)](assets/600px-Vikfixtrx_after.png "Vikfixtrx After")  
+        *Output image (null tracks removed)*
 
-        Output image (null tracks removed)
+    </div>
 
     **vikfixtrx Close-up** : The following is a close-up of the null tracks
     and results of removing the null tracks with vikfixtrx
 
-    ![Vikfixtrx Before Closeup](assets/Vikfixtrx_before_closeup.jpg)
+    ![Vikfixtrx Before Closeup](assets/Vikfixtrx_before_closeup.jpg)  
+    *Input image*
 
-        Input image
+    ![Vikfixtrx After Closeup](assets/Vikfixtrx_after_closeup.jpg)  
+    *Output image (null tracks removed)*
 
-    ![Vikfixtrx After Closeup](assets/Vikfixtrx_after_closeup.jpg)
 
-        Output image (null tracks removed)
+<div class="grid cards" markdown>
 
+- See Also: [General Overview of Noise & Artifacts :octicons-arrow-right-24:](../../../concepts/image-processing/overview-of-noise-and-artifacts.md)
+
+</div>
 
 ### Radiometric Calibration
 
@@ -489,12 +493,6 @@ perfect radiometric properties.
 
 - [![600px-Viking_Radiometric.png](assets/600px-Viking_Radiometric.png){width=150 align=left}](assets/600px-Viking_Radiometric.png "Viking Radiometric")  
     *Radiometrically calibrate the image*
-
-</div>
-
-<div class="grid cards" markdown>
-
-- See Also: [General Overview of Noise & Artifacts :octicons-arrow-right-24:](../../../concepts/image-processing/overview-of-noise-and-artifacts.md)
 
 </div>
 
@@ -523,17 +521,6 @@ perfect radiometric properties.
     where the pixel values represent reflectance.
 
 
-
-    ### Related ISIS3 Applications
-
-    See the following ISIS3 documentation for information about the
-    applications you will need to use to perform this procedure:
-
-    - [vikcal](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/vikcal/vikcal.html)
-        : radiometric calibration of Viking VIS image data
-    - [catlab](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/catlab/catlab.html)
-        : outputs an image label
-
 <div class="grid cards" markdown>
 
 - See Also: [General Overview of Radiometric Calibration :octicons-arrow-right-24:](../../../concepts/image-processing/overview-of-radiometric-calibration.md)
@@ -542,27 +529,25 @@ perfect radiometric properties.
 
 ## Level 2 Processing - Geometry
 
------
-
 Producing a mosaic requires geometric processing on the individual
 images that make up the desired mosaic. The individual images are
 geometrically transformed from spacecraft camera orientation to a common
-map coordinate system. ISIS3 has generic software applications that are
+map coordinate system. ISIS has generic software applications that are
 applied to all supported mission data. Based on the information in the
 image labels that was added in our earlier steps, the software
 recognizes the instrument and performs accordingly.
 
-[Overview of Map Projecting Images](Overview_of_Map_Projecting_Images)
+<div class="grid cards" markdown>
 
+- See Also: [Map Projecting Images :octicons-arrow-right-24:](../../../how-to-guides/image-processing/map-projecting-images.md)
 
+</div>
 
 ## Level 3 Processing - Photometric Correction
 
------
-
-**Currently, ISIS3 photometric correction capabilities are under
+**Currently, ISIS photometric correction capabilities are under
 development. When the applications are released, we will develop a page
-here in this lesson providing you with examples and tips for using ISIS3
+here in this lesson providing you with examples and tips for using ISIS
 photometric correction tools.**
 
 Photometric normalization is applied to all images that make up a mosaic
@@ -575,17 +560,15 @@ and phase. For a planetary body that doesn't have a significant
 atmosphere, this brightness is controlled by two basic classes of
 information: the **intrinsic properties of the surface materials** ,
 (including composition, grain size, roughness, and porosity), and
-**local topography of the surface** .
+**local topography of the surface**.
 
 
 
 ## Level 4 Processing - Mosaicking
 
------
-
-**Currently, ISIS3 photometric correction capabilities are under
+**Currently, ISIS photometric correction capabilities are under
 development. When the applications are released, we will finish
-developing this lesson and provide you with tips for using ISIS3 to
+developing this lesson and provide you with tips for using ISIS to
 create your final, seamless mosaic using mapmos and tone matching
 procedures and applications.**
 
@@ -600,130 +583,10 @@ radiometric calibration and photometric normalization effects how well
 the seams can be minimized.
 
 
+## Exporting ISIS Data
 
-## Exporting ISIS3 Data
+<div class="grid cards" markdown>
 
-[Exporting ISIS Data](Exporting_ISIS_Data)
+- See: [Exporting ISIS Data :octicons-arrow-right-24:](../../../getting-started/using-isis-first-steps/exporting-isis-data.md)
 
-## Attachments
-
-[600px-Reseau_after.png](assets/600px-Reseau_after.png)
-[View](assets/600px-Reseau_after.png "View")
-<span class="size"> (326 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:02 AM </span>
-
-[600px-Reseau_before.png](assets/600px-Reseau_before.png)
-[View](assets/600px-Reseau_before.png "View")
-<span class="size"> (329 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:02 AM </span>
-
-[600px-Vikfixtrx_after.png](assets/600px-Vikfixtrx_after.png)
-[View](assets/600px-Vikfixtrx_after.png "View")
-<span class="size"> (325 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:02 AM </span>
-
-[600px-Vikfixtrx_before.png](assets/600px-Vikfixtrx_before.png)
-[View](assets/600px-Vikfixtrx_before.png "View")
-<span class="size"> (326 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:02 AM </span>
-
-[600px-Viking_Radiometric.png](assets/600px-Viking_Radiometric.png)
-[View](assets/600px-Viking_Radiometric.png "View")
-<span class="size"> (325 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:02 AM </span>
-
-[600px-Viking_Salt_Before.png](assets/600px-Viking_Salt_Before.png)
-[View](assets/600px-Viking_Salt_Before.png "View")
-<span class="size"> (318 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:02 AM </span>
-
-[600px-Viking_Salt_After.png](assets/600px-Viking_Salt_After.png)
-[View](assets/600px-Viking_Salt_After.png "View")
-<span class="size"> (315 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:03 AM </span>
-
-[600px-Voyager_reseaus_closeup.png](assets/600px-Voyager_reseaus_closeup.png)
-[View](assets/600px-Voyager_reseaus_closeup.png "View")
-<span class="size"> (559 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:03 AM </span>
-
-[680px-PIA_CenterLatLong_Screenshot.png](assets/680px-PIA_CenterLatLong_Screenshot.png)
-[View](assets/680px-PIA_CenterLatLong_Screenshot.png "View")
-<span class="size"> (249 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:03 AM </span>
-
-[680px-PIA_TargetName_ScaledPixelWidth_Screenshot.png](assets/680px-PIA_TargetName_ScaledPixelWidth_Screenshot.png)
-[View](assets/680px-PIA_TargetName_ScaledPixelWidth_Screenshot.png "View")
-<span class="size"> (244 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:04 AM </span>
-
-[684px-Viking_Image_with_clouds.jpg](assets/684px-Viking_Image_with_clouds.jpg)
-[View](assets/684px-Viking_Image_with_clouds.jpg "View")
-<span class="size"> (94.8 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:05 AM </span>
-
-[684px-Viking_Image_with_dust.jpg](assets/684px-Viking_Image_with_dust.jpg)
-[View](assets/684px-Viking_Image_with_dust.jpg "View")
-<span class="size"> (42.6 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:05 AM </span>
-
-[Pigwad_screen.png](assets/Pigwad_screen.png)
-[View](assets/Pigwad_screen.png "View")
-<span class="size"> (191 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:05 AM </span>
-
-[Jmars_screenshot.png](assets/Jmars_screenshot.png)
-[View](assets/Jmars_screenshot.png "View")
-<span class="size"> (577 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:07 AM </span>
-
-[Viking_Missing_Tracks.png](assets/Viking_Missing_Tracks.png)
-[View](assets/Viking_Missing_Tracks.png "View")
-<span class="size"> (21 KB) </span> <span class="author"> Marjorie Hahn,
-2016-06-01 11:08 AM </span>
-
-[Viking_Salt_Noise.png](assets/Viking_Salt_Noise.png)
-[View](assets/Viking_Salt_Noise.png "View")
-<span class="size"> (61.1 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:08 AM </span>
-
-[Viking_reseau.png](assets/Viking_reseau.png)
-[View](assets/Viking_reseau.png "View")
-<span class="size"> (25.5 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:08 AM </span>
-
-[Reseau_mark_closeup.png](assets/Reseau_mark_closeup.png)
-[View](assets/Reseau_mark_closeup.png "View")
-<span class="size"> (25.5 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:09 AM </span>
-
-[Viking_salt_After_Closeup.png](assets/Viking_salt_After_Closeup.png)
-[View](assets/Viking_salt_After_Closeup.png "View")
-<span class="size"> (60.8 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:09 AM </span>
-
-[Reseau_removal_sample_guide.png](assets/Reseau_removal_sample_guide.png)
-[View](assets/Reseau_removal_sample_guide.png "View")
-<span class="size"> (84.5 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:10 AM </span>
-
-[Vikfixtrx_after_closeup.jpg](assets/Vikfixtrx_after_closeup.jpg)
-[View](assets/Vikfixtrx_after_closeup.jpg "View")
-<span class="size"> (43.4 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:10 AM </span>
-
-[Vikfixtrx_before_closeup.jpg](assets/Vikfixtrx_before_closeup.jpg)
-[View](assets/Vikfixtrx_before_closeup.jpg "View")
-<span class="size"> (44.1 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:11 AM </span>
-
-[Viking_Black_Specks.png](assets/Viking_Black_Specks.png)
-[View](assets/Viking_Black_Specks.png "View")
-<span class="size"> (23.6 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:18 AM </span>
-
-[Viking_salt_Before_Closeup.png](assets/Viking_salt_Before_Closeup.png)
-[View](assets/Viking_salt_Before_Closeup.png "View")
-<span class="size"> (61.1 KB) </span> <span class="author"> Marjorie
-Hahn, 2016-06-01 11:19 AM </span>
-
+</div>
