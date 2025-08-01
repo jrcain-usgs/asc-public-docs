@@ -1,6 +1,18 @@
 # Viking Orbiter Mission
 
+<div class="grid cards" markdown>
+
+- [Working with Viking VIS Data :octicons-arrow-right-24:](viking-orbiter-data.md)
+
+</div>
+
 ## Brief Mission Summary
+
+!!! quote inline end ""
+
+    [![VikingOrbiter_ArtistConcept.png](assets/VikingOrbiter_ArtistConcept.png)](assets/VikingOrbiter_ArtistConcept.png "Viking Oribiter Artist's concept drawing")
+
+    *Viking Oribiter Artist's concept drawing (NASA, 1973, KSC-73PC-0648)*
 
 NASA's **Viking Mission to Mars** was composed of two spacecraft, Viking
 1 and Viking 2, each consisting of an orbiter and a lander. The primary
@@ -19,7 +31,7 @@ August 7, 1976. The Viking 2 Lander touched down at Utopia Planitia on
 September 3, 1976.
 
 
-## Science Goals
+## Scientific Achievements
 
 The Orbiters imaged the entire surface of Mars at a resolution of 150 to
 300 meters, and selected areas at 8 meters. The Viking 2 Orbiter was
@@ -28,6 +40,18 @@ on August 17, 1980, after over 1400 orbits.
 
 
 ## Science Instruments
+
+!!! quote inline end ""
+
+    [![Viking1_Tithonium_Chasma_Mars.png](assets/Viking1_Tithonium_Chasma_Mars.png)](assets/Viking1_Tithonium_Chasma_Mars.png "Viking1 Tithonium Chasma Mars")
+
+    **Viking 1 Orbiter image of Central Tithonium Chasma.**
+
+    Mars Landslide lobes can be seen on the 6 km deep 
+    canyon floor. Some layering is visible on the south 
+    wall. The image is ~90 km across. North is at ~11:30. 
+    (Viking Orbiter 064A22, image & caption credit: NASA)
+
 
 **The Viking Visual Imaging Subsystem (VIS)** on the orbiter consisted
 of twin high-resolution, slow-scan television framing cameras mounted on
@@ -38,63 +62,51 @@ shutters; a 475-mm focal length telescope; a 37-mm diameter vidicon
 raster (i.e. image) format of 1056 lines by 1182 samples.
 
 A filter wheel between the lens and shutter held six color filter
-positions: **blue** (0.35 to 0.53 micrometers), **minus-blue** (0.48 -
-0.70), **violet** (0.35 - 0.47), **green** (0.50 - 0.60), **red** (0.55
-- 0.70), and **clear** (no filter). The footprint of each image covers
+positions:
+
+- **blue** (0.35 - 0.53 micrometers)
+- **minus-blue** (0.48 - 0.70μm)
+- **violet** (0.35 - 0.47μm)
+- **green** (0.50 - 0.60μm)
+- **red** (0.55 - 0.70μm)
+- **clear** (no filter)
+
+The footprint of each image covers
 roughly 40 x 44 km, acquired from an altitude of 1500 km. The
 configuration of the cameras provided overlapping, wide-swath coverage
 of the surface. Each pixel was digitized as a 7-bit number (0 to 127)
 stored in the onboard tape-recorder, and later transmitted to Earth and
 converted to an 8-bit number by multiplying by 2.
 
-[![VikingOrbiter_ArtistConcept.png](assets/Viking1_Tithonium_Chasma_Mars.png)](assets/VikingOrbiter_ArtistConcept.png "Viking Oribiter Artist's concept drawing")
-
-> Viking Oribiter Artist's concept drawing (NASA, 1973, KSC-73PC-0648)
-
-[![Viking1_Tithonium_Chasma_Mars.png](assets/Viking1_Tithonium_Chasma_Mars.png)](assets/Viking1_Tithonium_Chasma_Mars.png "Viking1 Tithonium Chasma Mars")
-
-> Viking 1 Orbiter image of Central Tithonium Chasma,  
-> Mars Landslide lobes can be seen on the 6 km deep  
-> canyon floor. Some layering is visible on the south  
-> wall. The image is \~90 km across. North is at \~11:30.  
-> (Viking Orbiter 064A22, image & caption credit: NASA)
-
 
 ## References & Related Resources
 
-### Viking Orbiter Mission and Instrument
+### NASA Science
 
-  - [Mission Summary](http://nssdc.gsfc.nasa.gov/planetary/viking.html)
-  - [NASA Viking 1 Mission
-    Site](http://solarsystem.nasa.gov/missions/viking01)
-  - [NASA Viking 2 Mission
-    Site](http://solarsystem.nasa.gov/missions/viking02)
+- [Viking Project - NASA Science](https://science.nasa.gov/mission/viking/)
+- [Viking 1](https://science.nasa.gov/mission/viking-1/)
+- [Viking 2](https://science.nasa.gov/mission/viking-2/)
 
-### Viking Orbiters
+### NASA SSDC Archive
 
-  - [Viking 1 Orbiter
-    Overview](http://nssdc.gsfc.nasa.gov/nmc/masterCatalog.do?sc=1975-075A)
-  - [Viking 2 Orbiter
-    Overview](http://nssdc.gsfc.nasa.gov/nmc/spacecraftDisplay.do?id=1975-083A)
-  - [Online data volumes,
-    Orbiters](http://pds-imaging.jpl.nasa.gov/volumes/viking.html#vkoEDR)
+- [Viking 1 Orbiter](https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1975-075A)
+- [Viking 2 Orbiter](https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1975-083A)
+
+### Planetary Data System (PDS) Information and Data Search Tools
 
 
-## Planetary Data System (PDS) Information and Data Search Tools
-
-  - PDS Imaging Node:
-      - [Viking Orbiter
-        Mission](http://pds-imaging.jpl.nasa.gov/portal/vikingo_mission.html)
-      - [Photojournal](http://photojournal.jpl.nasa.gov/mission/Viking)
-      - [Image
-        Search](http://pds-imaging.jpl.nasa.gov/cgi-bin/Atlas/search.pl?INSTRUMENT_HOST_NAME=VIKING_ORBITER)
-      - [Planetary Image Locator Tool
-        (PILOT)](http://pilot.wr.usgs.gov/index.php?view=map&target=mars)
-  - PDS Geosciences Node:
-      - [Mission](http://geo.pds.nasa.gov/missions/viking/index.htm)
-  - PDS Engineering Node:
-      - [Global data search engine](http://pds.nasa.gov/)
-  - PDS Navigation and Ancillary Information Node:
-      - [Spice
-        Kernels](http://nssdc.gsfc.nasa.gov/nmc/datasetDisplay.do?id=PSCM-00036)
-      - [Toolkit](ftp://naif.jpl.nasa.gov/pub/naif/toolkit/)
+- [PDS Home](http://pds.nasa.gov/)
+- PDS Imaging Node:
+    - [Viking Orbiter Mission](http://pds-imaging.jpl.nasa.gov/portal/vikingo_mission.html)
+    - [Photojournal](http://photojournal.jpl.nasa.gov/mission/Viking)
+    - [Image Search](https://pds-imaging.jpl.nasa.gov/search/?fq=ATLAS_MISSION_NAME%3A%22viking%20orbiter%22)
+    - [Online data volumes](https://pds-imaging.jpl.nasa.gov/volumes/viking.html#vkoEDR)
+    - [Planetary Image Locator Tool (PILOT)](http://pilot.wr.usgs.gov/index.php?view=map&target=mars)
+- PDS Geosciences Node (WUSTL):
+    - [Viking Mission](https://pds-geosciences.wustl.edu/missions/viking/index.htm)
+    - [Mars Orbital Data Explorer](https://ode.rsl.wustl.edu/mars/)
+- PDS Engineering Node:
+    - [Global data search engine](https://pds.mcp.nasa.gov/portal/?filters=urn%3Anasa%3Apds%3Acontext%3Ainvestigation%3Amission.viking)
+- PDS Navigation and Ancillary Information (NAIF) Node:
+    - [SPICE Kernels](https://nssdc.gsfc.nasa.gov/nmc/dataset/display.action?id=PSCM-00036)
+    - [NAIF SPICE Toolkit](https://naif.jpl.nasa.gov/naif/toolkit.html)

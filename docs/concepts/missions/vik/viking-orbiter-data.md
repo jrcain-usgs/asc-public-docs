@@ -90,97 +90,67 @@ for, allowing this process to run smoothly.
     </div>
 
 
-
-??? info "Data Acquisition Tool: USGS Planetary GIS Web Server"
-
-    [The USGS Planetary GIS Web Server](http://webgis.wr.usgs.gov/) , hosted
-    by the USGS Astrogeology Research Program, allows a user to view Viking
-    footprints and verify image coverage. The site delivers a variety of
-    data sets through a web GIS interface. When searching for imagery, the
-    Planetary GIS site's ability to display footprints of data can prove
-    very helpful in verifying gaps, or determining image placement and
-    overlaps.
-
-
-    #### Related Resources
-
-    - [Mars Online Maps](http://webgis.wr.usgs.gov/pigwad/maps/mars.htm)
-        page on the [The USGS Planetary GIS Web
-        Server](http://webgis.wr.usgs.gov/)
-
-
-
 ??? info "Data Acquisition Tool: JMARS"
 
-    JMARS is a useful Geographic Information System (GIS) tool to evaluate
+    JMARS is a Geographic Information System (GIS) tool.  It can be used to evaluate
     Viking images that cover an area of interest before the images are
     downloaded. The tool displays Viking footprints and a variety of other
-    Mars data. JMARS can be used to:
+    Mars data. JMARS can:
 
     - query the database of Viking images,
     - select browse images to display on-screen and download via the web,
     - generate a list of Viking images (great for creating scripts), and
     - save the displayed map as an image.
 
+    #### Using JMARS to Display Viking Footprints
 
-
-    #### Give it a Whirl!
-
-    If you have JMARS installed, launch it and log in. We'll run through a
-    quick and easy exercise in displaying Viking footprints.
-
-    1.  In the Main tab of the Layer Manger, hit the Add new layer button,
+    1. Once JMARS is installed, launch it and log in.
+    1.  In the Main tab of the Layer Manager, hit the Add new layer button,
         which opens a menu.
-    2.  Select Viking from the Stamp menu.
-    3.  In the Add Viking stamp layer window, just hit the Okay button,
+    1.  Select Viking from the Stamp menu.
+    1.  In the Add Viking stamp layer window, just hit the Okay button,
         leaving all the fields blank.
-    4.  A new tab named Viking stamps will appear in the Layer Manager. When
+    1.  A new tab named Viking stamps will appear in the Layer Manager. When
         it's done loading the footprints, its drawing status indicator will
-        turn from red to green,the footprints will be displayed on the map
+        turn from red to green, the footprints will be displayed on the map
         and the images shown on the map are list in the Layer Manager.
-    5.  Try right-clicking on a listing the image list and on the footprints
-        displayed on the screen -- there's lots of options for working with
+    1.  Right click on a listing in the image list and on the footprints
+        displayed on the screen - there's lots of options for working with
         and accessing information and data. For example, Render and Load
         Selected Stamps will download and display the Viking images for the
         selected footprints on the map, giving you the ability to preview
         the data. Web Browse will launch an image's web page in your browser
         so you can access the information and data.
 
-    Of course, there's many other options in JMARS to help you search for
-    Viking data, such as the tools for narrowing your search and modifying
+    Other options in JMARS to help you search for
+    Viking data include the tools for narrowing your search and modifying
     your display in the Settings, Query, and Render tabs in the Layer
-    Manager, using the various tools in the main menus, and adding other
-    useful data layers to the display.
+    Manager, the various tools in the main menus, and adding other
+    data layers to the display.
 
-    [![Jmars_screenshot.png](assets/Jmars_screenshot.png)](assets/Jmars_screenshot.png "Jmars_screenshot.png")
+    [![Jmars_screenshot.png](assets/Jmars_screenshot.png)](assets/Jmars_screenshot.png "Jmars_screenshot.png")  
+    *Screenshot of JMARS displaying Viking 2 footprints:  
+    The Viking footprints (called stamps in JMARS) are displayed as blue polygons on the map. 
+    Several footprints are shown selected in the Layers Manager Viking 2 Stamps list and 
+    highlighted yellow on the map. Several Viking images are displayed the map, filling in 
+    those footprints with a preview of the actual image data. Image names for the selected 
+    footprints have been copied from JMARS to our text editor. In this case, we selected 
+    Viking 2 for our new layer.*
 
-        Screen shot of JMARS displaying Viking 2 footprints: 
-        The Viking footprints (called stamps in JMARS)are displayed as blue polygons on the map. 
-        Several footprints are shown selected in the Layers Manager Viking 2 Stamps list and 
-        highlighted yellow on the map. Several Viking images are displayed the map, filling in 
-        those footprints with a preview of the actual image data. Image names for the selected 
-        footprints have been copied from JMARS to our text editor. In this case, we selected 
-        Viking 2 for our new layer.
+    <div class="grid cards" markdown>
 
+    - **See [JMARS (ASU) :octicons-arrow-right-24:](http://jmars.asu.edu/)**  
+      *Free, registration required for full functionality*
 
-
-    #### Resources
-
-    - [Download JMARS](http://jmars.asu.edu/) (free, registration required
-        to use JMARS' full functionality)
+    </div>
 
 
 
 ### Importing Viking Orbiter Data
 
 Viking VIS data are distributed in Standard Data Products formatted
-files, which have an .imq extension, are compressed PDS format images
+files, which have an .imq extension. These are compressed PDS format images,
 and are decompressed before ingesting into ISIS.
-
-The Viking Orbiter images that are distributed on compact disc (CD) are
-also compressed image files. The CDs are formatted according to the
-ISO-9660 standard. Viking CDs can be obtained from the
-[NASA National Space Science Data Center](http://nssdc.gsfc.nasa.gov/cgi-bin/shop/web_store.cgi?category=viking&cart_id=5682900.7580&store=catalog.setup).
 
 !!! example "Ingest VIS Images into ISIS with [`vik2isis`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/vik2isis/vik2isis.html)"
 
@@ -235,9 +205,9 @@ ISO-9660 standard. Viking CDs can be obtained from the
     To add SPICE information to your cube, run
     [`spiceinit`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/spiceinit/spiceinit.html)
     on the image so other ISIS apps 
-    (i.e, [**cam2map**](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cam2map/cam2map.html),
-    [**campt**](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/campt/campt.html),
-    [**qview**](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qview/qview.html))
+    (i.e, [`cam2map`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cam2map/cam2map.html),
+    [`campt`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/campt/campt.html),
+    [`qview`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qview/qview.html))
     will have the info they need. Only the FROM parameter is needed:
 
     ```sh
@@ -247,16 +217,11 @@ ISO-9660 standard. Viking CDs can be obtained from the
 
 ## Level 1 Processing - Noise Removal and Radiometric Calibration
 
-To create a Level 1 Viking image, we'll clean up noise and other
-problems and radiometrically correct the data so we have an image
-representing the reflectance of the surface. We'll start by removing
-image blemishes caused by malfunctioning detectors, dust specks,
-transmission noise, and so forth. We'll finish up our Level 1 image with
-radiometric calibration in order to create an image that is
-representative of an ideal image acquired by a camera system with
-perfect radiometric properties.
+To create a Level 1 Viking image, clean up noise and imaging 
+artifacts, then radiometrically correct the data to get an image
+representing the reflectance of the surface.
 
-### Noise Removal
+### Noise/Artifact Removal
 
 <div class="grid cards" markdown>
 
@@ -275,9 +240,9 @@ perfect radiometric properties.
 </div>
 
 
-??? info "Removing Salt Noise with [`viknosalt`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/viknosalt/viknosalt.html)"
+??? info "Removing Salt and Pepper Noise with [`viknosalt`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/viknosalt/viknosalt.html) and [`viknopepper`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/viknopepper/viknopepper.html)"
 
-    The black and white speckle present in Viking images is a result of
+    The black and white speckle in Viking images is a result of
     interference during the transfer of information from the spacecraft.
     This speckle is called salt and pepper noise because it has the
     appearance of grains of salt and pepper sprinkled across the image.
@@ -289,6 +254,8 @@ perfect radiometric properties.
     within the image. The identified pixels are set to a value of null. The
     final step in `viknosalt` is a low pass filter that replaces the null
     pixels with a valid value.
+
+    ***`viknosalt` command***:
 
     ```sh
     viknosalt FROM=Viking_image.cub TO=Viking_nosalt.cub
@@ -309,6 +276,12 @@ perfect radiometric properties.
         *Close-up after salt noise removal*
 
     </div>
+
+    **Removing Pepper Noise**
+
+    See the 
+    [`viknopepper`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/viknopepper/viknopepper.html)
+    ISIS application docs for info on removing pepper noise.  It works similarly to `viknosalt`.
 
 
 ??? info "Removing Reseaus"
@@ -356,11 +329,9 @@ perfect radiometric properties.
     reseau mark in the image. The image labels are then modified to reflect
     the new sub-pixel accuracy.
 
-    **findrx Example**: The following example shows running
-    [`findrx`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/findrx/findrx.html)
-    on the command line.
+    ***`findrx` command***:
 
-    ``` 
+    ```sh
     findrx  FROM=Viking_nosalt.cub
     ```
 
@@ -374,11 +345,9 @@ perfect radiometric properties.
     For most Viking images we have found that of sdim= 9 and ldim= 9 works
     well. While the reseaus are visibly removed from the images, the reseau
     information is retained in the labels for later processing stages.
-
-    **remrx Example** : The following example shows running
-    [`remrx`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/remrx/remrx.html)
-    on the command line.
     
+    ***`remrx` command***:
+
     ```sh
     remrx FROM=Viking_nosalt.cub TO=Viking_norx.cub sdim=9 ldim=9
     ```
@@ -393,18 +362,9 @@ perfect radiometric properties.
 
     </div>
 
-    **Comparisons of remrx with different ldim/sdim parameters** : The
-    following close-ups show the results of using **remrx** with slight
-    changes to ldim and sdim parameters.
-
     ![Reseau Removal Sample Guide](assets/Reseau_removal_sample_guide.png)
 
-
-??? info "Removing Pepper Noise with [`viknopepper`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/viknopepper/viknopepper.html)"
-
-    See the 
-    [`viknopepper`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/viknopepper/viknopepper.html)
-    ISIS appliaction docs for info on removing pepper noise.  It works similarly to `viknosalt`.
+    *Comparisons of remrx with different ldim/sdim parameters*
 
 
 ??? info "Remove Missing Track Noise with [`vikfixtrx`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/vikfixtrx/vikfixtrx.html)"
@@ -418,16 +378,14 @@ perfect radiometric properties.
     was transmitted to Earth, then the track contains incorrect data values.
     Sometimes, several tracks are missing.
 
-    The program
     [`vikfixtrx`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/vikfixtrx/vikfixtrx.html)
-    will check for this type of noise in each of the seven tracks of a
+    checks for this type of noise in each of the seven tracks of a
     Viking image cube. If the threshold of invalid pixels in a given track
     is met or exceeded, then the track is considered bad and all pixels are
     replaced by interpolating valid values from either side of the bad
     pixels.
 
-    **vikfixtrx Example** : The following example shows running
-    **vikfixtrx** on the command line:
+    ***`vikfixtrx` command***:
 
         vikfixtrx FROM=Viking_norx.cub TO=Viking_notrx.cub
 
@@ -441,14 +399,11 @@ perfect radiometric properties.
 
     </div>
 
-    **vikfixtrx Close-up** : The following is a close-up of the null tracks
-    and results of removing the null tracks with vikfixtrx
-
     ![Vikfixtrx Before Closeup](assets/Vikfixtrx_before_closeup.jpg)  
-    *Input image*
+    *Close-up Input image*
 
     ![Vikfixtrx After Closeup](assets/Vikfixtrx_after_closeup.jpg)  
-    *Output image (null tracks removed)*
+    *Close-up Output image (null tracks removed)*
 
 
 <div class="grid cards" markdown>
@@ -469,9 +424,9 @@ perfect radiometric properties.
 
 ??? info "Radiometric Calibration of Viking VIS Data"
 
-    [vikcal](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/vikcal/vikcal.html)
+    [`vikcal`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/vikcal/vikcal.html)
     performs radiometric corrections to planetary images acquired by the
-    Viking orbiter cameras. **vikcal** performs a radiometric correction in
+    Viking orbiter cameras. It performs a radiometric correction in
     two steps:
 
     1.  Correct the varying response of the vidicon across the field of view
@@ -482,10 +437,11 @@ perfect radiometric properties.
         value between 0 and 1) is the ratio of the observed radiance and the
         radiance of a white screen, normal to the incident rays of the Sun.
 
-    **vikcal Example:** The following example shows the command line for
-    running the Viking radiometric calibration application ( **vikcal** ):
+    ***`vikcal` command***:
 
-        vikcal FROM=Viking_notrx.cub TO=Viking_cal.cub
+    ```sh
+    vikcal FROM=Viking_notrx.cub TO=Viking_cal.cub
+    ```
 
     The output image of **vikcal** will be a 32-bit (floating-point) cube,
     where the pixel values represent reflectance.
