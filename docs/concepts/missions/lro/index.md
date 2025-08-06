@@ -15,7 +15,7 @@ Areas of investigation include selenodetic global topography; the lunar polar re
 - LROC - Lunar Reconnaissance Orbiter Camera
     - [NAC - Narrow Angle Camera](lroc-nac-data.md)
     - [WAC - Wide Angle Camera](lroc-wac-data.md)
-- [MiniRF - Synthetic Aperture Radar](lro/lro-minirf.md)
+- [MiniRF - Synthetic Aperture Radar](lro-minirf-data.md)
 - LOLA - Luna Orbiter Laser Altimeter - Topographic Mapping
 - LEND - Lunar Exploration Neutron Detector
 - LAMP - Lyman Alpha Mapping Project - Maps Shadowed Areas
