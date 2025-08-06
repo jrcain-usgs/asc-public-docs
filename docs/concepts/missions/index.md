@@ -8,7 +8,8 @@
 
     ---
 
-    - [NAC & WAC Data](lro/lro-nac-wac-data.md)
+    - [NAC Data](lro/lroc-nac-data.md)
+    - [WAC Data](lro/lroc-wac-data.md)
     - [MiniRF Data](lro/lro-minirf-data.md)
 
 </div>

@@ -129,7 +129,8 @@ nav:
       - Home:                              concepts/missions/index.md
       - LRO (Lunar Reconnaissance Orbiter):
         - Home:                            concepts/missions/lro/index.md
-        - NAC/WAC Data:                    concepts/missions/lro/lro-nac-wac-data.md
+        - NAC Data:                        concepts/missions/lro/lroc-nac-data.md
+        - WAC Data:                        concepts/missions/lro/lroc-wac-data.md
         - MiniRF Data:                     concepts/missions/lro/lro-minirf-data.md
       - MGS (Mars Global Surveyor):
         - Home:                            concepts/missions/mgs/index.md
