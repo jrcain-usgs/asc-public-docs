@@ -23,6 +23,8 @@ Here are a couple of images with the Tycho crater:
 
 ## Importing and Processing LROC WAC Images in ISIS
 
+### Importing
+
 !!! example "Import image to ISIS cube with [`lrowac2isis`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/lrowac2isis/lrowac2isis.html)"
     ```sh
     lrowac2isis from = image.IMG to = image.cub
@@ -36,14 +38,19 @@ Here are a couple of images with the Tycho crater:
     spiceinit from = image.vis.odd.cub
     ```
 
+### Processing
+
 !!! example "Radiometrically Callibrate the images with [`lrowaccal`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/lrowaccal/lrowaccal.html)"
     ```sh
     lrowaccal from = image.vis.even.cub to = image.vis.even.cal.cub
     lrowaccal from = image.vis.odd.cub  to = image.vis.odd.cal.cub
     ```
 
-If these are inspected with [`qview`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qview/qview.html), it can be
-seen that instead of a single contiguous image, we have a set of narrow
+### Map-Projecting and Fusing
+
+If even and odd images are inspected with 
+[`qview`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qview/qview.html), 
+it can be seen that instead of a single contiguous image, we have a set of narrow
 horizontal bands, with some bands in the *even* and some in the *odd*
 .cub file. The pixel rows in each band may also be recorded in reverse.
 

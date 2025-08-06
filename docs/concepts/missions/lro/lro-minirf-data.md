@@ -1,42 +1,33 @@
-
-# Working with Lunar Reconnaissance Orbiter MiniRF Data
-
-# **ISIS3** Processing of MiniRF S-zoom data
-
-## S-Zoom (LSZ)
-
-### Data Acquisition
+# Processing LRO MiniRF S-Zoom Data
 
 ### Data Ingestion
 
-Note:  
-* Both the .LBL and .IMG must be in the same directory together  
-* The LBL and IMG extensions must be in upper or lower case consistent
-with each other (.LBL/.IMG or .lbl/.img).
+!!! note "Note: .IMG and .LBL Requirements"
 
-Example command:
+    - Both the .LBL and .IMG must be in the same directory together  
+    - The LBL and IMG extensions must be in upper or lower case consistent with each other (.LBL/.IMG or .lbl/.img).
 
+!!! example "Import image to ISIS cube with [`mrf2isis`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/mrf2isis/mrf2isis.html)"
+    ```sh
     mrf2isis from=LSZ_04485_1CD_XKU_87S205_V1.LBL to=LSZ_04485_1CD_XKU_87S205_V1_lev1.cub
+    ```
 
-The application
-[spiceinit](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/spiceinit/spiceinit.html)
-will add the appropriate SPICE information to the ISIS3 image cube.
-Successful spiceinit allows for further geometric processing of the
-data.
+??? note "Note: Default Shapemodel is Global LOLA"
 
-### spiceinit (Load NAIF SPICE kernels)
+    For the moon, ISIS currently defaults to the global LOLA for the local
+    topographic shapemodel.
 
-[SPICE (Spacecraft & Planetary ephemeredes, Instrument C-matrix and
-Event kernels)](SPICE)
+!!! example "Add SPICE data with [`spiceinit`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/spiceinit/spiceinit.html)"
 
-Note:  
-For the moon, ISIS3 currently defaults to the global LOLA for the local
-topographic shapemodel.
-
-Example command:  
-Specify the "Smithed" SPK kernels for LRO (not a default in spiceinit)
-
+    Specify the "Smithed" SPK kernels for LRO (not a default in spiceinit).
+    ```sh
     spiceinit from=LSZ_04485_1CD_XKU_87S205_V1_lev1.cub spksmithed=true
+    ```
+
+    [`spiceinit`](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/spiceinit/spiceinit.html)
+    will add the appropriate SPICE information to the ISIS cube.
+    Successful spiceinit allows for further geometric processing of the
+    data.
 
 ## Generate Stoke Parameter Images
 
