@@ -2,14 +2,16 @@
 
 ## Download a pair of LROC NAC Images
 
-LRO NAC consists of two cameras (`L` and `R`), with both capturing image data at the same time. 
+LRO NAC consists of two cameras (`L` and `R`); both capture image data at the same time. 
 
-Find these images with the [LROC Image Search (ASU)](http://wms.lroc.asu.edu/lroc/search). Search for
-```
-M104318871
-```
-and filter for EDR images, then download the left and right EDR images to your working folder: `M104318871LE.img` and `M104318871RE.img`.
-*Only one image is needed for the following example.*
+!!! info "Getting Images from [LROC Image Search](http://wms.lroc.asu.edu/lroc/search)"
+
+    Find images with the [LROC Image Search (ASU)](http://wms.lroc.asu.edu/lroc/search). Search for
+    ```
+    M104318871
+    ```
+    and filter for EDR images, then download the left and right EDR images to your working folder: `M104318871LE.img` and `M104318871RE.img`.
+    *Only one image is needed for the following example.*
 
 ## Importing and processing LROC NAC images in ISIS
 
@@ -38,3 +40,25 @@ Convert each .img file to an ISIS .cub camera image, initialize the SPICE kernel
         ```
 
 The obtained images can be inspected with [`qview`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qview/qview.html).
+
+## Further NAC Processing Resoures
+
+<div class="grid cards" markdown>
+
+-   ***Want to Keep Going?***
+
+    -----
+
+    Further processing, including photometric correction, map-projecting, and mosaicking.
+
+    [NAC Processing Guide :octicons-arrow-right-24:](https://doi.org/10.5281/zenodo.15392665)
+
+-   ***Where Is That Crater?*** 
+    
+    -----
+
+    Best practices for obtaining accurate coordinates from LROC NAC data.
+
+    [Obtaining Accurate Coordinates :octicons-arrow-right-24:](https://iopscience.iop.org/article/10.3847/PSJ/ad54c6)
+
+</div>

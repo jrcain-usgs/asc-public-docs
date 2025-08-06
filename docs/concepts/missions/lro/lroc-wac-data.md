@@ -4,16 +4,20 @@ We will focus on the monochromatic images for this sensor.
 
 ## Downloading WAC Data
 
-Visit the [Lunar Orbital Data Explorer (WUSTL)](https://ode.rsl.wustl.edu/moon/productsearch).
+!!! info "Searching/Downloading from LODE"
 
-Under 'STEP 1: SELECT DATA SETS,' select:
+    Visit the [Lunar Orbital Data Explorer (WUSTL)](https://ode.rsl.wustl.edu/moon/productsearch).
 
-- Lunar Reconnaissance Orbiter
-    - Raw Data
-        - Experiment Data Record Wide Angle Camera - Mono (EDRWAM)
+    **STEP 1: SELECT DATA SETS TO SEARCH**
 
-Under 'STEP 2: ADDITIONAL FILTERING PARAMETERS,' to narrow the search, set either a lat-lon window, 
-or pick a notable feature, such as a named crater.
+    - Lunar Reconnaissance Orbiter
+        - Raw Data
+            - [x] PDS4 Experiment Data Record Wide Angle Camera - Mono (EDRWAM4)
+
+    **STEP 2: SET ADDITIONAL FILTERING PARAMETERS**  
+    Set a lat-lon window, 
+    or pick a notable feature (like a named crater)
+    to narrow the search.
 
 Here are a couple of images with the Tycho crater:
 
