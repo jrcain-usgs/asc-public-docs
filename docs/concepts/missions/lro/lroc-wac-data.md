@@ -40,7 +40,7 @@ Here are a couple of images with the Tycho crater:
 
 ### Processing
 
-!!! example "Radiometrically Callibrate the images with [`lrowaccal`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/lrowaccal/lrowaccal.html)"
+!!! example "Radiometrically Calibrate the images with [`lrowaccal`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/lrowaccal/lrowaccal.html)"
     ```sh
     lrowaccal from = image.vis.even.cub to = image.vis.even.cal.cub
     lrowaccal from = image.vis.odd.cub  to = image.vis.odd.cal.cub

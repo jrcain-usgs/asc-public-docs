@@ -27,7 +27,7 @@ Convert each .img file to an ISIS .cub camera image, initialize the SPICE kernel
         spiceinit   from = M104318871LE.cub
         ```
 
-    1.  Radiometrically callibrate the cube with [`lronaccal`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/lronaccal/lronaccal.html).  
+    1.  Radiometrically calibrate the cube with [`lronaccal`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/lronaccal/lronaccal.html).  
         ```sh
         lronaccal   from = M104318871LE.cub     to = M104318871LE.cal.cub
         ```
