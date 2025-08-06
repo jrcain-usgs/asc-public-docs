@@ -78,8 +78,3 @@ To fix these artifacts, map-project these images and fuse them.
     ls image.vis.even.cal.map.cub image.vis.odd.cal.map.cub  > image.txt
     noseam fromlist = image.txt to = image.noseam.cub SAMPLES=73 LINES=73
     ```
-
-TODO: why SAMPLES=73 and LINES=73?
-
-The resulting file `image.noseam.cub` may still have some small artifacts
-but should be overall reasonably good. 
