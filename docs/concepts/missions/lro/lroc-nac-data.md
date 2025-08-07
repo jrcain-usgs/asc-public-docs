@@ -41,7 +41,7 @@ Convert each .img file to an ISIS .cub camera image, initialize the SPICE kernel
 
 The obtained images can be inspected with [`qview`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qview/qview.html).
 
-## Further NAC Processing Resoures
+## Further NAC Processing Resources
 
 <div class="grid cards" markdown>
 
