@@ -28,14 +28,14 @@ meters of the Martian surface.
     - Bands: 500-800nm
 
     The team lead and supplier of CTX is Mike Malin from
-    [MSSS](http://www.msss.com/all_projects/mro-ctx.php).
+    [MSSS](https://www.msss.com/all_projects/mro-ctx.php).
 
 ??? abstract "Reference & Related Resources"
 
-    - [CTX Camera - Malin Space Science Systems](http://www.msss.com/all_projects/mro-ctx.php)
+    - [CTX Camera - Malin Space Science Systems](https://www.msss.com/all_projects/mro-ctx.php)
     - [MRO Mission - PDS Cartography and Imaging Node](https://pds-imaging.jpl.nasa.gov/portal/mro_mission.html)
-    - [MRO - NASA Science](http://mars.jpl.nasa.gov/mro/)
-        - [MRO Science Instruments - NASA Science](http://mars.jpl.nasa.gov/mro/mission/instruments/ctx/)
+    - [MRO - NASA Science](https://science.nasa.gov/mission/mars-reconnaissance-orbiter/)
+        - [MRO Science Instruments - NASA Science](https://science.nasa.gov/mission/mars-reconnaissance-orbiter/science-instruments/)
 
 ## Processing CTX Data 
 
@@ -414,3 +414,14 @@ parameters in your map template (e.g. ProjectionName).
         the **PixelResolution** is the same for all images. Some projections
         also require the **CenterLongitude** and **CenterLatitude** to be
         the same for a mosaic.
+
+## Further Resources
+
+<div class="grid cards" markdown>
+
+- [CTX Data in AMES Stereo Pipeline :octicons-arrow-right-24:](https://stereopipeline.readthedocs.io/en/latest/examples/ctx.html)
+
+- [Empirical Brightness Control & Equalization :octicons-arrow-right-24:](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019EA001053)
+
+</div>
+
