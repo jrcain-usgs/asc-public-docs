@@ -1,81 +1,20 @@
-<div id="main">
+# Working with Mars Reconnaissance Orbiter HiRISE Data
 
-<div id="content">
-
-<div class="contextual">
-
-</div>
-
-<div class="wiki wiki-page">
-
-<span id="Working-with-Mars-Reconnaissance-Orbiter-HiRISE-Data"></span>
-
-# Working with Mars Reconnaissance Orbiter HiRISE Data [¶](#Working-with-Mars-Reconnaissance-Orbiter-HiRISE-Data-)
+## About MRO HiRISE
 
 -----
 
-  - [Working with Mars Reconnaissance Orbiter HiRISE
-    Data](#Working-with-Mars-Reconnaissance-Orbiter-HiRISE-Data-)
-      - [About MRO HiRISE](#About-MRO-HiRISE-)
-  - [HiRISE](#HiRISE-)
-      -   - [Instrument Overview](#Instrument-Overview-)
-          - [Technical Details](#Technical-Details-)
-          - [References & Related
-            Resources](#References--Related-Resources-)
-    
-      - [Cartographic Processing HiRISE
-        Data](#Cartographic-Processing-HiRISE-Data-)
-        
-          - [Level 0 Processing](#Level-0-Processing-)
-          - [Level 1 Processing](#Level-1-Processing-)
-          - [Level 2 Processing](#Level-2-Processing-)
-    
-      - [Batch Processing](#Batch-Processing-)
-        
-          - [Related ISIS3 Applications &
-            Documentation](#Related-ISIS3-Applications--Documentation-)
-    
-      - [Exporting ISIS3 Data](#Exporting-ISIS3-Data-)
-        
-          - [Exporting large HiRISE
-            images](#Exporting-large-HiRISE-images-)
-          - [Related ISIS3 Applications](#Related-ISIS3-Applications-)
-    
-      - [Create a HiRISE Anaglyph](#Create-a-HiRISE-Anaglyph-)
-    
-      - [HiRISE-to-HiRISE Geometric
-        Control](#HiRISE-to-HiRISE-Geometric-Control-)
-        
-          - [Collect tiepoints for each
-            observations](#Collect-tiepoints-for-each-observations-)
-          - [Evaluate the results of automatic seeding and
-            registration](#Evaluate-the-results-of-automatic-seeding-and-registration-)
-          - [Add and register control measures between the two
-            observations to link them
-            together](#Add-and-register-control-measures-between-the-two-observations-to-link-them-together-)
-          - [Use qnet to constrain
-            tiepoints](#Use-qnet-to-constrain-tiepoints-)
-          - [Bundle adjustment](#Bundle-adjustment-)
-          - [Map projection and mosaic](#Map-projection-and-mosaic-)
-          - [Related ISIS3 Applications](#Related-ISIS3-Applications-2-)
 
-<span id="About-MRO-HiRISE"></span>
 
-## About MRO HiRISE [¶](#About-MRO-HiRISE-)
-
------
-
-<span id="HiRISE"></span>
-
-# HiRISE [¶](#HiRISE-)
+# HiRISE
 
 -----
 
 [The Mars Reconnaissance Orbiter Mission](MRO)
 
-<span id="Instrument-Overview"></span>
 
-### Instrument Overview [¶](#Instrument-Overview-)
+
+### Instrument Overview
 
 HiRISE has acquired more than 20,000 images of the martian surface in
 unprecedented detail.
@@ -95,15 +34,15 @@ These high-resolution images provide unprecedented views of layered
 materials, gullies, channels, and other science targets, as well as
 possible future landing sites.
 
-[![MRO\_HiRISE.jpg](attachments/thumbnail/920/300.png)](attachments/download/920/MRO_HiRISE.jpg "MRO_HiRISE.jpg")
+[![MRO_HiRISE.jpg](attachments/thumbnail/920/300.png)](attachments/download/920/MRO_HiRISE.jpg "MRO_HiRISE.jpg")
 
     A comparison between the resolution of a camera aboard
     Mars Global Surveyor and the HiRISE camera on 
     Mars Reconnaissance Orbiter. Credit: NASA/JPL 
 
-<span id="Technical-Details"></span>
 
-### Technical Details [¶](#Technical-Details-)
+
+### Technical Details
 
 This telescopic camera has a primary mirror diameter of 50 centimeters
 and a field of view of 1.15°. At its focal plane, the instrument holds
@@ -129,7 +68,7 @@ The Principal Investigator (lead scientist) for HiRISE is Alfred McEwen
 from the [Lunar and Planetary Laboratory](http://www.lpl.arizona.edu/)
 at the [University of Arizona](http://www.arizona.edu/) .
 
-[![HiRISE\_Sample\_Observation.png](attachments/thumbnail/919/300.png)](attachments/download/919/HiRISE_Sample_Observation.png "HiRISE_Sample_Observation.png")
+[![HiRISE_Sample_Observation.png](attachments/thumbnail/919/300.png)](attachments/download/919/HiRISE_Sample_Observation.png "HiRISE_Sample_Observation.png")
 
     This image is one half (vertically) of a HiRISE observation
     scaled down to approximately 1/50th of its original resolution.
@@ -137,17 +76,15 @@ at the [University of Arizona](http://www.arizona.edu/) .
     Margaritifer Sinus. Taken on November 8, 2006, the image is a 
     composite of all 10 red detectors and the 2 blue-green detectors.
 
-[![HiRISE\_Sample\_Full\_Resolution\_Subarea.png](attachments/thumbnail/918/300.png)](attachments/download/918/HiRISE_Sample_Full_Resolution_Subarea.png "HiRISE_Sample_Full_Resolution_Subarea.png")
+[![HiRISE_Sample_Full_Resolution_Subarea.png](attachments/thumbnail/918/300.png)](attachments/download/918/HiRISE_Sample_Full_Resolution_Subarea.png "HiRISE_Sample_Full_Resolution_Subarea.png")
 
     This is a full resolution sub-area of the image on the right
     (indicated by the red outline). One pixel represents 25.6 cm 
     on the surface of Mars.
 
------
 
-<span id="References-amp-Related-Resources"></span>
 
-### References & Related Resources [¶](#References--Related-Resources-)
+### References & Related Resources
 
   - [HiRISE instrument
     description](http://mars.jpl.nasa.gov/mro/mission/instruments/hirise/)
@@ -159,43 +96,33 @@ at the [University of Arizona](http://www.arizona.edu/) .
   - [Mars Reconnaissance Orbiter mission web
     site](http://mars.jpl.nasa.gov/mro/)
 
-<span id="Cartographic-Processing-HiRISE-Data"></span>
 
-## Cartographic Processing HiRISE Data [¶](#Cartographic-Processing-HiRISE-Data-)
 
------
+## Cartographic Processing HiRISE Data
 
-<span id="Level-0-Processing"></span>
-
-### **[Level 0 Processing](Level0_HiRISE)** [¶](#Level-0-Processing-)
+### **[Level 0 Processing](Level0_HiRISE)**
 
 1.  [Data Acquisition](Level0_HiRISE)
 2.  [Ingestion](Level0_HiRISE)
 3.  [SPICE](Level0_HiRISE)
 4.  [Raw Camera Geometry](Level0_HiRISE)
 
-<span id="Level-1-Processing"></span>
-
-### **[Level 1 Processing](Level1_HiRISE)** [¶](#Level-1-Processing-)
+### **[Level 1 Processing](Level1_HiRISE)**
 
 1.  [Radiometric Calibration](Level1_HiRISE)
 2.  [Channel Stitching](Level1_HiRISE)
 3.  [Noise Removal](Level1_HiRISE)
 
-<span id="Level-2-Processing"></span>
-
-### **[Level 2 Processing](Level2_HiRISE)** [¶](#Level-2-Processing-)
+### **[Level 2 Processing](Level2_HiRISE)**
 
 1.  [Overview](Level2_HiRISE)
 2.  [Map Projection](Level2_HiRISE)
 3.  [Tone Match](Level2_HiRISE)
 4.  [Mosaic](Level2_HiRISE)
 
-<span id="Batch-Processing"></span>
 
-## Batch Processing [¶](#Batch-Processing-)
 
------
+## Batch Processing
 
 The ingestion, SPICE initialization, calibration, merging, and
 normalization must be run for each channel image. This would be
@@ -232,9 +159,9 @@ applications and run those applications using the batchlist option:
     7. normalize, tone-match across the channels (if necessary)
         cubenorm from=\$1 to=\$1.norm.cub -batch=cube2.lis
 
-<span id="Related-ISIS3-Applications-amp-Documentation"></span>
 
-### Related ISIS3 Applications & Documentation [¶](#Related-ISIS3-Applications--Documentation-)
+
+### Related ISIS3 Applications & Documentation
 
 See the following ISIS3 documentation for information about the
 applications  
@@ -254,26 +181,26 @@ you will need to use to perform this procedure:
   - [**cubenorm**](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cubenorm/cubenorm.html)
     : normalizes values in a image
 
-<span id="Exporting-ISIS3-Data"></span>
 
-## Exporting ISIS3 Data [¶](#Exporting-ISIS3-Data-)
+
+## Exporting ISIS3 Data
 
 -----
 
 [**Overview for exporting ISIS3 data**](Exporting_Isis_Data)
 
-<span id="Exporting-large-HiRISE-images"></span>
 
-### Exporting large HiRISE images [¶](#Exporting-large-HiRISE-images-)
+
+### Exporting large HiRISE images
 
 HiRISE mosaics are very large and our export application
 [**isis2std**](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/isis2std/isis2std.html)
 does not handle large PNG or JPEG images. You will need to decrease the
 size of the image to export by either cropping or reducing.
 
-<span id="Related-ISIS3-Applications"></span>
 
-### Related ISIS3 Applications [¶](#Related-ISIS3-Applications-)
+
+### Related ISIS3 Applications
 
 See the following ISIS3 documentation for information about the
 applications you will need to use to perform this procedure:
@@ -283,17 +210,17 @@ applications you will need to use to perform this procedure:
   - [**crop**](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/crop/crop.html)
     : pull a region out of a cube
 
-<span id="Create-a-HiRISE-Anaglyph"></span>
 
-## Create a HiRISE Anaglyph [¶](#Create-a-HiRISE-Anaglyph-)
+
+## Create a HiRISE Anaglyph
 
 -----
 
 See: [HiRISE Anaglyphs](HiRISE_Anaglyphs)
 
-<span id="HiRISE-to-HiRISE-Geometric-Control"></span>
 
-## HiRISE-to-HiRISE Geometric Control [¶](#HiRISE-to-HiRISE-Geometric-Control-)
+
+## HiRISE-to-HiRISE Geometric Control
 
 -----
 
@@ -305,9 +232,9 @@ heavily to tack down the control points when the bundle adjustment is
 performed. After the camera pointing has been updated the images will be
 projected, tone matched, and mosaicked together.
 
-<span id="Collect-tiepoints-for-each-observations"></span>
 
-### Collect tiepoints for each observations [¶](#Collect-tiepoints-for-each-observations-)
+
+### Collect tiepoints for each observations
 
     1.  Generate normalized cube files for each observation by running steps 1 to 7
         See steps under Batch Processing (above section)
@@ -362,9 +289,9 @@ For more information see [Automatic seeding of tiepoints](Autoseed)
 and  
 [Pattern Matching](Automatic_Registration)
 
-<span id="Evaluate-the-results-of-automatic-seeding-and-registration"></span>
 
-### Evaluate the results of automatic seeding and registration [¶](#Evaluate-the-results-of-automatic-seeding-and-registration-)
+
+### Evaluate the results of automatic seeding and registration
 
 Display the result with **qmos** to see the distribution of control
 points and the point types (blue=successful, red=failed)
@@ -392,9 +319,9 @@ tiepoints](attachments/download/986/Hirise_qmos_demo2.png)
 
 Note: The ignored points and measures were deleted in the plot above
 
-<span id="Add-and-register-control-measures-between-the-two-observations-to-link-them-together"></span>
 
-### Add and register control measures between the two observations to link them together [¶](#Add-and-register-control-measures-between-the-two-observations-to-link-them-together-)
+
+### Add and register control measures between the two observations to link them together
 
 ``` 
  1.  Remove all the ignored points and measures before adding additional 
@@ -440,9 +367,9 @@ Note: The ignored points and measures were deleted in the plot above
 See **[Automatic Registration](Automatic_Registration)** for additional
 information.
 
-<span id="Use-qnet-to-constrain-tiepoints"></span>
 
-### Use qnet to constrain tiepoints [¶](#Use-qnet-to-constrain-tiepoints-)
+
+### Use qnet to constrain tiepoints
 
 We will be adjusting all the images relative to one image instead of to
 actual ground coordinates. Use the interactive program
@@ -520,9 +447,9 @@ The dems are normally stored in $ISIS3DATA/base/dems directory.
 REPEAT previous STEPS for center and bottom points.  
 Save the control network file.
 
-<span id="Bundle-adjustment"></span>
 
-### Bundle adjustment [¶](#Bundle-adjustment-)
+
+### Bundle adjustment
 
 After constraining at least 3 tiepoints, run the bundle adjustment
 program
@@ -565,11 +492,11 @@ Command line entry:
 
 For additional information on Jigsaw, refer to a discussion PowerPoint
 as presented in June 26, 2012 at the Planetary Data Workshop:
-[Jigsaw\_demo.pdf](attachments/download/998/Jigsaw_demo.pdf)
+[Jigsaw_demo.pdf](attachments/download/998/Jigsaw_demo.pdf)
 
-<span id="Map-projection-and-mosaic"></span>
 
-### Map projection and mosaic [¶](#Map-projection-and-mosaic-)
+
+### Map projection and mosaic
 
 The final step is to project the images, tone match the set, and mosaic
 the files together. A map template is needed in order to project the
@@ -610,9 +537,9 @@ Final mosaic of two observations:
 ![HiRISE mosaic of two
 observations](attachments/download/983/HiRISE_equalizer_automos.png)
 
-<span id="Related-ISIS3-Applications-2"></span>
 
-### Related ISIS3 Applications [¶](#Related-ISIS3-Applications-2-)
+
+### Related ISIS3 Applications
 
 See the following ISIS3 documentation for information about the
 applications you will need to use to perform this procedure:
@@ -649,49 +576,33 @@ applications you will need to use to perform this procedure:
   - [automos](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/automos/automos.html)
     : Create a mosaic
 
-</div>
+## Image Attachments
 
-<div class="attachments">
-
-<div class="contextual">
-
-</div>
-
-[HiRISE\_equalizer\_automos.png](attachments/download/983/HiRISE_equalizer_automos.png)
+[HiRISE_equalizer_automos.png](attachments/download/983/HiRISE_equalizer_automos.png)
 [View](attachments/download/983/HiRISE_equalizer_automos.png "View")
 <span class="size"> (61.8 KB) </span> <span class="author"> Ian
 Humphrey, 2016-05-31 04:44 PM </span>
 
-[HiRISE\_jigsaw2.png](attachments/download/984/HiRISE_jigsaw2.png)
+[HiRISE_jigsaw2.png](attachments/download/984/HiRISE_jigsaw2.png)
 [View](attachments/download/984/HiRISE_jigsaw2.png "View")
 <span class="size"> (186 KB) </span> <span class="author"> Ian Humphrey,
 2016-05-31 04:45 PM </span>
 
-[HiRISE\_jigsaw1.png](attachments/download/985/HiRISE_jigsaw1.png)
+[HiRISE_jigsaw1.png](attachments/download/985/HiRISE_jigsaw1.png)
 [View](attachments/download/985/HiRISE_jigsaw1.png "View")
 <span class="size"> (78 KB) </span> <span class="author"> Ian Humphrey,
 2016-05-31 04:45 PM </span>
 
-[Hirise\_qmos\_demo2.png](attachments/download/986/Hirise_qmos_demo2.png)
+[Hirise_qmos_demo2.png](attachments/download/986/Hirise_qmos_demo2.png)
 [View](attachments/download/986/Hirise_qmos_demo2.png "View")
 <span class="size"> (228 KB) </span> <span class="author"> Ian Humphrey,
 2016-05-31 04:45 PM </span>
 
-[Hirise\_qmos\_demo1.png](attachments/download/987/Hirise_qmos_demo1.png)
+[Hirise_qmos_demo1.png](attachments/download/987/Hirise_qmos_demo1.png)
 [View](attachments/download/987/Hirise_qmos_demo1.png "View")
 <span class="size"> (242 KB) </span> <span class="author"> Ian Humphrey,
 2016-05-31 04:45 PM </span>
 
-[Jigsaw\_demo.pdf](attachments/download/998/Jigsaw_demo.pdf)
+[Jigsaw_demo.pdf](attachments/download/998/Jigsaw_demo.pdf)
 <span class="size"> (8.24 MB) </span> <span class="author"> Ian
 Humphrey, 2016-05-31 04:48 PM </span>
-
-</div>
-
-<div style="clear:both;">
-
-</div>
-
-</div>
-
-</div>
