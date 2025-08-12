@@ -165,8 +165,8 @@ Near-infrared (IR) and blue-green (BG) images follow a similar process.*
 
 <div class="grid cards" markdown>
 
-- [:octicons-arrow-left-24: HiRISE Level 0](hirise-level-0.md)
+- [:octicons-arrow-left-24: HiRISE Level 1](hirise-level-1.md)
 
-- [HiRISE Level 2 :octicons-arrow-right-24:](hirise-level-2.md)
+- [HiRISE Anaglyphs :octicons-arrow-right-24:](hirise-anaglyphs.md)
 
 </div>
