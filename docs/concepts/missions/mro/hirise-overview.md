@@ -303,77 +303,91 @@ projected, tone matched, and mosaicked together.
 
 ### Evaluate the results of automatic seeding and registration
 
-Display the result with `qmos` to see the distribution of control
-points and the point types (blue=successful, red=failed)
+!!! example "Displaying Control Points in [`qmos`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qmos/qmos.html)"
 
-``` 
- qmos
- Under file, select "Open Cube List"
- Select the file list, and then press "Open"
- Click on the "Control Net" button
- Select the control network file (output of pointreg), and press "Open"
-```
+    Open the result with [`qmos`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qmos/qmos.html) 
+    to see the distribution of control points and their success/failure.
 
-The example below shows the footprint plot with the tiepoints in the
-control network.
+    ```sh
+    qmos
+    ```
 
-<div class="grid cards" markdown>
+    1. Under file, select "Open Cube List"
+    2. Select the file list, and then press "Open"
+    3. Click on the "Control Net" button
+    4. Select the control network file (output of pointreg), and press "Open"
 
--   Additional work is required to convert some ignored
-    tiepoints to valid tiepoints with qnet or pointreg.
+???+ info "Successful and Unsuccessful Tie Points in [`qmos`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qmos/qmos.html)"
 
-    ![HiRISE control network plot](assets/Hirise_qmos_demo1.png)
+     Blue tie points are successful, red tie points have failed.
 
--   After fixing critical tiepoints that link the images together with qnet
-    or pointreg. The ignored points and measures were deleted.
+    <div class="grid cards" markdown>
 
-    ![HiRISE control network plot, after fixing critical tiepoints](assets/Hirise_qmos_demo2.png)
+    -   Additional work is required to convert some ignored
+        tiepoints to valid tiepoints with qnet or pointreg.
 
-</div>
+        ![HiRISE control network plot](assets/Hirise_qmos_demo1.png)
+
+    -   After fixing critical tiepoints that link the images together with qnet
+        or pointreg. The ignored points and measures were deleted.
+
+        ![HiRISE control network plot, after fixing critical tiepoints](assets/Hirise_qmos_demo2.png)
+
+    </div>
+
+### Control Measures - Control Net Editing and Checking
+
+!!! example "Add and register control measures between the two observations to link them together"
 
 
-### Add and register control measures between the two observations to link them together
+    1.  Remove all the ignored points and measures before adding additional 
+        measures. The input network should be the output from qnet or 
+        pointreg in the previous step.  
+        ```sh
+        cnetedit cnet=hirise_autoseed_merged_sets_ptreg.net \
+        onet=hirise_autoseed_merged_sets_ptregedit.net
+        ```
 
-``` 
- 1.  Remove all the ignored points and measures before adding additional 
-     measures. The input network should be the output from qnet or 
-     pointreg in the previous step.
-      cnetedit cnet=hirise_autoseed_merged_sets_ptreg.net
-      onet=hirise_autoseed_merged_sets_ptregedit.net
+    1.  Add new control measures in order to link the two observations 
+        together.  
+        ```sh
+        cnetadd fromlist=all_norm.lis addlist=all_norm.lis \
+        cnet=hirise_autoseed_merged_sets_ptregedit.net \
+        onet=hirise_autoseed_merged_sets_ptregedit_add.net \
+        log=hirise_autoseed_merged_sets_ptregedit_add.log polygon=yes
+        ```
 
- 2.  Add new control measures in order to link the two observations 
-     together.
-      cnetadd fromlist=all_norm.lis addlist=all_norm.lis
-      cnet=hirise_autoseed_merged_sets_ptregedit.net
-      onet=hirise_autoseed_merged_sets_ptregedit_add.net
-      log=hirise_autoseed_merged_sets_ptregedit_add.log polygon=yes
+    1.  Automatically register the new measures to the reference measures
+        which were set in the previous steps.  The registration template
+        must be modified to allow for the offset between the two sets.
+        In most cases, the search area needs to be increased and some of
+        the other settings may need to be adjusted also.  
 
- 3.  Automatically register the new measures to the reference measures
-     which were set in the previous steps.  The registration template
-     must be modified to allow for the offset between the two sets.
-     In most cases, the search area needs to be increased and some of
-     the other settings may need to be adjusted also.
+        IMPORTANT: set "measures=candidates"  
+        ```sh
+        pointreg fromlist=all_norm.lis points=all measures=candidates \
+        cnet=hirise_autoseed_merged_sets_ptregedit_add.net \
+        deffile=hirise_p151x501_s651x1501.def \
+        onet=hirise_autoseed_merged_sets_ptregedit_addptreg1.net \
+        flatfile=hirise_autoseed_merged_sets_ptregedit_addptreg1.txt
+        ```
 
-     IMPORTANT: set "measures=candidates"  
+    1.  Remove all ignored measures from the control network.  
+        ```sh
+        cnetedit cnet=hirise_autoseed_merged_sets_ptregedit_addptreg1.net \
+        onet=hirise_autoseed_merged_sets_ptregedit_addptreg1edit.net
+        ```
 
-      pointreg fromlist=all_norm.lis points=all measures=candidates
-      cnet=hirise_autoseed_merged_sets_ptregedit_add.net
-      deffile=hirise_p151x501_s651x1501.def
-      onet=hirise_autoseed_merged_sets_ptregedit_addptreg1.net
-      flatfile=hirise_autoseed_merged_sets_ptregedit_addptreg1.txt
+    1.  Check the network for missing links, single measures, no control 
+        points, or problems with the latitude and longitude.  
+        ```sh
+        cnetcheck fromlist=all_norm.lis prefix=cknet1_ \
+        cnet=hirise_autoseed_merged_sets_ptregedit_addptreg1edit.net
+        ```
 
- 4.  Remove all ignored measures from the control network.
-      cnetedit cnet=hirise_autoseed_merged_sets_ptregedit_addptreg1.net
-      onet=hirise_autoseed_merged_sets_ptregedit_addptreg1edit.net
+    1.  Check the output results and fix any problems reported. 
+        If the network is good, continue to the next step.
 
- 5.  Check the network for missing links, single measures, no control 
-     points, or problems with the latitude and longitude.
-      cnetcheck fromlist=all_norm.lis prefix=cknet1_
-      cnet=hirise_autoseed_merged_sets_ptregedit_addptreg1edit.net
-
- 6.  Check the output results and fix any problems reported. If the 
-     network is good, continue to the next step.
-```
 
 <div class="grid cards" markdown>
 
@@ -394,73 +408,87 @@ the apriori sigma values for (lat, lon, radius) will be set to (1.0,
 1.0, and 100.0) for the selected tiepoints. Make sure the latitude,
 longitude values are obtained from the same image.
 
-[`qnet`](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qnet/qnet.html)
-- click for more information on the interactive program.
+<div class="grid cards" markdown>
 
-``` 
- qnet
+-   [`qnet` ISIS App Docs :octicons-arrow-right-24:](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qnet/qnet.html)
 
- Select "Open control network cube list"
- Select "all_norm.lis"
- Select "hirise_autoseed_merged_sets_ptregedit_addptreg1edit.net"
+</div>
 
- In the "Control Network Navigator" window go to the drop-down menu 
-  next to "Points", and select "Cubes"
+!!! example "Open cubes and control networks in [`qnet`](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qnet/qnet.html)"
 
- Select both "RED5" cubes, ''hold down "Ctrl" button while selecting the 
-  files (PSP_004339_1890_RED5_norm.cub and PSP_005684_1890_RED5_norm.cub)
+    1. Open [`qnet`](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qnet/qnet.html)
 
- Click on "View Cubes" button 
-```
+    1. Select "Open control network cube list"
+    1. Select "all_norm.lis"
+    1. Select "hirise_autoseed_merged_sets_ptregedit_addptreg1edit.net"
 
-The two images should be displayed in the qnet window. The image shows
-green cross-hair where there are valid control points, magenta for
-constrained points, and yellow for ignored points. Do not use yellow
-points to constrain control points. Select 3 points, one at top, center,
-and bottom of the same image to constrain the latitude and longitude
-coordinates. Make sure  
-the left image in the "Qnet Tool" or editor window has the "RED5" image
-displayed on the left. A DEM is required in order to constrain the
-points, the file must have been run through
-[`demprep`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/demprep/demprep.html)
-.
+    1. In the "Control Network Navigator" window go to the drop-down menu 
+       next to "Points", and select "Cubes"
 
-Find the location where the DEM is stored before going to the next step.
-The dems are normally stored in $ISIS3DATA/base/dems directory.
+    1. Select both "RED5" cubes, ''hold down "Ctrl" button while selecting the 
+       files (PSP_004339_1890_RED5_norm.cub and PSP_005684_1890_RED5_norm.cub)
 
-``` 
- Go to "File" and select "Open ground source"
- Select "$base/dems/molaMarsPlanetaryRadius0005.cub"
+    1. Click on "View Cubes" button 
 
- Go to "File" and select "Open radius source"
- Select "$base/dems/molaMarsPlanetaryRadius0005.cub"
+    The two images should be displayed in the qnet window.
 
- In the qnet window, select the "Control point editor" button (the last 
- button with two arrow points)
+!!! info "[`qnet`](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qnet/qnet.html) Tie Point Colors"
 
- Click on the uppermost green crosshair in the qnet window for one of 
- the RED5 images.  The point will be displayed in the editor window.
+    - Green: Valid Control Point
+    - Magenta: Constrained Point
+    - Yellow: Ignored points
 
- Next, Select "Points" in the control network navigator window
+    Do not use yellow (ignored) points to constrain control points!
 
- In the editor window:
-  Select "Constrained" using the drop-down menu next to "Free"
-  Click "Save Measure" in the editor window
-  Click "Save Point" in the editor window
-  Click "Floppy disk icon" to save the changes to the file 
-     (Do not skip this step)
+!!! example "Selecting points to constrain"
 
- In the control navigator window:
-  Click "Set Apriori/Sigmas"
-  Enter Latitude Sigma=1.0 Longitude Sigma=1.0, and Radius Sigma=100.0
-  Click "Set Apriori"
-  Click "Save network" Point should change color from green to magenta
-```
+    - Select 3 points, one at top, center, and bottom 
+      of the same image to constrain the latitude and longitude coordinates. 
+    
+    - Make sure the left image in the "Qnet Tool" or editor window 
+      has the "RED5" image displayed on the left. 
 
-REPEAT previous STEPS for center and bottom points.  
+!!! example "Locating and Opening a DEM"
+
+    A DEM is required in order to constrain the points; the file must have been run through
+    [`demprep`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/demprep/demprep.html).
+
+    Find the location where the DEM is stored. 
+    The dems are normally stored in $ISIS3DATA/base/dems directory.
+
+    1.  Go to "File" and select "Open ground source".  
+        Select "$base/dems/molaMarsPlanetaryRadius0005.cub"
+
+    1.  Go to "File" and select "Open radius source".  
+        Select "$base/dems/molaMarsPlanetaryRadius0005.cub"
+
+!!! example "Constraining a Control Point"
+
+    1. In the qnet window, select the "Control point editor" button  
+       (the last button with two arrow points)
+
+    1. Click on the uppermost green crosshair in the qnet window for one of 
+       the RED5 images.  The point will be displayed in the editor window.
+
+    1. Next, Select "Points" in the control network navigator window
+
+    1. In the editor window:
+        1. Select "Constrained" using the drop-down menu next to "Free"
+        1. Click "Save Measure" in the editor window
+        1. Click "Save Point" in the editor window
+        1. Click "Floppy disk icon" to save the changes to the file  
+           (Do not skip this step!)
+
+    5. In the control navigator window:
+        1. Click "Set Apriori/Sigmas"
+        1. Enter Latitude Sigma=1.0 Longitude Sigma=1.0, and Radius Sigma=100.0
+        1. Click "Set Apriori"
+        1. Click "Save network" Point should change color from green to magenta
+
+
+REPEAT the "Constraining a Control Point" STEPS for center and bottom points.  
+
 Save the control network file.
-
-
 
 ### Bundle adjustment
 
@@ -471,7 +499,7 @@ program
 solution is reached* . After each run check the output file showing the
 residuals to determine if there are bad measures in the control network.
 
-??? note "`jigsaw` GUI with parameter names":
+??? note "`jigsaw` GUI with parameter names"
 
     ![JIGSAW GUI](assets/HiRISE_jigsaw1.png)
 
@@ -588,32 +616,7 @@ applications you will need to use to perform this procedure:
   - [automos](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/automos/automos.html)
     : Create a mosaic
 
-## Image Attachments
-
-[HiRISE_equalizer_automos.png](assets/HiRISE_equalizer_automos.png)
-[View](assets/HiRISE_equalizer_automos.png "View")
-<span class="size"> (61.8 KB) </span> <span class="author"> Ian
-Humphrey, 2016-05-31 04:44 PM </span>
-
-[HiRISE_jigsaw2.png](assets/HiRISE_jigsaw2.png)
-[View](assets/HiRISE_jigsaw2.png "View")
-<span class="size"> (186 KB) </span> <span class="author"> Ian Humphrey,
-2016-05-31 04:45 PM </span>
-
-[HiRISE_jigsaw1.png](assets/HiRISE_jigsaw1.png)
-[View](assets/HiRISE_jigsaw1.png "View")
-<span class="size"> (78 KB) </span> <span class="author"> Ian Humphrey,
-2016-05-31 04:45 PM </span>
-
-[Hirise_qmos_demo2.png](assets/Hirise_qmos_demo2.png)
-[View](assets/Hirise_qmos_demo2.png "View")
-<span class="size"> (228 KB) </span> <span class="author"> Ian Humphrey,
-2016-05-31 04:45 PM </span>
-
-[Hirise_qmos_demo1.png](assets/Hirise_qmos_demo1.png)
-[View](assets/Hirise_qmos_demo1.png "View")
-<span class="size"> (242 KB) </span> <span class="author"> Ian Humphrey,
-2016-05-31 04:45 PM </span>
+## PDF Attachments
 
 [Jigsaw_demo.pdf](assets/Jigsaw_demo.pdf)
 <span class="size"> (8.24 MB) </span> <span class="author"> Ian
