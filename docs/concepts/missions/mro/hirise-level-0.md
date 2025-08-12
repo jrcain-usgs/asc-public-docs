@@ -18,13 +18,15 @@
         calibrated, map projected, mosaic of multiple channels from a single
         observation. These products are stored in [JPEG 2000](http://en.wikipedia.org/wiki/JPEG_2000) format.
 
-!!! warning "One HiRISE EDR Observation contains up to 28 images"
+???+ warning "One HiRISE EDR Observation contains up to 28 images"
 
     To make full use of a HiRISE Observation, 
     the processing steps must be run on each of the images in the observation: 
     RED0-9, IR10-11, BG (Blue-Green) 12-13, each with its own channel 0 and 1.
 
-    Those interested in a particular wavelength of light might examine an individual filter or a subset of filters. 
+    [![Focalplaneassembly.png](assets/Focalplaneassembly.png)](assets/Focalplaneassembly.png "Focalplaneassembly.png")
+
+    Those interested in a particular wavelength of light might examine a subset of filters. 
     Their wavelengths are **RED**: `570-830nm`, **BG**: `<580nm`, **IR**: `>790nm`
 
 ### Search Tools
@@ -300,6 +302,8 @@ it can be used for [camera geometry and photometry](../../../concepts/camera-geo
 -----
 
 <div class="grid cards" markdown>
+
+- [:octicons-arrow-left-24: HiRISE Overview](hirise-overview.md)
 
 - [HiRISE Level 1 :octicons-arrow-right-24:](hirise-level-1.md)
 
