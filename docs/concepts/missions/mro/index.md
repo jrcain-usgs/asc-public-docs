@@ -88,7 +88,7 @@ investigations are functionally divided into three purposes:
 #### High Resolution Imaging Science Experiment (HiRISE) 
 
   - [HiRISE Instrument Team - ASU](https://hirise.lpl.arizona.edu)
-  - [HiRISE Data Processing Guide - USGS Astro](hirise-overview.md)
+  - [HiRISE Data Processing Guide - USGS Astro](hirise/index.md)
 
 #### Context Imager (CTX) 
 

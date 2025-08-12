@@ -2,7 +2,7 @@
 
 <div class="grid cards" markdown>
 
-- [:octicons-arrow-left-24: The MRO Mission](index.md)
+- [:octicons-arrow-left-24: The MRO Mission](../index.md)
 
 </div>
 
@@ -10,7 +10,7 @@
 
 !!! quote inline end ""
 
-    [![MRO_HiRISE.jpg](assets/MRO_HiRISE.jpg)](assets/MRO_HiRISE.jpg "MRO_HiRISE.jpg")
+    [![MRO_HiRISE.jpg](../assets/MRO_HiRISE.jpg)](../assets/MRO_HiRISE.jpg "MRO_HiRISE.jpg")
 
     A comparison between the resolution of a camera aboard
     Mars Global Surveyor and the HiRISE camera on 
@@ -39,7 +39,7 @@ possible future landing sites.
 
 !!! quote inline end ""
 
-    [![HiRISE_Sample_Observation.png](assets/HiRISE_Sample_Observation.png)](assets/HiRISE_Sample_Observation.png "HiRISE_Sample_Observation.png")
+    [![HiRISE_Sample_Observation.png](../assets/HiRISE_Sample_Observation.png)](../assets/HiRISE_Sample_Observation.png "HiRISE_Sample_Observation.png")
 
     This image is one half (vertically) of a HiRISE observation
     scaled down to approximately 1/50th of its original resolution.
@@ -73,7 +73,7 @@ at the [University of Arizona](http://www.arizona.edu/) .
 
 !!! quote inline end ""
 
-    [![HiRISE_Sample_Full_Resolution_Subarea.png](assets/HiRISE_Sample_Full_Resolution_Subarea.png)](assets/HiRISE_Sample_Full_Resolution_Subarea.png "HiRISE_Sample_Full_Resolution_Subarea.png")
+    [![HiRISE_Sample_Full_Resolution_Subarea.png](../assets/HiRISE_Sample_Full_Resolution_Subarea.png)](../assets/HiRISE_Sample_Full_Resolution_Subarea.png "HiRISE_Sample_Full_Resolution_Subarea.png")
 
     A sub-area of the above observation (indicated by the red outline). 
     One pixel represents 25.6 cm on the surface of Mars.
@@ -82,46 +82,43 @@ at the [University of Arizona](http://www.arizona.edu/) .
 
 TODO: Check links
 
-  - [HiRISE instrument
-    description](http://mars.jpl.nasa.gov/mro/mission/instruments/hirise/)
-  - [HiRISE instrument technical
-    description](http://marsoweb.nas.nasa.gov/HiRISE/papers/6th_mars_conf/Delemere_HiRISE_InstDev.pdf)
+  - [HiRISE instrument description](http://mars.jpl.nasa.gov/mro/mission/instruments/hirise/)
+  - [HiRISE instrument technical description](http://marsoweb.nas.nasa.gov/HiRISE/papers/6th_mars_conf/Delemere_HiRISE_InstDev.pdf)
     (PDF)
   - [HiRISE mission web site](http://marsoweb.nas.nasa.gov/HiRISE/)
   - [en.wikipedia.org/wiki/HiRISE](http://en.wikipedia.org/wiki/HiRISE)
-  - [Mars Reconnaissance Orbiter mission web
-    site](http://mars.jpl.nasa.gov/mro/)
+  - [Mars Reconnaissance Orbiter mission web site](http://mars.jpl.nasa.gov/mro/)
 
 
 ## Cartographic Processing HiRISE Data
 
-### **[Level 0 Processing](hirise-level-0.md)**
+### **[Level 0 Processing](../hirise-level-0.md)**
 
-1.  [Data Acquisition](hirise-level-0.md)
-1.  [Ingestion](hirise-level-0.md)
-1.  [SPICE](hirise-level-0.md)
-1.  [Raw Camera Geometry](hirise-level-0.md)
+1.  [Data Acquisition](../hirise-level-0.md)
+1.  [Ingestion](../hirise-level-0.md)
+1.  [SPICE](../hirise-level-0.md)
+1.  [Raw Camera Geometry](../hirise-level-0.md)
 
-### **[Level 1 Processing](hirise-level-1.md)**
+### **[Level 1 Processing](../hirise-level-1.md)**
 
-1.  [Radiometric Calibration](hirise-level-1.md)
-1.  [Channel Stitching](hirise-level-1.md)
-1.  [Noise Removal](hirise-level-1.md)
+1.  [Radiometric Calibration](../hirise-level-1.md)
+1.  [Channel Stitching](../hirise-level-1.md)
+1.  [Noise Removal](../hirise-level-1.md)
 
-### **[Level 2 Processing](hirise-level-2.md)**
+### **[Level 2 Processing](../hirise-level-2.md)**
 
-1.  [Map Projection](hirise-level-2.md)
-1.  [Tone Match](hirise-level-2.md)
-1.  [Mosaic](hirise-level-2.md)
+1.  [Map Projection](../hirise-level-2.md)
+1.  [Tone Match](../hirise-level-2.md)
+1.  [Mosaic](../hirise-level-2.md)
 
 
 ## HiRISE Guides
 
 <div class="grid cards" markdown>
 
--   [HiRISE Anaglyphs :octicons-arrow-right-24:](hirise-anaglyphs.md)
+-   [HiRISE Anaglyphs :octicons-arrow-right-24:](../hirise-anaglyphs.md)
 
--   [HiRISE to HiRISE Geometric Control :octicons-arrow-right-24:](hirise-to-hirise-geometric-control.md)
+-   [HiRISE to HiRISE Geometric Control :octicons-arrow-right-24:](../hirise-to-hirise-geometric-control.md)
 
 </div>
 
@@ -132,7 +129,7 @@ The ingestion, SPICE initialization, calibration, merging, and
 normalization must be run for each channel image. This would be
 incredibly tedious to run each application for every file! Luckily,
 batch processing is easy in ISIS. Using the 
-[-batchlist command line option](../../../concepts/isis-fundamentals/command-line-usage.md#-batchlist-parameter), 
+[-batchlist command line option](../../../../concepts/isis-fundamentals/command-line-usage.md#-batchlist-parameter), 
 a set of CCD images for a single observation can be
 processed swiftly through level 1 processing.
 
@@ -214,6 +211,6 @@ processed swiftly through level 1 processing.
 -   [`crop` ISIS App Docs](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/crop/crop.html)  
     Pull a region out of a cube
 
--   [Exporting ISIS Data :octicons-arrow-right-24:](../../../getting-started/using-isis-first-steps/exporting-isis-data.md)
+-   [Exporting ISIS Data :octicons-arrow-right-24:](../../../../getting-started/using-isis-first-steps/exporting-isis-data.md)
 
 </div>
