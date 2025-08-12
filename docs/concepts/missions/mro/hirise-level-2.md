@@ -1,215 +1,172 @@
 # Level2 HiRISE
 
-## Overview
+!!! note "Prerequisites - [HiRISE Level 1](hirise-level-1.md) Processed Images"
 
-In this section, we'll discuss how to create a Level 2 HiRISE image.
-Following Level0 and Level1, there should be up to 14 CCD images that
-have had spiceinit successfully applied, are radiometrically calibrated
-and have had noise removed.
+    - Up to 14 CCD images
+        - Imported into ISIS with `hi2isis`
+        - `spiceinit` applied to each
+        - Radiometrically Calibrated with `hical`
+        - Noise Removed
 
-[![Focalplaneassembly.png](attachments/thumbnail/1030.png)](attachments/download/1030/Focalplaneassembly.png "Focalplaneassembly.png")
+!!! info inline end "HiRISE Focal Plane Assembly - Illustration"
 
-    Focal Plane Assembly Each CCD has 2048 pixels in the cross
-    scan direction The 14 staggered CCDs overlap by 48 pixels
-    at each end. This provides an effective swath width of 
-    approximately 20,000 pixels for the red images and 4,048
-    pixels for the blue-green and near infrared images. 
-    Credit: NASA/UA/Ball
+    [![Focalplaneassembly.png](assets/Focalplaneassembly.png)](assets/Focalplaneassembly.png "Focalplaneassembly.png")
 
-Constructing a map projected HiRISE observation image is much more
-difficult than most instruments. There are 14 Charge-Coupled Devices
-(CCD) in the camera, ten red, two infrared, and two blue-green. When the
-camera electronics read out the image data, each CCD is broken in two
-halves (left and right channels). On the ground, the data for one
-observation ends up stored in 28 image files (14 CCDs x 2 channels per
-CCD). The goal of this lesson is to show the necessary steps to combine
-the CCD images into a single mosaic.
+    Each CCD has 2048px in the cross scan direction. 
+    The 14 staggered CCDs overlap by 48px at each end. 
+    This gives a total width of ~20,000px for RED and 4,048px 
+    for the BG and IR images.
+
+When the camera electronics read out the image data, 
+each CCD is broken in two halves (left and right channels). 
+On the ground, the data for one observation is up stored 
+in 28 image files (14 CCDs with 2 channels each). 
+A Level2 ISIS cube combines these CCD images into a single mosaic.
 
 The Level2 process involves the following:
 
-  - **Geometric transformation** of each CCD image from spacecraft
+1. **Geometric transformation** of each CCD image from spacecraft
     camera orientation to a common map coordinate system
-  - **Correction of tonal mismatches** among the projected images. Prior
-    to mosaicking the projected CCD images, it is optional to fix tonal
-    mismatches among the projected images. As the radiometric
-    calibration becomes more accurate, this step could be eliminated.
-  - **Creation of a HiRISE observation mosaic** of the tone matched CCD
+1. **Correction of tonal mismatches** among the projected images (optional)
+1. **Creation of a HiRISE observation mosaic** of the tone matched CCD
     images to create a complete HiRISE observation image.
 
-The results of this process will be an uncontrolled observation mosaic,
+The results of this process will be an ***uncontrolled observation mosaic***,
 meaning that the output map will only be as accurate as the original
 SPICE allows. Software and procedures for creating controlled (adjusted
 SPICE) mosaics are underway. Information and documentation will be
 released on our site.
 
-For additional information, refer to:
 
-[Learning About Map Projections](Learning_About_Map_Projections)
+<div class="grid cards" markdown>
 
-[Overview of Map Projecting Images](Overview_of_Map_Projecting_Images)
+- [All About Map Projections in ISIS :octicons-arrow-right-24:](../../../concepts/camera-geometry-and-projections/learning-about-map-projections.md)
 
+- [Map Projecting with `maptemplate` and `cam2map` :octicons-arrow-right-24:](../../../how-to-guides/image-processing/map-projecting-images.md)
+
+</div>
 
 
 ## Map Projecting HiRISE Images
 
-To assemble our HiRISE observation mosaic from the CCD images, we will
-use the application
-[**cam2map**](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cam2map/cam2map.html)
-to convert each CCD image to a map projected image. We'll show here how
-to easily match the projection information among the CCD images.
-Alternatively, you can define your own map file using the
-[**maptemplate**](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/maptemplate/maptemplate.html)
-application. The first step is to project one of the CCD images, usually
-red 5 as it is in the center of the observation:
+To assemble the HiRISE observation mosaic from the CCD images, use 
+[`cam2map`](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cam2map/cam2map.html)
+to convert each CCD image to a map projected image. 
+This example projects one image first, then uses the same projection for the others.
+Alternatively, [`maptemplate`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/maptemplate/maptemplate.html)
+can create custom map files.
 
+!!! example "Part A: Project 1st image with [`cam2map`](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cam2map/cam2map.html)"
+    
+    **RED5 is a good choice to project first**. It's near the center of the observation.
+
+    ```sh
     cam2map from=PSP_002733_1880_RED5.norm.cub to=PSP_002733_1880_RED5.sinu.cub
+    ```
 
-The default projection for **cam2map** is sinusoidal, so the resulting
-red 5 CCD image is now in sinusoidal projection. As with many Isis
-applications, **cam2map** has several parameters, but the default values
-for these parameters will result in good projection results.
+    The output cube has the mapping parameters needed to
+    project the other images, so they can be mosaicked.
 
-The output cube contains all the mapping parameters we need for
-projecting the remaining CCD images so they can be mosaicked. To process
-the remaining CCD images, use the following command:
+    The default projection for `cam2map` is sinusoidal, 
+    so the resulting RED5 image is now in sinusoidal projection.
 
+!!! example "Part B: Project the rest of the images with [`cam2map`](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cam2map/cam2map.html)"
+
+    ```sh
     cam2map from=PSP_002733_1880_?.norm.cub \
             to=PSP_002733_1880_?.sinu.cub \
             map=PSP_002733_1880_RED5.sinu.cub pixres=map
+    ```
 
-  - **Quick Tip** : We use the **red 5 sinusoidal cube** as our map
-    file. The remaining CCD images will use the same projection
-    parameters as red 5, which is required for mosaicking the CCD images
-    into our final observation image.
-
-See the following Isis documentation for information about the
-applications you will need to use to perform this procedure:
-
-  - [**maptemplate**](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/maptemplate/maptemplate.html)
-    : generates a map file that can be used to project images
-  - [**cam2map**](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cam2map/cam2map.html)
-    : geometrically transforms a raw camera image to a map projected
-    image
+    The **RED5 sinusoidal cube** is used as the map file. 
+    The remaining CCD images will use the same projection parameters as RED5. 
+    When mosaicking, all input images for the mosaic must have the same projection parameters.
 
 
+<div class="grid cards" markdown>
 
-## Tone Match
+- [`maptemplate` ISIS App Docs :octicons-arrow-right-24:](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/maptemplate/maptemplate.html) 
 
-Tone matching among the CCD images will be necessary until the
-radiometric calibration procedure matures. To illustrate the need for
-tone matching, the example images on the right show a mosaic with and
-without the CCD image normalization. Here, we will make a mosaic of the
-red CCD images. The infrared and blue-green CCD images follow a similar
-process.
+    Creates a map file that can be used to project images
 
-In order to tone match the CCD images, we use the equalizer application
-program to normalize the images.
+- [`cam2map` ISIS App Docs :octicons-arrow-right-24:](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cam2map/cam2map.html)
 
-1.  **Hold** the tone of the red 5 CCD image. That is, the pixel values
-    in the red 5 CCD image will not be changed. Create a list containing
-    the filenames of the images that will be held. In this example, the
-    red 0 through 4 and 6 through 9 CCD images will be normalized to the
-    the red 5 image:
+    Geometrically transforms a raw camera image to a map projected image
 
-<!-- end list -->
-
-    ls *RED5.cub > hold.lis
-
-1.  Create a list containing the filenames of red 5 images to be
-    normalized in preparation for creating the mosaic. The contrast and
-    brightness of these images will be updated so that tones match the
-    red 5 image listed in the hold list. We are effectively normalizing
-    to the red 5 calibration. Note the equalizer program does a
-    statistical analysis among only the pixels in the overlap regions to
-    determine the corrections to the contrast and brightness
-    differences.
-
-<!-- end list -->
-
-    ls *RED*.cub > redCCD.lis
-
-1.  Run the
-    [**equalizer**](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/equalizer/equalizer.html)
-    application using the two lists created above as input. *equalizer*
-    automatically generates output filenames with the extension
-    .equ.cub. The output results will be ten cubes (red CCD 0 through 9
-    images) with the extension .equ.cub added to each filename.
-
-<!-- end list -->
-
-    equalizer fromlist=redCCD.lis holdlist=hold.lis
+</div>
 
 
+
+## Tone Matching
+
+!!! example "Tone-match images with [`equalizer`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/equalizer/equalizer.html)"
+
+    1.  **Hold** the tone of the RED5 CCD image.  
+        The pixel values in RED5 won't be changed. 
+        RED0-4 and RED6-9 will be normalized to RED5's tone. 
+        Make a list the filename(s) that will be held.
+        ```sh
+        ls *RED5.cub > hold.lis
+        ```
+
+    1.  **List all images to be normalized.**  
+        Their contrast/brightness will be updated so that tones match the
+        RED5 image on the hold list. This will normalize to the RED calibration. 
+        [`equalizer`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/equalizer/equalizer.html) 
+        analyzes the pixels in the overlap regions to calculate its corrections.  
+        ```sh
+        ls *RED*.cub > redCCD.lis
+        ```
+
+    1.  Run
+        [`equalizer`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/equalizer/equalizer.html)
+        with the two lists created above as input.   
+        ```sh
+        equalizer fromlist=redCCD.lis holdlist=hold.lis
+        ```
+
+    The output should be ten cubes (RED0-9) with `.equ.cub` extension. 
+
+<div class="grid cards" markdown>
+
+-   [![Tone_Matching_Close_Up_Without_EQ.png](assets/Tone_Matching_Close_Up_Without_EQ.png)](assets/Tone_Matching_Without_EQ.png "Tone_Matching_Without_EQ.png")
+
+    **No** equalization.
+
+-   [![Tone_Matching_Close_Up_With_EQ.png](assets/Tone_Matching_Close_Up_With_EQ.png)](assets/Tone_Matching_With_EQ.png "Tone_Matching_With_EQ.png")
+
+    **Equalized**.
+
+</div>
 
 ## Mosaicking
 
------
+!!! example "Constructing a Mosaic with [`automos`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/automos/automos.html)"
 
-Finally we will construct the mosaic. A new list of the equalized cube
-filenames is required as input to
-[automos](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/automos/automos.html)
-.  
-**Note** : Make sure you only add filenames for one observation (or
-adjacent observations) to the list file, otherwise *all* the images in
-the list will be mosaicked into a single output image.
+    A new list of the equalized cube filenames is required as input.
 
+    ```sh
     ls *RED*.equ.cub > mosaic.lis
     automos fromlist=mosaic.lis to=redMosaic.cub
+    ```
 
+!!! warning ""
 
-
-## Related Isis Applications
+    Only add filenames for one observation (or adjacent observations) 
+    to the list file, otherwise *all* the images in the list 
+    will be mosaicked into a single output image.
 
 -----
 
-See the following Isis documentation for information about the
-applications you will need to use to perform this procedure:
+*The example created a mosaic with RED images.  
+Near-infrared (IR) and blue-green (BG) images follow a similar process.*
 
-  - [**equalizer**](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/equalizer/equalizer.html)
-    : tone match overlapping map projected images
-  - [**automos**](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/automos/automos.html)
-    : automatically mosaic a list of map projected images
+-----
 
-[![Tone\_Matching\_Without\_EQ.png](attachments/thumbnail/1073/150.png)](attachments/download/1073/Tone_Matching_Without_EQ.png "Tone_Matching_Without_EQ.png")
+<div class="grid cards" markdown>
 
-    Full view of the red 5 mosaic **without** equalization
+- [:octicons-arrow-left-24: HiRISE Level 0](hirise-level-0.md)
 
-[![Tone\_Matching\_With\_EQ.png](attachments/thumbnail/1029/150.png)](attachments/download/1029/Tone_Matching_With_EQ.png "Tone_Matching_With_EQ.png")
+- [HiRISE Level 2 :octicons-arrow-right-24:](hirise-level-2.md)
 
-    Full view of the red 5 mosaic **with** equalization
-
-[![Tone\_Matching\_Close\_Up\_Without\_EQ.png](attachments/thumbnail/1028/200.png)](attachments/download/1028/Tone_Matching_Close_Up_Without_EQ.png "Tone_Matching_Close_Up_Without_EQ.png")
-
-    Close-up of red 5 mosaic **without** equalization
-
-[![Tone\_Matching\_Close\_Up\_With\_EQ.png](attachments/thumbnail/1027/200.png)](attachments/download/1027/Tone_Matching_Close_Up_With_EQ.png "Tone_Matching_Close_Up_With_EQ.png")
-
-    Close-up of red 5 mosaic **with** equalization
-
-
-## Image Attachments
-
-[Tone\_Matching\_Close\_Up\_With\_EQ.png](attachments/download/1027/Tone_Matching_Close_Up_With_EQ.png)
-[View](attachments/download/1027/Tone_Matching_Close_Up_With_EQ.png "View")
-<span class="size"> (665 KB) </span> <span class="author"> Ian Humphrey,
-2016-05-31 05:45 PM </span>
-
-[Tone\_Matching\_Close\_Up\_Without\_EQ.png](attachments/download/1028/Tone_Matching_Close_Up_Without_EQ.png)
-[View](attachments/download/1028/Tone_Matching_Close_Up_Without_EQ.png "View")
-<span class="size"> (605 KB) </span> <span class="author"> Ian Humphrey,
-2016-05-31 05:45 PM </span>
-
-[Tone\_Matching\_With\_EQ.png](attachments/download/1029/Tone_Matching_With_EQ.png)
-[View](attachments/download/1029/Tone_Matching_With_EQ.png "View")
-<span class="size"> (281 KB) </span> <span class="author"> Ian Humphrey,
-2016-05-31 05:45 PM </span>
-
-[Focalplaneassembly.png](attachments/download/1030/Focalplaneassembly.png)
-[View](attachments/download/1030/Focalplaneassembly.png "View")
-<span class="size"> (125 KB) </span> <span class="author"> Ian Humphrey,
-2016-05-31 05:45 PM </span>
-
-[Tone\_Matching\_Without\_EQ.png](attachments/download/1073/Tone_Matching_Without_EQ.png)
-[View](attachments/download/1073/Tone_Matching_Without_EQ.png "View")
-<span class="size"> (249 KB) </span> <span class="author"> Ian Humphrey,
-2016-06-01 11:26 AM </span>
+</div>
