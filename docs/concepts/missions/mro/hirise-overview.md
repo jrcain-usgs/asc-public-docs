@@ -438,13 +438,13 @@ longitude values are obtained from the same image.
     - Magenta: Constrained Point
     - Yellow: Ignored points
 
-    Do not use yellow (ignored) points to constrain control points!
-
 !!! example "Selecting points to constrain"
 
-    - Select 3 points, one at top, center, and bottom 
-      of the same image to constrain the latitude and longitude coordinates. 
+    Select 3 points, one at top, center, and bottom 
+    of the same image to constrain the latitude and longitude coordinates. 
     
+    - Do not use yellow (ignored) points to constrain control points!
+
     - Make sure the left image in the "Qnet Tool" or editor window 
       has the "RED5" image displayed on the left. 
 
@@ -492,11 +492,12 @@ Save the control network file.
 
 ### Bundle adjustment
 
-After constraining at least 3 tiepoints, run the bundle adjustment
-program
-[`jigsaw`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/jigsaw/jigsaw.html)
-. *Do not check "update" and "error propagation" until an acceptable
-solution is reached* . After each run check the output file showing the
+After constraining at least 3 tiepoints, run the bundle adjustment program
+[`jigsaw`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/jigsaw/jigsaw.html). 
+
+*Do not check "update" and "error propagation" until an acceptable solution is reached*. 
+
+After each run, check the output file showing the
 residuals to determine if there are bad measures in the control network.
 
 ??? note "`jigsaw` GUI with parameter names"
@@ -510,32 +511,44 @@ observation to match another, and we are not actually including accurate
 ground points. For advanced users, the steps and parameters used may be
 adjusted to fit your particular needs.
 
-Command line entry:
+!!! example "Bundle Adjustment with [`jigsaw`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/jigsaw/jigsaw.html)"
 
+    ```sh
     jigsaw fromlist=all_norm.lis onet=jigtest1.net \
     cnet=hirise_autoseed_merged_sets_ptregedit_addptreg1edit.net \
     radius=yes sigma0=1.0e-6 maxits=10 point_radius_sigma=1000 \
     camera_angles_sigma=3 file_prefix=jig1
+    ```
     
     Check the output files:
-     sort -k8,8nr jig1_residuals.csv|more 
-     (The residuals should be less than 5 pixels, check large residuals 
-      using qnet, or create a list of pointid's and delete with cnetedit)
+    ```sh
+    sort -k8,8nr jig1_residuals.csv|more
+    ```
+
+    - The residuals should be less than 5 pixels, check large residuals 
+      using qnet, or create a list of pointid's and delete with cnetedit
     
-     egrep -a cub jig1_bundleout.txt |more
-    
-    The last 3 columns next to the filenames should be small
+    ```sh
+    egrep -a cub jig1_bundleout.txt |more
+    ```
+
+    - The last 3 columns next to the filenames should be small
     
     Final run:
-     jigsaw fromlist=all_norm.lis onet=jigtest1.net update=yes \
-     cnet=hirise_autoseed_merged_sets_ptregedit_addptreg1edit.net \
-     radius=yes sigma0=1.0e-6 maxits=10 point_radius_sigma=1000 \
-     camera_angles_sigma=3 file_prefix=jig1 errorpro=yes
+    ```sh
+    jigsaw fromlist=all_norm.lis onet=jigtest1.net update=yes \
+    cnet=hirise_autoseed_merged_sets_ptregedit_addptreg1edit.net \
+    radius=yes sigma0=1.0e-6 maxits=10 point_radius_sigma=1000 \
+    camera_angles_sigma=3 file_prefix=jig1 errorpro=yes
+    ```
 
-For additional information on Jigsaw, refer to a discussion PowerPoint
-as presented in June 26, 2012 at the Planetary Data Workshop:
-[Jigsaw_demo.pdf](assets/Jigsaw_demo.pdf)
+<div class="grid cards" markdown>
 
+-   [`jigsaw` Demo Slides :octicons-arrow-right-24:](../../../assets/isis-demos/Jigsaw.pdf)
+
+-   [`jigsaw` ISIS App Docs :octicons-arrow-right-24:](http://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/jigsaw/jigsaw.html)
+
+</div>
 
 
 ### Map projection and mosaic
@@ -544,7 +557,9 @@ The final step is to project the images, tone match the set, and mosaic
 the files together. A map template is needed in order to project the
 images. Our map template contains the following parameter settings:
 
-    #mars_equi.map 
+???+ quote "mars_equi.map"
+
+    ```sh
     Group = Mapping
        TargetName         = Mars
        ProjectionName     = Equirectangular
@@ -557,67 +572,65 @@ images. Our map template contains the following parameter settings:
        LongitudeDomain    = 180
        PixelResolution    = .5 <meters/pixel>
     End_Group
+    ```
 
-Create Level2 images:
+!!! example "Map Project Images with [`cam2map`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cam2map/cam2map.html) (Level1 → Level2)"
 
+    ```sh
     ls *norm.cub > lev1.lis
     cam2map from=\$1 to=lev2_\$1 map=mars_equi.map -batch=lev1.lis
+    ```
 
-Tone match images:
+!!! example "Tone match images with [`equalizer`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/equalizer/equalizer.html)"
 
+    ```sh
     ls lev2_*norm.cub > lev2.lis
     ls lev2_PSP_004339_1890_RED5_norm.cub > hold.lis
     equalizer fromlist=lev2.lis holdlist=hold.lis outstats=stats.txt
+    ```
 
-Mosaic
+!!! example "Mosaic images with [`automos`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/automos/automos.html)"
 
+    ```sh
     ls lev2*equ.cub > lev2equ.lis
     automos froml=lev2equi.lis mosaic=hirise_set_mosaic.cub
+    ```
 
 Final mosaic of two observations:
 
 ![HiRISE mosaic of two observations](assets/HiRISE_equalizer_automos.png)
 
 
-### Related ISIS3 Applications
+### ISIS Apps Used in HiRISE to HiRISE Geometric Control
 
-See the following ISIS3 documentation for information about the
-applications you will need to use to perform this procedure:
-
-  - [footprintinit](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/footprintinit/footprintinit.html)
+  - [`footprintinit`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/footprintinit/footprintinit.html)
     : Add footprint polygons to image labels
-  - [camstats](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/camstats/camstats.html)
+  - [`camstats`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/camstats/camstats.html)
     : Add camera statistics to image labels
-  - [findimageoverlaps](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/findimageoverlaps/findimageoverlaps.html)
+  - [`findimageoverlaps`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/findimageoverlaps/findimageoverlaps.html)
     : Find overlaps between a set of images
-  - [autoseed](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/autoseed/autoseed.html)
+  - [`autoseed`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/autoseed/autoseed.html)
     : Automatically create a network file by seeding tiepoints
-  - [cnetmerge](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cnetmerge/cnetmerge.html)
+  - [`cnetmerge`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cnetmerge/cnetmerge.html)
     : Merge different control network files
-  - [pointreg](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/pointreg/pointreg.html)
+  - [`pointreg`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/pointreg/pointreg.html)
     : Sub-pixel register control measures for a control point
-  - [qmos](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qmos/qmos.html)
+  - [`qmos`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qmos/qmos.html)
     : Display image footprints and control point networks
-  - [qnet](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qnet/qnet.html)
+  - [`qnet`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qnet/qnet.html)
     : Interactive program to collect and modify control measures and
     ground points
-  - [cnetedit](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cnetedit/cnetedit.html)
+  - [`cnetedit`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cnetedit/cnetedit.html)
     : Delete control points and measures from a control network
-  - [cnetadd](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cnetadd/cnetadd.html)
+  - [`cnetadd`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cnetadd/cnetadd.html)
     : Add control measures to an existing control network
-  - [cnetcheck](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cnetcheck/cnetcheck.html)
+  - [`cnetcheck`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cnetcheck/cnetcheck.html)
     : Check control network file before running jigsaw
-  - [jigsaw](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/jigsaw/jigsaw.html)
+  - [`jigsaw`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/jigsaw/jigsaw.html)
     : Bundle adjustment program to update camera pointing information
-  - [cam2map](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cam2map/cam2map.html)
+  - [`cam2map`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cam2map/cam2map.html)
     : Map project level 1 images
-  - [equalizer](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/equalizer/equalizer.html)
+  - [`equalizer`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/equalizer/equalizer.html)
     : Tone match a set of images
-  - [automos](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/automos/automos.html)
+  - [`automos`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/automos/automos.html)
     : Create a mosaic
-
-## PDF Attachments
-
-[Jigsaw_demo.pdf](assets/Jigsaw_demo.pdf)
-<span class="size"> (8.24 MB) </span> <span class="author"> Ian
-Humphrey, 2016-05-31 04:48 PM </span>
