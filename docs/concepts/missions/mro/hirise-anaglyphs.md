@@ -245,7 +245,7 @@
   - [`cam2map`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cam2map/cam2map.html)
     defaults to reassigning the LongitudeDomain if the image crosses a
     0/360/180 boundary
-    
+
 
 ## Stack Left/Right Observations
 
@@ -268,3 +268,13 @@
         Band2 = Green 
         Band2 = Blue
         ```
+
+-----
+
+<div class="grid cards" markdown>
+
+- [:octicons-arrow-left-24: HiRISE Level 2](hirise-level-2.md)
+
+- [HiRISE to HiRISE Geometric Control :octicons-arrow-right-24:](hirise-geometric-control.md)
+
+</div>

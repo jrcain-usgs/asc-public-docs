@@ -69,7 +69,7 @@ image quality.
 
 The Principal Investigator (lead scientist) for HiRISE is Alfred McEwen
 from the [Lunar and Planetary Laboratory](http://www.lpl.arizona.edu/)
-at the [University of Arizona](http://www.arizona.edu/) .
+at the [University of Arizona](http://www.arizona.edu/).
 
 !!! quote inline end ""
 
@@ -79,38 +79,38 @@ at the [University of Arizona](http://www.arizona.edu/) .
     One pixel represents 25.6 cm on the surface of Mars.
 
 ### References & Related Resources
+  
+- [MRO - NASA Science](https://science.nasa.gov/mission/mars-reconnaissance-orbiter/)
+    - [MRO Instruments - NASA Science](https://science.nasa.gov/mission/mars-reconnaissance-orbiter/science-instruments/)
+- [HiRISE instrument technical description](http://marsoweb.nas.nasa.gov/HiRISE/papers/6th_mars_conf/Delemere_HiRISE_InstDev.pdf) (PDF)
+- [HiRISE mission - University of Arizona](https://www.uahirise.org)
+- [HiRISE - Wikipedia](http://en.wikipedia.org/wiki/HiRISE)
 
-TODO: Check links
-
-  - [HiRISE instrument description](http://mars.jpl.nasa.gov/mro/mission/instruments/hirise/)
-  - [HiRISE instrument technical description](http://marsoweb.nas.nasa.gov/HiRISE/papers/6th_mars_conf/Delemere_HiRISE_InstDev.pdf)
-    (PDF)
-  - [HiRISE mission web site](http://marsoweb.nas.nasa.gov/HiRISE/)
-  - [en.wikipedia.org/wiki/HiRISE](http://en.wikipedia.org/wiki/HiRISE)
-  - [Mars Reconnaissance Orbiter mission web site](http://mars.jpl.nasa.gov/mro/)
-
+See [HiRISE Level0](../hirise-level-0.md) for image acquisition resources.
 
 ## Cartographic Processing HiRISE Data
 
-### **[Level 0 Processing](../hirise-level-0.md)**
+<div class="grid cards" markdown>
 
-1.  [Data Acquisition](../hirise-level-0.md)
-1.  [Ingestion](../hirise-level-0.md)
-1.  [SPICE](../hirise-level-0.md)
-1.  [Raw Camera Geometry](../hirise-level-0.md)
+-   **[Level 0 Processing :octicons-arrow-right-24:](../hirise-level-0.md)**
 
-### **[Level 1 Processing](../hirise-level-1.md)**
+    1.  [Data Acquisition](../hirise-level-0.md#acquiring-data) - PDS
+    1.  [Ingestion](../hirise-level-0.md#ingestion) - `hi2isis`
+    1.  [SPICE](../hirise-level-0.md#spice) - `spiceinit`
 
-1.  [Radiometric Calibration](../hirise-level-1.md)
-1.  [Channel Stitching](../hirise-level-1.md)
-1.  [Noise Removal](../hirise-level-1.md)
+-   **[Level 1 Processing :octicons-arrow-right-24:](../hirise-level-1.md)**
 
-### **[Level 2 Processing](../hirise-level-2.md)**
+    1.  [Radiometric Calibration](../hirise-level-1.md#hirise-radiometric-calibration) - `hical`
+    1.  [Channel Stitching](../hirise-level-1.md#channel-stitching) - `histitch`
+    1.  [Noise Removal](../hirise-level-1.md#noise-removal) - `cubenorm`
 
-1.  [Map Projection](../hirise-level-2.md)
-1.  [Tone Match](../hirise-level-2.md)
-1.  [Mosaic](../hirise-level-2.md)
+-   **[Level 2 Processing :octicons-arrow-right-24:](../hirise-level-2.md)**
 
+    1.  [Map Projection](../hirise-level-2.md#map-projecting-hirise-images) - `cam2map`
+    1.  [Tone Match](../hirise-level-2.md#tone-matching) - `equalizer`
+    1.  [Mosaic](../hirise-level-2.md#mosaicking) - `automos`
+
+</div>
 
 ## HiRISE Guides
 
@@ -118,7 +118,7 @@ TODO: Check links
 
 -   [HiRISE Anaglyphs :octicons-arrow-right-24:](../hirise-anaglyphs.md)
 
--   [HiRISE to HiRISE Geometric Control :octicons-arrow-right-24:](../hirise-to-hirise-geometric-control.md)
+-   [HiRISE to HiRISE Geometric Control :octicons-arrow-right-24:](../hirise-geometric-control.md)
 
 </div>
 

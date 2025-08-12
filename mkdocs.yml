@@ -142,7 +142,7 @@ nav:
           - HiRISE Level1:                      concepts/missions/mro/hirise-level-1.md
           - HiRISE Level2:                      concepts/missions/mro/hirise-level-2.md
           - HiRISE Anaglyphs:                   concepts/missions/mro/hirise-anaglyphs.md
-          - HiRISE to HiRISE Geometric Control: concepts/missions/mro/hirise-to-hirise-geometric-control.md
+          - HiRISE to HiRISE Geometric Control: concepts/missions/mro/hirise-geometric-control.md
     - SPICE:
       - SPICE Overview:                            concepts/spice/spice-overview.md
       - SPICE Position Functions and Requirements: concepts/spice/spice-position-functions-and-requirements.md

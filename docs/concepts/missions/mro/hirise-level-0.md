@@ -303,7 +303,7 @@ it can be used for [camera geometry and photometry](../../../concepts/camera-geo
 
 <div class="grid cards" markdown>
 
-- [:octicons-arrow-left-24: HiRISE Overview](hirise-overview.md)
+- [:octicons-arrow-left-24: HiRISE Overview](hirise/index.md)
 
 - [HiRISE Level 1 :octicons-arrow-right-24:](hirise-level-1.md)
 

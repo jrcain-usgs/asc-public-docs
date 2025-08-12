@@ -20,12 +20,12 @@ projected, tone matched, and mosaicked together.
         ls  *norm.cub > normalized.lis
         ```
 
-    1.  Add footprint polygons to the image labels of each normalized cube file  
+    1.  Add footprint polygons to the labels of each normalized cube file ([`footprintinit`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/footprintinit/footprintinit.html))
         ```sh
-        footprintinit from=\$1 linc=100 sinc=50 incre=true -batch=normalized.lis
+        footprintinit from=\$1 linc=100 sinc=50 increaseprecision=true -batch=normalized.lis
         ```
 
-    1.  Add camera statistics information to the image labels of each normalized cube file  
+    1.  Add [camera statistics](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/camstats/camstats.html) information to the image labels of each normalized cube file  
         ```sh
         camstats from=\$1 linc=100 sinc=50 attach=true -batch=normalized.lis
         ```
@@ -36,14 +36,14 @@ projected, tone matched, and mosaicked together.
         ls PSP_00568*norm.cub > set2.lis
         ```
 
-    1.  Find image overlaps and record the information to an output file for each 
-        observation separately  
+    1.  [Find image overlaps](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/findimageoverlaps/findimageoverlaps.html) 
+        and record the information to an output file for each observation separately  
         ```sh
         findimageoverlaps froml=set1.lis over=set1_overlaps.txt
         findimageoverlaps froml=set2.lis over=set2_overlaps.txt
         ```
 
-    1.  Automatically seed tiepoints along the overlaps.  
+    1.  [Automatically seed](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/autoseed/autoseed.html) tiepoints along the overlaps.  
         ***Run separately*** to avoid seeding too many points in the overlap areas between the two sets.  
         ```sh
         autoseed fromlist=set1.lis deffile=hirise_ccd_sets_seed.def \
@@ -59,14 +59,14 @@ projected, tone matched, and mosaicked together.
         description="HiRise set2 images autoseed with hirise_ccd_sets_seed.def"
         ```
 
-    1.  Merge the two output networks produced by the autoseed program  
+    1.  [Merge](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cnetmerge/cnetmerge.html) the two output networks produced by the autoseed program  
         ```sh
         cnetmerge inputtype=cnets base=hirise_set1_autoseed.net \
         cnet2=hirise_set2_autoseed.net onet=hirise_autoseed_merged_sets.net \
         networkid=HiRiseSets description="Hirise merge set1 and set2 networks"
         ```
 
-    1.  Perform automatic sub-pixel registration between the measures for each 
+    1.  Perform automatic sub-pixel [registration](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/pointreg/pointreg.html) between the measures for each 
          control point.  A registration template is required that defines what 
          the tolerances should be for the program pointreg.  The input list 
          should contain all the images included in the two control networks that 
@@ -125,16 +125,16 @@ projected, tone matched, and mosaicked together.
 !!! example "Add and register control measures between the two observations to link them together"
 
 
-    1.  Remove all the ignored points and measures before adding additional 
-        measures. The input network should be the output from qnet or 
-        pointreg in the previous step.  
+    1.  [Remove all the ignored points and measures](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cnetedit/cnetedit.html) before adding additional 
+        measures. The input network should be the output from [`qnet`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/qnet/qnet.html) or 
+        [`pointreg`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/pointreg/pointreg.html) in the previous step.  
         ```sh
         cnetedit cnet=hirise_autoseed_merged_sets_ptreg.net \
         onet=hirise_autoseed_merged_sets_ptregedit.net
         ```
 
-    1.  Add new control measures in order to link the two observations 
-        together.  
+    1.  [Add new control measures](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cnetadd/cnetadd.html) 
+        in order to link the two observations together.  
         ```sh
         cnetadd fromlist=all_norm.lis addlist=all_norm.lis \
         cnet=hirise_autoseed_merged_sets_ptregedit.net \
@@ -142,7 +142,8 @@ projected, tone matched, and mosaicked together.
         log=hirise_autoseed_merged_sets_ptregedit_add.log polygon=yes
         ```
 
-    1.  Automatically register the new measures to the reference measures
+    1.  Automatically [register](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/pointreg/pointreg.html) 
+        the new measures to the reference measures 
         which were set in the previous steps.  The registration template
         must be modified to allow for the offset between the two sets.
         In most cases, the search area needs to be increased and some of
@@ -157,13 +158,13 @@ projected, tone matched, and mosaicked together.
         flatfile=hirise_autoseed_merged_sets_ptregedit_addptreg1.txt
         ```
 
-    1.  Remove all ignored measures from the control network.  
+    1.  [Remove all ignored measures](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cnetedit/cnetedit.html) from the control network.  
         ```sh
         cnetedit cnet=hirise_autoseed_merged_sets_ptregedit_addptreg1.net \
         onet=hirise_autoseed_merged_sets_ptregedit_addptreg1edit.net
         ```
 
-    1.  Check the network for missing links, single measures, no control 
+    1.  [Check](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/cnetcheck/cnetcheck.html) the network for missing links, single measures, no control 
         points, or problems with the latitude and longitude.  
         ```sh
         cnetcheck fromlist=all_norm.lis prefix=cknet1_ \
@@ -419,3 +420,13 @@ Final mosaic of two observations:
     : Tone match a set of images
   - [`automos`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/automos/automos.html)
     : Create a mosaic
+
+-----
+
+<div class="grid cards" markdown>
+
+- [:octicons-arrow-left-24: HiRISE Anaglyphs](hirise-anaglyphs.md)
+
+- [HiRISE Overview :octicons-arrow-right-24:](hirise/index.md)
+
+</div>
