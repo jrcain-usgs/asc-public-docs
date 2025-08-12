@@ -1,20 +1,20 @@
 # Working with Mars Reconnaissance Orbiter HiRISE Data
 
-## About MRO HiRISE
+<div class="grid cards" markdown>
 
------
+- [:octicons-arrow-left-24: The MRO Mission](index.md)
 
-
-
-# HiRISE
-
------
-
-[The Mars Reconnaissance Orbiter Mission](MRO)
-
-
+</div>
 
 ### Instrument Overview
+
+!!! quote inline end ""
+
+    [![MRO_HiRISE.jpg](assets/MRO_HiRISE.jpg)](assets/MRO_HiRISE.jpg "MRO_HiRISE.jpg")
+
+    A comparison between the resolution of a camera aboard
+    Mars Global Surveyor and the HiRISE camera on 
+    Mars Reconnaissance Orbiter. *NASA/JPL*
 
 HiRISE has acquired more than 20,000 images of the martian surface in
 unprecedented detail.
@@ -33,13 +33,6 @@ the martian surface.
 These high-resolution images provide unprecedented views of layered
 materials, gullies, channels, and other science targets, as well as
 possible future landing sites.
-
-[![MRO_HiRISE.jpg](attachments/thumbnail/920/300.png)](attachments/download/920/MRO_HiRISE.jpg "MRO_HiRISE.jpg")
-
-    A comparison between the resolution of a camera aboard
-    Mars Global Surveyor and the HiRISE camera on 
-    Mars Reconnaissance Orbiter. Credit: NASA/JPL 
-
 
 
 ### Technical Details
@@ -97,29 +90,26 @@ at the [University of Arizona](http://www.arizona.edu/) .
     site](http://mars.jpl.nasa.gov/mro/)
 
 
-
 ## Cartographic Processing HiRISE Data
 
-### **[Level 0 Processing](Level0_HiRISE)**
+### **[Level 0 Processing](hirise-level-0.md)**
 
-1.  [Data Acquisition](Level0_HiRISE)
-2.  [Ingestion](Level0_HiRISE)
-3.  [SPICE](Level0_HiRISE)
-4.  [Raw Camera Geometry](Level0_HiRISE)
+1.  [Data Acquisition](hirise-level-0.md)
+1.  [Ingestion](hirise-level-0.md)
+1.  [SPICE](hirise-level-0.md)
+1.  [Raw Camera Geometry](hirise-level-0.md)
 
-### **[Level 1 Processing](Level1_HiRISE)**
+### **[Level 1 Processing](hirise-level-1.md)**
 
-1.  [Radiometric Calibration](Level1_HiRISE)
-2.  [Channel Stitching](Level1_HiRISE)
-3.  [Noise Removal](Level1_HiRISE)
+1.  [Radiometric Calibration](hirise-level-1.md)
+1.  [Channel Stitching](hirise-level-1.md)
+1.  [Noise Removal](hirise-level-1.md)
 
-### **[Level 2 Processing](Level2_HiRISE)**
+### **[Level 2 Processing](hirise-level-2.md)**
 
-1.  [Overview](Level2_HiRISE)
-2.  [Map Projection](Level2_HiRISE)
-3.  [Tone Match](Level2_HiRISE)
-4.  [Mosaic](Level2_HiRISE)
-
+1.  [Map Projection](hirise-level-2.md)
+1.  [Tone Match](hirise-level-2.md)
+1.  [Mosaic](hirise-level-2.md)
 
 
 ## Batch Processing
