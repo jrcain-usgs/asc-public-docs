@@ -62,7 +62,7 @@ investigations are functionally divided into three purposes:
 
 <div class="grid cards" markdown>
 
-- **[HiRISE (High Resolution Imaging Science Experiment) :octicons-arrow-right-16:](hirise-data.md)**  
+- **[HiRISE (High Resolution Imaging Science Experiment) :octicons-arrow-right-16:](hirise/index.md)**  
   This high-resolution, visible-range camera can reveal small objects
   in the debris blankets of mysterious gullies and details of geologic
   structure of canyons, craters, and layered deposits.
