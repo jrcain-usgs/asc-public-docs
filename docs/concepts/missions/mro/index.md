@@ -53,7 +53,7 @@ investigations are functionally divided into three purposes:
 - Regional Surveying
 - High-Resolution targeting of specific spots on the surface.
 
-## Scence Instruments
+## Science Instruments
 
   - **[HiRISE (High Resolution Imaging Science Experiment)](hirise-data.md)**
     This high-resolution, visible-range camera can reveal small objects

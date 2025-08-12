@@ -403,8 +403,8 @@ longitude values are obtained from the same image.
 The two images should be displayed in the qnet window. The image shows
 green cross-hair where there are valid control points, magenta for
 constrained points, and yellow for ignored points. Do not use yellow
-points to constain control points. Select 3 points, one at top, center,
-and bottom of the same image to constrain the latitude and logitude
+points to constrain control points. Select 3 points, one at top, center,
+and bottom of the same image to constrain the latitude and longitude
 coordinates. Make sure  
 the left image in the "Qnet Tool" or editor window has the "RED5" image
 displayed on the left. A DEM is required in order to constrain the

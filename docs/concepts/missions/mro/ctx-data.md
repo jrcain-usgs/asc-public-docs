@@ -74,7 +74,7 @@ The steps of level 0 processing are:
     - **PAA**: Mission phase.  `P01`
     - **BBBBBB**: Orbit number.  `001472`
     - **CCCC**: Represests the center latitude in units of 0.1
-        degree. 0 degrees is the decending equator crossing; 90 is the south
+        degree. 0 degrees is the descending equator crossing; 90 is the south
         pole; 180 is ascending equator crossing; and 270 is the north pole.  `1747`
     - **XD**: Command mode, ***XI*** for ITL or ***XN*** for NIFL.  `XI`
     - **EE**: Planned center latitude.  `05`
@@ -326,7 +326,7 @@ Creating a level 1 image involves:
 
 ### Noise And Artifacts 
 
-#### Removing Vertical Striping Due to Even/Odd Dectector Readout 
+#### Removing Vertical Striping Due to Even/Odd Detector Readout 
 
 !!! warning ""
 
