@@ -18,20 +18,29 @@
         calibrated, map projected, mosaic of multiple channels from a single
         observation. These products are stored in [JPEG 2000](http://en.wikipedia.org/wiki/JPEG_2000) format.
 
+!!! warning "One HiRISE EDR Observation contains up to 28 images"
+
+    To make full use of a HiRISE Observation, 
+    the processing steps must be run on each of the images in the observation: 
+    RED0-9, IR10-11, BG (Blue-Green) 12-13, each with its own channel 0 and 1.
+
+    Those interested in a particular wavelength of light might examine an individual filter or a subset of filters. 
+    Their wavelengths are **RED**: `570-830nm`, **BG**: `<580nm`, **IR**: `>790nm`
+
 ### Search Tools
 
 **Search for HiRISE images** on [PDS Image Atlas III](http://pds-imaging.jpl.nasa.gov/search/mro/hirise)
 or [PDS Image Atlas IV (Beta)](https://pds-imaging.jpl.nasa.gov/beta/search?gather.common.instrument=HIRISE).  
 *Data products from other instruments and spacecraft are also available here.* 
 
-??? quote "Helpful Filters"
+??? quote "Helpful Search Filters"
 
     These filters may help narrow your search on the PDS Image Atlas:
 
     - Instrument (HiRISE)
     - Target (Mars)
     - Product Type (EDR, if processing in ISIS)
-    - Filter
+    - Filter (Red, IR, or BG)
     - Latitude/Longitude
     - Orbit Number
     - Mission Phase
@@ -41,7 +50,7 @@ or [PDS Image Atlas IV (Beta)](https://pds-imaging.jpl.nasa.gov/beta/search?gath
 The [HiRISE Browse Map (UofA)](https://www.uahirise.org/hiwish/browse) 
 can be used to **find images visually**, or by proximity to named geologic features. 
 To show HiRISE images only, check `HiRISE Observations` and uncheck everything else under `Show` below the map. 
-The `Find` search box under the map is for named geologic features, not filenames of images. 
+The `Find` search box under the map is for named geologic features (like 'Alba Mons'), not filenames of images. 
 The map must be zoomed in to show HiRISE observation footprints.
 
 The [PDS Image Atlas IV (Beta)](https://pds-imaging.jpl.nasa.gov/beta/search?gather.common.instrument=HIRISE) 
