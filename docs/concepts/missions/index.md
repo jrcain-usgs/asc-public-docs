@@ -1,7 +1,5 @@
 # Missions
 
-TODO: Add MRO under Mars header after LRO is merged.
-
 <div class="grid cards" markdown>
 
 -   [MRO - Mars Reconnaissance Orbiter](mro/index.md)  
