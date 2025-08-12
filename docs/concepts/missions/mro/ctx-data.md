@@ -39,9 +39,17 @@ meters of the Martian surface.
 ??? abstract "Reference & Related Resources"
 
     - [CTX Camera - Malin Space Science Systems](https://www.msss.com/all_projects/mro-ctx.php)
+
     - [MRO Mission - PDS Cartography and Imaging Node](https://pds-imaging.jpl.nasa.gov/portal/mro_mission.html)
+
     - [MRO - NASA Science](https://science.nasa.gov/mission/mars-reconnaissance-orbiter/)
+
         - [MRO Science Instruments - NASA Science](https://science.nasa.gov/mission/mars-reconnaissance-orbiter/science-instruments/)
+
+    - [Calibration and Performance of the MRO CTX Camera - Mars Journal](http://marsjournal.org/contents/2013/0001/)
+
+    - [The Mars Global CTX Mosaic: A Product of Information-Preserving Image Data Processing - AGU](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2024EA003555)
+
 
 ## Processing CTX Data 
 

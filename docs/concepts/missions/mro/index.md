@@ -37,11 +37,6 @@ discovered by the Mars Odyssey orbiter is the top layer of a deep ice
 deposit, or if it is a shallow layer in equilibrium with the current
 atmosphere and its seasonal cycle of water vapor.
 
-The orbiter's primary mission ended about three Earth years after
-launch, in November 2008.  From FY2022 to FY2025, it is on its 
-[6th extended mission](https://www.hou.usra.edu/meetings/mepagapril2023/presentations/1315_Zurek.pdf). 
-As of 2023, CRISM has been powered off, but other instruments remain fully or partially operational. 
-
 !!! quote inline end ""
 
     [![MRO_Instruments.jpg](assets/MRO_Instruments.jpg)](assets/MRO_Instruments.jpg "MRO_Instruments.jpg")
@@ -50,6 +45,10 @@ As of 2023, CRISM has been powered off, but other instruments remain fully or pa
     monitoring water cycle on Mars.  
     - NASA/JPL
 
+The orbiter's primary mission ended about three Earth years after
+launch, in November 2008.  From FY2022 to FY2025, it is on its 
+[6th extended mission](https://www.hou.usra.edu/meetings/mepagapril2023/presentations/1315_Zurek.pdf). 
+As of 2023, CRISM has been powered off, but other instruments remain fully or partially operational. 
 
 During its two-year primary science mission, the Mars Reconnaissance
 Orbiter conducted eight different science investigations at Mars. The
@@ -61,26 +60,33 @@ investigations are functionally divided into three purposes:
 
 ## Science Instruments
 
-  - **[HiRISE (High Resolution Imaging Science Experiment)](hirise-data.md)**
-    This high-resolution, visible-range camera can reveal small objects
-    in the debris blankets of mysterious gullies and details of geologic
-    structure of canyons, craters, and layered deposits.
-  - **[CTX (Context Camera)](ctx-data.md)** This camera provides wide area views
-    to help provide a context for high-resolution analysis of key spots
-    on Mars provided by HiRISE and CRISM.
-  - **MARCI (Mars Color Imager)** This weather camera monitors clouds
-    and dust storms.
-  - **CRISM (Compact Reconnaissance Imaging Spectrometer for Mars)**
-    This spectrometer covers the range of visible and near-infrared
-    light, useful for identifying minerals, especially those likely
-    formed in the presence of water.
-  - **MCS (Mars Climate Sounder)** This atmospheric profiler detects
-    vertical variations of temperature, dust, and water vapor
-    concentrations in the Martian atmosphere.
-  - **SHARAD (Shallow Radar)** This sounding radar probes beneath the
-    Martian surface to see if water ice is present at depths greater
-    than one meter.
+<div class="grid cards" markdown>
 
+- **[HiRISE (High Resolution Imaging Science Experiment) :octicons-arrow-right-16:](hirise-data.md)**  
+  This high-resolution, visible-range camera can reveal small objects
+  in the debris blankets of mysterious gullies and details of geologic
+  structure of canyons, craters, and layered deposits.
+- **[CTX (Context Camera) :octicons-arrow-right-16:](ctx-data.md)**  
+  This camera provides wide area views
+  to help provide a context for high-resolution analysis of key spots
+  on Mars provided by HiRISE and CRISM.
+- **MARCI (Mars Color Imager)**  
+  This weather camera monitors clouds
+  and dust storms.
+- **CRISM (Compact Reconnaissance Imaging Spectrometer for Mars)**  
+  This spectrometer covers the range of visible and near-infrared
+  light, useful for identifying minerals, especially those likely
+  formed in the presence of water.
+- **MCS (Mars Climate Sounder)**  
+  This atmospheric profiler detects
+  vertical variations of temperature, dust, and water vapor
+  concentrations in the Martian atmosphere.
+- **SHARAD (Shallow Radar)**  
+  This sounding radar probes beneath the
+  Martian surface to see if water ice is present at depths greater
+  than one meter.
+
+</div>
 
 ## References & Related Resources 
 
@@ -95,11 +101,17 @@ investigations are functionally divided into three purposes:
 
   - [HiRISE Instrument Team - ASU](https://hirise.lpl.arizona.edu)
   - [HiRISE Data Processing Guide - USGS Astro](hirise/index.md)
+  - [HiRISE Instrument Technical Description](http://marsoweb.nas.nasa.gov/HiRISE/papers/6th_mars_conf/Delemere_HiRISE_InstDev.pdf) (PDF)
+  - [HiRISE Extended Science Phases (2009-2023) - Icarus](https://www.sciencedirect.com/science/article/pii/S0019103523003731)
+  - [Revealing Active Mars with HiRISE DTMs - MDPI](https://www.mdpi.com/2072-4292/14/10/2403)
 
 #### Context Imager (CTX) 
 
   - [CTX Instrument Team - MSSS](http://www.msss.com/all_projects/mro-ctx.php)
   - [CTX Data Processing Guide - USGS Astro](ctx-data.md)
+  - [Calibration and Performance of the MRO CTX Camera - Mars Journal](http://marsjournal.org/contents/2013/0001/)
+  - [The Mars Global CTX Mosaic:  
+    A Product of Information-Preserving Image Data Processing - AGU](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2024EA003555)
 
 #### Mars Color Imager (MARCI) 
 

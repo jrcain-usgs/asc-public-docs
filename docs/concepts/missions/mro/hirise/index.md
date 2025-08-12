@@ -15,6 +15,7 @@
     A comparison between the resolution of a camera aboard
     Mars Global Surveyor and the HiRISE camera on 
     Mars Reconnaissance Orbiter. *NASA/JPL*
+    
 
 HiRISE has acquired more than 20,000 images of the martian surface in
 unprecedented detail.
@@ -37,7 +38,7 @@ possible future landing sites.
 
 ### Technical Details
 
-!!! quote inline end ""
+???+ quote inline end "HiRISE Observations"
 
     [![HiRISE_Sample_Observation.png](../assets/HiRISE_Sample_Observation.png)](../assets/HiRISE_Sample_Observation.png "HiRISE_Sample_Observation.png")
 
@@ -46,6 +47,13 @@ possible future landing sites.
     It is of a small area inside Eberswalde crater in
     Margaritifer Sinus. Taken on November 8, 2006, the image is a 
     composite of all 10 red detectors and the 2 blue-green detectors.  Notice, the blue-green detectors only cover the middle.
+
+    -----
+
+    [![HiRISE_Sample_Full_Resolution_Subarea.png](../assets/HiRISE_Sample_Full_Resolution_Subarea.png)](../assets/HiRISE_Sample_Full_Resolution_Subarea.png "HiRISE_Sample_Full_Resolution_Subarea.png")
+
+    A sub-area of the above observation (indicated by the red outline). 
+    One pixel represents 25.6 cm on the surface of Mars.
 
 This telescopic camera has a primary mirror diameter of 50 centimeters
 and a field of view of 1.15°. At its focal plane, the instrument holds
@@ -71,20 +79,15 @@ The Principal Investigator (lead scientist) for HiRISE is Alfred McEwen
 from the [Lunar and Planetary Laboratory](http://www.lpl.arizona.edu/)
 at the [University of Arizona](http://www.arizona.edu/).
 
-!!! quote inline end ""
-
-    [![HiRISE_Sample_Full_Resolution_Subarea.png](../assets/HiRISE_Sample_Full_Resolution_Subarea.png)](../assets/HiRISE_Sample_Full_Resolution_Subarea.png "HiRISE_Sample_Full_Resolution_Subarea.png")
-
-    A sub-area of the above observation (indicated by the red outline). 
-    One pixel represents 25.6 cm on the surface of Mars.
-
 ### References & Related Resources
   
 - [MRO - NASA Science](https://science.nasa.gov/mission/mars-reconnaissance-orbiter/)
     - [MRO Instruments - NASA Science](https://science.nasa.gov/mission/mars-reconnaissance-orbiter/science-instruments/)
-- [HiRISE instrument technical description](http://marsoweb.nas.nasa.gov/HiRISE/papers/6th_mars_conf/Delemere_HiRISE_InstDev.pdf) (PDF)
-- [HiRISE mission - University of Arizona](https://www.uahirise.org)
 - [HiRISE - Wikipedia](http://en.wikipedia.org/wiki/HiRISE)
+- [HiRISE Mission - University of Arizona](https://www.uahirise.org)
+- [HiRISE Instrument Technical Description](http://marsoweb.nas.nasa.gov/HiRISE/papers/6th_mars_conf/Delemere_HiRISE_InstDev.pdf) (PDF)
+- [HiRISE Extended Science Phases (2009-2023) - Icarus](https://www.sciencedirect.com/science/article/pii/S0019103523003731)
+- [Revealing Active Mars with HiRISE DTMs - MDPI](https://www.mdpi.com/2072-4292/14/10/2403)
 
 See [HiRISE Level0](../hirise-level-0.md) for image acquisition resources.
 
