@@ -2,7 +2,9 @@
 
 <div class="grid cards" markdown>
 
-- [:octicons-arrow-left-24: All Missions](../index.md)
+- [CTX Data :octicons-arrow-right-24:](ctx-data.md)
+
+- [HiRISE Data :octicons-arrow-right-24:](hirise/index.md)
 
 </div>
 
