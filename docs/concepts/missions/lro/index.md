@@ -2,8 +2,8 @@
 
 <div class="grid cards" markdown>
 
-- [NAC Data :octicons-arrow-right-24:](lro-nac-data.md)
-- [WAC Data :octicons-arrow-right-24:](lro-wac-data.md)
+- [NAC Data :octicons-arrow-right-24:](lroc-nac-data.md)
+- [WAC Data :octicons-arrow-right-24:](lroc-wac-data.md)
 - [MiniRF Data :octicons-arrow-right-24:](lro-minirf-data.md)
 
 </div>
