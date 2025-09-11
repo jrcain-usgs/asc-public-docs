@@ -12,7 +12,7 @@
 
 ISIS has three types of releases:
 
-- **LTS** - Most Stable.  Gets *Bugfixes* but not new *Features* between releases.
+- **LTS** - Most Stable.  Gets *Bugfixes* but not new *Features* between major releases.
 - **Production** - Gets new *Features* and *Bugfixes* but not *Breaking Updates*.
 - **Dev** - First to get new *Features*, including *Breaking Updates*.
 
