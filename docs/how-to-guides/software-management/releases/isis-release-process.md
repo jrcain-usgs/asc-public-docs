@@ -2,17 +2,23 @@
 
 !!! info "For releasing other Astro software, see the [general release process :octicons-arrow-right-16:](general-release-process.md)"
   
-The ISIS release process changes depending on the type of release: 
+The ISIS release process changes depending on the type of release.  Release Candidates (RCs) and Live Releases are only done for Major Releases (i.e, 8.x.x → 9.0.0). 
 
 - **RC** (Release Candidate)
-    - new feature releases are released first as RCs  
+    - Major releases are released first as RCs  
       (e.g. going from `8.0`->`8.1` or `8.5`->`9.0`)
 * **LR** (Live Release)
     - If no changes are suggested for the RC after a month,  
-      **do a LR from the RC**.  
+      **do a LR from the RC**.
+
+Subsequent Production and LTS releases (with no Major version change, i.e, 8.***2***.0 → 8.***3***.0, 9.0.***1*** → 9.0.***2***), have a more streamlined release process, with no RC/LR.
+
 * **LTS** (Long Term Support)
     - The previous major release is supported for a year in LTS.
-    - It only receives bug fixes, no feature adds. 
+    - Only receives bug fixes, no feature adds. 
+
+* **Prod** (Production)
+    - Quarterly release with (non-breaking) features and bugfixes.
 
 ### 1. **Check current test failures**
 
@@ -56,6 +62,13 @@ Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.co
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
     - [ ] Submit a Pull Request: Submit a pull request into the release branch. 
 
+=== "Prod"
+
+    - [ ] Update the Changelog. Move **only bug fixes and non-breaking features** under this release. Follow the instructions in [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for how to do this.
+    - [ ] Update `code.json` by adding a new entry with the Prod version.
+    - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
+    - [ ] Submit a Pull Request: Submit a pull request into the release branch. 
+
 
 !!! Success "" 
     
@@ -89,11 +102,20 @@ Clone the repo locally with git clone.
 === "LTS"
 
     - [ ] Create a branch from the previous LTS.
-        * Example: `git checkout -b 8.1.3 upstream/8.1.2`.
+        * Example: `git checkout -b 8.0.3 upstream/8.0.2`.
     - [ ] Update VERSION variable in CMakeLists.txt.
     - [ ] Check RELEASE_STAGE variable in CMakeLists.txt is set to `stable`.
-    - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed. Rare for LRs, often no changes are needed.
-    - [ ] Push the new branch into upstream  
+    - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed.
+    - [ ] Push the new branch into upstream
+
+=== "Prod"
+
+    - [ ] Create a branch from the previous Prod.
+        * Example: `git checkout -b 8.3.0 upstream/8.2.0`.
+    - [ ] Update VERSION variable in CMakeLists.txt.
+    - [ ] Check RELEASE_STAGE variable in CMakeLists.txt is set to `stable`.
+    - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed.
+    - [ ] Push the new branch into upstream
 
 !!! Danger "Ensure to update the version and build_number is set to 0 in recipe/meta.yml"
 
@@ -108,9 +130,11 @@ Clone the repo locally with git clone.
 
 ### 5. **Create a release**
 
-!!! Warning "No Release for RCs"
+=== "RC"
 
-    **Skip this step for Release Candidates (RCs).** Only pull a release if it's a full release (i.e. LR/LTS, NOT an RC). RCs should instead be in their own branch until ready for full release.  
+    !!! Warning "No Release for RCs"
+
+        **Skip this step for Release Candidates (RCs).** Only pull a release if it's a full release (i.e. LR/LTS, NOT an RC). RCs should instead be in their own branch until ready for full release.  
 
 === "LR" 
 
@@ -123,6 +147,12 @@ Clone the repo locally with git clone.
     - [ ] In the release tab on GitHub, draft a release and set the target branch to the branch created in Step 4.
     - [ ] On the same page, create a new tag for the release version.
     - [ ] Name the release "ISISX.Y.Z LTS". 
+
+=== "Prod"
+
+    - [ ] In the release tab on GitHub, draft a release and set the target branch to the branch created in Step 4.
+    - [ ] On the same page, create a new tag for the release version.
+    - [ ] Name the release "ISISX.Y.Z Produciton". 
 
 !!! note ""
 
