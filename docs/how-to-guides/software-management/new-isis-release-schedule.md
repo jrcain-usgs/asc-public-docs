@@ -19,9 +19,12 @@ ISIS has three types of releases:
 !!! note "Notes"
 
     **Production is the default version of ISIS.**  
-    If you install the `main` version of ISIS, or do not specify a label, you will get the production version.
+    If you install the `main` version of ISIS, or do not specify a label, 
+    you will get the production version.
 
-    **Releases can be found** in the [ISIS GitHub repo](https://github.com/DOI-USGS/ISIS3/releases) and on our [conda channel](https://anaconda.org/usgs-astrogeology/isis).
+    **Releases can be found** in the 
+    [ISIS GitHub repo](https://github.com/DOI-USGS/ISIS3/releases) 
+    and on our [conda channel](https://anaconda.org/usgs-astrogeology/isis).
 
     The **Dev** version ***does not get a release on GitHub***, 
     but can be found in the [dev branch](https://github.com/DOI-USGS/ISIS3/tree/dev) of the repo.  
@@ -95,10 +98,14 @@ gitGraph
 ```
 
 
-## Release Candidates
+## Release Candidates (Major Release)
 
-For the yearly LTS release, there is first a *Release Candidate* to test new features before they are included.
-While the RC is out, we solicit feedback and testing from the community, and identify and fix issues before making an ISIS LTS release.
+For the yearly Major Release (i.e, from ***8***.x.x → ***9***.0.0), 
+there is first a *Release Candidate* to test new features before they are included.
+While the RC is out, we solicit feedback and testing from the community, 
+and identify and fix issues before making an Major ISIS release.
+
+This major release will flow to LTS and Prod channels.
 
 ### RC Feature Freeze
 
@@ -106,3 +113,11 @@ When a Release Candidate (RC) is branched from the `dev` branch, a feature freez
 Any feature additions that occur after an RC has been branched will be included in a future RC (and release). 
 A feature added before the creation of an RC will be included in the next major update, 
 unless issues are found with the new feature. In that case, the feature will be removed and the RC recreated.
+
+## Minor/Patch Releases
+
+For subsequent releases within the same major version 
+(i.e, 8.***2***.0 → 8.***3***.0, 9.0.***1*** → 9.0.***2***), 
+there is no release candidate. 
+Updates are accumulated on a release-feeder branch for LTS or Production, 
+then released.
