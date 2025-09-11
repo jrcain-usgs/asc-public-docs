@@ -1,4 +1,5 @@
 site_name: USGS Astrogeology Software Docs
+site_url: https://astrogeology.usgs.gov/docs/
 
 theme:
     name: material
@@ -16,6 +17,7 @@ theme:
         - search.suggest
         - search.suggest
         - content.code.copy
+        - content.footnote.tooltips
 
     palette:
         # Palette toggle for dark mode
@@ -40,6 +42,7 @@ nav:
   - Getting Started: 
     - Home: getting-started/index.md
     - CSM Stack:
+      - CSM Sandbox: getting-started/csm-stack/csm-sandbox.ipynb
       - Generating an ISD, creating a CSM model, and converting coordinates: getting-started/csm-stack/image-to-ground-tutorial.ipynb
       - Knoten - Basic Camera Operations: getting-started/csm-stack/knoten-camera-tutorial.ipynb
     - "Using ISIS: First Steps":
@@ -52,6 +55,10 @@ nav:
       - Generating an ISD:                 getting-started/using-ale/isd-generate.md
     - Archive:
       - Demos and Workshops:               getting-started/archive/isis-demos-and-workshops.md
+    - Using SpiceQL:
+      - SpiceQL Cassini Tutorial:          getting-started/using-spiceql/spiceql-cassini-tutorial.ipynb
+      - Exploring SpiceQL's REST, Python, and C++ APIs: getting-started/using-spiceql/exploring-spiceqls-rest-python-and-cpp-apis.md
+      - Visualizing with pyspiceql:        getting-started/using-spiceql/visualizing-with-pyspiceql-tutorial.ipynb
   - How-To Guides: 
     - Home: how-to-guides/index.md
     - ISIS Environment Setup and Maintenance:
@@ -63,6 +70,7 @@ nav:
       - Adding USGSCSM Plugin to ISIS:     how-to-guides/environment-setup-and-maintenance/adding-usgscsm-plugin-to-isis.md
     - SPICE: 
       - Creating Spice Config Files in SpiceQL: how-to-guides/SPICE/creating-spice-config-files-in-spiceql.md
+      - Using SpiceQL with Other Libraries: how-to-guides/SPICE/using-spiceql-with-other-libraries.md
     - Image Processing:
       - Map Projecting Images:             how-to-guides/image-processing/map-projecting-images.md
       - Removing Striping Noise:           how-to-guides/image-processing/removing-striping-noise.md
@@ -71,13 +79,17 @@ nav:
     - ISIS Demos:
       - Interactive Online Demos:          how-to-guides/demos/isis-demos.md
     - Software Management:
-      - LTS Release Process:               how-to-guides/software-management/lts-release-process.md
       - Deprecation:                       how-to-guides/software-management/deprecation.md
-      - Public Release Process:            how-to-guides/software-management/public-release-process.md
       - Software Support:                  how-to-guides/software-management/software-support.md
       - Guidelines for Reporting Issues:   how-to-guides/software-management/guidelines-for-reporting-issues.md
       - Guidelines for Pull Requests:      how-to-guides/software-management/guidelines-for-pull-requests.md
       - ISIS Release Schedule:             how-to-guides/software-management/isis-release-schedule.md
+      - Releases:                          
+        - Home:                            how-to-guides/software-management/releases/index.md
+        - Releasing ISIS:                   how-to-guides/software-management/releases/isis-release-process.md
+        - Releasing Other Astro Software:   how-to-guides/software-management/releases/general-release-process.md
+        - ISIS Release Schedule:             how-to-guides/software-management/isis-release-schedule.md
+        - LTS Release Process:               how-to-guides/software-management/lts-release-process.md
     - ISIS Developer Guides:
       - Contributing to ISIS:                         how-to-guides/isis-developer-guides/contributing-to-isis.md
       - Writing Tests with CTest and GTest:           how-to-guides/isis-developer-guides/writing-isis-tests-with-ctest-and-gtest.md
@@ -113,6 +125,29 @@ nav:
       - Preference Dictionary:             concepts/isis-fundamentals/preference-dictionary.md
       - Error Dictionary:                  concepts/isis-fundamentals/error-dictionary.md
       - Session Logs:                      concepts/isis-fundamentals/session-logs.md
+    - Missions:
+      - Home:                              concepts/missions/index.md
+      - LRO (Lunar Reconnaissance Orbiter):
+        - Home:                            concepts/missions/lro/index.md
+        - NAC Data:                        concepts/missions/lro/lroc-nac-data.md
+        - WAC Data:                        concepts/missions/lro/lroc-wac-data.md
+        - MiniRF Data:                     concepts/missions/lro/lro-minirf-data.md
+      - MGS (Mars Global Surveyor):
+        - Home:                            concepts/missions/mgs/index.md
+        - MOC (Mars Orbiter Camera):                             concepts/missions/mgs/moc-mars-orbiter-camera.md
+      - Viking Orbiter:
+        - Home:                            concepts/missions/vik/index.md
+        - VIS Data:             concepts/missions/vik/viking-orbiter-data.md
+      - MRO (Mars Reconnaissance Orbiter):
+        - Home:                            concepts/missions/mro/index.md
+        - CTX Data:                        concepts/missions/mro/ctx-data.md
+        - HiRISE:                          
+          - Home:                               concepts/missions/mro/hirise/index.md
+          - HiRISE Level0:                      concepts/missions/mro/hirise-level-0.md
+          - HiRISE Level1:                      concepts/missions/mro/hirise-level-1.md
+          - HiRISE Level2:                      concepts/missions/mro/hirise-level-2.md
+          - HiRISE Anaglyphs:                   concepts/missions/mro/hirise-anaglyphs.md
+          - HiRISE to HiRISE Geometric Control: concepts/missions/mro/hirise-geometric-control.md
     - SPICE:
       - SPICE Overview:                            concepts/spice/spice-overview.md
       - SPICE Position Functions and Requirements: concepts/spice/spice-position-functions-and-requirements.md
@@ -148,8 +183,27 @@ extra_javascript:
 
 plugins:
   - search
-  - mknotebooks
+  - llmstxt:
+      full_output: llms-full.txt
+      sections:
+        Getting Started:
+          - getting-started/index.md : index page for getting started
+          - getting-started/* : Tutorials used by new users looking for how to get started
+        How-To Guides:
+          - how-to-guides/index.md : index page for how-to-guides
+          - how-to-guides/* : how-to-guides, including environment setup and maintenance, SPICE, image processing, ISIS demos, software management, ISIS developer guides, ALE developer guides
+        Concepts:
+          - concepts/index.md : index page for concepts
+          - concepts/* : concepts, including camera geometry and projections, ISIS fundamentals, SPICE, image processing, control networks, sensor models, history
+        Manuals:
+          - manuals/index.md : index page for manuals
+          - manuals/* : manuals, including ISIS, ALE, and other software manuals
+  - mknotebooks: 
+      include_source: True
   - mermaid2
+  - redirects:
+      redirect_maps:
+        'how-to-guides/software-management/public-release-process.md': 'how-to-guides/software-management/releases/index.md'
 
 markdown_extensions:
   - codehilite
@@ -162,6 +216,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - def_list
+  - footnotes
   - pymdownx.tasklist:
       custom_checkbox: true
       clickable_checkbox: true
@@ -187,3 +242,4 @@ markdown_extensions:
           - definitions.md
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.blocks.caption
