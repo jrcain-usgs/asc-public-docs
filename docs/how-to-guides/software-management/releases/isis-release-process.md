@@ -26,11 +26,11 @@ Subsequent Production and LTS releases (with no Major version change, i.e, 8.***
 
 === "RC"
 
-    - [ ] For initial preparation, work from your own branch and make PRs to the `dev` branch.
+    - [ ] For initial preparation, work from your own branch and make PRs to the `dev` branch.  (Dev is the feeder branch for RCs.)
 
 === "LR"
 
-    - [ ] A Live Release comes from the most recent Release Candidate (RC).  Preparation has already been done in the RC process.
+    - [ ] Preparation has already been done in the RC process.  (The RC is the feeder branch for a Live Release.)
 
 === "LTS"
 
@@ -89,15 +89,15 @@ Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.co
 
 !!! Success "" 
     
-    Move on to step 4 after **merging PR(s)**. 
+    Move on to step 4 after **merging PR(s)** to the feeder branch. 
 
-### 4. **Create/setup git release branch**
+### 4. **Create/Setup Release Branch**
 
 Clone the repo locally with git clone. 
 
 === "RC" 
 
-    - [ ] Create a branch from `dev` with `x.x.x_RCy` (i.e, `8.0.0_RC1`). 
+    - [ ] Create an RC branch from `dev` with `x.x.x_RCy` (i.e, `8.0.0_RC1`). 
         * Example: `git checkout -b 8.0.0_RC1 upstream/dev`.
     - [ ] Update VERSION variable in CMakeLists.txt, do not add `_RC` here.
     - [ ] Update RELEASE_STAGE variable in CMakeLists.txt to `beta``
@@ -108,7 +108,7 @@ Clone the repo locally with git clone.
 
 === "LR" 
 
-    - [ ] Create a branch from the RC branch.
+    - [ ] Create a release branch from the RC branch.
         * Example: `git checkout -b 8.0.0 upstream/8.0.0_RC1`.
     - [ ] Check VERSION variable in CMakeLists.txt matches release version.
     - [ ] Update RELEASE_STAGE variable in CMakeLists.txt to `stable`.
@@ -118,7 +118,7 @@ Clone the repo locally with git clone.
 
 === "LTS"
 
-    - [ ] Create a branch from the LTS release feeder branch.
+    - [ ] Create a release branch from the LTS feeder branch.
         * Example: `git checkout -b 9.0.3 upstream/9-lts`.
     - [ ] Update VERSION variable in CMakeLists.txt.
     - [ ] Check RELEASE_STAGE variable in CMakeLists.txt is set to `stable`.
@@ -127,7 +127,7 @@ Clone the repo locally with git clone.
 
 === "Prod"
 
-    - [ ] Create a branch from the Prod release feeder branch.
+    - [ ] Create a release branch from the Prod feeder branch.
         * Example: `git checkout -b 9.2.0 upstream/9-prod`.
     - [ ] Update VERSION variable in CMakeLists.txt.
     - [ ] Check RELEASE_STAGE variable in CMakeLists.txt is set to `stable`.
