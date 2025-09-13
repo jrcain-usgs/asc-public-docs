@@ -20,9 +20,37 @@ Subsequent Production and LTS releases (with no Major version change, i.e, 8.***
 * **Prod** (Production)
     - Quarterly release with (non-breaking) features and bugfixes.
 
+------
+
+### 0. **Prepare Branch/Merge Any Unmerged Changes**
+
+=== "RC"
+
+    - [ ] For initial preparation, work from your own branch and make PRs to the `dev` branch.
+
+=== "LR"
+
+    - [ ] A Live Release comes from the most recent Release Candidate (RC).  Preparation has already been done in the RC process.
+
+=== "LTS"
+
+    - [ ] Checkout the LTS release feeder branch for the major version (i.e, `9-lts`)
+    - [ ] The ISIS github actions auto-cherrypick ***bugfixes*** to this branch.  Note which ones have been successfully cherrypicked.
+    - [ ] **Manually cherrypick** any bugfixes from `dev` that could not be automatically merged by the github actions.
+
+=== "Prod"
+
+    - [ ] Checkout the Prod release feeder branch for the major version (i.e, `9-prod`)
+    - [ ] The ISIS github actions auto-cherrypick ***bugfixes*** and ***non-breaking features*** to this branch.  Note which ones have been successfully cherrypicked.
+    - [ ] **Manually cherrypick** any bugfixes/features from `dev` that could not be automatically merged by the github actions.
+
+!!! Success ""
+
+    Move on to step 1 after any functional changes have been merged.
+
 ### 1. **Check current test failures**
 
-Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.com/project/eyJlbmNyeXB0ZWREYXRhIjoiNDJNZ2MxbHFKTkwxV1RyQUxJekdJY3FIanNqU29rMHB4Nk1YUzk4REIrZUZDeEtEaW9HQlZ1dTZOSHpML2VUTGVDekYydmVFcU9sUHJKN20wQzd1Q0UzSzJscnB0MElDb1M3Ti9GTlJYR1RuMWJTV3V1SkJTa3NoYmc9PSIsIml2UGFyYW1ldGVyU3BlYyI6IjF3U2NTSGlDcEtCc29YVnEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D) for whatever branch you plan to release. If false positives are suspected, at least two contributing developers need to agree before moving forward. 
+Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.com/project/eyJlbmNyeXB0ZWREYXRhIjoiNDJNZ2MxbHFKTkwxV1RyQUxJekdJY3FIanNqU29rMHB4Nk1YUzk4REIrZUZDeEtEaW9HQlZ1dTZOSHpML2VUTGVDekYydmVFcU9sUHJKN20wQzd1Q0UzSzJscnB0MElDb1M3Ti9GTlJYR1RuMWJTV3V1SkJTa3NoYmc9PSIsIml2UGFyYW1ldGVyU3BlYyI6IjF3U2NTSGlDcEtCc29YVnEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D) for the branch you plan to release. If false positives are suspected, at least two contributing developers need to agree before moving forward. 
 
 !!! Success ""
     
@@ -46,28 +74,28 @@ Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.co
     - [ ] Update the Changelog. Label all the currently unreleased changes as part of this release. See comments on the  [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for instructions. 
     - [ ] Update `code.json` by adding a new entry with the RC version. e.g. an 8.0.0 release candidate would be labeled `8.0_RC1` for the first RC, `8.0_RC2` for the second, etc. 
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
-    - [ ] Submit a Pull Request: Submit a pull request into the dev branch. If a release branch exists, create another PR there as well.
+    - [ ] Submit a Pull Request: Submit a pull request into the `dev` branch. If a release branch exists, create another PR there as well.
 
 === "LR"
 
     - [ ] Update the Changelog: Update the release date on the version to be released in the changelog. See comments on the  [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for instructions. 
     - [ ] Update `code.json` by adding a new entry with the new version number and the date last modified.   
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
-    - [ ] Submit a Pull Request: Submit a pull request into the dev branch. If a release branch exists, create another PR there as well. 
+    - [ ] Submit a Pull Request: Submit a pull request into the `dev` branch. If a release branch exists, create another PR there as well. 
 
 === "LTS"
 
     - [ ] Update the Changelog. Move **only the bug fixes** under this release. Follow the instructions in [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for how to do this.
     - [ ] Update `code.json` by adding a new entry with the LTS version. e.g. an 8.0.0 LTS would be released as 8.0 (no LTS in the version name).
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
-    - [ ] Submit a Pull Request: Submit a pull request into the release branch. 
+    - [ ] Submit a Pull Request: Submit a pull request into the LTS release feeder branch (i.e, `9-lts`). 
 
 === "Prod"
 
     - [ ] Update the Changelog. Move **only bug fixes and non-breaking features** under this release. Follow the instructions in [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for how to do this.
     - [ ] Update `code.json` by adding a new entry with the Prod version.
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
-    - [ ] Submit a Pull Request: Submit a pull request into the release branch. 
+    - [ ] Submit a Pull Request: Submit a pull request into the Prod release feeder branch (i.e, `9-prod`). 
 
 
 !!! Success "" 
@@ -80,7 +108,7 @@ Clone the repo locally with git clone.
 
 === "RC" 
 
-    - [ ] Create a branch from dev with `x.x.x_RCy` where `x.x.x` is the version and y (e.g. `8.1.2_RC1` or `5.4.1_RC3`). 
+    - [ ] Create a branch from `dev` with `x.x.x_RCy` where `x.x.x` is the version and y (e.g. `8.1.2_RC1` or `5.4.1_RC3`). 
         * Example: `git checkout -b 8.1.2_RC1 upstream/dev`.
     - [ ] Update VERSION variable in CMakeLists.txt, do not add `_RC` here.
     - [ ] Update RELEASE_STAGE variable in CMakeLists.txt to `beta``
@@ -101,8 +129,8 @@ Clone the repo locally with git clone.
 
 === "LTS"
 
-    - [ ] Create a branch from the previous LTS.
-        * Example: `git checkout -b 8.0.3 upstream/8.0.2`.
+    - [ ] Create a branch from the LTS release feeder branch.
+        * Example: `git checkout -b 8.0.3 upstream/9-lts`.
     - [ ] Update VERSION variable in CMakeLists.txt.
     - [ ] Check RELEASE_STAGE variable in CMakeLists.txt is set to `stable`.
     - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed.
@@ -110,8 +138,8 @@ Clone the repo locally with git clone.
 
 === "Prod"
 
-    - [ ] Create a branch from the previous Prod.
-        * Example: `git checkout -b 8.3.0 upstream/8.2.0`.
+    - [ ] Create a branch from the Prod release feeder branch.
+        * Example: `git checkout -b 8.3.0 upstream/9-prod`.
     - [ ] Update VERSION variable in CMakeLists.txt.
     - [ ] Check RELEASE_STAGE variable in CMakeLists.txt is set to `stable`.
     - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed.
