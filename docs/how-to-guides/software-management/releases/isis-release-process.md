@@ -22,7 +22,7 @@ Subsequent Production and LTS releases (with no Major version change, i.e, 8.***
 
 ------
 
-### 0. **Prepare Branch/Merge Any Unmerged Changes**
+### 1. **Prepare Feeder Branch/Merge Any Unmerged Changes**
 
 === "RC"
 
@@ -46,26 +46,15 @@ Subsequent Production and LTS releases (with no Major version change, i.e, 8.***
 
 !!! Success ""
 
-    Move on to step 1 after any functional changes have been merged.
+    Move on to step 2 after any functional changes have been merged.
 
-### 1. **Check current test failures**
+### 2. **Check current test failures**
 
 Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.com/project/eyJlbmNyeXB0ZWREYXRhIjoiNDJNZ2MxbHFKTkwxV1RyQUxJekdJY3FIanNqU29rMHB4Nk1YUzk4REIrZUZDeEtEaW9HQlZ1dTZOSHpML2VUTGVDekYydmVFcU9sUHJKN20wQzd1Q0UzSzJscnB0MElDb1M3Ti9GTlJYR1RuMWJTV3V1SkJTa3NoYmc9PSIsIml2UGFyYW1ldGVyU3BlYyI6IjF3U2NTSGlDcEtCc29YVnEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D) for the branch you plan to release. If false positives are suspected, at least two contributing developers need to agree before moving forward. 
 
 !!! Success ""
     
-    Move on to step 2 after **confirming that builds are passing** (or **accounting for false positives**).
-
-### 2. **Update Version in AWS S3** (for [ISIS Application Docs](https://isis.astrogeology.usgs.gov))
-
-!!! info "LR/LTS only, not for RCs."
-
-- [ ] Add the new version to `versions.json` in AWS S3  
-    `arn:aws:s3:::asc-public-docs/isis-site/versions.json`
-
-!!! Success "" 
-    
-    Move on to step 3 after **updating versions.json**. 
+    Move on to step 3 after **confirming that builds are passing** (or **accounting for false positives**).
 
 ### 3. **Update the GitHub documents**
 
@@ -102,14 +91,14 @@ Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.co
     
     Move on to step 4 after **merging PR(s)**. 
 
-### 4. **Create/setup git branch**
+### 4. **Create/setup git release branch**
 
 Clone the repo locally with git clone. 
 
 === "RC" 
 
-    - [ ] Create a branch from `dev` with `x.x.x_RCy` where `x.x.x` is the version and y (e.g. `8.1.2_RC1` or `5.4.1_RC3`). 
-        * Example: `git checkout -b 8.1.2_RC1 upstream/dev`.
+    - [ ] Create a branch from `dev` with `x.x.x_RCy` (i.e, `8.0.0_RC1`). 
+        * Example: `git checkout -b 8.0.0_RC1 upstream/dev`.
     - [ ] Update VERSION variable in CMakeLists.txt, do not add `_RC` here.
     - [ ] Update RELEASE_STAGE variable in CMakeLists.txt to `beta``
     - [ ] Update `recipe/meta.yaml` to match the name of the RC branch. i.e. **with** the `_RC#`.
@@ -120,7 +109,7 @@ Clone the repo locally with git clone.
 === "LR" 
 
     - [ ] Create a branch from the RC branch.
-        * Example: `git checkout -b 8.1.2 upstream/8.1.2_RC1`.
+        * Example: `git checkout -b 8.0.0 upstream/8.0.0_RC1`.
     - [ ] Check VERSION variable in CMakeLists.txt matches release version.
     - [ ] Update RELEASE_STAGE variable in CMakeLists.txt to `stable`.
     - [ ] Update `recipe/meta.yml` to match the LR version. i.e. **without** the `_RC#`.
@@ -130,7 +119,7 @@ Clone the repo locally with git clone.
 === "LTS"
 
     - [ ] Create a branch from the LTS release feeder branch.
-        * Example: `git checkout -b 8.0.3 upstream/9-lts`.
+        * Example: `git checkout -b 9.0.3 upstream/9-lts`.
     - [ ] Update VERSION variable in CMakeLists.txt.
     - [ ] Check RELEASE_STAGE variable in CMakeLists.txt is set to `stable`.
     - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed.
@@ -139,7 +128,7 @@ Clone the repo locally with git clone.
 === "Prod"
 
     - [ ] Create a branch from the Prod release feeder branch.
-        * Example: `git checkout -b 8.3.0 upstream/9-prod`.
+        * Example: `git checkout -b 9.2.0 upstream/9-prod`.
     - [ ] Update VERSION variable in CMakeLists.txt.
     - [ ] Check RELEASE_STAGE variable in CMakeLists.txt is set to `stable`.
     - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed.
@@ -156,7 +145,19 @@ Clone the repo locally with git clone.
     Move on to step 5 after **creating the new branch on the upstream repo**. 
 
 
-### 5. **Create a release**
+### 5. **Update Version in AWS S3** (for [ISIS Application Docs](https://isis.astrogeology.usgs.gov))
+
+!!! info "LR/LTS only, not for RCs."
+
+- [ ] Add the new version to `versions.json` in AWS S3  
+    `arn:aws:s3:::asc-public-docs/isis-site/versions.json`
+
+!!! Success "" 
+    
+    Move on to step 6 after **updating versions.json**. 
+
+
+### 6. **Create a release**
 
 === "RC"
 
@@ -188,9 +189,9 @@ Clone the repo locally with git clone.
  
 !!! success ""
 
-    Move on to step 6 after **creating the release**. 
+    Move on to step 7 after **creating the release**. 
 
-### 6. **Publish Record to DOI**
+### 7. **Publish Record to DOI**
 
 !!! info "LR/LTS only, not for RCs."
 
@@ -258,11 +259,11 @@ Clone the repo locally with git clone.
             - DOI, Version Number, Release Date, Readme Updated Date
 
 !!! success ""
-    Move on to step 7 after **getting a DOI number** and posting it to the release and readme.
+    Move on to step 8 after **getting a DOI number** and posting it to the release and readme.
     
-    Include the DOI number in the announcement in step 7 below!
+    Include the DOI number in the announcement in step 8 below!
 
-### 7. **Announce the Build** 
+### 8. **Announce the Build** 
 
 - [ ] Create a new [ISIS3 GitHub Discussion](https://github.com/DOI-USGS/ISIS3/discussions/categories/announcements)
     in the announcements category.
