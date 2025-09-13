@@ -147,7 +147,7 @@ Clone the repo locally with git clone.
 
 ### 5. **Update Version in AWS S3** (for [ISIS Application Docs](https://isis.astrogeology.usgs.gov))
 
-!!! info "LR/LTS only, not for RCs."
+!!! info "Not for RC.  For LR, LTS, and Prod."
 
 - [ ] Add the new version to `versions.json` in AWS S3  
     `arn:aws:s3:::asc-public-docs/isis-site/versions.json`
