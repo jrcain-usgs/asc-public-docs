@@ -4,17 +4,19 @@
 
 | Release Type | Supported | RC | Versioning | Updates   | MAJOR | MINOR | PATCH |
 |--------------|-----------|----|------------|-----------|-------|-------|-------|
-| LTS          | 18 months | Y  | semver     | biweekly  | N     | N     | Y     |
+| LTS          | 18 months | N  | semver     | biweekly  | N     | N     | Y     |
 | Production   | 12 months | N  | semver     | quarterly | N     | Y     | Y     |
 | Dev          | 2 weeks   | N  | date-based | biweekly  | Y     | Y     | Y     |
+| Major        | 18 months | Y  | semver     | yearly    | Y     | Y     | Y     |
 
 ## Release Types
 
-ISIS has three types of releases:
+ISIS has four types of releases:
 
 - **LTS** - Most Stable.  Gets *Bugfixes* but not new *Features* between major releases.
 - **Production** - Gets new *Features* and *Bugfixes* but not *Breaking Updates*.
 - **Dev** - First to get new *Features*, including *Breaking Updates*.
+- **Major**\* - Updates all other release types with *Breaking Updates*.
 
 !!! note "Notes"
 
@@ -29,6 +31,8 @@ ISIS has three types of releases:
     The **Dev** version ***does not get a release on GitHub***, 
     but can be found in the [dev branch](https://github.com/DOI-USGS/ISIS3/tree/dev) of the repo.  
     It **does** get a release on our conda channel every two weeks.  
+
+    \* The **Major** release is a special type of LTS release: The ***first LTS release*** of any major version of ISIS (i.e, 9.0.0 LTS, 10.0.0 LTS).
 
 ## Types of Updates
 
