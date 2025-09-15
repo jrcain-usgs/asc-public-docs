@@ -60,7 +60,7 @@ Outlined in [Semantic Versioning (external)](https://semver.org), we categorize 
 - ***Major*** updates remain only in **Dev** ISIS, until the yearly RC and LTS Release.
 
 ``` mermaid
-%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true, 'showCommitLabel':true,'mainBranchName': 'Dev'}} }%%
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'themeVariables': {'git0': '#d00', 'git1': '#096', 'git2': '#07e', 'tagLabelBorder': '#ea0', 'gitInv1': '#fc0'}, 'gitGraph': {'showBranches': true, 'showCommitLabel':true,'mainBranchName': 'Dev'}} }%%
 gitGraph
 
     commit id:"2024.24"
@@ -68,7 +68,7 @@ gitGraph
     branch LTS
     checkout LTS
     commit id:"9.0.0 RC"
-    commit id:"9.0.0 LTS"
+    commit id:"9.0.0 LTS" type: HIGHLIGHT tag: "New Ver."
 
     branch Prod
     checkout Prod
@@ -95,7 +95,7 @@ gitGraph
 
     checkout LTS
     merge Dev id:"10.0.0 RC"
-    commit id:"10.0.0 LTS"
+    commit id:"10.0.0 LTS" type: HIGHLIGHT tag: "New Ver."
 
     checkout Dev
     commit id:"2025.4"
