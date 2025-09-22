@@ -181,7 +181,7 @@ Clone the repo locally with git clone.
 
     - [ ] In the release tab on GitHub, draft a release and set the target branch to the branch created in Step 4.
     - [ ] On the same page, create a new tag for the release version.
-    - [ ] Name the release "ISISX.Y.Z Produciton". 
+    - [ ] Name the release "ISISX.Y.Z Production". 
 
 !!! note ""
 
