@@ -105,7 +105,7 @@
     
     In particular, ISIS2 and Legacy ISIS3 distributions hosted on `isisdist.wr.usgs.gov` and `isisdist.astrogeology.usgs.gov` are no longer available.
 
-    ### Legacy ISIS3 Versions
+    ### Legacy ISIS3 Versions 
 
     ISIS versions 3.6.1 and above are hosted on conda in the 
     [usgs-astrogeology channel](https://anaconda.org/usgs-astrogeology/repo). 
