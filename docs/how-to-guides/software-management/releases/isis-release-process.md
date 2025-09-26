@@ -104,22 +104,23 @@ Clone the repo locally with git clone.
     - [ ] Update `recipe/meta.yaml` to match the name of the RC branch. i.e. **with** the `_RC#`.
     - [ ] Update the `build` section by copying the current contents of `environment.yaml` into the `build` section. 
     - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed. 
-    - [ ] Push the new branch into upstream
+    - [ ] Push the new branch (`8-lts`) into upstream
 
 === "LR" 
 
     - [ ] Create a release branch from the RC branch.
-        * Example: `git checkout -b 8.0.0 upstream/8.0.0_RC1`.
+        * Example: `git checkout -b 8-lts upstream/8.0.0_RC1`.
     - [ ] Check VERSION variable in CMakeLists.txt matches release version.
     - [ ] Update RELEASE_STAGE variable in CMakeLists.txt to `stable`.
     - [ ] Update `recipe/meta.yml` to match the LR version. i.e. **without** the `_RC#`.
     - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed. Rare for LRs, often no changes are needed. 
-    - [ ] Push the new branch into upstream 
+    - [ ] Push the new branch into upstream
+    - [ ] Create the second feeder branch for the Prod versions (`8-prod`)
 
 === "LTS"
 
     - [ ] Create a release branch from the LTS feeder branch.
-        * Example: `git checkout -b 9.0.3 upstream/9-lts`.
+        * Example: `git checkout -b 9-lts upstream/9-lts`.
     - [ ] Update VERSION variable in CMakeLists.txt.
     - [ ] Check RELEASE_STAGE variable in CMakeLists.txt is set to `stable`.
     - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed.
@@ -128,7 +129,7 @@ Clone the repo locally with git clone.
 === "Prod"
 
     - [ ] Create a release branch from the Prod feeder branch.
-        * Example: `git checkout -b 9.2.0 upstream/9-prod`.
+        * Example: `git checkout -b 9-prod upstream/9-prod`.
     - [ ] Update VERSION variable in CMakeLists.txt.
     - [ ] Check RELEASE_STAGE variable in CMakeLists.txt is set to `stable`.
     - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed.
