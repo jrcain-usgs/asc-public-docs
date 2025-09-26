@@ -2,7 +2,7 @@
 
 ## ISIS
 
-ISIS is a collection of apps for working with planetary imagery. It includes command-line and interactive visual apps.  ISIS can import images from various spacecraft, and create mosaics and maps from multiple images.
+ISIS (Integrated Software for Imagers and Spectrometers) is a [collection of apps](https://isis.astrogeology.usgs.gov/Application/index.html) for working with planetary imagery. It includes command-line and interactive visual apps.  ISIS can import images from various spacecraft, and create mosaics and maps from multiple images.
 
 <div class="grid cards" markdown>
 
@@ -10,25 +10,78 @@ ISIS is a collection of apps for working with planetary imagery. It includes com
 
     ---
 
-    - [Intro to ISIS](using-isis-first-steps/introduction-to-isis.md)
-    - [Finding Image Data](using-isis-first-steps/locating-and-ingesting-image-data.md)
-    - [Adding SPICE Data](using-isis-first-steps/adding-spice.md)
+    - [All About ISIS](using-isis-first-steps/introduction-to-isis.md)
+    - [Find Image Data](using-isis-first-steps/locating-and-ingesting-image-data.md)
+    - [Add SPICE Data](using-isis-first-steps/adding-spice.md)
 
--   :material-clock-fast:{ .lg .middle } __Run ISIS on your computer__
+-   :octicons-download-16:{ .lg .middle } __Run ISIS on your computer__
 
     ---
 
     Use our script to install ISIS and set up the data area.
 
-    [:octicons-arrow-right-24: Installing ISIS](#)
+    [:octicons-arrow-right-24: Install ISIS](../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md)
 
 
 </div>
 
-## For Readers 
-[comment]: <> (This is a good place to mention any places for someone to start looking in. Highlight specific docs with high value or that we identify readers commonly want to see. You can also put info for users trying to get notebooks/tutorials running)
+## CSM Stack
 
-Browse tutorials using the table of contents on the left. 
+The CSM (Community Sensor Model) Stack is a collection of apps ([ALE](https://github.com/DOI-USGS/ale), [Knoten](https://github.com/DOI-USGS/knoten)) that allow for programmatic processing of planetary image data and related spacecraft positional data.
+
+<div class="grid cards" markdown>
+
+-   :material-rotate-orbit:{ .lg .middle } __Using ALE__
+
+    ---
+
+    Calculate spacecraft orientation information.
+
+    [:octicons-arrow-right-24: Generate an ISD file](#)
+
+-   :material-camera-marker:{ .lg .middle } __Using Knoten/CSM__
+
+    ---
+
+    Convert coordinates from image to ground reference frames.
+
+    [:octicons-arrow-right-24: CSM Image-to-ground](#)
+
+-   :octicons-book-16:{ .lg .middle } __Sensor Model Concepts__
+
+    ---
+
+    - [Reference Frames](../concepts/sensor-models/reference-frames.md)
+    - [Sensor Models](../concepts/sensor-models/sensor-models.md)
+    - [USGS Software](../concepts/sensor-models/sensor-model-software.md)
+
+
+</div>
+
+## SpiceQL
+
+SpiceQL is a library for indexing and querying information from spacecraft SPICE kernels.
+
+<div class="grid cards" markdown>
+
+-   :material-database-search:{ .lg .middle } __SpiceQL Example__
+
+    ---
+
+    Get positional data for the Cassini Spacecraft.
+
+    [:octicons-arrow-right-24: Make a simple query](../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md)
+
+-   :material-list-box:{ .lg .middle } __SpiceQL API__
+
+    ---
+
+    Examples and basics of the REST, Python, and C++ APIs for SpiceQL.
+
+    [:octicons-arrow-right-24: Explore the API](../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md)
+
+
+</div>
 
 ## FAQ
 
@@ -53,11 +106,11 @@ Browse tutorials using the table of contents on the left.
     jupyter notebook
     ``` 
 
-## For Authors
-
-Getting Started tutorials are *lessons*. Readers should be able to follow these tutorials step-by-step with no external guidance given some reasonable starting point. They are learning-oriented documents designed with the purpose of enabling new users to get started with a particular part of the software portfolio. 
+-----
 
 ??? info "Contributing/Writing *Getting Started* Pages"
+
+    Getting Started tutorials are lessons. Readers should be given a reasonable starting point, and should able to follow the tutorials with no external guidance. They are learning-oriented documents designed with the purpose of enabling new users to get started with a particular part of the software portfolio. 
 
     When creating a new getting-started tutorial, first you need to make sure what you are creating is a tutorial. Ask yourself: 
 
