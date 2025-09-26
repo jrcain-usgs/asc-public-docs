@@ -6,7 +6,7 @@ The ISIS release process changes depending on the type of release.  Release Cand
 
 - **RC** (Release Candidate)
     - Major releases are released first as RCs  
-      (e.g. going from `8.0`->`8.1` or `8.5`->`9.0`)
+      (e.g. going from ***8***.3.0 → ***9***.0.0)
 * **LR** (Live Release)
     - If no changes are suggested for the RC after a month,  
       **do a LR from the RC**.
@@ -26,7 +26,17 @@ Subsequent Production and LTS releases (with no Major version change, i.e, 8.***
 
 === "RC"
 
-    - [ ] For initial preparation, work from your own branch and make PRs to the `dev` branch.  (Dev is the feeder branch for RCs.)
+    - [ ] Before starting, any new features for the Major Release should have been pushed to the `dev` branch.
+    - [ ] Create a branch for the RC and push it to the upstream repo.
+        - For RC1, create branch from `dev`.  
+          `git checkout -b 8.0.0_RC1 upstream/dev`
+        - For RC2, RC3, etc, branch from the previous RC.  
+          `git checkout -b 8.0.0_RC2 upstream/8.0.0_RC1`
+    - [ ] For your local branch, set it to track your own git repo:  
+      `git push -u origin 8.0.0_RC1`  
+      so later you can make a PR to the upstream branch (`upstream/8.0.0_RC1`).
+
+    (`dev` is the feeder branch for `8.0.0_RC1`, `8.0.0_RC1` is the feeder branch for `8.0.0_RC2`.)
 
 === "LR"
 
@@ -63,14 +73,14 @@ Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.co
     - [ ] Update the Changelog. Label all the currently unreleased changes as part of this release. See comments on the  [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for instructions. 
     - [ ] Update `code.json` by adding a new entry with the RC version. e.g. an 8.0.0 release candidate would be labeled `8.0_RC1` for the first RC, `8.0_RC2` for the second, etc. 
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
-    - [ ] Submit a Pull Request: Submit a pull request into the `dev` branch. If a release branch exists, create another PR there as well.
+    - [ ] Submit a Pull Request: Submit a pull request into the current RC's upstream branch (i.e. `upstream/8.0.0_RC1`).
 
 === "LR"
 
     - [ ] Update the Changelog: Update the release date on the version to be released in the changelog. See comments on the  [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for instructions. 
     - [ ] Update `code.json` by adding a new entry with the new version number and the date last modified.   
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
-    - [ ] Submit a Pull Request: Submit a pull request into the `dev` branch. If a release branch exists, create another PR there as well. 
+    - [ ] Submit a Pull Request:  Submit a pull request into the current RC's upstream branch (i.e. `upstream/8.0.0_RC1`).
 
 === "LTS"
 
@@ -97,43 +107,48 @@ Clone the repo locally with git clone.
 
 === "RC" 
 
-    - [ ] Create an RC branch from `dev` with `x.x.x_RCy` (i.e, `8.0.0_RC1`). 
-        * Example: `git checkout -b 8.0.0_RC1 upstream/dev`.
+    - [ ] *Working from your local branch for the RC (i.e, `8.0.0_RC1`)...*
     - [ ] Update VERSION variable in CMakeLists.txt, do not add `_RC` here.
     - [ ] Update RELEASE_STAGE variable in CMakeLists.txt to `beta``
     - [ ] Update `recipe/meta.yaml` to match the name of the RC branch. i.e. **with** the `_RC#`.
     - [ ] Update the `build` section by copying the current contents of `environment.yaml` into the `build` section. 
     - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed. 
-    - [ ] Push the new branch (`8-lts`) into upstream
+    - [ ] Push the changes to the upstream branch (`upstream/8.0.0_RC1`)
 
 === "LR" 
 
-    - [ ] Create a release branch from the RC branch.
-        * Example: `git checkout -b 8-lts upstream/8.0.0_RC1`.
+    - [ ] *Working from your local branch for the RC (i.e, `8.0.0_RC1`)...*
     - [ ] Check VERSION variable in CMakeLists.txt matches release version.
     - [ ] Update RELEASE_STAGE variable in CMakeLists.txt to `stable`.
     - [ ] Update `recipe/meta.yml` to match the LR version. i.e. **without** the `_RC#`.
     - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed. Rare for LRs, often no changes are needed. 
-    - [ ] Push the new branch into upstream
-    - [ ] Create the second feeder branch for the Prod versions (`8-prod`)
+    - [ ] Push the changes to the upstream branch
+    - [ ] Create the LTS and Prod feeder branches for this major version of isis and push them to the upstream repo.  
+        ```
+        git checkout -b 8-lts upstream/8.0.0_RC1
+        git push -u upstream 8-lts
+
+        git checkout -b 8-prod upstream/8.0.0_RC1
+        git push -u upstream 8-prod
+        ```
 
 === "LTS"
 
-    - [ ] Create a release branch from the LTS feeder branch.
+    - [ ] Checkout a branch from the LTS feeder branch.
         * Example: `git checkout -b 9-lts upstream/9-lts`.
     - [ ] Update VERSION variable in CMakeLists.txt.
     - [ ] Check RELEASE_STAGE variable in CMakeLists.txt is set to `stable`.
     - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed.
-    - [ ] Push the new branch into upstream
+    - [ ] Push to the upstream feeder branch (`upstream/9-lts')
 
 === "Prod"
 
-    - [ ] Create a release branch from the Prod feeder branch.
+    - [ ] Checkout a branch from the Prod feeder branch.
         * Example: `git checkout -b 9-prod upstream/9-prod`.
     - [ ] Update VERSION variable in CMakeLists.txt.
     - [ ] Check RELEASE_STAGE variable in CMakeLists.txt is set to `stable`.
     - [ ] Update the `run` section to include any new packages and remove any packages that are no longer needed.
-    - [ ] Push the new branch into upstream
+    - [ ] Push to the upstream feeder branch (`upstream/9-prod`)
 
 !!! Danger "Ensure to update the version and build_number is set to 0 in recipe/meta.yml"
 
@@ -164,7 +179,7 @@ Clone the repo locally with git clone.
 
     !!! Warning "No Release for RCs"
 
-        **Skip this step for Release Candidates (RCs).** Only pull a release if it's a full release (i.e. LR/LTS, NOT an RC). RCs should instead be in their own branch until ready for full release.  
+        **Skip this step for Release Candidates (RCs).** Only pull a release if it's a full release (i.e. LR/LTS/Prod, NOT an RC). RCs should instead be in their own branch until ready for full release.  
 
 === "LR" 
 
@@ -194,7 +209,7 @@ Clone the repo locally with git clone.
 
 ### 7. **Publish Record to DOI**
 
-!!! info "LR/LTS only, not for RCs."
+!!! info "LR/LTS/Prod only, not for RCs."
 
 - [ ] Check that the code.usgs.gov link for the release is live and create a DOI record.
 
