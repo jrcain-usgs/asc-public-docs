@@ -1,13 +1,36 @@
-# Getting Started Tutorials
+# Getting Started
 
-Getting Started tutorials are *lessons*. Readers should be able to follow these tutorials step-by-step with no external guidance given some reasonable starting point. They are learning-oriented documents designed with the purpose of enabling new users to get started with a particular part of the software portfolio. 
+## ISIS
+
+ISIS is a collection of apps for working with planetary imagery. It includes command-line and interactive visual apps.  ISIS can import images from various spacecraft, and create mosaics and maps from multiple images.
+
+<div class="grid cards" markdown>
+
+-   :octicons-book-16:{ .lg .middle } __Learn ISIS basics__
+
+    ---
+
+    - [Intro to ISIS](using-isis-first-steps/introduction-to-isis.md)
+    - [Finding Image Data](using-isis-first-steps/locating-and-ingesting-image-data.md)
+    - [Adding SPICE Data](using-isis-first-steps/adding-spice.md)
+
+-   :material-clock-fast:{ .lg .middle } __Run ISIS on your computer__
+
+    ---
+
+    Use our script to install ISIS and set up the data area.
+
+    [:octicons-arrow-right-24: Installing ISIS](#)
+
+
+</div>
 
 ## For Readers 
 [comment]: <> (This is a good place to mention any places for someone to start looking in. Highlight specific docs with high value or that we identify readers commonly want to see. You can also put info for users trying to get notebooks/tutorials running)
 
 Browse tutorials using the table of contents on the left. 
 
-FAQ for readers:
+## FAQ
 
 ??? Question annotate "If the tutorial has dependencies, how do I install them?"
 	We recommend using [miniforge's instructions](https://github.com/conda-forge/miniforge#install) as the package manager of choice for installing dependencies. This is a lite installation that comes with `mamba`, which is a C++ re-implementation of conda that solves packages much faster than conda. For some dependencies like ISIS, this can save a lot of time. Instructions will assume you are using mamba. (1) 
@@ -32,26 +55,31 @@ FAQ for readers:
 
 ## For Authors
 
-When creating a new getting-started tutorial, first you need to make sure what you are creating is a tutorial. Ask yourself: 
+Getting Started tutorials are *lessons*. Readers should be able to follow these tutorials step-by-step with no external guidance given some reasonable starting point. They are learning-oriented documents designed with the purpose of enabling new users to get started with a particular part of the software portfolio. 
 
-* What is the lesson? Tutorials should have a lesson that the user is expected to learn. 
-* Does your tutorial have a concrete beginning? Tutorials should always have an obvious start with clear instructions on how to get any lesson examples running. 
-* Does your tutorial have a goal? Tutorials should have a clear goal that the user will accomplish. 
+??? info "Contributing/Writing *Getting Started* Pages"
 
-??? Info "Examples"
+    When creating a new getting-started tutorial, first you need to make sure what you are creating is a tutorial. Ask yourself: 
+
+    * What is the lesson? Tutorials should have a lesson that the user is expected to learn. 
+    * Does your tutorial have a concrete beginning? Tutorials should always have an obvious start with clear instructions on how to get any lesson examples running. 
+    * Does your tutorial have a goal? Tutorials should have a clear goal that the user will accomplish. 
+
+    ### Examples
+
     * Getting Started: ISIS image ingestion to map projected image, ingesting, bundling, and projecting an image list 
     * Getting Started: Generating an ISD and CSM camera model
     * Getting Started: Generate a control network with an image matcher 
 
-Concrete things your tutorial needs: 
+    ### Items to Include 
 
-- [ ] If your tutorial requires software, list the software with versions and installation instructions. Feel free to link to existing docs with boilerplate info, for example:
-   ```
-   See [User Preferences File](../concepts/isis-fundamentals/preference-dictionary.md#user-preference-file) 
-   or [Project Preference File](../concepts/isis-fundamentals/preference-dictionary.md#project-preference-file) 
-   for more info on custom ISISPreferences files.
-   ```
-- [ ] If your tutorial has data, use generative data or data that is in the repo. Avoid external data dependencies. Before data is committed into the repo, check if [existing data can be reused](https://github.com/DOI-USGS/asc-public-docs/tree/main/docs/assets). If new data needs to be committed, minimize the size so as not to increase the data burden. 
-- [ ] Make the objectives clear in the title. Also, clarify the tutorial with a summary of objectives. 
+    - [ ] If your tutorial requires software, list the software with versions and installation instructions. Feel free to link to existing docs with boilerplate info, for example:
+    ```
+    See [User Preferences File](../concepts/isis-fundamentals/preference-dictionary.md#user-preference-file) 
+    or [Project Preference File](../concepts/isis-fundamentals/preference-dictionary.md#project-preference-file) 
+    for more info on custom ISISPreferences files.
+    ```
+    - [ ] If your tutorial has data, use generative data or data that is in the repo. Avoid external data dependencies. Before data is committed into the repo, check if [existing data can be reused](https://github.com/DOI-USGS/asc-public-docs/tree/main/docs/assets). If new data needs to be committed, minimize the size so as not to increase the data burden. 
+    - [ ] Make the objectives clear in the title. Also, clarify the tutorial with a summary of objectives. 
 
-See the [git repo](https://code.usgs.gov/astrogeology/asc-public-docs) for more in-depth info on how to contribute new docs. 
+    See the [git repo](https://code.usgs.gov/astrogeology/asc-public-docs) for more in-depth info on how to contribute new docs. 
