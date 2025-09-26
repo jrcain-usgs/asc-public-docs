@@ -101,7 +101,7 @@
 
     ### Supported ISIS Versions
 
-    LTS versions of ISIS are supported for 18 months from their release date ([RFC8](https://github.com/USGS-Astrogeology/ISIS3/discussions/4691), [RFC14](https://github.com/DOI-USGS/ISIS3/discussions/5731)).  Versions before that are not officially supported or maintained, may no longer hosted by USGS Astrogeology, and/or ***may no longer be installable***.
+    LTS versions of ISIS are supported for 18 months from their release date ([RFC8](https://github.com/USGS-Astrogeology/ISIS3/discussions/4691), [RFC14](https://github.com/DOI-USGS/ISIS3/discussions/5731)).  Versions before that are not officially supported or maintained, may no longer be hosted by USGS Astrogeology, and/or ***may no longer be installable***.
     
     In particular, ISIS2 and Legacy ISIS3 distributions hosted on `isisdist.wr.usgs.gov` and `isisdist.astrogeology.usgs.gov` are no longer available.
 
