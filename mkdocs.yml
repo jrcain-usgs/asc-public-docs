@@ -65,6 +65,7 @@ nav:
       - Installing ISIS:                   how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md
       - Setting up the ISIS Data Area:     how-to-guides/environment-setup-and-maintenance/isis-data-area.md
       - SPICE Kernel Updates in ISIS:      how-to-guides/environment-setup-and-maintenance/spice-kernel-updates-in-isis.md
+      - Setting Up ISIS Data for New Missions: how-to-guidel/environment-setup-and-maintenance/setup-isis-data.md
       - Adding USGSCSM Plugin to ISIS:     how-to-guides/environment-setup-and-maintenance/adding-usgscsm-plugin-to-isis.md
       - Using ISIS in other Conda Envs:    how-to-guides/environment-setup-and-maintenance/using-isis-in-other-conda-envs.md
       - Anaconda in a Network Environment: how-to-guides/environment-setup-and-maintenance/anaconda-in-a-network-environment.md
