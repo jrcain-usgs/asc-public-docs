@@ -56,7 +56,9 @@ Subsequent Production and LTS releases (with no Major version change, i.e, 8.***
 
 ??? example "CI/CD: Cherry-Picking"
 
-    `gitub-cherrypick.yml` attempts to auto-cherrypick bugfixes to the next LTS branch, and bugfixes + non-breaking features to the next Prod branch, as the changes are merged into the Dev branch.  Not all changes are automatically resolveable, so make sure to manually cherry-pick any remaining changes that need to be included in LTS or Prod.
+    `gitub-cherrypick.yml` attempts to auto-cherrypick bugfixes to the next LTS branch, and bugfixes + non-breaking features to the next Prod branch, as the changes are merged into the Dev branch.  Identifies bugfixes and/or non-breaking features by the checkboxes from the PR template.  Not all changes are automatically resolveable, so make sure to manually cherry-pick any remaining changes that need to be included in LTS or Prod.
+
+    Triggered by pushes (including merged-PRs) to dev.
 
     When a major update is made, update the branch name that this CI/CD sends new changes to.
 
@@ -71,6 +73,8 @@ Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.co
 ??? example "CI/CD: Codebuild"
 
     `gitlab-codebuild.yml` auto-builds ISIS to check for build and/or test failures.  The auto-build runs in a linux system, so this is a good chance to check for errors that may not occur in a local mac build.
+
+    Triggered by the creation of a PR to any branch.  Makes a push to the internal isis-codebuild-ci repo, and lets that repo's CI/CD do the rest of the work (i.e. talking to AWS codebuild).
 
 !!! Success ""
     
@@ -211,6 +215,8 @@ Clone the repo locally with git clone.
 
 ??? example "CI/CD: Conda Release"
     `github-release.yml` builds ISIS (with kakadu) and uploads those builds to conda.
+
+    Triggered by GitHub Releases, pushes to `*.*.*_RC*` or `*.*.*_LTS` branches, or manually.
     
     - If this action fails, make sure to complete the conda build/upload manually.
     
