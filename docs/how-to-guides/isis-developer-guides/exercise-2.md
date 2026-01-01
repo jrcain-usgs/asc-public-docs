@@ -1,13 +1,6 @@
 # ISIS Programming Exercise 2: `diff`
 
-<div class="grid cards" markdown>
-
-- [:octicons-arrow-left-24: ISIS Programming Exercise 1: `mirror`](../../how-to-guides/isis-developer-guides/exercise-1.md)
-- [:octicons-arrow-right-24: Start soving issues on __GitHub__ :simple-github:](https://github.com/DOI-USGS/ISIS3/issues)
-
-</div>
-
-The goal of this exercise is to familiarize the programmer with slightly more advanced features of the ISIS API. You will be writing an ISIS application that performs simple differences between adjacent pixels in the line or sample directions.
+*Learning slightly more advanced features of the ISIS API: Write an ISIS application that performs simple differences between adjacent pixels in the line or sample directions.*
 
 !!! Info "This tutorial assumes that the user has completed [exercise 1](./exercise-1.md) and has access to the ISIS installation and data from that tutorial."
 

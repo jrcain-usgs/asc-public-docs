@@ -1,13 +1,6 @@
 # Deprecation
 
-<div class="grid cards" markdown>
-
-- [:octicons-arrow-left-24: __Contribute Fixes__ with Pull Requests](../../how-to-guides/software-management/guidelines-for-pull-requests.md)
-- [:octicons-arrow-right-24: Astro __Software Support Process__](../../how-to-guides/software-management/software-support.md)
-
-</div>
-
-This document is intended to provide guidelines for the deprecation process.
+*Guidelines for the deprecation process.*
 
 ## 1. Deprecation Proposal
 Those who wish to deprecate functionality should propose the deprecation via an issue on the software's repository of record.  This allows for discussion among the developers and the user community.  If a consensus is met that the functionality should be deprecated, then a deprecation warning should be written.

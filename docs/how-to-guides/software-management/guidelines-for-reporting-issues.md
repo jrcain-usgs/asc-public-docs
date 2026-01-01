@@ -1,12 +1,5 @@
 # Guidelines on Issues
 
-<div class="grid cards" markdown>
-
-- [:octicons-arrow-right-24: Astro __Software Support Process__](../../how-to-guides/software-management/software-support.md)
-- [:octicons-arrow-right-24: __Contribute Fixes__ with Pull Requests](../../how-to-guides/software-management/guidelines-for-pull-requests.md)
-
-</div>
-
 ## Before you Report an Issue:
 
   - **Is your ISIS up to date?**  

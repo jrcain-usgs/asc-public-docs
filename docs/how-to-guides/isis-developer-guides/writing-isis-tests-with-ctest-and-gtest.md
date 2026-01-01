@@ -1,12 +1,5 @@
 # Writing ISIS Tests with CTest & GTest
 
-<div class="grid cards" markdown>
-
-- [:octicons-arrow-left-24: __Contributing to ISIS__: Tutorial](../../how-to-guides/isis-developer-guides/building-and-contributing-to-isis-tutorial.md)
-- [:octicons-arrow-right-24: __Templates__ for app testing](../../how-to-guides/isis-developer-guides/app-testing-cookbook.md)
-
-</div>
-
 ??? Tip "Helpful External documentation"
 
     Consider referencing these as you go along in case you need more in-depth info on how to work with gtest.

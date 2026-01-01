@@ -1,13 +1,6 @@
 # Guidelines for Pull Requests
 
-<div class="grid cards" markdown>
-
-- [:octicons-arrow-left-24: __Report an Issue__ on GitHub](../../how-to-guides/software-management/guidelines-for-reporting-issues.md)
-- [:octicons-arrow-right-24: Astro __Software Support Process__](../../how-to-guides/software-management/software-support.md)
-
-</div>
-
-This page provides guidelines for creating a successful pull request.  These guidelines are intended to promote a style of pull request that benefits both the creator of the pull request and the reviewer.
+*Intended to promote a style of Pull Request that benefits both the creator of the pull request and the reviewer.*
 
 ## PR Creators
 

@@ -1,12 +1,5 @@
 # Software Support
 
-<div class="grid cards" markdown>
-
-- [:octicons-arrow-left-24: __Contribute Fixes__ with Pull Requests](../../how-to-guides/software-management/guidelines-for-pull-requests.md)
-- [:octicons-arrow-right-24: ISIS __Release Schedule__](../../how-to-guides/software-management/isis-release-schedule.md)
-
-</div>
-
 This document provides information about the software support process. That is, how our development team goes about addressing these issues. Including scheduling, project management tools and practices, issue soliciation, issue selection, and prioritization.
 
 
