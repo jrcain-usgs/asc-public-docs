@@ -1,5 +1,4 @@
 # Public Software Release Process Step-By-Step Instructions
-
 -------
 #### Software Table of Contents
 

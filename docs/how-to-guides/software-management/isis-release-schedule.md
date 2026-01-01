@@ -1,5 +1,4 @@
 # ISIS Release Schedule
-
 This document describes the cadence and schedule for ISIS releases.
 
 ## Release Cadence
