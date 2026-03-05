@@ -15,6 +15,7 @@ ISIS (Integrated Software for Imagers and Spectrometers) is a [collection of app
     ---
 
     - [All About ISIS](using-isis-first-steps/introduction-to-isis.md)
+    - [ISIS Tutorial List](using-isis-first-steps/isis-tutorials.md)
     - [Find Image Data](using-isis-first-steps/locating-and-ingesting-image-data.md)
     - [Add SPICE Data](using-isis-first-steps/adding-spice.md)
     - [Process Mission Data](../concepts/missions/index.md)
