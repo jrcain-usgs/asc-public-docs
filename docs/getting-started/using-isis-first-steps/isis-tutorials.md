@@ -4,13 +4,15 @@
 
 - [ISIS - Background & About](introduction-to-isis.md)
 - [Installing Isis](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md)
-- Setting up Data Area(TODO: Link)
-- Spice?(TODO: Link)
+- [Setting up Data Area](../../how-to-guides/environment-setup-and-maintenance/isis-data-area.md)
 - [Locating and Ingesting Image Data](locating-and-ingesting-image-data.md)
 
-## Missions
+## [Missions Hub :octicons-arrow-right-16:](../../concepts/missions/index.md) 
 
-- See the [Missions Hub](../../concepts/missions/index.md) for info on working with specific spacecraft/instruments.
+The MRO pages have in-depth guides for processing:
+
+- [MRO HiRISE](../../concepts/missions/mro/hirise/index.md#cartographic-processing-hirise-data)
+- [MRO CTX](../../concepts/missions/mro/ctx-data.md)
 
 ## General Image Processing
 
