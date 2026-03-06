@@ -135,6 +135,7 @@ nav:
       - ISIS Kernel Load Selection:        concepts/isis-fundamentals/kernel-selection.md
       - Bit Types:                         concepts/isis-fundamentals/bit-types.md
       - Special Pixels:                    concepts/isis-fundamentals/special-pixels.md
+      - Core Base and Multiplier:          concepts/isis-fundamentals/core-base-and-multiplier.md
       - Command Line Usage:                concepts/isis-fundamentals/command-line-usage.md
       - Preference Dictionary:             concepts/isis-fundamentals/preference-dictionary.md
       - Error Dictionary:                  concepts/isis-fundamentals/error-dictionary.md
