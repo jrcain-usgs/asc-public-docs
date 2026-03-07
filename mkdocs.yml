@@ -49,8 +49,9 @@ nav:
   - Getting Started: 
     - Home: getting-started/index.md
     - ISIS:
-      - ISIS Tutorials:                     getting-started/using-isis-first-steps/isis-tutorials.md
-      - Introduction to ISIS:               getting-started/using-isis-first-steps/introduction-to-isis.md
+      - About ISIS:                         getting-started/using-isis-first-steps/about-isis.md
+      - Using ISIS - Intro:                 getting-started/using-isis-first-steps/introduction-to-isis.md
+      - ISIS Tutorial List:                 getting-started/using-isis-first-steps/isis-tutorials.md
       - Locating and Ingesting Image Data:  getting-started/using-isis-first-steps/locating-and-ingesting-image-data.md
       - Adding SPICE:                       getting-started/using-isis-first-steps/adding-spice.md
       - Exporting ISIS Data:                getting-started/using-isis-first-steps/exporting-isis-data.md

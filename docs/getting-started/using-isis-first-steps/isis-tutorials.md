@@ -1,18 +1,31 @@
 # ISIS Tutorials
 
+## Setup
+
+!!! success "The install_isis script sets up miniforge, ISIS, and the data area. [Details :octicons-arrow-right-16:](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md)"
+    
+    ```sh
+    bash <(curl https://raw.githubusercontent.com/DOI-USGS/ISIS3/refs/heads/dev/isis/scripts/install_isis.sh)
+    ```
+
+-   [Setting up the Data Area](../../how-to-guides/environment-setup-and-maintenance/isis-data-area.md)  
+    *In case you didn't during installation, or need data for additional missions.*
+
 ## Fundamentals
 
-- [ISIS - Background & About](introduction-to-isis.md)
-- [Installing Isis](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md)
-- [Setting up Data Area](../../how-to-guides/environment-setup-and-maintenance/isis-data-area.md)
+- [:star: Using ISIS - Introduction](introduction-to-isis.md)
 - [Locating and Ingesting Image Data](locating-and-ingesting-image-data.md)
+- [:star: Add SPICE Data](adding-spice.md)
+- [Exporting ISIS Data](exporting-isis-data.md)
+- [FAQ](isis-faq.md)
 
-## [Missions Hub :octicons-arrow-right-16:](../../concepts/missions/index.md) 
+## Missions
 
-The MRO pages have in-depth guides for processing:
-
-- [MRO HiRISE](../../concepts/missions/mro/hirise/index.md#cartographic-processing-hirise-data)
-- [MRO CTX](../../concepts/missions/mro/ctx-data.md)
+- [Missions Hub](../../concepts/missions/index.md)
+- The MRO pages have in-depth guides for processing,  
+  from import to map-projecting/mosaicking:
+    - [:star: MRO HiRISE](../../concepts/missions/mro/hirise/index.md#cartographic-processing-hirise-data)
+    - [:star: MRO CTX](../../concepts/missions/mro/ctx-data.md)
 
 ## General Image Processing
 
@@ -28,6 +41,7 @@ The MRO pages have in-depth guides for processing:
 - [Bit Types](../../concepts/isis-fundamentals/bit-types.md)
 - [Core & Base Multipliers](../../concepts/isis-fundamentals/core-base-and-multiplier.md)
 - [Special Pixels](../../concepts/isis-fundamentals/special-pixels.md)
+- [Command Line Usage](../../concepts/isis-fundamentals/command-line-usage.md)
 
 ## Cartography
 
