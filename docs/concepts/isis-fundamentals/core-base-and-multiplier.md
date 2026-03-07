@@ -22,7 +22,7 @@ if (typeof window.isisDemosLoaded == 'undefined') {
 
 ## Digital Numbers (DNs)
 
-Recall that a [Digital Number (DN)](cube-format.md#pixel-values-digital-numbers) is the content of a pixel. DNs are used to represent mesurements like radiance, reflectance, elevation, and emissivity.
+Recall that a [Digital Number (DN)](cube-format.md#pixel-values-digital-numbers) is the content of a pixel. DNs are used to represent measurements like radiance, reflectance, elevation, and emissivity.
 
 Take, for example, an 8-bit cube with elevation values in meters. Unfortunately, 8-bit pixels (unsigned) have a range of 0 to 255, which is very restrictive for elevation. ISIS deals with this problem by using a Core Base and Multiplier. In ISIS, each DN is treated as a floating point number.
 

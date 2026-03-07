@@ -82,7 +82,7 @@ lowpass -help
 Parameter arguments are keyword-value pairs, separated by an equals sign `=`. 
 They don't start with a dash.
 
-Parametes set the input data, processing settings, and where to save output.
+Parameters set the input data, processing settings, and where to save output.
 
 ```sh title="Running lowpass with 4 parameter arguments"
 lowpass from=f431a63.lev1_cln.cub to=f431a63.lev1_cln_lpf3x3.cub lines=3 samples=3
@@ -369,7 +369,7 @@ and run a few ISIS apps (try both visual and text modes).
     In `stats`, add `to=myStats.log` to save the output to a log file.
 
     Use the [ISIS Application manuals](https://isis.astrogeology.usgs.gov/Application/alpha.html) 
-    for `stats` and other apps to find paramaters and examples if you aren't sure how to run them.
+    for `stats` and other apps to find parameters and examples if you aren't sure how to run them.
 
 
 ??? example "Running `hist`"
