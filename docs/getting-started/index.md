@@ -20,12 +20,15 @@
     bash <(curl https://raw.githubusercontent.com/DOI-USGS/ISIS3/refs/heads/dev/isis/scripts/install_isis.sh)
     ```
 
--   :octicons-book-16:{ .lg .middle } __Learn ISIS basics__
+-   :octicons-book-16:{ .lg .middle } __Learn to use ISIS__
 
     ---
 
-    - [Using ISIS - Introduction](using-isis-first-steps/introduction-to-isis.md)
-    - [ISIS Tutorials](using-isis-first-steps/isis-tutorials.md)
+    - [Introduction](using-isis-first-steps/introduction-to-isis.md)  
+      *Usage Basics - Start Here*
+
+    - [Comprehensive Docs](using-isis-first-steps/isis-comprehensive.md)  
+      *Everything you need to know about using ISIS*
 
 </div>
 

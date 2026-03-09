@@ -1,9 +1,16 @@
-# ISIS Tutorials
+# Using ISIS - Comprehensive Docs
+
+Everything you need to know about using ISIS.  
+*Something Missing? 
+Check the [:material-github: Docs Issue Board](https://github.com/DOI-USGS/asc-public-docs/issues) and/or 
+[:material-file-edit-outline: edit this page.](https://github.com/DOI-USGS/asc-public-docs/edit/main/docs/getting-started/using-isis-first-steps/isis-comprehensive.md)*
 
 ## Setup
-
-!!! success "The install_isis script sets up miniforge, ISIS, and the data area. [Details :octicons-arrow-right-16:](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md)"
     
+!!! quote ""
+
+    **This install_isis script sets up miniforge, ISIS, and the data area.** [:octicons-code-24: Source](https://github.com/DOI-USGS/ISIS3/blob/dev/isis/scripts/install_isis.sh). [:octicons-info-24: Details](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md).
+
     ```sh
     bash <(curl https://raw.githubusercontent.com/DOI-USGS/ISIS3/refs/heads/dev/isis/scripts/install_isis.sh)
     ```
