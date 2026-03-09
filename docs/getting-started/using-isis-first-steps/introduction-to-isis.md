@@ -258,8 +258,6 @@ Errors are output to the terminal, and may cause the app may exit before complet
     When run correctly, it displays its status while running, 
     and exits to the command prompt when finished.
 
-    [Screenshot](../../assets/isis-fundamentals/LowpassScreenShot3.png "LowpassScreenShot3.png")
-
 -----
 
 ## Using `qview` to View Cubes
