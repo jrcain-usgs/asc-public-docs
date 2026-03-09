@@ -13,6 +13,10 @@
 
 ## Fundamentals
 
+!!! warning inline end ""
+
+    :star: - Start with these to learn ISIS quickly.
+
 - [:star: Using ISIS - Introduction](introduction-to-isis.md)
 - [Locating and Ingesting Image Data](locating-and-ingesting-image-data.md)
 - [:star: Add SPICE Data](adding-spice.md)
