@@ -4,13 +4,14 @@
 
     There are two main ways of installing ISIS:
 
-    __As a user__: ISIS releases are distributed using the Anaconda package manager. Through the package manager, you can download precompiled versions of ISIS including older versions. See [Installation][8] for installing via Anaconda. 
+    __As a user__:
+    The install_isis script sets up miniforge, ISIS, and the data area. [Details :octicons-arrow-right-24:](../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md)
+    ```sh
+    bash <(curl https://raw.githubusercontent.com/DOI-USGS/ISIS3/refs/heads/dev/isis/scripts/install_isis.sh)
+    ```
 
-
-    __As a developer__: Anaconda is also used to maintain ISIS dependencies, so we generally advise developers to use Anaconda environments and provided environment files to build ISIS. See [Developing ISIS3 with cmake][9].
-
-    [8]: ../../how-to-guides/environment-setup-and-maintenance/installing-isis-via-anaconda.md
-    [9]: ../../how-to-guides/isis-developer-guides/developing-isis3-with-cmake.md
+    __As a developer__: Conda is used to maintain ISIS dependencies. Use Conda environments and provided environment files to build ISIS. 
+    See [Developing ISIS3 with cmake](../../how-to-guides/isis-developer-guides/developing-isis3-with-cmake.md)
 
 
 ??? question "How do I install a specific version of ISIS/update my current copy of ISIS?"

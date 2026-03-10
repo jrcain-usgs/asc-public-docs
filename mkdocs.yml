@@ -49,7 +49,9 @@ nav:
   - Getting Started: 
     - Home: getting-started/index.md
     - ISIS:
-      - Introduction to ISIS:               getting-started/using-isis-first-steps/introduction-to-isis.md
+      - About ISIS:                         getting-started/using-isis-first-steps/about-isis.md
+      - Using ISIS - Intro:                 getting-started/using-isis-first-steps/introduction-to-isis.md
+      - Using ISIS - Comprehensive Docs:    getting-started/using-isis-first-steps/isis-comprehensive.md
       - Locating and Ingesting Image Data:  getting-started/using-isis-first-steps/locating-and-ingesting-image-data.md
       - Adding SPICE:                       getting-started/using-isis-first-steps/adding-spice.md
       - Exporting ISIS Data:                getting-started/using-isis-first-steps/exporting-isis-data.md
@@ -134,6 +136,7 @@ nav:
       - ISIS Kernel Load Selection:        concepts/isis-fundamentals/kernel-selection.md
       - Bit Types:                         concepts/isis-fundamentals/bit-types.md
       - Special Pixels:                    concepts/isis-fundamentals/special-pixels.md
+      - Core Base and Multiplier:          concepts/isis-fundamentals/core-base-and-multiplier.md
       - Command Line Usage:                concepts/isis-fundamentals/command-line-usage.md
       - Preference Dictionary:             concepts/isis-fundamentals/preference-dictionary.md
       - Error Dictionary:                  concepts/isis-fundamentals/error-dictionary.md
