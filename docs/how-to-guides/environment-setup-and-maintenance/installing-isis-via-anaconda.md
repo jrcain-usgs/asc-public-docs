@@ -113,7 +113,7 @@ bash <(curl https://raw.githubusercontent.com/DOI-USGS/ISIS3/refs/heads/dev/isis
         ./install_isis.sh --force-mamba -m $HOME/miniforge/ -l main -v 8.3.0 -n auto -p $HOME/isisdata --download-base --prefix $HOME/isis_installs/
         ```
 
-## After install consideratrions 
+## After-Install Considerations 
 
 ### ISIS DATA
 
