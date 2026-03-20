@@ -55,7 +55,7 @@
 Now that the files are on your computer, you can go on to build ISIS for yourself, 
 and maybe even edit its programs or contribute to development.
 
-??? note "Cloning Submodules later (if you didn't run `--recurse-submodules`, or are missing `gtest`)"
+??? note "Cloning Submodules later <br>(if you didn't run `--recurse-submodules`, or are missing `gtest`)"
 
     If you have an old clone, or you forgot to add `--recurse-submodules` when you initially cloned ISIS, run this in the `ISIS3` directory to clone the `gtest` submodule:
     
