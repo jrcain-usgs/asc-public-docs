@@ -198,9 +198,17 @@ The distance from the geometric center of an ellipsoid to either of its poles.
 ### Polygon Thickness
 The thickness of a polygon is defined as follows: 
 ### Positive East Longitude
-The reported longitude values for a target body increase positive to the East. 
+Reported longitude increases positively to the East.
+### Positive East 180 Longitude
+From the Prime Meridian (0°), Longitude increases positively to the East to 180°, and goes down to -180° in the West direction, converging at the anti-meridian (180°).
+### Positive East 360 Longitude
+From the Prime Meridian (0°), Longitude increases positively to the East, all the way around to 360° where it meets the Prime Meridian again.
 ### Positive West Longitude
-The reported longitude values for a target body increase positive to the West.
+Reported longitude increases positively to the West.
+### Positive West 180 Longitude
+From the Prime Meridian (0°), Longitude increases positively to the West to 180°, and goes down to -180° in the East direction, converging at the anti-meridian (180°).
+### Positive East 360 Longitude
+From the Prime Meridian (0°), Longitude increases positively to the East, all the way around to 360 where it meets the Prime Meridian again.
 ### Predicted 
 "Predicted" kernels are NAIF SPICE kernels that are created during the planning phase of a mission. These contain expected trajectories, but may or may not be close to the actual trajectories like reconstructed or smithed kernels are. 
 ### Prime Meridian
