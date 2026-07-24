@@ -15,120 +15,202 @@ The WASM bindings enable you to:
 !!! tip "Try the Interactive Demo"
     Want to see USGSCSM WASM in action? Check out our [interactive browser-based demo](/docs/how-to-guides/demos/usgscsm-wasm-demo/) that demonstrates all the core functionality. The demo includes the WASM files and works out of the box!
 
+## Included Files
+
+USGSCSM WASM bindings are distributed via [GitHub Releases](https://github.com/DOI-USGS/usgscsm/releases) and [NPM](https://www.npmjs.com/package/@usgs-astrogeology/usgscsm).  Each release includes three files:
+
+1. **[`usgscsm.wasm`](https://github.com/DOI-USGS/usgscsm/releases/download/2.1.0/usgscsm.wasm)** - The WebAssembly binary (~942 KB)
+2. **[`usgscsm.js`](https://github.com/DOI-USGS/usgscsm/releases/download/2.1.0/usgscsm.js)** - JavaScript wrapper/loader (~124 KB)
+3. **[`usgscsm.d.ts`](https://github.com/DOI-USGS/usgscsm/releases/download/2.1.0/usgscsm.d.ts)** - TypeScript type definitions (~9.69 KB)
+
 ## Installation
 
-USGSCSM WASM bindings are distributed via [GitHub Releases](https://github.com/DOI-USGS/usgscsm/releases).
+=== "NPM"
 
-Each release includes three files:
+    In your terminal in your project directory, install usgscsm:  
+    
+    ```sh
+    npm install @usgs-astrogeology/usgscsm
+    ```
 
-1. **`usgscsm.wasm`** - The WebAssembly binary (~942 KB)
-2. **`usgscsm.js`** - JavaScript wrapper/loader (~124 KB)
-3. **`usgscsm.d.ts`** - TypeScript type definitions (~9.69 KB)
+    ### Import
 
-**Latest Release:** [USGSCSM 2.1.0](https://github.com/DOI-USGS/usgscsm/releases/tag/2.1.0)
+    === "via ES Module Import (JS)"
 
-### Download and Include in Your Project
+        At the top of your javascript, import usgscsm:
 
-Download the files from the release page and include them in your project:
+        ```js
+        import usgscsm from "@usgs-astrogeology/usgscsm/"
+        ```
 
-- [usgscsm.wasm](https://github.com/DOI-USGS/usgscsm/releases/download/2.1.0/usgscsm.wasm)
-- [usgscsm.js](https://github.com/DOI-USGS/usgscsm/releases/download/2.1.0/usgscsm.js)
-- [usgscsm.d.ts](https://github.com/DOI-USGS/usgscsm/releases/download/2.1.0/usgscsm.d.ts)
+=== "jsDelivr (CDN)"
 
-Place the files in your project directory and reference them locally:
+    USGSCSM can be imported from jsDelivr as an ES Module in javascript, or a script src in HTML:
 
-```html
-<script src="./usgscsm.js"></script>
-```
+    ### Import
 
-!!! warning "Cannot Load Directly from GitHub"
-    GitHub serves release assets with headers that prevent direct script execution in browsers. You must download the files and serve them from your own web server or local project.
+    === "via ES Module Import (JS)"
 
-## Basic Usage
+        At the top of your javascript:
 
-### In Browser
+        ```js
+        import usgscsm from 'https://cdn.jsdelivr.net/npm/@usgs-astrogeology/usgscsm/dist/usgscsm.js'
+        ```
+    
+    === "via script tag (HTML)"
 
-The simplest way to use USGSCSM WASM is to load it directly in your HTML:
+        In the `<head>...</head>` of your HTML:
 
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <title>USGSCSM WASM Example</title>
-  <script src="usgscsm.js"></script>
-</head>
-<body>
-  <script>
+        ```html
+        <script src="https://cdn.jsdelivr.net/npm/@usgs-astrogeology/usgscsm/dist/usgscsm.js"></script>
+        ```
+
+=== "Manual Download"
+
+    Download the above files from the 
+    [release page](https://github.com/DOI-USGS/usgscsm/releases), 
+    and place the files in your project directory.
+
+    ### Import
+
+    === "via ES Module Import (JS)"
+
+        At the top of your javascript, import usgscsm:
+
+        ```js
+        import usgscsm from "./scripts/usgscsm.js"
+        ```
+
+    === "via script tag (HTML)"
+
+        In the `<head>...</head>` of your HTML:
+
+        ```html
+        <script src="./scripts/usgscsm.js"></script>
+        ```
+
+=== "⚠️ GitHub"
+
+    !!! warning "Cannot Load Directly from GitHub"
+        GitHub has headers that prevent direct script use in browsers. You must download the files and serve them from your own web server or local project, or use a CDN like unpkg or jsdelivr.
+
+??? warning "Using `import` requires an ES Module"
+
+    To use the import syntax in your JS, 
+    you may need to install a module bundler, 
+    like Vite:
+
+    ```sh
+    # To install Vite from your terminal
+    npm create vite@latest
+    ```
+
+    Or, use the `type="module"` in a script in your HTML:
+
+    ```html
+    <script type="module">
+
+      import USGSCSM from 'https://cdn.jsdelivr.net/npm/@usgs-astrogeology/usgscsm/dist/usgscsm.js';
+
+      // ...
+
+    </script>
+    ```
+
+    If you aren't using an ES Module, import via the script tag your HTML page's head.
+
+    ```html
+    <script src="https://cdn.jsdelivr.net/npm/@usgs-astrogeology/usgscsm/dist/usgscsm.js"></script>
+    ```
+
+## Setup
+
+Wait for usgscsm() to load, thin load the module.
+
+??? example "Plain HTML"
+
+    The simplest way to use USGSCSM WASM is to load it directly in your HTML:
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>USGSCSM WASM Example</title>
+      <script src="usgscsm.js"></script>
+    </head>
+    <body>
+      <script>
+        usgscsm().then(Module => {
+          console.log('USGSCSM ready');
+          // Your code here
+        });
+      </script>
+    </body>
+    </html>
+    ```
+
+??? example "ES Modules"
+
+    If you're using a module bundler (like Vite or Webpack) or `<script type="module">`, you can import the files directly:
+
+    ```js
+    import usgscsm from 'https://cdn.jsdelivr.net/npm/@usgs-astrogeology/usgscsm/dist/usgscsm.js'
+
     usgscsm().then(Module => {
-      console.log('USGSCSM ready');
-      // Your code here
+      // WASM module loaded and ready
     });
-  </script>
-</body>
-</html>
-```
+    ```
 
-### With Module Bundlers (Webpack, Vite, etc.)
+    For TypeScript projects, include `usgscsm.d.ts` in your project for type definitions.
 
-If you're using a module bundler, you can import the files directly:
+## Full Example
 
-```javascript
-// Make sure usgscsm.js and usgscsm.wasm are in your project
-import usgscsm from './path/to/usgscsm.js';
+???+ example
 
-usgscsm().then(Module => {
-  // WASM module loaded and ready
-});
-```
+    Here's a complete example showing how to load a model and perform coordinate conversions:
 
-For TypeScript projects, include `usgscsm.d.ts` in your project for type definitions.
-
-## Complete Example
-
-Here's a complete example showing how to load a model and perform coordinate conversions:
-
-```javascript
-// Load the USGSCSM WASM module
-usgscsm().then(async Module => {
-  // Create a new camera model
-  const model = new Module.USGSCSMModel();
-  
-  // Load from ISD JSON (fetch from file or API)
-  const isdJson = await fetch('path/to/your/model.json').then(r => r.text());
-  const loaded = model.loadFromISD(isdJson, 'USGS_ASTRO_FRAME_SENSOR_MODEL');
-  
-  if (!loaded) {
-    console.error('Failed to load model');
-    return;
-  }
-  
-  // Convert image coordinates to ground
-  const ground = model.imageToGround(512, 512, 0);
-  if (ground) {
-    console.log('ECEF coordinates:', ground);
-    // Output: { x: ..., y: ..., z: ... }
-  }
-  
-  // Convert ground coordinates back to image
-  const image = model.groundToImage(ground.x, ground.y, ground.z);
-  if (image) {
-    console.log('Image coordinates:', image);
-    // Output: { line: 512, sample: 512 }
-  }
-  
-  // Get sensor position
-  const position = model.getSensorPosition(512, 512);
-  console.log('Camera position:', position);
-  
-  // Export model state for faster loading next time
-  const state = model.getModelState();
-  localStorage.setItem('cameraModel', state);
-  
-  // Later, load from saved state (much faster than ISD)
-  const newModel = new Module.USGSCSMModel();
-  newModel.loadFromState(state);
-}).catch(console.error);
-```
+    ```javascript
+    // Load the USGSCSM WASM module
+    usgscsm().then(async Module => {
+      // Create a new camera model
+      const model = new Module.USGSCSMModel();
+      
+      // Load from ISD JSON (fetch from file or API)
+      const isdJson = await fetch('path/to/your/model.json').then(r => r.text());
+      const loaded = model.loadFromISD(isdJson, 'USGS_ASTRO_FRAME_SENSOR_MODEL');
+      
+      if (!loaded) {
+        console.error('Failed to load model');
+        return;
+      }
+      
+      // Convert image coordinates to ground
+      const ground = model.imageToGround(512, 512, 0);
+      if (ground) {
+        console.log('ECEF coordinates:', ground);
+        // Output: { x: ..., y: ..., z: ... }
+      }
+      
+      // Convert ground coordinates back to image
+      const image = model.groundToImage(ground.x, ground.y, ground.z);
+      if (image) {
+        console.log('Image coordinates:', image);
+        // Output: { line: 512, sample: 512 }
+      }
+      
+      // Get sensor position
+      const position = model.getSensorPosition(512, 512);
+      console.log('Camera position:', position);
+      
+      // Export model state for faster loading next time
+      const state = model.getModelState();
+      localStorage.setItem('cameraModel', state);
+      
+      // Later, load from saved state (much faster than ISD)
+      const newModel = new Module.USGSCSMModel();
+      newModel.loadFromState(state);
+    }).catch(console.error);
+    ```
 
 ## Sensor Model Types
 
