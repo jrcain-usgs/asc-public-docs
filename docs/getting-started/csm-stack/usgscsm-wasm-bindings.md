@@ -69,7 +69,7 @@ USGSCSM WASM bindings are distributed via [GitHub Releases](https://github.com/D
 
     Download the above files from the 
     [release page](https://github.com/DOI-USGS/usgscsm/releases), 
-    and place the files in your project directory.
+    and place the files in your project directory.  (For this example, in a `scripts` folder.)
 
     ### Import
 
@@ -125,7 +125,7 @@ USGSCSM WASM bindings are distributed via [GitHub Releases](https://github.com/D
 
 ## Setup
 
-Wait for usgscsm() to load, thin load the module.
+Wait for usgscsm() to load, then load the module.
 
 ??? example "Plain HTML"
 
@@ -165,11 +165,9 @@ Wait for usgscsm() to load, thin load the module.
 
 ## Full Example
 
-???+ example
+???+ example "Loading a model and converting coordinates"
 
-    Here's a complete example showing how to load a model and perform coordinate conversions:
-
-    ```javascript
+    ```js
     // Load the USGSCSM WASM module
     usgscsm().then(async Module => {
       // Create a new camera model
@@ -243,30 +241,32 @@ The ISD format is converted internally to an optimized model state for efficient
 
 ### Example ISD Structure
 
-A typical ISD JSON file includes:
+??? quote "ISD excerpt"
 
-```json
-{
-  "radii": {
-    "semimajor": 3396190.0,
-    "semiminor": 3376200.0
-  },
-  "sensor_position": {
-    "positions": [[3000000, 0, 2000000]],
-    "velocities": [[0, 3000, 0]],
-    "unit": "m"
-  },
-  "image_lines": 1024,
-  "image_samples": 1024,
-  "focal_length": 350.0,
-  "detector_center": {
-    "line": 512,
-    "sample": 512
-  }
-}
-```
+    A typical ISD JSON file includes:
 
-For complete, valid ISD examples, use ALE to generate them from real mission data.
+    ```json
+    {
+      "radii": {
+        "semimajor": 3396190.0,
+        "semiminor": 3376200.0
+      },
+      "sensor_position": {
+        "positions": [[3000000, 0, 2000000]],
+        "velocities": [[0, 3000, 0]],
+        "unit": "m"
+      },
+      "image_lines": 1024,
+      "image_samples": 1024,
+      "focal_length": 350.0,
+      "detector_center": {
+        "line": 512,
+        "sample": 512
+      }
+    }
+    ```
+
+For a minimal working example, see [`simpleFramerISD.json`](https://github.com/DOI-USGS/usgscsm/blob/main/tests/data/simpleFramerISD.json). For a complete, valid example, use ALE to generate an ISD from real mission data.
 
 ## File Requirements
 
@@ -283,6 +283,7 @@ When using USGSCSM WASM bindings:
 
 - [USGSCSM GitHub Repository](https://github.com/DOI-USGS/usgscsm)
 - [USGSCSM Releases](https://github.com/DOI-USGS/usgscsm/releases) - Download WASM bindings
+- [NPM Package](https://www.npmjs.com/package/@usgs-astrogeology/usgscsm)
 - [ALE (for generating ISD files)](https://github.com/DOI-USGS/ale)
 
 ## Support
