@@ -26,6 +26,12 @@ SpiceQL has three APIs that can be accessed to utilize the library:
 
     [^1]: `extractExactCkTimes()` defaults `limitCk` to `1` as it extracts all times associated with segments within a given ephemeris start and stop time in *one* CK file.
 
+!!! note "The `mission` Parameter"
+
+    Most endpoints accept an *optional* `mission` parameter. When it is omitted, SpiceQL infers the mission from the other inputs (e.g. the frame or target).
+
+    Two endpoints are the exception: `findMissionKeywords` and `findTargetKeywords` **require** `mission`, since it cannot be inferred for those calls.
+
 
 ### Response Types
 !!! info "Response Types"
@@ -150,6 +156,61 @@ You can set the flag `useWeb` to enable SpiceQL's cloud feature without having t
         ```
 
 
+??? example "getTargetStatesRanged"
+
+    #### [getTargetStatesRanged](https://astrogeology.usgs.gov/docs/manuals/spiceql/SpiceQLCPPAPI/namespaceSpiceQL/#function-gettargetstatesranged)
+
+    <h3>Function calls</h3>
+
+    === "REST"
+
+        ```bash
+        curl -XGET "https://astrogeology.usgs.gov/apis/spiceql/latest/getTargetStatesRanged?startEt=690201375.8323615&stopEt=690201389.2866975&numRecords=2&target=SUN&observer=Mars&frame=IAU_MARS&abcorr=LT%2BS&mission=ctx&searchKernels=true"
+        ```
+
+    === "Python"
+
+        ```python
+        pql.getTargetStatesRanged(
+            startEt=690201375.8323615,
+            stopEt=690201389.2866975,
+            numRecords=2,
+            target="SUN",
+            observer="Mars",
+            frame="IAU_MARS",
+            abcorr="LT+S",
+            mission="ctx",
+            useWeb=True,
+            searchKernels=True)
+        ```
+
+    === "C++"
+
+        ```c++
+        SpiceQL::getTargetStatesRanged(690201375.8323615, 690201389.2866975, 2, "SUN", "Mars", "IAU_MARS", "LT+S", "ctx", {"reconstructed"}, {"reconstructed"}, true, true)
+        ```
+
+    <h3>Responses</h3>
+
+    === "REST"
+
+        ```json
+        {"statusCode":200,"body":{"return":[[123515791.9197356,187209003.70660537,80611152.03610656,13251.543112826419,-8742.59743846288,-6.575020419444353,794.9856233875888],[123694026.59876697,187091292.98177207,80611063.57350077,13243.211405421573,-8755.213737202022,-6.575031051390969,794.985539001637]],"kernels":{"ck":["mro/kernels/ck/mro_sc_psp_211109_211115.bc"],"ctx_ck_quality":"reconstructed","ctx_spk_quality":"reconstructed","fk":["mro/kernels/fk/mro_v17.tf"],"iak":["mro/kernels/iak/mroctxAddendum005.ti"],"ik":["mro/kernels/ik/mro_ctx_v11.ti"],"lsk":["hayabusa2/kernels/lsk/naif0012.tls","base/kernels/lsk/naif0012.tls"],"pck":["odyssey/kernels/pck/pck00009.tpc","base/kernels/pck/pck00009.tpc"],"sclk":["mro/kernels/sclk/MRO_SCLKSCET.00119.tsc","mro/kernels/sclk/MRO_SCLKSCET.00119.65536.tsc"],"spk":["mro/kernels/spk/mro_psp61_ssd_mro95a.bsp"],"tspk":["dawn/kernels/spk/de432.bsp","tgo/kernels/tspk/mar097.bsp","base/kernels/spk/de430.bsp"]}}}
+        ```
+
+    === "Python"
+
+        ```py
+        ([[123515791.9197356, 187209003.70660537, 80611152.03610656, 13251.543112826419, -8742.59743846288, -6.575020419444353, 794.9856233875888], [123694026.59876697, 187091292.98177207, 80611063.57350077, 13243.211405421573, -8755.213737202022, -6.575031051390969, 794.985539001637]], {'ck': ['mro/kernels/ck/mro_sc_psp_211109_211115.bc'], 'ctx_ck_quality': 'reconstructed', 'ctx_spk_quality': 'reconstructed', 'fk': ['mro/kernels/fk/mro_v17.tf'], 'iak': ['mro/kernels/iak/mroctxAddendum005.ti'], 'ik': ['mro/kernels/ik/mro_ctx_v11.ti'], 'lsk': ['hayabusa2/kernels/lsk/naif0012.tls', 'base/kernels/lsk/naif0012.tls'], 'pck': ['odyssey/kernels/pck/pck00009.tpc', 'base/kernels/pck/pck00009.tpc'], 'sclk': ['mro/kernels/sclk/MRO_SCLKSCET.00119.tsc', 'mro/kernels/sclk/MRO_SCLKSCET.00119.65536.tsc'], 'spk': ['mro/kernels/spk/mro_psp61_ssd_mro95a.bsp'], 'tspk': ['dawn/kernels/spk/de432.bsp', 'tgo/kernels/tspk/mar097.bsp', 'base/kernels/spk/de430.bsp']})
+        ```
+
+    === "C++"
+
+        ```c++
+        {{{123515791.9197356,187209003.70660537,80611152.03610656,13251.543112826419,-8742.59743846288,-6.575020419444353,794.9856233875888},{123694026.59876697,187091292.98177207,80611063.57350077,13243.211405421573,-8755.213737202022,-6.575031051390969,794.985539001637}},{"ck":["mro/kernels/ck/mro_sc_psp_211109_211115.bc"],"ctx_ck_quality":"reconstructed","ctx_spk_quality":"reconstructed","fk":["mro/kernels/fk/mro_v17.tf"],"iak":["mro/kernels/iak/mroctxAddendum005.ti"],"ik":["mro/kernels/ik/mro_ctx_v11.ti"],"lsk":["hayabusa2/kernels/lsk/naif0012.tls","base/kernels/lsk/naif0012.tls"],"pck":["odyssey/kernels/pck/pck00009.tpc","base/kernels/pck/pck00009.tpc"],"sclk":["mro/kernels/sclk/MRO_SCLKSCET.00119.tsc","mro/kernels/sclk/MRO_SCLKSCET.00119.65536.tsc"],"spk":["mro/kernels/spk/mro_psp61_ssd_mro95a.bsp"],"tspk":["dawn/kernels/spk/de432.bsp","tgo/kernels/tspk/mar097.bsp","base/kernels/spk/de430.bsp"]}}
+        ```
+
+
 ??? example "getTargetOrientations"
 
     #### [getTargetOrientations](https://astrogeology.usgs.gov/docs/manuals/spiceql/SpiceQLCPPAPI/namespaceSpiceQL/#function-gettargetorientations)
@@ -198,6 +259,60 @@ You can set the flag `useWeb` to enable SpiceQL's cloud feature without having t
 
         ```c++
         {{{0.9999924134600601,0.0005720078450331138,0.003853027964066137,-2.2039789431520754e-06,0.0,0.0,0.0}},{"ck":["/mro/kernels/ck/mro_sc_psp_211109_211115.bc"],"ctx_ck_quality":"reconstructed","fk":["/mro/kernels/fk/mro_v16.tf"],"lsk":["/base/kernels/lsk/naif0012.tls"],"pck":["/base/kernels/pck/pck00009.tpc"],"sclk":["/mro/kernels/sclk/MRO_SCLKSCET.00112.65536.tsc","/mro/kernels/sclk/MRO_SCLKSCET.00112.tsc"],"tspk":["/base/kernels/spk/de430.bsp"]}}
+        ```
+
+
+??? example "getTargetOrientationsRanged"
+
+    #### [getTargetOrientationsRanged](https://astrogeology.usgs.gov/docs/manuals/spiceql/SpiceQLCPPAPI/namespaceSpiceQL/#function-gettargetorientationsranged)
+
+    <h3>Function calls</h3>
+
+    === "REST"
+
+        ```bash
+        curl -XGET "https://astrogeology.usgs.gov/apis/spiceql/latest/getTargetOrientationsRanged?startEt=690201375.8323615&stopEt=690201389.2866975&numRecords=2&toFrame=-74000&refFrame=-74690&mission=ctx&searchKernels=true"
+        ```
+
+    === "Python"
+
+        ```py
+        pql.getTargetOrientationsRanged(
+            startEt=690201375.8323615,
+            stopEt=690201389.2866975,
+            numRecords=2,
+            toFrame=-74000,
+            refFrame=-74690,
+            mission="ctx",
+            useWeb=True,
+            searchKernels=True
+        )
+        ```
+
+    === "C++"
+
+        ```c++
+        SpiceQL::getTargetOrientationsRanged(690201375.8323615, 690201389.2866975, 2, -74000, -74690, "ctx", {"reconstructed"}, true, true)
+        ```
+
+    <h3>Responses</h3>
+
+    === "REST"
+
+        ```json
+        {"statusCode":200,"body":{"return":[[0.9999924134600603,0.0005720078450331139,0.003853027964066138,-2.203978943152076e-06,0.0,0.0,0.0],[0.9999924134600603,0.0005720078450331139,0.003853027964066138,-2.203978943152076e-06,0.0,0.0,0.0]],"kernels":{"ck":["mro/kernels/ck/mro_sc_psp_211109_211115.bc"],"ctx_ck_quality":"reconstructed","fk":["mro/kernels/fk/mro_v17.tf"],"iak":["mro/kernels/iak/mroctxAddendum005.ti"],"ik":["mro/kernels/ik/mro_ctx_v11.ti"],"lsk":["base/kernels/lsk/naif0012.tls"],"pck":["odyssey/kernels/pck/pck00009.tpc","base/kernels/pck/pck00009.tpc"],"sclk":["mro/kernels/sclk/MRO_SCLKSCET.00119.tsc","mro/kernels/sclk/MRO_SCLKSCET.00119.65536.tsc"],"tspk":["base/kernels/spk/de430.bsp"]}}}
+        ```
+
+    === "Python"
+
+        ```py
+        ([[0.9999924134600603, 0.0005720078450331139, 0.003853027964066138, -2.203978943152076e-06, 0.0, 0.0, 0.0], [0.9999924134600603, 0.0005720078450331139, 0.003853027964066138, -2.203978943152076e-06, 0.0, 0.0, 0.0]], {'ck': ['mro/kernels/ck/mro_sc_psp_211109_211115.bc'], 'ctx_ck_quality': 'reconstructed', 'fk': ['mro/kernels/fk/mro_v17.tf'], 'iak': ['mro/kernels/iak/mroctxAddendum005.ti'], 'ik': ['mro/kernels/ik/mro_ctx_v11.ti'], 'lsk': ['base/kernels/lsk/naif0012.tls'], 'pck': ['odyssey/kernels/pck/pck00009.tpc', 'base/kernels/pck/pck00009.tpc'], 'sclk': ['mro/kernels/sclk/MRO_SCLKSCET.00119.tsc', 'mro/kernels/sclk/MRO_SCLKSCET.00119.65536.tsc'], 'tspk': ['base/kernels/spk/de430.bsp']})
+        ```
+
+    === "C++"
+
+        ```c++
+        {{{0.9999924134600603,0.0005720078450331139,0.003853027964066138,-2.203978943152076e-06,0.0,0.0,0.0},{0.9999924134600603,0.0005720078450331139,0.003853027964066138,-2.203978943152076e-06,0.0,0.0,0.0}},{"ck":["mro/kernels/ck/mro_sc_psp_211109_211115.bc"],"ctx_ck_quality":"reconstructed","fk":["mro/kernels/fk/mro_v17.tf"],"iak":["mro/kernels/iak/mroctxAddendum005.ti"],"ik":["mro/kernels/ik/mro_ctx_v11.ti"],"lsk":["base/kernels/lsk/naif0012.tls"],"pck":["odyssey/kernels/pck/pck00009.tpc","base/kernels/pck/pck00009.tpc"],"sclk":["mro/kernels/sclk/MRO_SCLKSCET.00119.tsc","mro/kernels/sclk/MRO_SCLKSCET.00119.65536.tsc"],"tspk":["base/kernels/spk/de430.bsp"]}}
         ```
 
 
@@ -353,6 +468,57 @@ You can set the flag `useWeb` to enable SpiceQL's cloud feature without having t
         {"27/1321396563.036",{"fk":["/mro/kernels/fk/mro_v16.tf"],"lsk":["/base/kernels/lsk/naif0012.tls"],"sclk":["/mro/kernels/sclk/MRO_SCLKSCET.00112.65536.tsc","/mro/kernels/sclk/MRO_SCLKSCET.00112.tsc"]}}
         ```
         
+
+??? example "doubleEtsToSclkTicks"
+
+    #### [doubleEtsToSclkTicks](https://astrogeology.usgs.gov/docs/manuals/spiceql/SpiceQLCPPAPI/namespaceSpiceQL/#function-doubleEtsToSclkTicks)
+
+    <h3>Function calls</h3>
+
+    === "REST"
+
+        ```bash
+        curl -XGET "https://astrogeology.usgs.gov/apis/spiceql/latest/doubleEtsToSclkTicks?frameCode=-74&ets=\[690201375.8323615\]&mission=ctx&searchKernels=true"
+        ```
+
+    === "Python"
+
+        ```py
+        pql.doubleEtsToSclkTicks(
+            frameCode=-74,
+            ets=[690201375.8323615],
+            mission="ctx",
+            useWeb=True,
+            searchKernels=True
+        )
+        ```
+
+    === "C++"
+
+        ```c++
+        SpiceQL::doubleEtsToSclkTicks(-74, {690201375.8323615}, "ctx", true, true)
+        ```
+
+    <h3>Responses</h3>
+
+    === "REST"
+
+        ```json
+        {"statusCode":200,"body":{"return":[338277517860.0],"kernels":{"fk":["mro/kernels/fk/mro_v17.tf"],"lsk":["base/kernels/lsk/naif0012.tls"],"sclk":["mro/kernels/sclk/MRO_SCLKSCET.00119.tsc","mro/kernels/sclk/MRO_SCLKSCET.00119.65536.tsc"]}}}
+        ```
+
+    === "Python"
+
+        ```py
+        ([338277517860.0], {'fk': ['mro/kernels/fk/mro_v17.tf'], 'lsk': ['base/kernels/lsk/naif0012.tls'], 'sclk': ['mro/kernels/sclk/MRO_SCLKSCET.00119.tsc', 'mro/kernels/sclk/MRO_SCLKSCET.00119.65536.tsc']})
+        ```
+
+    === "C++"
+
+        ```c++
+        {{338277517860.0},{"fk":["mro/kernels/fk/mro_v17.tf"],"lsk":["base/kernels/lsk/naif0012.tls"],"sclk":["mro/kernels/sclk/MRO_SCLKSCET.00119.tsc","mro/kernels/sclk/MRO_SCLKSCET.00119.65536.tsc"]}}
+        ```
+
 
 ??? example "utcToEt"
 
@@ -659,6 +825,8 @@ You can set the flag `useWeb` to enable SpiceQL's cloud feature without having t
 
     #### [findMissionKeywords](https://astrogeology.usgs.gov/docs/manuals/spiceql/SpiceQLCPPAPI/namespaceSpiceQL/#function-findmissionkeywords)
 
+    !!! warning "`mission` is required"
+
     <h3>Function calls</h3>
 
     === "REST"
@@ -708,6 +876,9 @@ You can set the flag `useWeb` to enable SpiceQL's cloud feature without having t
 ??? example "findTargetKeywords"
 
     #### [findTargetKeywords](https://astrogeology.usgs.gov/docs/manuals/spiceql/SpiceQLCPPAPI/namespaceSpiceQL/#function-findtargetkeywords)
+
+    !!! warning "`mission` is required"
+
 
     <h3>Function calls</h3>
 
