@@ -205,7 +205,7 @@ Import and wait for the `usgscsm()` module to load, then create the model, load 
     }).catch(console.error);
     ```
 
-!!! example "The [USGSCSM Interactive Demo](../../how-to-guides/demos/usgscsm-wasm-demo.md) and its [Source Code](https://github.com/DOI-USGS/asc-public-docs/blob/main/docs/how-to-guides/demos/usgscsm-wasm-demo.html)"
+!!! example "The [USGSCSM Interactive Demo →](../../how-to-guides/demos/usgscsm-wasm-demo.md) and its [Source Code →](https://github.com/DOI-USGS/asc-public-docs/blob/main/docs/how-to-guides/demos/usgscsm-wasm-demo.html)"
 
 ??? example "HTML with Embedded Script"
 
