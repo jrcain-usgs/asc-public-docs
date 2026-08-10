@@ -134,6 +134,13 @@ The script can download various types of ISIS data:
 
 We recommend only installing base, and use web spice for most spice operations. See [ISIS Data Docs](isis-data-area.md) for more information.
 
+### Multiple Environments 
+
+If you install ISIS into an environment, it can be difficult to install other packages, largely because of how many dependencies ISIS has. If you need to access ISIS apps but also want to use tools/packages in other environments, there are some options:
+
+1. Add the ISIS install folder to your path, e.g. `export PATH=$PATH:$ISISROOT/bin/`. Note the append to the end, so it cannot conflict with other entries in PATH.
+2. [Nested Environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#nested-activation)
+
 ## Environment Variables
 
 Key environment variables set up by the script:
@@ -143,6 +150,7 @@ Key environment variables set up by the script:
 - `PATH`: Updated to include ISIS binaries
 
 On activation, the environment will automatically set ISISROOT, ISISDATA, and PATH for you. To change these variables after installation (in case they were set incorrectly or your ISISDATA folder changes) see [setting environment variables](#setting-environmental-variables). 
+
 
 ## Updating ISIS
 
