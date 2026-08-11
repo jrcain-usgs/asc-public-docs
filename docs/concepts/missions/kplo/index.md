@@ -26,7 +26,7 @@ shadowcamcal from=M091671205SE.isis.cub to=M091671205SE.cal.cub
 
 Note that the ShadowCam Team also provides calibrated ISIS cubes as part of its data releases, which are ready-to-go and do not need to be imported or calibrated.  If run on a precalibrated ShadowCam cube, the import and calibration ISIS apps will notify that that their processing is not needed.
 
-### Attatching SPICE
+### Attaching SPICE
 
 After import and calibration, attach spice information with:
 
