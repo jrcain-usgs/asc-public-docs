@@ -4,11 +4,15 @@
 
 <div class="grid cards" markdown>
 
--   [KPLO (Danuri)](kplo/index.md) (2022-Present)
+-   [![](kplo/assets/kplo-spacecraft.png){width=80 align=right}](kplo/assets/kplo-spacecraft.png "KPLO Spacecraft Render")
+    [KPLO (Danuri)](kplo/index.md)  
+    (2022-Present)
 
     ---
 
-    - [ShadowCam Data](kplo/index.md#shadowcam)
+    - ShadowCam Data
+        - [Import and Calibration](kplo/shadowcam-import.md)
+        - [Calculating Photometric Angles](kplo/shadowcam-photometric-angles.md)
 
 
 
@@ -48,7 +52,7 @@
 
     - [MOC - Mars Orbiter Camera Data](mgs/moc-mars-orbiter-camera.md)
 
--   [![VikingOrbiter_ArtistConcept.png](vik/assets/VikingOrbiter_ArtistConcept.png){width=40 align=right}](vik/assets/VikingOrbiter_ArtistConcept.png "Viking Oribiter Artist's concept drawing")
+-   [![](vik/assets/VikingOrbiter_ArtistConcept.png){width=40 align=right}](vik/assets/VikingOrbiter_ArtistConcept.png "Viking Oribiter Artist's concept drawing")
     [Viking Orbiter](vik/index.md)  
     (1976-1980)
 
