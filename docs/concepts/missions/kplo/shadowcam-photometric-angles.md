@@ -102,7 +102,7 @@ crop from=M076035652SC.cub to=M076035652SC.crop.cub sample=850 line=41600 nsampl
 
 ### 4. Run `phocube`
 
-`phocube` can calculate incedence and emission angles for an image.  (See also: [Camera Geometry - phocube](../../../concepts/camera-geometry-and-projections/camera-geometry/#phocube) and the [phocube ISIS App Manual](https://isis.astrogeology.usgs.gov/dev/Application/presentation/Tabbed/phocube/phocube.html))
+`phocube` can calculate incedence and emission angles for an image.  (See also: [Camera Geometry - phocube](../../../concepts/camera-geometry-and-projections/camera-geometry.md#phocube) and the [phocube ISIS App Manual](https://isis.astrogeology.usgs.gov/dev/Application/presentation/Tabbed/phocube/phocube.html))
 
 ??? note "Enabling the Progress Bar to Monitor Long Runtimes"
 
