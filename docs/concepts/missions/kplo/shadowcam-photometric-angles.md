@@ -8,7 +8,7 @@ Capturing Data on **[Permanently Shadowed Regions (PSRs)](https://svs.gsfc.nasa.
 
 For this guide, we will use [ShadowCam Observation M076035652S](https://data.im-ldi.com/mds/shadowcam_published/M076035652S).  It is in the south-polar region of the moon, and intersects with the [Sverdrup Crater PSR](https://planetarynames.wr.usgs.gov/Feature/5782), which has been [suggested as a candidate](https://planetarynames.wr.usgs.gov/Feature/5782) for settlement.
 
-- [Download Calibrated ISIS Image: M076035652SC.cub](https://pds.shadowcam.im-ldi.com/observation/2025/001/M076035652S/M076035652SC.cub)
+- Download Calibrated ISIS Image: [M076035652SC.cub](https://pds.shadowcam.im-ldi.com/observation/2025/001/M076035652S/M076035652SC.cub)
 
 
 ??? note "Finding ShadowCam Observations"
@@ -17,9 +17,9 @@ For this guide, we will use [ShadowCam Observation M076035652S](https://data.im-
 
     An array of data products are available for each image. For our observation, M076035652S**C**.cub is the **C**alibrated 32-bit version, and M076035652S**E**.cub is the non-calibrated 8-bit **E**DR version.
 
-### Local DTMs
+### Local DEMs
 
-Using a local DTM will give you the best data for calculating photometric angles. According to its [Space Exploration Resources Data Portal Page](https://data.im-ldi.com/mds/shadowcam_published/M076035652S), our observation ranges from about -88.88 to -85.6 latitude.
+Using a local DEM will give you the best data for calculating photometric angles. According to its [Space Exploration Resources Data Portal Page](https://data.im-ldi.com/mds/shadowcam_published/M076035652S), our observation ranges from about -88.88 to -85.6 latitude.
 
 For this guide, use the LRO LOLA Derived DEM [ldem_85s_10](https://ode.rsl.wustl.edu/moon/productDetail.aspx?product_id=ldem_85s_10m&product_idGeo=33203452). It covers lunar latitudes -85 to the south pole (-90).
 
@@ -104,7 +104,7 @@ crop from=M076035652SC.cub to=M076035652SC.crop.cub sample=850 line=41600 nsampl
 
 `phocube` can calculate incedence and emission angles for an image.  (See also: [Camera Geometry - phocube](concepts/camera-geometry-and-projections/camera-geometry/#phocube) and the [phocube ISIS App Manual](https://isis.astrogeology.usgs.gov/dev/Application/presentation/Tabbed/phocube/phocube.html))
 
-??? note "Enabling the Progress Bar in IsisPreferences"
+??? note "Enabling the Progress Bar to Monitor Long Runtimes"
 
     To monitor `phocube`'s progress over what may be a long run-time, configure the `ProgressBar=On` and set the desired `ProgressBarPercent` in the IsisPreferences file, under `Group=UserInterface`:
 
@@ -116,7 +116,7 @@ crop from=M076035652SC.cub to=M076035652SC.crop.cub sample=850 line=41600 nsampl
     EndGroup
     ```
 
-Set `localincidence` and `localemission` to true if using your own DEM.  (The non-local versions will just use general values from the ellipsoid.)  It creates a band (an array with a measurement at each pixel) for each specified item.  In this example, it makes a band for local incedence angles, and a band for local emission angles:
+Set `localincidence` and `localemission` to true if using your own DEM.  (The non-local versions will just use general values from the ellipsoid.)  It creates a band for each specified item.  In this example, it makes a band for local incedence angles, and a band for local emission angles:
 
 ```sh
 phocube from=M076035652SC.crop.cub to=M076035652SC.angles.cub \
@@ -124,7 +124,7 @@ localemission=true localincidence=true \
 emission=false incidence=false phase=false latitude=false longitude=false
 ```
 
-By default, phocube outputs a band for emission (ellipsoid), incidence (ellipsoid), phase, latitiude, and longitude.  They must be set to false if the those bands are not desired.
+*By default, phocube outputs a band for emission (ellipsoid), incidence (ellipsoid), phase, latitiude, and longitude.  They must be set to false if the those bands are not desired.*
 
 #### Visual Output
 
