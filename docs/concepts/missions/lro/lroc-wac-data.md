@@ -61,7 +61,7 @@ Here are a couple of images with the Tycho crater:
     export ISISDATA=/path/of/your/choice
     ```
 
-    This command downloads auxilliary files, including those needed for calibration (~5GB), without downloading the whole LRO kernel set, which is quite large.
+    This command downloads auxiliary files, including those needed for calibration (~5GB), without downloading the whole LRO kernel set, which is quite large.
 
     ```sh
     downloadIsisData lro $ISISDATA --no-kernels
