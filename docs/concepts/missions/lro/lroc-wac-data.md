@@ -37,12 +37,35 @@ Here are a couple of images with the Tycho crater:
     `image.vis.even.cub` and `image.vis.odd.cub`.
 
 !!! example "Add SPICE data with [`spiceinit`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/spiceinit/spiceinit.html)"
-    ```sh
-    spiceinit from = image.vis.even.cub
-    spiceinit from = image.vis.odd.cub
-    ```
+    
+    === "Local"
+    
+        ```sh
+        spiceinit from = image.vis.even.cub
+        spiceinit from = image.vis.odd.cub
+        ```
+
+    === "Web"
+
+        ```sh
+        spiceinit from= image.vis.even.cub web=true
+        spiceinit from= image.vis.odd.cub web=true
+        ``` 
 
 ### Processing
+
+!!! note "LRO Dark Files needed for Calibration"
+
+    If you haven't yet set up ISISDATA, pick a path to install data to:
+    ```sh
+    export ISISDATA=/path/of/your/choice
+    ```
+
+    This command downloads auxilliary files, including those needed for calibration (~5GB), without downloading the whole LRO kernel set, which is quite large.
+
+    ```sh
+    downloadIsisData lro $ISISDATA --no-kernels
+    ```
 
 !!! example "Radiometrically Calibrate the images with [`lrowaccal`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/lrowaccal/lrowaccal.html)"
     ```sh
