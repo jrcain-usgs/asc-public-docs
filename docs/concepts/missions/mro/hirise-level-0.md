@@ -137,6 +137,12 @@ has a map which can be searched by drawing a box around an area of interest.
 
 ## Ingestion
 
+### Configuring Kernels
+
+--8<-- "docs/snippets/kernel-setup.md"
+
+*The short-name for this mission is `mro`.*
+
 ### EDR Format and Labels
 
 !!! info inline end ""
