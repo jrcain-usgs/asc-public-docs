@@ -230,6 +230,14 @@ and place necessary information into the labels of the image.
 
 -----
 
+## Configuring Kernels
+
+--8<-- "docs/snippets/kernel-setup.md"
+
+*The short-name for this mission is `mgs`.*
+
+-----
+
 ### Importing MOC Data
 
 The **Standard Decompressed Data Products**, which have an .img
