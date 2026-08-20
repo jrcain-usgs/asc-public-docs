@@ -24,6 +24,11 @@ Here are a couple of images with the Tycho crater:
     http://pds.lroc.asu.edu/data/LRO-L-LROC-2-EDR-V1.0/LROLRC_0002/DATA/MAP/2010035/WAC/M119923055ME.IMG
     http://pds.lroc.asu.edu/data/LRO-L-LROC-2-EDR-V1.0/LROLRC_0002/DATA/MAP/2010035/WAC/M119929852ME.IMG
 
+## Configuring Kernels
+
+--8<-- "docs/snippets/kernel-setup.md"
+
+*The short-name for this mission is `lro`.*
 
 ## Importing and Processing LROC WAC Images in ISIS
 
@@ -38,34 +43,14 @@ Here are a couple of images with the Tycho crater:
 
 !!! example "Add SPICE data with [`spiceinit`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/spiceinit/spiceinit.html)"
     
-    === "Local"
-    
-        ```sh
-        spiceinit from = image.vis.even.cub
-        spiceinit from = image.vis.odd.cub
-        ```
-
-    === "Web"
-
-        ```sh
-        spiceinit from= image.vis.even.cub web=true
-        spiceinit from= image.vis.odd.cub web=true
-        ``` 
+    ```sh
+    spiceinit from = image.vis.even.cub
+    spiceinit from = image.vis.odd.cub
+    ```
 
 ### Processing
 
-!!! note "LRO Dark Files needed for Calibration"
-
-    If you haven't yet set up ISISDATA, pick a path to install data to:
-    ```sh
-    export ISISDATA=/path/of/your/choice
-    ```
-
-    This command downloads auxiliary files, including those needed for calibration (~5GB), without downloading the whole LRO kernel set, which is quite large.
-
-    ```sh
-    downloadIsisData lro $ISISDATA --no-kernels
-    ```
+--8<-- "docs/snippets/lro-darkfiles.md"
 
 !!! example "Radiometrically Calibrate the images with [`lrowaccal`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/lrowaccal/lrowaccal.html)"
     ```sh
