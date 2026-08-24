@@ -21,7 +21,10 @@ For this guide, we will use [ShadowCam Observation M076035652S](https://data.im-
 
 Using a local DEM will give you the best data for calculating photometric angles. According to its [Space Exploration Resources Data Portal Page](https://data.im-ldi.com/mds/shadowcam_published/M076035652S), our observation ranges from about -88.88 to -85.6 latitude.
 
-For this guide, use the LRO LOLA Derived DEM [ldem_85s_10](https://ode.rsl.wustl.edu/moon/productDetail.aspx?product_id=ldem_85s_10m&product_idGeo=33203452). It covers lunar latitudes -85 to the south pole (-90).
+[![Map of the South Pole of the Moon, out to 85 degrees, colored to show elevation data.](https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/BROWSE/lola_gdr/ldem_85s_10m_600dpi.jpg){align=right width=100}](https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/BROWSE/lola_gdr/ldem_85s_10m_600dpi.jpg)
+
+For this guide, use the LRO LOLA Derived DEM [ldem_85s_10](https://ode.rsl.wustl.edu/moon/productDetail.aspx?product_id=ldem_85s_10m&product_idGeo=33203452).  
+It covers lunar latitudes -85 to the south pole (-90).
 
 - Download [ldem_85s_10m.img](https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_85s_10m.img)
 - Download [ldem_85s_10m.lbl](https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_85s_10m.lbl)
@@ -36,6 +39,8 @@ For this guide, use the LRO LOLA Derived DEM [ldem_85s_10](https://ode.rsl.wustl
 pds2isis from=ldem_85s_10m.lbl to=ldem_85s_10m.cub
 demprep from=ldem_85s_10m.cub to=ldem_85s_10m.shape.cub
 ```
+
+*ISIS App Manuals: [`pds2isis`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/pds2isis/pds2isis.html); [`demprep`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/demprep/demprep.html);*
 
 ## Using ISIS
 
@@ -56,7 +61,7 @@ spiceinit from=M076035652SC.cub shape=user model=ldem_85s_10m.shape.cub
 
 ### 2. Cropping (Optional)
 
-The `phocube` calculation can take long time. If necessary, crop your image to a location of interest to save time. 
+The [`phocube`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/phocube/phocube.html) calculation can take long time. If necessary, crop your image to a location of interest to save time. 
 If using a full-sized shadowcam image, expect phocube to run for hours, maybe even day or two on slower machines.
 
 ??? example "Finding an area of interest in `qview`"
@@ -92,7 +97,7 @@ If using a full-sized shadowcam image, expect phocube to run for hours, maybe ev
 
     </div>
 
-#### The `crop` command
+#### The [`crop`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/crop/crop.html) command
 
 Once an area of interest has been determined, create a cropped image with this command:
 
@@ -109,7 +114,8 @@ crop from=M076035652SC.cub to=M076035652SC.crop.cub sample=850 line=41600 nsampl
 
 ### 4. Run `phocube`
 
-`phocube` can calculate incedence and emission angles for an image.  (See also: [Camera Geometry - phocube](../../../concepts/camera-geometry-and-projections/camera-geometry.md#phocube) and the [phocube ISIS App Manual](https://isis.astrogeology.usgs.gov/dev/Application/presentation/Tabbed/phocube/phocube.html))
+[`phocube`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/phocube/phocube.html) can calculate incedence and emission angles for an image.  
+*(See also: [Camera Geometry - phocube](../../../concepts/camera-geometry-and-projections/camera-geometry.md#phocube))*
 
 ??? note "Enabling the Progress Bar to Monitor Long Runtimes"
 
