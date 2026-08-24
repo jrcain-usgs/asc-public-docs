@@ -39,6 +39,13 @@ demprep from=ldem_85s_10m.cub to=ldem_85s_10m.shape.cub
 
 ## Using ISIS
 
+### Configuring Kernels
+
+--8<-- "docs/snippets/kernel-setup.md"
+
+*The short-name for this mission is `kplo`.*
+
+
 ### 1. spiceinit with DEM
 
 For the best data, the image should be [`spiceinit`](https://isis.astrogeology.usgs.gov/dev/Application/presentation/Tabbed/spiceinit/spiceinit.html)ed with a local DEM.

@@ -1,5 +1,13 @@
 # Using ShadowCam Data in ISIS
 
+## Kernel Setup
+
+## Configuring Kernels
+
+--8<-- "docs/snippets/kernel-setup.md"
+
+*The short-name for this mission is `kplo`.*
+
 ## Import & Calibration
 
 In ISIS, Raw EDR ShadowCam images can be imported and calibrated as so:
