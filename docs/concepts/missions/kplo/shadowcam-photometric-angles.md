@@ -28,7 +28,7 @@ For this guide, use the LRO LOLA Derived DEM [ldem_85s_10](https://ode.rsl.wustl
 
 ??? note "Finding DEMs"
 
-    As of August 2026, LOLA Derived DEMs can be found at the [WUSTL LODE Data Portal](https://ode.rsl.wustl.edu/moon/productsearch), under `Lunar Reconnaissance Orbiter` > `LOLA` > `Derived Data` > `PDS4 Gridded Data Record Shape Map (GDRDEM)`.  That dataset contains DEM centered at the poles, extending as far as 40 degrees north or south away.  The smaller DEMs (i.e., those only extending to 90 degrees) are available in higher resolution.
+    As of August 2026, LOLA Derived DEMs can be found at the [WUSTL LODE Data Portal](https://ode.rsl.wustl.edu/moon/productsearch), under `Lunar Reconnaissance Orbiter` > `LOLA` > `Derived Data` > `PDS4 Gridded Data Record Shape Map (GDRDEM)`.  That dataset contains DEMs centered at the poles, extending as far as 40 degrees north or south away.  The geographically smaller DEMs (i.e., those extending to 85 degrees, only 5 degrees from the pole) are available in higher resolution.
 
 #### Import DEM into ISIS
 

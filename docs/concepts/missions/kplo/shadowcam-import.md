@@ -1,8 +1,6 @@
 # Using ShadowCam Data in ISIS
 
-## Kernel Setup
-
-## Configuring Kernels
+## Configuring Kernels and Calibration Files
 
 --8<-- "docs/snippets/kernel-setup.md"
 
