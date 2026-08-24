@@ -144,7 +144,11 @@ for, allowing this process to run smoothly.
 
     </div>
 
+### Configuring Kernels
 
+--8<-- "docs/snippets/kernel-setup.md"
+
+*The short-names for this mission are `viking1` and `viking2`.*
 
 ### Importing Viking Orbiter Data
 

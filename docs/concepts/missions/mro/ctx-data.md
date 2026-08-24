@@ -122,6 +122,13 @@ The steps of level 0 processing are:
     - [MRO CTX PDS Archive - USGS](https://pdsimage2.wr.usgs.gov/Mars_Reconnaissance_Orbiter/CTX/)
 
 
+### Configuring Kernels
+
+--8<-- "docs/snippets/kernel-setup.md"
+
+*The short-name for this mission is `mro`.*
+
+
 ### Ingesting CTX Data 
 
 #### Importing CTX EDR images into ISIS

@@ -1,5 +1,11 @@
 # Processing LRO MiniRF S-Zoom Data
 
+## Configuring Kernels
+
+--8<-- "docs/snippets/kernel-setup.md"
+
+*The short-name for this mission is `lro`.*
+
 ## Data Ingestion
 
 !!! example "Import image to ISIS cube with [`mrf2isis`](https://isis.astrogeology.usgs.gov/Application/presentation/Tabbed/mrf2isis/mrf2isis.html)"
