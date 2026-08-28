@@ -244,8 +244,6 @@ Queries that deal with Target States/Orientations, Frame Trace, Sclk Conversions
         └── spiceql_wasm.wasm
         ```
 
-        The script may be run with: `node translate-spacecraft-time-local.js`
-
         ```js title="translate-spacecraft-time-local.js"
         // Import and Load SpiceQL
         import { readFileSync } from 'node:fs';
@@ -278,9 +276,9 @@ Queries that deal with Target States/Orientations, Frame Trace, Sclk Conversions
             './data/lro/kernels/sclk/lro_clkcor_2024262_v00.tsc',
         ]
         for (const url of kernelUrls) {
-            const path = '/kernels/' + url.split('/').pop();    // Get filname, discard path
-            spiceql.mountKernel(path, readFileSync(url));       // Mount as sanitized path
-            kernelList.push(path)                               // Add sanitized path to list
+            const kernelPath = '/kernels/' + url.split('/').pop();    // Get filname, discard path
+            spiceql.mountKernel(kernelPath, readFileSync(url));       // Mount as sanitized path
+            kernelList.push(kernelPath)                               // Add sanitized path to list
         }
 
         // Convert Spacecraft Clock Time (sclk) to Ephemeris Time (et)
@@ -301,27 +299,39 @@ Queries that deal with Target States/Orientations, Frame Trace, Sclk Conversions
         console.log("Sclk time " + sclkTime + " on the " + frameName + " is");
         console.log("Earth UTC", utcTime);
         ```
+
+
+        
+        ```sh title="Run in your terminal"
+        node translate-spacecraft-time-local.js
+        ```
+
+        ```sh title="Output"
+        ---
+        Initial Data:
+        It is Sclk Time 922997380.174174
+        At Frame Code -85
+        ---
+        Frame Code -85 is the LUNAR RECONNAISSANCE ORBITER
+        ---
+        Sclk time 922997380.174174 on the LUNAR RECONNAISSANCE ORBITER is
+        Ephemeris Time 31593348.006268278
+        ---
+        Sclk time 922997380.174174 on the LUNAR RECONNAISSANCE ORBITER is
+        Earth UTC 2001-01-01T03:54:44
+        ```
     
     === "NPM + Vite"
 
-        For this example, follow the NPM installation instructions above. 
-        
-        `index.html` should contain `<input>` elements with these IDs and values:
-
-        - `<input id="frame-code" disabled="true" value="-85"></input>`
-        - `<input id="sclk-time" type="datetime" value="922997380.174174"></input>`
-
-        and display elements with IDs of `frame-name`, `eph-time`, and `utc-time`,  
-        and a `<button>` with the ID `convert`.
+        For this example, follow the [NPM installation instructions](#__tabbed_1_1) above. 
 
         Place the required kernels in the public/data folder, with a scheme
-        matching ISISDATA.
+        matching ISISDATA. (See the kernelUrls in the example.)
 
         Place the JS code in `src/main.js`.
 
         ```sh title="File Tree"
         project/
-        ├── dist/
         ├── node_modules/
         ├── public/
         │   └── data
@@ -334,56 +344,126 @@ Queries that deal with Target States/Orientations, Frame Trace, Sclk Conversions
         └── package.json
         ```
 
-        ```js title="main.js"
-        import { loadSpiceQL } from '@usgs-astrogeology/spiceql';
-        const spiceql = await loadSpiceQL();
+        === "src/main.js"
 
-        // Mount Kernels
-        const kernelList = [];
-        const kernelUrls = [
-            'data/base/kernels/lsk/naif0012.tls',
-            'data/lro/kernels/iak/lro_instrumentAddendum_v05.ti',
-            'data/lro/kernels/fk/lro_frames_2014049_v01.tf',
-            'data/lro/kernels/sclk/lro_clkcor_2024262_v00.tsc',
-        ]
-        for (const url of kernelUrls) {
-            const kernelData = await fetch(url);                              // Fetch
-            const kernelBuff = new Uint8Array(await kernelData.arrayBuffer()) // Load into Buffer
-            const kernelPath = '/kernels/' + url.split('/').pop();            // Get filname, discard path
-            spiceql.mountKernel(kernelPath, kernelBuff);                      // Mount as sanitized path
-            kernelList.push(kernelPath)                                       // Add sanitized path to list
-        }
+            ```js
+            import { loadSpiceQL } from '@usgs-astrogeology/spiceql';
+            const spiceql = await loadSpiceQL();
 
-        const convertTime = () => {
-            // Read Initial Data
-            const frameCode = document.getElementById("frame-code").value;
-            const sclkTime = document.getElementById("sclk-time").value;
+            // Mount Kernels
+            const kernelList = [];
+            const kernelUrls = [
+                'data/base/kernels/lsk/naif0012.tls',
+                'data/lro/kernels/iak/lro_instrumentAddendum_v05.ti',
+                'data/lro/kernels/fk/lro_frames_2014049_v01.tf',
+                'data/lro/kernels/sclk/lro_clkcor_2024262_v00.tsc',
+            ]
+            for (const url of kernelUrls) {
+                const kernelData = await fetch(url);                              // Fetch
+                const kernelBuff = new Uint8Array(await kernelData.arrayBuffer()) // Load into Buffer
+                const kernelPath = '/kernels/' + url.split('/').pop();            // Get filname, discard path
+                spiceql.mountKernel(kernelPath, kernelBuff);                      // Mount as sanitized path
+                kernelList.push(kernelPath)                                       // Add sanitized path to list
+            }
 
-            // Get Frame Name from Code
-            const { result: frameName } = spiceql.translateCodeToName(frameCode, {
-                mission: 'lro',
-                searchKernels: false,
-                kernelList,
-            });
-            document.getElementById("frame-name").innerHTML = "Frame Name: " + frameName;
+            const convertTime = () => {
+                // Read Initial Data
+                const frameCode = document.getElementById("frame-code").value;
+                const sclkTime = document.getElementById("sclk-time").value;
 
-            // Convert Spacecraft Clock Time (sclk) to Ephemeris Time (et)
-            const { result: ephTime } = spiceql.doubleSclkToEt(frameCode, sclkTime, {
-                mission: 'lro',
-                searchKernels: false,
-                kernelList,
-            });
-            document.getElementById("eph-time").innerHTML = "Ephemeris Time: " + ephTime;
+                // Get Frame Name from Code
+                const { result: frameName } = spiceql.translateCodeToName(frameCode, {
+                    mission: 'lro',
+                    searchKernels: false,
+                    kernelList,
+                });
+                document.getElementById("frame-name").innerHTML = "Frame Name: " + frameName;
 
-            // Get UTC from ET
-            const { result: utcTime } = spiceql.etToUtc(ephTime, {
-                searchKernels: false
-            });
-            document.getElementById("utc-time").innerHTML = "UTC Time: " + utcTime;
-        }
+                // Convert Spacecraft Clock Time (sclk) to Ephemeris Time (et)
+                const { result: ephTime } = spiceql.doubleSclkToEt(frameCode, sclkTime, {
+                    mission: 'lro',
+                    searchKernels: false,
+                    kernelList,
+                });
+                document.getElementById("eph-time").innerHTML = "Ephemeris Time: " + ephTime;
 
-        document.getElementById('convert').addEventListener('click', convertTime);
-        ```
+                // Get UTC from ET
+                const { result: utcTime } = spiceql.etToUtc(ephTime, {
+                    searchKernels: false
+                });
+                document.getElementById("utc-time").innerHTML = "UTC Time: " + utcTime;
+            }
+
+            document.getElementById('convert').addEventListener('click', convertTime);
+            ```
+
+        === "index.html"
+
+            ```html
+            <!doctype html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8" />
+                    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <title>spql-wasm</title>
+                </head>
+                <body>
+                    <div id="outer">
+                        <div>
+                        Input
+                        <hr/>
+                        <label for="frame-code">
+                            Frame Code
+                        </label>
+                        <br/>
+                        <input id="frame-code" disabled="true" value="-85"></input>
+                        <br/>
+                        <br/>
+                        <label for="sclk-time">
+                            Spacecraft Clock (SCLK)
+                        </label>
+                        <br/>
+                        <input id="sclk-time" type="datetime" value="922997380.174174"></input>
+                        <br/>
+                        <br/>
+                        <button id="convert">Convert Time →</button>
+                        </div>
+                        <div id="result">
+                        Output
+                        <hr/>
+                        <p id="frame-name">Frame Name: </p>
+                        <p id="eph-time">Ephemeris Time: </p>
+                        <p id="utc-time">UTC Time: </p>
+                        </div>
+                    </div>
+                    <script type="module" src="/src/main.js"></script>
+                </body>
+            </html>
+            ```
+        === "src/style.css"
+
+            ```css
+            body {
+                font-family: sans-serif;
+                background-color: rgb(30, 33, 31);
+            }
+
+            #outer {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 50px;
+            }
+
+            #outer > div {
+                background-color: rgb(68, 80, 175);
+                color: white;
+                margin: 5px;
+                padding: 10px;
+                align-content: center;
+                border-radius: 5px;
+            }
+            ```
 
     === "Online"
         
