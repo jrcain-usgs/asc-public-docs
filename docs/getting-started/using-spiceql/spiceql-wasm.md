@@ -1,6 +1,6 @@
 # Using SpiceQL WebAssembly Bindings
 
-SpiceQL is an inteface for querying data from NAIF SPICE Kernels.  It has WebAssembly (Wasm) Bindings so it can be used in Web, JavaScript, and Node.js environments.
+SpiceQL is an interface for querying data from NAIF SPICE Kernels.  It has WebAssembly (Wasm) Bindings so it can be used in Web, JavaScript, and Node.js environments.
 
 
 With kernels loaded in to the virtual filesystem, SpiceQL can be used to let a web read data from it.
@@ -237,7 +237,7 @@ Queries that deal with Target States/Orientations, Frame Trace, Sclk Conversions
 
     === "Online Kernels"
 
-        `fetch` can retrive files from a server, i.e. local files you are serving with `npm run dev`, or 3rd-party hosted files (as long the 3rd-party allows cross-origin requests).
+        `fetch` can retrieve files from a server, i.e. local files you are serving with `npm run dev`, or 3rd-party hosted files (as long the 3rd-party allows cross-origin requests).
 
         ```js
         const mro_v16_file = await fetch('https://asc-isisdata.s3.us-west-2.amazonaws.com/usgs_data/mro/kernels/fk/mro_v16.tf');
@@ -298,7 +298,7 @@ Queries that deal with Target States/Orientations, Frame Trace, Sclk Conversions
             './data/lro/kernels/sclk/lro_clkcor_2024262_v00.tsc',
         ]
         for (const url of kernelUrls) {
-            const kernelPath = '/kernels/' + url.split('/').pop();    // Get filname, discard path
+            const kernelPath = '/kernels/' + url.split('/').pop();    // Get filename, discard path
             spiceql.mountKernel(kernelPath, readFileSync(url));       // Mount as sanitized path
             kernelList.push(kernelPath)                               // Add sanitized path to list
         }
@@ -383,7 +383,7 @@ Queries that deal with Target States/Orientations, Frame Trace, Sclk Conversions
             for (const url of kernelUrls) {
                 const kernelData = await fetch(url);                              // Fetch
                 const kernelBuff = new Uint8Array(await kernelData.arrayBuffer()) // Load into Buffer
-                const kernelPath = '/kernels/' + url.split('/').pop();            // Get filname, discard path
+                const kernelPath = '/kernels/' + url.split('/').pop();            // Get filename, discard path
                 spiceql.mountKernel(kernelPath, kernelBuff);                      // Mount as sanitized path
                 kernelList.push(kernelPath)                                       // Add sanitized path to list
             }
@@ -509,7 +509,7 @@ Queries that deal with Target States/Orientations, Frame Trace, Sclk Conversions
         for (const url of kernelUrls) {
             const kernelData = await fetch(url);                              // Fetch
             const kernelBuff = new Uint8Array(await kernelData.arrayBuffer()) // Load into Buffer
-            const kernelPath = '/kernels/' + url.split('/').pop();            // Get filname, discard path
+            const kernelPath = '/kernels/' + url.split('/').pop();            // Get filename, discard path
             spiceql.mountKernel(kernelPath, kernelBuff);                      // Mount as sanitized path
             kernelList.push(kernelPath)                                       // Add sanitized path to list
         }
