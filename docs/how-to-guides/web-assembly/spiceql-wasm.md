@@ -168,7 +168,7 @@ SpiceQL has some general NAIF SPICE Information built-in.  The following command
         ```sh
         node spiceql-mini-example.js
         ```
-    
+
     === "Online (jsFiddle)"
 
         Note: To use SpiceQL in a JS Fiddle, you must manually override the file path to use the CDN path:
@@ -231,6 +231,19 @@ Queries that deal with Target States/Orientations, Frame Trace, Sclk Conversions
         are in a directory at the same level as the example script. 
         The kernels are in a data subdirectory (with the same folder structure as ISISDATA).
 
+        ```sh title="File Tree"
+        project/
+        ├── data/
+        │   ├── base/...
+        │   └── lro/...
+        ├── translate-spacecraft-time-local.js
+        ├── naifspice.js
+        ├── spiceql.js
+        ├── spiceql_wasm.data
+        ├── spiceql_wasm.js
+        └── spiceql_wasm.wasm
+        ```
+
         The script may be run with: `node translate-spacecraft-time-local.js`
 
         ```js title="translate-spacecraft-time-local.js"
@@ -249,7 +262,10 @@ Queries that deal with Target States/Orientations, Frame Trace, Sclk Conversions
         console.log("---");
 
         // SpiceQL can get common code/name translations without kernels
-        const { result: frameName } = spiceql.translateCodeToName(frameCode, {});
+        const { result: frameName } = spiceql.translateCodeToName(frameCode, {
+            mission: 'lro',
+            searchKernels: false,
+        });
         console.info("Frame Code " + frameCode + " is the", frameName);
         console.log("---");
 
@@ -285,7 +301,90 @@ Queries that deal with Target States/Orientations, Frame Trace, Sclk Conversions
         console.log("Sclk time " + sclkTime + " on the " + frameName + " is");
         console.log("Earth UTC", utcTime);
         ```
+    
+    === "NPM + Vite"
+
+        For this example, follow the NPM installation instructions above. 
         
+        `index.html` should contain `<input>` elements with these IDs and values:
+
+        - `<input id="frame-code" disabled="true" value="-85"></input>`
+        - `<input id="sclk-time" type="datetime" value="922997380.174174"></input>`
+
+        and display elements with IDs of `frame-name`, `eph-time`, and `utc-time`,  
+        and a `<button>` with the ID `convert`.
+
+        Place the required kernels in the public/data folder, with a scheme
+        matching ISISDATA.
+
+        Place the JS code in `src/main.js`.
+
+        ```sh title="File Tree"
+        project/
+        ├── dist/
+        ├── node_modules/
+        ├── public/
+        │   └── data
+        │       ├── base/...
+        │       └── lro/...
+        ├── src/
+        │   ├── main.js
+        │   └── style.css
+        ├── index.html
+        └── package.json
+        ```
+
+        ```js title="main.js"
+        import { loadSpiceQL } from '@usgs-astrogeology/spiceql';
+        const spiceql = await loadSpiceQL();
+
+        // Mount Kernels
+        const kernelList = [];
+        const kernelUrls = [
+            'data/base/kernels/lsk/naif0012.tls',
+            'data/lro/kernels/iak/lro_instrumentAddendum_v05.ti',
+            'data/lro/kernels/fk/lro_frames_2014049_v01.tf',
+            'data/lro/kernels/sclk/lro_clkcor_2024262_v00.tsc',
+        ]
+        for (const url of kernelUrls) {
+            const kernelData = await fetch(url);                              // Fetch
+            const kernelBuff = new Uint8Array(await kernelData.arrayBuffer()) // Load into Buffer
+            const kernelPath = '/kernels/' + url.split('/').pop();            // Get filname, discard path
+            spiceql.mountKernel(kernelPath, kernelBuff);                      // Mount as sanitized path
+            kernelList.push(kernelPath)                                       // Add sanitized path to list
+        }
+
+        const convertTime = () => {
+            // Read Initial Data
+            const frameCode = document.getElementById("frame-code").value;
+            const sclkTime = document.getElementById("sclk-time").value;
+
+            // Get Frame Name from Code
+            const { result: frameName } = spiceql.translateCodeToName(frameCode, {
+                mission: 'lro',
+                searchKernels: false,
+                kernelList,
+            });
+            document.getElementById("frame-name").innerHTML = "Frame Name: " + frameName;
+
+            // Convert Spacecraft Clock Time (sclk) to Ephemeris Time (et)
+            const { result: ephTime } = spiceql.doubleSclkToEt(frameCode, sclkTime, {
+                mission: 'lro',
+                searchKernels: false,
+                kernelList,
+            });
+            document.getElementById("eph-time").innerHTML = "Ephemeris Time: " + ephTime;
+
+            // Get UTC from ET
+            const { result: utcTime } = spiceql.etToUtc(ephTime, {
+                searchKernels: false
+            });
+            document.getElementById("utc-time").innerHTML = "UTC Time: " + utcTime;
+        }
+
+        document.getElementById('convert').addEventListener('click', convertTime);
+        ```
+
     === "Online"
         
         ```js title="translate-spacecraft-time-online.js"
