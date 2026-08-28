@@ -84,10 +84,10 @@ Create a project with [NPM](https://docs.npmjs.com/about-npm), or use [jsDelivr]
 
 ## Limitations of Wasm Version
 
-??? warning "Wasm requires running a server and using `<script type="module" ...>`."
+??? warning "A server or JS environment, and using `<script type="module" ...>` are required."
 
-    Running a server environment is required to use web assembly modules. 
-    Accessing a page with SpiceQL via `file://` won't work.
+    Running a server or JS environment is required to use web assembly modules. 
+    Just accessing a page with SpiceQL via `file://` won't work.
 
     #### Node
 
@@ -97,7 +97,7 @@ Create a project with [NPM](https://docs.npmjs.com/about-npm), or use [jsDelivr]
     node yourSpiceQLscript.js
     ```
 
-     #### Server
+    #### Server
 
     For a full web app/project, 
     [Use NPM + Vite to setup a local server](#__tabbed_1_1).
@@ -139,6 +139,37 @@ Create a project with [NPM](https://docs.npmjs.com/about-npm), or use [jsDelivr]
 
     Some kernels (Leap-Second Kernels) are built in, but for queries that require other kernels, they must be loaded in to the file system.
 
+???+ warning "Overriding Location (if SpiceQL is outside the working directory)"
+
+    If importing SpiceQL from somewhere else, 
+    you may have to manually override the file path when loading SpiceQL.
+
+    *If you are using a module bundler, 
+    you should be able to configure the library locations there
+    instead of this configuration step.*
+
+    === "Node"
+
+        ```js
+        import { loadSpiceQL } from './scripts/spiceql.js';
+        
+        const spiceqlBasePath = './scripts/';
+        const spiceql = await loadSpiceQL({
+            moduleOverrides: { locateFile: (path) => spiceqlBasePath + path }
+        });
+        ```
+
+    === "CDN"
+
+        ```js
+        import { loadSpiceQL } from 'https://cdn.jsdelivr.net/npm/@usgs-astrogeology/spiceql/dist/spiceql.js';
+        
+        const spiceqlBasePath = 'https://cdn.jsdelivr.net/npm/@usgs-astrogeology/spiceql/dist/';
+        const spiceql = await loadSpiceQL({
+            moduleOverrides: { locateFile: (path) => spiceqlBasePath + path }
+        });
+        ```
+
 ## Examples
 
 ### Kernel-less Queries
@@ -170,15 +201,6 @@ SpiceQL has some general NAIF SPICE Information built-in.  The following command
         ```
 
     === "Online (jsFiddle)"
-
-        Note: To use SpiceQL in a JS Fiddle, you must manually override the file path to use the CDN path:
-
-        ```js
-        const CDN = 'https://cdn.jsdelivr.net/npm/@usgs-astrogeology/spiceql/dist/';
-        const spiceql = await loadSpiceQL({
-            moduleOverrides: { locateFile: (path) => CDN + path }
-        });
-        ```
 
         <script async src="//jsfiddle.net/jrcain_usgs/o08svbyq/embed/result,js,html,css/dark/"></script>
 
@@ -520,7 +542,7 @@ Queries that deal with Target States/Orientations, Frame Trace, Sclk Conversions
 
         ```
 
-    === "Preview"
+    === "Try It"
 
         <p class="codepen" data-height="500" data-pen-title="SpiceQL Wasm Time Conversions" data-version="2" data-default-tab="result" data-slug-hash="azJzevz" data-user="Jacob-Cain" style="height: 475px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
         <span>See the Pen <a href="https://codepen.io/editor/Jacob-Cain/pen/01a045c7-a04a-774f-a94a-8f2517204599">
