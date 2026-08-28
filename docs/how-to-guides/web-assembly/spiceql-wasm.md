@@ -3,7 +3,7 @@
 SpiceQL is an inteface for querying data from NAIF SPICE Kernels.  It has WebAssembly (Wasm) Bindings so it can be used in Web, JavaScript, and Node.js environments.
 
 
-With a kernel loaded in to the virtual filesystem, SpiceQL can be used to let a web read data from it.  
+With kernels loaded in to the virtual filesystem, SpiceQL can be used to let a web read data from it.
 
 ## Included Files
 
@@ -54,7 +54,7 @@ Create a project with [NPM](https://docs.npmjs.com/about-npm), or use [jsDelivr]
 
     4.  **Write Code with SpiceQL**
 
-        See [Javascript - Quick Example](#examples) below.
+        See [Examples](#examples) below.
 
     5.  **Run A Server**
     
@@ -82,20 +82,31 @@ Create a project with [NPM](https://docs.npmjs.com/about-npm), or use [jsDelivr]
     import { loadSpiceQL } from "./scripts/spiceql.js"
     ```
 
+## Limitations of Wasm Version
+
 ??? warning "Wasm requires running a server and using `<script type="module" ...>`."
 
-    #### Server
+    Running a server environment is required to use web assembly modules. 
+    Accessing a page with SpiceQL via `file://` won't work.
 
-    Running a server is required to use web assembly modules. 
-    Accessing a page with USGSCSM via `file://` won't work. 
+    #### Node
+
+    `node` can run plain JS modules with a server-like environment:
+
+    ```sh
+    node yourSpiceQLscript.js
+    ```
+
+     #### Server
+
+    For a full web app/project, 
     [Use NPM + Vite to setup a local server](#__tabbed_1_1).
-    Or, if you have python, you can run a simple local server:
+    If python is installed, it can run a simple local server:
 
     ```sh
     # In your terminal in the project folder:
     python3 -m http.server 8080
     ```
-
 
     #### Module
 
@@ -124,5 +135,220 @@ Create a project with [NPM](https://docs.npmjs.com/about-npm), or use [jsDelivr]
         </script>
         ```
 
+!!! warning "No Kernel Search in Wasm Version of SpiceQL"
+
+    Some kernels (Leap-Second Kernels) are built in, but for queries that require other kernels, they must be loaded in to the file system.
+
 ## Examples
+
+### Kernel-less Queries
+
+SpiceQL has some general NAIF SPICE Information built-in.  The following commands can sometimes succeed without furnishing a kernel (though a kernel may be required for Names, Codes, or Frame Info for specific missions):
+
+- utcToEt / etToUtc
+- translateNameToCode / translateCodeToName
+- getFrameInfo / getTargetFrameInfo
+
+???+ example "Ephemeris Time Conversion (Basic, No Kernels)"
+
+    For the most basic usage, run a UTC to ET conversion.  This conversion is built-in; there is no need to load a Lead-Second Kernel.
+
+    === "Local (Node)"
+
+        ```js title="spiceql-mini-example.js"
+
+        import { loadSpiceQL } from './spiceql.js';
+        const spiceql = await loadSpiceQL();
+        const { result: ephTime } = spiceql.utcToEt('2000-01-01T00:00:00', { searchKernels: false });
+        console.info("ET", ephTime);   // ET seconds past J2000
+        ```
+
+        To run this example in your terminal:
+
+        ```sh
+        node spiceql-mini-example.js
+        ```
+    
+    === "Online (jsFiddle)"
+
+        Note: To use SpiceQL in a JS Fiddle, you must manually override the file path to use the CDN path:
+
+        ```js
+        const CDN = 'https://cdn.jsdelivr.net/npm/@usgs-astrogeology/spiceql/dist/';
+        const spiceql = await loadSpiceQL({
+            moduleOverrides: { locateFile: (path) => CDN + path }
+        });
+        ```
+
+        <script async src="//jsfiddle.net/jrcain_usgs/o08svbyq/embed/result,js,html,css/dark/"></script>
+
+??? example "Translate Name to Code"
+
+    ```js title="spiceql-name-to-code.js"
+    import { loadSpiceQL } from 'https://cdn.jsdelivr.net/npm/@usgs-astrogeology/spiceql/dist/spiceql.js';
+    const spiceql = await loadSpiceQL();
+
+    const { result: frameCode } = spiceql.translateNameToCode('MRO', {
+        mission: 'ctx',
+        searchKernels: false
+    });
+
+    console.info("Result", frameCode);
+    ```
+
+### Queries that Require Kernels
+
+Queries that deal with Target States/Orientations, Frame Trace, Sclk Conversions, and Keywords require a kernel to succeed.
+
+???+ note "Loading Kernels"
+
+    For queries that require kernels, they must be loaded in to the file system:
+
+    === "Local Kernels"
+
+        This works for local files without a server, i.e. when running a script with `node yourscript.js`.
+
+        ```js
+        import { readFileSync } from 'node:fs';
+        spiceql.mountKernel('/kernels/mro_v16.tf', readFileSync('mro_v16.tf'));
+        ```
+
+    === "Online Kernels"
+
+        `fetch` can retrive files from a server, i.e. local files you are serving with `npm run dev`, or 3rd-party hosted files (as long the 3rd-party allows cross-origin requests).
+
+        ```js
+        const mro_v16_file = await fetch('https://asc-isisdata.s3.us-west-2.amazonaws.com/usgs_data/mro/kernels/fk/mro_v16.tf');
+        const mro_v16_buffer = new Uint8Array(await mro_v16_file.arrayBuffer())
+        spiceql.mountKernel('/kernels/mro_v16.tf', mro_v16_buffer);
+        ```
+
+???+ example "Translate Spacecraft Time & Loading Kernels"
+
+    === "Local (Node)"
+
+        For this example, the five files in the SpiceQL Wasm package (.js, .data, and .wasm files)
+        are in a directory at the same level as the example script. 
+        The kernels are in a data subdirectory (with the same folder structure as ISISDATA).
+
+        The script may be run with: `node translate-spacecraft-time-local.js`
+
+        ```js title="translate-spacecraft-time-local.js"
+        // Import and Load SpiceQL
+        import { readFileSync } from 'node:fs';
+        import { loadSpiceQL } from './spiceql.js';
+        const spiceql = await loadSpiceQL();
+
+        // Initial Data
+        console.log("---");
+        console.log("Initial Data:");
+        const frameCode = -85;
+        const sclkTime = 922997380.174174;
+        console.info("It is Sclk Time", sclkTime);
+        console.info("At Frame Code", frameCode);
+        console.log("---");
+
+        // SpiceQL can get common code/name translations without kernels
+        const { result: frameName } = spiceql.translateCodeToName(frameCode, {});
+        console.info("Frame Code " + frameCode + " is the", frameName);
+        console.log("---");
+
+        // Mount Kernels
+        const kernelList = [];
+        const kernelUrls = [
+            './data/base/kernels/lsk/naif0012.tls',
+            './data/lro/kernels/iak/lro_instrumentAddendum_v05.ti',
+            './data/lro/kernels/fk/lro_frames_2014049_v01.tf',
+            './data/lro/kernels/sclk/lro_clkcor_2024262_v00.tsc',
+        ]
+        for (const url of kernelUrls) {
+            const path = '/kernels/' + url.split('/').pop();    // Get filname, discard path
+            spiceql.mountKernel(path, readFileSync(url));       // Mount as sanitized path
+            kernelList.push(path)                               // Add sanitized path to list
+        }
+
+        // Convert Spacecraft Clock Time (sclk) to Ephemeris Time (et)
+        const { result: ephTime } = spiceql.doubleSclkToEt(frameCode, sclkTime, {
+            mission: 'lro',
+            searchKernels: false,
+            kernelList,
+        });
+        console.log("Sclk time " + sclkTime + " on the " + frameName + " is");
+        console.log("Ephemeris Time", ephTime);
+        console.log("---");
+
+        // Get UTC from ET
+        const { result: utcTime } = spiceql.etToUtc(ephTime, {
+            searchKernels: false
+        });
+
+        console.log("Sclk time " + sclkTime + " on the " + frameName + " is");
+        console.log("Earth UTC", utcTime);
+        ```
+        
+    === "Online"
+        
+        ```js title="translate-spacecraft-time-online.js"
+        // Import and Load SpiceQL
+        import { loadSpiceQL } from 'https://cdn.jsdelivr.net/npm/@usgs-astrogeology/spiceql/dist/spiceql.js';
+
+        const CDN = 'https://cdn.jsdelivr.net/npm/@usgs-astrogeology/spiceql/dist/';
+        const spiceql = await loadSpiceQL({
+            moduleOverrides: { locateFile: (path) => CDN + path }
+        });
+
+        // Mount Kernels
+        const kernelList = [];
+        const kernelUrls = [
+            'https://asc-isisdata.s3.us-west-2.amazonaws.com/usgs_data/base/kernels/lsk/naif0012.tls',
+            'https://asc-isisdata.s3.us-west-2.amazonaws.com/usgs_data/lro/kernels/iak/lro_instrumentAddendum_v05.ti',
+            'https://asc-isisdata.s3.us-west-2.amazonaws.com/usgs_data/lro/kernels/fk/lro_frames_2014049_v01.tf',
+            'https://asc-isisdata.s3.us-west-2.amazonaws.com/usgs_data/lro/kernels/sclk/lro_clkcor_2024262_v00.tsc',
+        ]
+        for (const url of kernelUrls) {
+            const kernelData = await fetch(url);                              // Fetch
+            const kernelBuff = new Uint8Array(await kernelData.arrayBuffer()) // Load into Buffer
+            const kernelPath = '/kernels/' + url.split('/').pop();            // Get filname, discard path
+            spiceql.mountKernel(kernelPath, kernelBuff);                      // Mount as sanitized path
+            kernelList.push(kernelPath)                                       // Add sanitized path to list
+        }
+
+        const convertTime = () => {
+            // Read Initial Data
+            const frameCode = document.getElementById("frame-code").value;
+            const sclkTime = document.getElementById("sclk-time").value;
+        
+            // Get Frame Name from Code
+            const { result: frameName } = spiceql.translateCodeToName(frameCode, {});
+            document.getElementById("frame-name").innerHTML = "Frame Name: " + frameName;
+
+            // Convert Spacecraft Clock Time (sclk) to Ephemeris Time (et)
+            const { result: ephTime } = spiceql.doubleSclkToEt(frameCode, sclkTime, {
+                mission: 'lro',
+                searchKernels: false,
+                kernelList,
+            });
+            document.getElementById("eph-time").innerHTML = "Ephemeris Time: " + ephTime;
+
+            // Get UTC from ET
+            const { result: utcTime } = spiceql.etToUtc(ephTime, {
+                searchKernels: false
+            });
+            document.getElementById("utc-time").innerHTML = "UTC Time: " + utcTime;
+        }
+
+        document.getElementById('convert').addEventListener('click', convertTime);
+
+        ```
+
+    === "Preview"
+
+        <p class="codepen" data-height="500" data-pen-title="SpiceQL Wasm Time Conversions" data-version="2" data-default-tab="result" data-slug-hash="azJzevz" data-user="Jacob-Cain" style="height: 475px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+        <span>See the Pen <a href="https://codepen.io/editor/Jacob-Cain/pen/01a045c7-a04a-774f-a94a-8f2517204599">
+        SpiceQL Wasm Time Conversions</a> by Jacob Cain (<a href="https://codepen.io/Jacob-Cain">@Jacob-Cain</a>)
+        on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+        
 
