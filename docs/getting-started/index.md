@@ -64,6 +64,15 @@ The CSM (Community Sensor Model) Stack is a collection of apps ([ALE](https://gi
     - [Sensor Models](../concepts/sensor-models/sensor-models.md)
     - [USGS Software](../concepts/sensor-models/sensor-model-software.md)
 
+-   :simple-webassembly:{ .lg .middle } __Use in Websites__
+
+    ---
+
+    Integrate CSM software into your website with WebAssembly Bindings.
+
+    [:octicons-arrow-right-24: USGSCSM](../getting-started/csm-stack/usgscsm-wasm-bindings.md)&emsp;
+    [:octicons-arrow-right-24: Demo](../how-to-guides/demos/usgscsm.wasm)  
+    [:octicons-arrow-right-24: SpiceQL](../getting-started/using-spiceql/spiceql-wasm.md) 
 
 </div>
 
