@@ -24,6 +24,11 @@ Subsequent Production and LTS releases (with no Major version change, i.e, 8.***
 
 ### 1. **Prepare Feeder Branch/Merge Any Unmerged Changes**
 
+??? tip "Releasing a Major Version"
+
+    After the official release of a major version (10.0.0), cut the LTS branch `10-lts` off of the new `10.0.0` tag to prepare the LTS feeder branch.
+
+
 === "RC"
 
     - [ ] Before starting, any new features for the Major Release should have been pushed to the `dev` branch.
@@ -59,8 +64,6 @@ Subsequent Production and LTS releases (with no Major version change, i.e, 8.***
     [`gitub-cherrypick.yml`](https://github.com/DOI-USGS/ISIS3/blob/dev/.github/workflows/github-cherrypick.yml) attempts to auto-cherrypick bugfixes to the next LTS branch, and bugfixes + non-breaking features to the next Prod branch, as the changes are merged into the Dev branch.  Identifies bugfixes and/or non-breaking features by the checkboxes from the PR template.  Not all changes are automatically resolveable, so make sure to manually cherry-pick any remaining changes that need to be included in LTS or Prod.
 
     Triggered by pushes (including merged-PRs) to dev.
-
-    When a major update is made, make sure the script in github-cherrypick.yml can still find the latest LTS and Production branches (to cherry-pick to) correctly.
 
 !!! Success ""
 
@@ -98,8 +101,8 @@ Check the [AWS CodeBuild test results](https://us-west-2.codebuild.aws.amazon.co
 
 === "LTS"
 
-    - [ ] Update the Changelog. Merge all unreleased bugfixes change fragments with `towncrier build --version=X.0.0_LTS` (X being the major version). See more details in the [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md).  ***Note: all change fragments should be bugfixes.***  See [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md) for details.
-    - [ ] Update `code.json` by adding a new entry with the LTS version. e.g. an 8.0.0 LTS would be released as 8.0 (no LTS in the version name).
+    - [ ] Update the Changelog. Merge all unreleased bugfixes change fragments with `towncrier build --version=X.0.Z_LTS` (X being the major version, Z being the patch number). See more details in the [CHANGELOG.md](https://raw.githubusercontent.com/DOI-USGS/ISIS3/dev/CHANGELOG.md).  ***Note: all change fragments should be bugfixes.***
+    - [ ] Update `code.json` by adding a new entry with the LTS version. e.g. an 8.0.0 LTS would be released as 8.0.0 (no LTS in the version name).
     - [ ] **Update the Authors List**:  If there are any new contributors to the project since the last release, update the `AUTHORS.rst` file to include them.
     - [ ] Submit a Pull Request: Submit a pull request into the LTS release feeder branch (i.e, `9-lts`). 
 
